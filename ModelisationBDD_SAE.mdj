@@ -135,6 +135,7 @@
 											"top": 270,
 											"width": 147.0498046875,
 											"height": 13,
+											"underline": true,
 											"text": "+IDetudiant: int",
 											"horizontalAlignment": 0
 										},
@@ -483,6 +484,7 @@
 											"top": 246,
 											"width": 92.8662109375,
 											"height": 13,
+											"underline": true,
 											"text": "+IDetudiant*: int",
 											"horizontalAlignment": 0
 										},
@@ -500,6 +502,7 @@
 											"top": 261,
 											"width": 92.8662109375,
 											"height": 13,
+											"underline": true,
 											"text": "+IDoffre*: int",
 											"horizontalAlignment": 0
 										}
@@ -689,6 +692,7 @@
 											"top": 334,
 											"width": 104.41259765625,
 											"height": 13,
+											"underline": true,
 											"text": "+IDoffre: int",
 											"horizontalAlignment": 0
 										},
@@ -1141,6 +1145,7 @@
 											"top": 510,
 											"width": 123.1953125,
 											"height": 13,
+											"underline": true,
 											"text": "+IDprofil: int",
 											"horizontalAlignment": 0
 										},
@@ -1438,6 +1443,7 @@
 											"top": 78,
 											"width": 99.353515625,
 											"height": 13,
+											"underline": true,
 											"text": "+IDentreprise: int",
 											"horizontalAlignment": 0
 										},
@@ -2523,9 +2529,9 @@
 										"$ref": "AAAAAAGKbvDWtAARX9E="
 									},
 									"font": "Arial;13;0",
-									"left": 353,
+									"left": 352,
 									"top": 452,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -2586,9 +2592,9 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 365,
+									"left": 364,
 									"top": 237,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -3066,9 +3072,9 @@
 										"$ref": "AAAAAAGKbvE3JQmxeK0="
 									},
 									"font": "Arial;13;0",
-									"left": 737,
+									"left": 736,
 									"top": 272,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -3128,9 +3134,9 @@
 										"$ref": "AAAAAAGKbvE3JQmyZnI="
 									},
 									"font": "Arial;13;0",
-									"left": 692,
+									"left": 691,
 									"top": 174,
-									"width": 5.05908203125,
+									"width": 6.5,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -3531,6 +3537,7 @@
 								"$ref": "AAAAAAGKbt5zD/sjuAg="
 							},
 							"name": "IDetudiant",
+							"isStatic": true,
 							"type": "int"
 						},
 						{
@@ -3660,6 +3667,7 @@
 								"$ref": "AAAAAAGKbuJ83/uT8eg="
 							},
 							"name": "IDetudiant*",
+							"isStatic": true,
 							"type": "int"
 						},
 						{
@@ -3669,6 +3677,7 @@
 								"$ref": "AAAAAAGKbuJ83/uT8eg="
 							},
 							"name": "IDoffre*",
+							"isStatic": true,
 							"type": "int"
 						}
 					]
@@ -3719,6 +3728,7 @@
 								"$ref": "AAAAAAGKbuNo7/vLnEc="
 							},
 							"name": "IDoffre",
+							"isStatic": true,
 							"type": "int"
 						},
 						{
@@ -3905,6 +3915,7 @@
 								"$ref": "AAAAAAGKbuWpXPxNQsM="
 							},
 							"name": "IDprofil",
+							"isStatic": true,
 							"type": "int"
 						},
 						{
@@ -3978,6 +3989,7 @@
 								"$ref": "AAAAAAGKbutoFvyrO0c="
 							},
 							"name": "IDentreprise",
+							"isStatic": true,
 							"type": "int"
 						},
 						{
