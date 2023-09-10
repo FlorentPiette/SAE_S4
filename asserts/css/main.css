@@ -1,0 +1,46 @@
+.body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
+}
+
+.message {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+.square-link {
+    text-decoration: none; /* Supprimer le soulignement des liens */
+    color: inherit; /* Utiliser la couleur du texte parent (blanc) */
+    margin: 0 40px; /* Espace entre les carrés */
+}
+
+.square {
+    width: 150px; /* Largeur du carré */
+    height: 50px; /* Hauteur du carré */
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+}
+
+.square p {
+    margin: 0;
+    font-size: 1rem; /* Taille du texte */
+}

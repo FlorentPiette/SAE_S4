@@ -1,0 +1,202 @@
+.body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
+}
+
+.square-link {
+    text-decoration: none; /* Supprimer le soulignement des liens */
+    color: inherit; /* Utiliser la couleur du texte parent (blanc) */
+    margin: 0 40px; /* Espace entre les carrés */
+}
+
+.quitter-square {
+    width: 150px; /* Largeur du carré */
+    height: 50px; /* Hauteur du carré */
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    margin: 30px;
+}
+
+.quitter-square p {
+    margin: 0;
+    font-size: 1rem; /* Taille du texte */
+}
+
+.perso{
+
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 35%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+    z-index: 1;
+}
+
+.princi-rectangle {
+    width: 450px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 300px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(255, 255, 255, 0.3); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 50%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    z-index: 0;
+}
+
+.cercle {
+    width: 100px; /* Largeur du cercle */
+    height: 100px; /* Hauteur du cercle (même que la largeur pour un cercle parfait) */
+    background-color: #7795FF; /* Couleur de fond du cercle */
+    border-radius: 50%; /* Utilisation de border-radius pour créer un cercle */
+    position: absolute;
+    left: 15%;
+    top: 2%;
+}
+
+.id-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 40%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+
+
+}
+
+.petit-rectangle{
+
+    width: 50px; 
+    height: 50px;
+    background-color: #452EA3;
+    float: left;
+
+
+}
+
+p.text-id{
+
+    position: absolute;
+    left: 20%;
+
+}
+
+
+.mdp-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 65%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+
+}
+
+
+.petit2-rectangle{
+
+    width: 50px; 
+    height: 50px;
+    background-color: #452EA3;
+    float: left;
+
+}
+
+p.text-mdp{
+
+    position: absolute;
+    left: 20%;
+
+}
+
+.perso2{
+
+    width: 50px;
+    height: 50px;
+    
+}
+
+.cadena{
+
+    width: 50px;
+    height: 40px;
+    position: absolute;
+    top: 10%;
+
+}
+
+p.mdp-oublie{
+
+    font-size: 12px;
+    position: absolute;
+    top: 75%; /* Centrer verticalement */
+    left: 70%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+}
+
+.link-p{
+
+    text-decoration: none;
+    color: inherit;
+
+}
+
+div.rec-connection{
+
+    width: 120px;
+    height: 50px;
+    background-color: rgb(255, 255, 255,0.3);
+    position: absolute;
+    top: 75%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+}
+
+.p-connection{
+
+    text-align: center;
+
+}
+
+.link-connection{
+
+    text-decoration: none;
+    color: inherit;
+
+}
+
+
+
+
+
+
+
+
+
+

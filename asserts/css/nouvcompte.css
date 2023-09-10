@@ -1,0 +1,359 @@
+.body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: white;
+    background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
+}
+
+.square-link {
+    text-decoration: none; /* Supprimer le soulignement des liens */
+    color: inherit; /* Utiliser la couleur du texte parent (blanc) */
+    margin: 0 40px; /* Espace entre les carrés */
+}
+
+.quitter-square {
+    width: 150px; /* Largeur du carré */
+    height: 50px; /* Hauteur du carré */
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    margin: 30px;
+}
+
+.quitter-square p {
+    margin: 0;
+    font-size: 1rem; /* Taille du texte */
+}
+
+.perso{
+
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top: 49%; /* Centrer verticalement */
+    left: 50%; /* Centrer horizontalement */
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+    z-index: 1;
+}
+
+.princi-rectangle {
+    width: 700px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    z-index: 0;
+}
+
+.cercle {
+    width: 100px;
+    height: 100px;
+    background-color: #7795FF;
+    border-radius: 50%;
+    position: absolute;
+    top: 27%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+.nom-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 10%; /* Centrer verticalement */
+    left: 5%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+p.text-nom{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+
+.prenom-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 25%; /* Centrer verticalement */
+    left: 5%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+p.text-prenom{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+.formation-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 40%; /* Centrer verticalement */
+    left: 5%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+p.text-formation{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+#formation-select {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    padding: 13px;
+    font-size: 16px;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: rgb(119, 149, 255,0.68);
+    color: white;
+}
+
+/* Styles CSS pour les options du menu déroulant */
+#formation-select option {
+    font-size: 14px;
+    padding: 5px;
+}
+
+#status-select {
+    width: 100%; /* Ajustez la largeur selon vos besoins */
+    padding: 13px;
+    font-size: 16px;
+    border-radius: 5px;
+    border-color: transparent;
+    background-color: rgb(119, 149, 255,0.68);
+    color: white;
+}
+
+/* Styles CSS pour les options du menu déroulant */
+#status-select option {
+    font-size: 14px;
+    padding: 5px;
+}
+
+
+.mail-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 10%; /* Centrer verticalement */
+    left: 52%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+p.text-mail{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+.mdp-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 25%; /* Centrer verticalement */
+    left: 52%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+p.text-mdp{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+.status-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    position: absolute;
+    top: 40%; /* Centrer verticalement */
+    left: 52%; /* Centrer horizontalement */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+
+
+p.text-status{
+
+    position: absolute;
+    left: 10%;
+
+}
+
+
+.info {
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+p.lien-info{
+
+    position: absolute;
+    font-size: 12px;
+    text-align: center;
+    top: 75%;
+    left: 48%;
+    color:white;
+    text-decoration: underline;
+
+}
+
+.rec-connection {
+    width: 150px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 40px;
+    z-index: 3;
+}
+
+.p-connection{
+
+    text-align: center;
+
+}
+
+.link-connection{
+
+    text-decoration: none;
+    color: inherit;
+
+}
+
+@media screen and (max-width: 1536px) {
+
+    .cercle {
+        width: 100px;
+        height: 100px;
+        background-color: #7795FF;
+        border-radius: 50%;
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+    }
+    
+    .info {
+        position: absolute;
+        font-size: 12px;
+        text-align: center;
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    p.lien-info{
+
+        position: absolute;
+        font-size: 12px;
+        text-align: center;
+        top: 81%;
+        left: 48%;
+        color:white;
+        text-decoration: underline;
+    
+    }
+    
+    .rec-connection {
+        width: 150px;
+        height: 50px;
+        background-color: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        top: 88%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 40px;
+        z-index: 3;
+    }
+    
+    .p-connection{
+    
+        text-align: center;
+    
+    }
+    
+    .link-connection{
+    
+        text-decoration: none;
+        color: inherit;
+    
+    }
+  
+    
+}
+
+
+
+
+
+
+
+
