@@ -1,0 +1,98 @@
+DROP TABLE IF EXISTS Etudiant, Adminitrsation, Entreprise, Offre, Poste, Reponse, Postule;
+
+CREATE TABLE Etudiant (
+    IdEtudiant serial PRIMARY KEY,
+    Nom text NOT NULL CHECK (Nom = UPPER(Nom)),
+    Prenom text NOT NULL,
+    DateDeNaissance date NOT NULL CHECK (DateDeNaissance >= '1900-01-01' AND DateDeNaissance <= CURRENT_DATE),
+    Adresse text NOT NULL,
+    Ville text NOT NULL,
+    CodePostal VARCHAR(5) NOT NULL CHECK (LENGTH(CodePostal) = 5),
+    AnneeEtude int NOT NULL,
+    Formation text NOT NULL,
+    CV VARCHAR(255) CHECK (CV ~ '.pdf$'),
+    Email text NOT NULL CHECK (POSITION('@' IN Email) > 0),
+    MotDePasse text NOT NULL CHECK (
+        LENGTH(MotDePasse) >= 8 AND
+        MotDePasse ~ '[A-Z]' AND
+        MotDePasse ~ '[a-z]' AND
+        MotDePasse ~ '[0-9]' AND
+        MotDePasse ~ '[!@#$%^&*()]' AND
+        NOT (MotDePasse ~ '^(password|123456|admin)$')
+    ),
+    Photo VARCHAR(255) CHECK (Photo ~ '.(png|jpeg|jpg)$'),
+    INE text NOT NULL,
+    Actif boolean
+);
+
+CREATE TABLE Adminitrsation(
+
+    IdProfil serial PRIMARY KEY,
+    Nom text NOT NULL CHECK (Nom = UPPER(Nom)),
+    Prenom text not null,
+    Formation text not null,
+    Email text not null,
+    MotDePasse text NOT NULL CHECK (
+        LENGTH(MotDePasse) >= 8 AND
+        MotDePasse ~ '[A-Z]' AND
+        MotDePasse ~ '[a-z]' AND
+        MotDePasse ~ '[0-9]' AND
+        MotDePasse ~ '[!@#$%^&*()]' AND
+        NOT (MotDePasse ~ '^(password|123456|admin)$')
+    ),
+	Role text not null
+
+);
+
+CREATE TABLE Entreprise(
+
+    IdEntreprise serial primary key,
+    Nom text not null,
+    Logo VARCHAR(255) NOT NULL CHECK (Logo ~ '\.(png|jpeg|jpg)$'),
+    Adresse text not null,
+    Ville text not null,
+    CodePostal VARCHAR(5) NOT NULL CHECK (LENGTH(CodePostal) = 5),
+    NumTel VARCHAR(10) not null CHECK ( length(NumTel) = 10),
+    SecteurActivite text not null
+);
+
+CREATE TABLE Offre(
+
+    IdOffre serial primary key,
+    Nom text not null,
+    Domaine text not null,
+    Mission text not null,
+    NbEtudiant int
+
+);
+
+CREATE TABLE Poste(
+    IdOffre serial references Offre,
+    IdEntreprise serial references Entreprise,
+    PRIMARY KEY (IdEntreprise, IdOffre)
+
+);
+
+CREATE TABLE Profil(
+    Idprofil int PRIMARY KEY ,
+    Nom text,
+    Prenom text,
+    Formation text,
+    Email text,
+    MotDePasse text,
+    Role text
+);
+
+CREATE TABLE Reponse(
+    Idreponse int,
+    IdProfil int REFERENCES Profil,
+    Identreprise int REFERENCES Entreprise,
+    Reponse boolean,
+    PRIMARY KEY (Identreprise, IdProfil)
+);
+
+CREATE TABLE Postule(
+    IdEtudiant int REFERENCES Etudiant,
+    IdOfffre int REFERENCES Offre,
+    PRIMARY KEY (IdEtudiant, IdOfffre)
+);
