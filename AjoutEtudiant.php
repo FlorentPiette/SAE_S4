@@ -5,7 +5,7 @@
         <title>Ajout Etudiant</title>
     </head>
     <body>
-        <form action="../../SAE/Controller.php" method="POST">
+        <form action="../../SAE/ControllerAjoutEtudiant.php" method="POST">
             <ul>
                 <li>
                     <label for="nom">Nom:</label>
