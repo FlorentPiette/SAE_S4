@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout Etudiant</title>
+    <title>Ajout Entreprise</title>
 </head>
 <body>
 <form action="../../SAE/ControllerAjoutEntreprise.php" method="POST">
