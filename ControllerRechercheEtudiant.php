@@ -2,7 +2,7 @@
 $host = 'iutinfo-sgbd.uphf.fr';
 $dbname = 'iutinfo244';
 $username = 'iutinfo244';
-$password = 'Gy6pdK1g';
+$password = '****';
 
 //connexion à la base de données
 $bdd = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
