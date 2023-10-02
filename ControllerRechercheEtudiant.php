@@ -36,8 +36,14 @@ if (isset($_POST['validation'])){
     //Execution de la requete
     $data->execute();
     $row = $data->fetchall(PDO::FETCH_ASSOC);
-    foreach ($row as $item) {
-        echo implode("\r\n", $item) . '<br/>';
+    $data->execute();
+    $row = $data->fetchall(PDO::FETCH_ASSOC);
+    if ($row == null ){
+        echo "Il n’y a pas d’étudiants correspondants.";
+    } else {
+        foreach ($row as $item) {
+            echo implode("\r\n", $item) . '<br/>';
+        }
     }
 }
 ?>
