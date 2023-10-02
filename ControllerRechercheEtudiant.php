@@ -19,14 +19,19 @@ try{
 
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
+$ine = $_POST['ine'];
 if (isset($_POST['validation'])){
     // Requete en fonction de la recherche
-    if ( $nom == null and $prenom != null){
-        $data = $conn->prepare("select * from coureur  where prenom like LOWER('%$prenom%')" );
+    if ($ine != null ){
+        $data = $conn->prepare("select * from Etudiant   where IdEtudiant  = '%$ine%'" );
+    }
+    elseif ( $nom == null and $prenom != null){
+        $data = $conn->prepare("select * from Etudiant   where prenom like LOWER('%$prenom%')" );
     } elseif ( $nom != null and $prenom == null){
-        $data = $conn->prepare("select * from coureur  where nom like UPPER('%$nom%')" );
-    } else{
-        $data = $conn->prepare("select * from coureur  where nom like UPPER('%$nom%') or prenom like LOWER('%$prenom%')" );
+        $data = $conn->prepare("select * from Etudiant   where nom like UPPER('%$nom%')" );
+    }
+    else{
+        $data = $conn->prepare("select * from Etudiant   where nom like UPPER('%$nom%') or prenom like LOWER('%$prenom%')" );
     }
     //Execution de la requete
     $data->execute();
