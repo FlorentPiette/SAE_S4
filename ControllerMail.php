@@ -17,16 +17,16 @@ try {
     echo "Mailer Error: ".$mail->ErrorInfo;
 }
 
-function smtpMailer($to, $from, $from_name, $subject, $body) {
+function envoieMail($to, $from, $from_name, $subject, $body) {
     define('GMailUSER', 'supersae59@gmail.com'); // utilisateur Gmail
     define('GMailPWD', 'jxvt dzqq saie yyhn'); // Mot de passe Gmail
     $mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
     $mail->IsSMTP(); // active SMTP
     $mail->SMTPDebug = 2;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
     $mail->SMTPAuth = true;  // Authentification SMTP active
-    $mail->SMTPSecure = 'ssl'; // Gmail REQUIERT Le transfert securise
-    $mail->Host = "ssl://smtp.gmail.com";;
-    $mail->Port = 465;
+    $mail->SMTPSecure = 'tls'; // Gmail REQUIERT Le transfert securise
+    $mail->Host = "tls://smtp.gmail.com";;
+    $mail->Port = 587;
     $mail->Username = GMailUSER;
     $mail->Password = GMailPWD;
     $mail->SetFrom($from, $from_name);
@@ -40,10 +40,5 @@ function smtpMailer($to, $from, $from_name, $subject, $body) {
     }
 }
 
-$result = smtpmailer('kyllian_jg@hotmail.fr', 'kyllian_jg@hotmail.fr', 'Kyll', 'Coucou', 'TEEEEEEST');
-if (true !== $result)
-{
-    // erreur -- traiter l'erreur
-    echo $result;
-}
+
 ?>
