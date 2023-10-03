@@ -39,7 +39,7 @@
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 35%; /* Centrer verticalement */
+    top: 50%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Pour centrer parfaitement */
     z-index: 1;
@@ -66,8 +66,11 @@
     background-color: #7795FF; /* Couleur de fond du cercle */
     border-radius: 50%; /* Utilisation de border-radius pour créer un cercle */
     position: absolute;
-    left: 15%;
-    top: 2%;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Pour centrer parfaitement */
+    z-index: 2;
+
 }
 
 .id-rectangle{
@@ -168,7 +171,7 @@ div.rec-connection{
     height: 50px;
     background-color: rgb(255, 255, 255,0.3);
     position: absolute;
-    top: 75%; /* Centrer verticalement */
+    top: 100%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Pour centrer parfaitement */
     border-top-left-radius: 40px;
@@ -178,19 +181,72 @@ div.rec-connection{
 
 }
 
+.btnCreation {
+    text-decoration: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: transparent; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: white;
+}
+
+div.rec-connection {
+    width: 150px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    top: 110%;
+    left: 50%;
+    border-radius: 40px;
+    z-index: 3;
+    transform: translate(-50%,-50%);
+
+}
+
+
 .p-connection{
 
     text-align: center;
-
+    color: white;
 }
 
 .link-connection{
 
     text-decoration: none;
-    color: inherit;
+    color: white;
 
 }
 
+
+.input-mdp{
+
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white;
+
+}
+
+.input-mail{
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white;
+
+
+}
 
 
 

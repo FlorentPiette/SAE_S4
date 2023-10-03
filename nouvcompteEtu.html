@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Principale</title>
+
+    <link rel="stylesheet" type="text/css" href="asserts/css/nouCompteEtu.css" />
+</head>
+<body class="body">
+
+<header class="header">
+
+    <a href="main.html" class="square-link"> <!-- Lien vers la page à ouvrir -->
+        <div class="quitter-square">
+
+            <p>Quitter</p>
+
+        </div>
+    </a>
+
+    <div class="cercle">
+
+        <div class="perso">
+
+            <img src="asserts/img/perso.png" class="perso" alt="Perso en haut du rectangle principale">
+
+
+        </div>
+
+    </div>
+
+    <div class="princi-rectangle">
+
+        <form class="info" action="Controler/controlerCreation.php" method="post">
+
+            <div class="nom-rectangle">
+
+                <p class="text-nom">Nom :</p>
+                <input type="text" name="nom" size="20" class="input-nom" >
+            </div>
+            <div class="prenom-rectangle">
+
+                <p class="text-prenom">Prénom :</p>
+                <input type="text" name="prenom" size="20" class="input-prenom">
+            </div>
+
+            <div class="formation-rectangle">
+                <label for="formation" class="formation-text">Formation :</label>
+                <select name="formation" id="formation" class="selectFormation">
+                    <option value="informatique">BUT informatique</option>
+                    <option value="marketing">Responsable pédagogique</option>
+                    <option value="finance">Chargés de développement</option>
+                    <option value="service">Responsable du service</option>
+                    <!-- Ajoutez autant d'options que nécessaire -->
+                </select><br>
+
+            </div>
+
+            <div class="adresse-rectangle">
+
+                <p class="text-adresse">Adresse :</p>
+                <input type="text" name="adresse" size="20" class="input-adresse">
+            </div>
+
+            <div class="ville-rectangle">
+
+                <p class="text-ville">Ville :</p>
+                <input type="text" name="ville" size="20" class="input-ville">
+            </div>
+
+            <div class="cp-rectangle">
+
+                <p class="text-cp">Code Postale :</p>
+                <input type="text" name="cp" size="20" class="input-cp">
+            </div>
+
+            <div class="mail-rectangle">
+
+                <p class="text-mail">E-mail :</p>
+                <input type="text" name="email" size="20" class="input-mail">
+            </div>
+            <div class="mdp-rectangle">
+
+                <p class="text-mdp">Mot de passe :</p>
+                <input type="text" name="mdp" size="20" class="input-mdp">
+            </div>
+
+            <div class="cv-rectangle">
+
+                <p class="text-cv">CV :</p>
+                <input type="file" name="cv" accept=".pdf" class="input-cv">
+            </div>
+
+            <div class="date-rectangle">
+
+                <p class="text-date">Date de naissance :</p>
+                <input type="date" name="date" size="20" class="input-date">
+            </div>
+
+            <div class="anneeetude-rectangle">
+
+                <p class="text-anneeetude">Année d'étude :</p>
+                <input type="int" name="anneeetude" size="20" class="input-anneeetude">
+            </div>
+
+            <div class="ine-rectangle">
+
+                <p class="text-ine">INE :</p>
+                <input type="text" name="ine" size="20" class="input-ine">
+            </div>
+
+
+            <div class="rec-connection">
+                <input type="submit" name="valider" value="Créer le compte" size="20" class="btnCreation">
+            </div>
+
+
+
+
+        </form>
+
+    </div>
+
+
+    <!--<p class="info">Si vous possédez déjà un compte <br> veuillez vous connecter en <br>appuyant ici :</p>
+    <a href="connectionEtu.html" class="lien"><p class="lien-info">Connexion</p></a>
+    -->
+
+
+</header>
+
+
+
+</body>
+
+
+
+
+</html>
