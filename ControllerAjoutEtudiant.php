@@ -28,7 +28,7 @@ if(isset($_POST["ajoutEtudiant"])) {
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
 
-    $reqmail = $db->prepare("SELECT * FROM Etudiant WHERE email = ?");
+    $reqmail = $db->prepare("SELECT mail FROM Etudiant");
     $reqmail->execute(array($email));
     $mailexist = $reqmail->rowCount();
 
@@ -38,5 +38,6 @@ if(isset($_POST["ajoutEtudiant"])) {
     else {
         $erreur = "Adresse mail déjà utilisée !";
     }
+
 }
 ?>
