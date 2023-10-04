@@ -1,47 +1,61 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-if (isset($_POST["valider"])) {
-    $host = "localhost";
-    $dbname = "postgres";
-    $user = "postgres";
-    $password = "31lion2004";
+include 'ControllerMail.php';
+include 'C:\Users\kylli\SAE\ConnexionBDD.php';
 
-    $nom = $_POST["nom"];
-    $prenom = $_POST["prenom"];
-    $email = $_POST["email"];
-    $formation = $_POST["formation"]; // Récupérez la valeur du menu déroulant
-    $mdp = $_POST["mdp"];
-    $date = $_POST["date"];
-    $ville = $_POST["ville"];
-    $cp = $_POST["cp"];
-    $adresse = $_POST["adresse"];
-    $cv = $_POST["cv"];
-    $anneeetude = $_POST["anneeetude"];
-    $ine = $_POST["ine"];
+$db = conn('iutinfo-sgbd.uphf.fr', 'iutinfo244','iutinfo244','Gy6pdK1g');
 
-    // Connexion à la base de données
-    try {
-        $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        die("Erreur de connexion à la base de données : " . $e->getMessage());
+function aleatoire(){
+    $conformation = 0;
+    for ($i = 0; $i < 7; $i++) {
+        $chiffreAleatoire = mt_rand(0, 9); // Génère un chiffre aléatoire entre 0 et 9
+        $conformation.= $chiffreAleatoire; // Ajoute le chiffre à la sélection
     }
-
-    //$motDePasseHache = password_hash($mdp, PASSWORD_DEFAULT);
-
-    // Requête SQL pour insérer les données dans la table
-    $sql = "INSERT INTO etudiant (Nom, Prenom, Adresse, Codepostal, Ville, Datedenaissance, Formation, Anneeetude, Email, motdepasse, INE, cv ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-    $stmt = $pdo->prepare($sql);
-
-    // Exécution de la requête avec les valeurs
-    $stmt->execute([$nom, $prenom, $adresse, $cp, $ville, $date, $formation, $anneeetude, $email, $mdp, $ine, $cv]);
-
-    // Redirection vers une page de confirmation ou autre
-    header('Location: ../PagePrincipale.php');
-    exit();
-} else {
-    // Le formulaire n'a pas été soumis, affichez un message d'erreur ou redirigez si nécessaire
-    echo "Le formulaire n'a pas été soumis.";
+    return $conformation;
 }
 
+
+if(isset($_POST["valider"])) {
+    $ajout = $db->prepare("INSERT INTO Etudiant VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, NULL, :email, :mdp, NULL, :ine, NULL, :CodeMail)");
+
+    $nom = $_POST['nom'];
+    $prenom = $_POST['prenom'];
+    $dateDeNaissance = $_POST['date'];
+    $adresse = $_POST['adresse'];
+    $ville = $_POST['ville'];
+    $codePostal = $_POST['cp'];
+    $ine = $_POST['ine'];
+    $anneeEtude = $_POST['anneeetude'];
+    $formation = $_POST['formation'];
+    $email = $_POST['email'];
+    $mdp = $_POST['mdp'];
+
+    setcookie("Mail_Etudiant", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
+
+    $code = aleatoire(); // code de confirmation aléatoire
+
+
+
+    $reqmail = $db->prepare("SELECT * FROM Etudiant where email = ?");
+    $reqmail->execute(array($email));
+    $mailexist = $reqmail->rowCount();
+
+    if ($mailexist == 0) {
+        $ajout->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $code));
+        $result = envoieMail($email, $email, 'SAE', 'CONFIRMATION EMAIL', "Voici votre code ".$code);
+        if (true !== $result)
+        {
+            // erreur -- traiter l'erreur
+            echo $result;
+        }
+        header('Location: ..\VerifMail.php');
+    }
+    else {
+        $erreur = "Adresse mail déjà utilisée !";
+    }
+
+
+}
 ?>
