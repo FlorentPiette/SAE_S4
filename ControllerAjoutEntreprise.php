@@ -1,17 +1,8 @@
 <?php
 
-$host = 'localhost';
-$dbname = 'td';
-$username = 'emeline';
-$password = 'root';
+include 'ConnexionBDD.php';
 
-$dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
-
-try {
-    $db = new PDO($dsn);
-} catch (PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
-}
+$db = conn('iutinfo-sgbd.uphf.fr', 'iutinfo244','iutinfo244','Gy6pdK1g');
 
 if(isset($_POST["ajoutEntreprise"])) {
     $ajout = $db->prepare("INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur)");

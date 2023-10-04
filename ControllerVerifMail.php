@@ -1,27 +1,20 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-$host = 'iutinfo-sgbd.uphf.fr';
-$dbname = 'iutinfo244';
-$username = 'iutinfo244';
-$password = 'Gy6pdK1g';
-$dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
+include 'ConnexionBDD.php';
+
+$db = conn('iutinfo-sgbd.uphf.fr', 'iutinfo244','iutinfo244','Gy6pdK1g');
 
 $mail = $_COOKIE["Mail_Etudiant"];
 
-try {
-    $db = new PDO($dsn);
-} catch (PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
-}
-$verif = $db->prepare("SELECT CodeMail from Etudiant where email = '$mail'");
-$verif->execute();
+$verif = $db->prepare("SELECT CodeMail from Etudiant where email = ?");
+$verif->execute(array($mail));
 $row = $verif->fetch(PDO::FETCH_ASSOC);
 
 
 if(isset($_POST["verification"])){
-    if (implode($row)==$_POST["verification"]){
-        echo "yeess";
+    if (implode($row)===$_POST["verification"]){
+        echo $_POST["verification"]." ".implode($row);
     } else {
         echo "mince";
     }
