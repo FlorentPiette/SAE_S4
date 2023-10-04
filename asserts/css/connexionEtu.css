@@ -88,7 +88,7 @@
 
 .petit-rectangle{
 
-    width: 50px; 
+    width: 50px;
     height: 50px;
     background-color: #452EA3;
     float: left;
@@ -119,7 +119,7 @@ p.text-id{
 
 .petit2-rectangle{
 
-    width: 50px; 
+    width: 50px;
     height: 50px;
     background-color: #452EA3;
     float: left;
@@ -137,7 +137,7 @@ p.text-mdp{
 
     width: 50px;
     height: 50px;
-    
+
 }
 
 .cadena{
@@ -272,10 +272,12 @@ div.rec-connection {
 
 
 .input-mdp{
-
+    height: 40px;
+    width: 240px;
     position: absolute;
-    top: 12px;
-    right: 30px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 58%;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
@@ -285,9 +287,12 @@ div.rec-connection {
 }
 
 .input-mail{
+    height: 40px;
+    width: 240px;
     position: absolute;
-    top: 12px;
-    right: 30px;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 58%;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */

@@ -27,14 +27,14 @@ if (isset($_POST["valider"])) {
         die("Erreur de connexion à la base de données : " . $e->getMessage());
     }
 
-    $motDePasseHache = password_hash($mdp, PASSWORD_DEFAULT);
+    //$motDePasseHache = password_hash($mdp, PASSWORD_DEFAULT);
 
     // Requête SQL pour insérer les données dans la table
-    $sql = "INSERT INTO etudiant (Nom, Prenom, Adresse, Codepostal, Ville, Datedenaissance, Formation, Anneeetude, Email, MotDePasse, INE, cv ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO etudiant (Nom, Prenom, Adresse, Codepostal, Ville, Datedenaissance, Formation, Anneeetude, Email, motdepasse, INE, cv ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $stmt = $pdo->prepare($sql);
 
     // Exécution de la requête avec les valeurs
-    $stmt->execute([$nom, $prenom, $adresse, $cp, $ville, $date, $formation, $anneeetude, $email, $motDePasseHache, $ine, $cv]);
+    $stmt->execute([$nom, $prenom, $adresse, $cp, $ville, $date, $formation, $anneeetude, $email, $mdp, $ine, $cv]);
 
     // Redirection vers une page de confirmation ou autre
     header('Location: ../PagePrincipale.php');
