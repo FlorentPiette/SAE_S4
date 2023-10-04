@@ -1,0 +1,133 @@
+.body{
+
+    font-family: Arial;
+    overflow: scroll;
+    background-color: #EBF4FB;
+
+}
+
+.menu-container {
+    display: flex;
+    position: relative;
+}
+
+.menu-header {
+    width: 250px; /* Largeur du menu vertical */
+    color: black;
+    position: fixed; /* Menu fixé à gauche */
+    height: 100%; /* Hauteur à 100% de la fenêtre */
+    top: 150px; /* Ajustez cette valeur pour abaisser le menu */
+}
+
+.vertical-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.vertical-menu li {
+    padding: 30px;
+    text-align: center;
+}
+
+.btnCreation{
+
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+
+}
+
+/* Styles pour le contenu principal à droite (titre et logo) */
+.header-content {
+    flex: 1;
+    padding: 20px; /* Espacement entre le menu et le contenu principal */
+    margin-left: 250px; /* Marge à gauche pour ne pas être caché par le menu */
+    box-sizing: border-box; /* Inclusion de la marge dans la largeur */
+}
+
+.title {
+    text-align: center;
+}
+
+.logo {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    width: 170px;
+    height: 90px;
+    bottom: 20px;
+    left: 80px;
+}
+
+.rectangle-haut{
+
+    width: 900px;
+    height: 80px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 200px;
+    left: 700px;
+    z-index: 0;
+}
+
+.nbrEtu{
+
+    transform: translate(-50%,-50%);
+    font-size: small;
+    position: absolute;
+    left: 20%;
+
+}
+
+.nbrEnt{
+
+    transform: translate(-50%,-50%);
+    font-size: small;
+    position: absolute;
+    left: 40%;
+
+}
+
+.nbrOff{
+
+    transform: translate(-50%,-50%);
+    font-size: small;
+    position: absolute;
+    left: 60%;
+
+}
+
+.nbrPers{
+
+    transform: translate(-50%,-50%);
+    font-size: small;
+    position: absolute;
+    left: 80%;
+
+}
+
+.rectangle-mid{
+
+    height: 300px;
+    width: 900px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 70%;
+    left: 55%;
+
+}
+
+
+

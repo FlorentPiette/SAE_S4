@@ -39,7 +39,7 @@
     width: 150px;
     height: 150px;
     position: absolute;
-    top: 49%; /* Centrer verticalement */
+    top: 20%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
     transform: translate(-50%, -50%); /* Pour centrer parfaitement */
     z-index: 1;
@@ -47,7 +47,7 @@
 
 .princi-rectangle {
     width: 700px;
-    height: 400px;
+    height: 500px;
     background-color: rgba(255, 255, 255, 0.3);
     position: absolute;
     top: 50%;
@@ -63,11 +63,12 @@
     background-color: #7795FF;
     border-radius: 50%;
     position: absolute;
-    top: 27%;
+    top: 5%; /* Ajustez cette valeur selon vos besoins pour remonter ou descendre le cercle */
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
 }
+
 
 .nom-rectangle{
 
@@ -78,9 +79,9 @@
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 160px;
-    right: 30px;
     position: absolute;
+    bottom: 70%;
+    right: 53%;
 
 
 }
@@ -89,13 +90,13 @@ p.text-nom{
 
     position: absolute;
     left: 10px;
-    bottom: 6px;
+    bottom: 7px;
 }
 
 .input-nom {
+    width: 290px;
+    height: 40px;
     position: absolute;
-    top: 12px;
-    right: 50px;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
@@ -112,9 +113,9 @@ p.text-nom{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 80px;
-    right: 30px;
     position: absolute;
+    bottom: 58%;
+    right: 53%;
 
 }
 
@@ -124,10 +125,11 @@ p.text-prenom{
     left: 10px;
     bottom: 6px;
 }
+
 .input-prenom {
+    width: 290px;
+    height: 40px;
     position: absolute;
-    top: 12px;
-    right: 50px;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
@@ -145,9 +147,9 @@ p.text-prenom{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 0px;
-    right: 30px;
     position: absolute;
+    bottom: 46%;
+    left: 53%;
 
 }
 
@@ -192,20 +194,106 @@ p.text-formation{
     padding: 5px;
 }
 
-#status-select {
-    width: 100%; /* Ajustez la largeur selon vos besoins */
-    padding: 13px;
-    font-size: 16px;
-    border-radius: 5px;
-    border-color: transparent;
-    background-color: rgb(119, 149, 255,0.68);
-    color: white;
+
+.adresse-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 34%;
+    left: 53%;
+
+
 }
 
-/* Styles CSS pour les options du menu déroulant */
-#status-select option {
-    font-size: 14px;
-    padding: 5px;
+p.text-adresse{
+
+    position: absolute;
+    left: 10px;
+    bottom: 6px;
+}
+
+.input-adresse {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
+}
+
+.ville-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    bottom: 22%;
+    left: 53%;
+    position: absolute;
+
+}
+
+p.text-ville{
+
+    position: absolute;
+    left: 10px;
+    bottom: 6px;
+}
+
+.input-ville {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
+}
+
+.cp-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 22%;
+    right: 53%;
+
+
+}
+
+p.text-cp{
+
+    position: absolute;
+    left: 10px;
+    bottom: 6px;
+}
+
+.input-cp {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
 }
 
 .mail-rectangle{
@@ -217,9 +305,9 @@ p.text-formation{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 160px;
-    left: 30px;
     position: absolute;
+    bottom: 70%;
+    left: 53%;
 
 }
 
@@ -231,9 +319,9 @@ p.text-mail{
 }
 
 .input-mail {
+    width: 290px;
+    height: 40px;
     position: absolute;
-    top: 12px;
-    right: 50px;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
@@ -250,9 +338,9 @@ p.text-mail{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 80px;
-    left: 30px;
     position: absolute;
+    bottom: 58%;
+    left: 53%;
 
 }
 
@@ -264,9 +352,9 @@ p.text-mdp{
 }
 
 .input-mdp {
+    width: 290px;
+    height: 40px;
     position: absolute;
-    top: 12px;
-    right: 30px;
     background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
@@ -274,7 +362,7 @@ p.text-mdp{
     color: white; /* Couleur du texte à l'intérieur de l'input */
 }
 
-.status-rectangle{
+.cv-rectangle{
 
     width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
     height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
@@ -283,60 +371,140 @@ p.text-mdp{
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    bottom: 0px;
-    left: 30px;
+    bottom: 10%;
+    right: 53%;
     position: absolute;
 
 }
 
-.status-text{
+p.text-cv{
 
     position: absolute;
-    top: 18px;
-    right: 250px;
-
+    left: 10px;
+    bottom: 6px;
 }
 
-.selectStatus{
-
-    background-color: rgb(119, 149, 255,0.68);
+.input-cv {
+    width: 290px;
+    height: 40px;
     position: absolute;
-    top: 16px;
-    right: 50px;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
+}
+
+.date-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 34%;
+    right: 53%;
+
 
 }
 
-
-p.text-status{
+p.text-date{
 
     position: absolute;
-    left: 10%;
+    left: 10px;
+    bottom: 6px;
+}
+
+.input-date {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
+}
+.anneeetude-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 10%;
+    left: 53%;
 
 }
 
-#status-select {
-    width: 100%; /* Ajustez la largeur selon vos besoins */
-    padding: 13px;
-    font-size: 16px;
-    border-radius: 5px;
-    border-color: transparent;
-    background-color: rgb(119, 149, 255,0.68);
-    color: white;
+p.text-anneeetude{
+
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
 }
 
-/* Styles CSS pour les options du menu déroulant */
-#status-select option {
-    font-size: 14px;
-    padding: 5px;
+.input-anneeetude {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
 }
+
+.ine-rectangle{
+
+    width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
+    height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
+    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: absolute;
+    bottom: 46%;
+    right: 53%;
+
+}
+
+p.text-ine{
+
+    position: absolute;
+    left: 10px;
+    bottom: 8px;
+}
+
+.input-ine {
+    width: 290px;
+    height: 40px;
+    position: absolute;
+    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    border: none; /* Supprimez les bordures par défaut */
+    border-radius: 10px; /* Arrondissez les coins comme le rectangle */
+    padding: 5px; /* Ajoutez un peu d'espacement interne */
+    color: white; /* Couleur du texte à l'intérieur de l'input */
+}
+
+
 
 p.info {
-    position: absolute;
+
     font-size: 12px;
     text-align: center;
-    top: 300px;
-    bottom: 300px;
-    transform: translateX(-50%);
+    transform: translate(-50%,-50%);
+    top: 82%;
+    position: absolute;
+    margin-top: 70px;
+
 }
 
 p.lien-info{
@@ -344,24 +512,23 @@ p.lien-info{
     position: absolute;
     font-size: 12px;
     text-align: center;
-    top: 75%;
-    left: 48%;
+    margin-top: 70px;
     color:white;
     text-decoration: underline;
-
 
 }
 
 .btnCreation {
     text-decoration: none;
     position: absolute;
-    top: 50%;
+    top: 95%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: transparent; /* Fond transparent */
     border: none; /* Supprimer le contour */
     font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
     font-size: 16px; /* Taille de la police */
+    color: white;
 }
 
 div.rec-connection {
@@ -369,7 +536,7 @@ div.rec-connection {
     height: 50px;
     background-color: rgba(255, 255, 255, 0.3);
     position: absolute;
-    top: 50px;
+    top: 120px;
     border-radius: 40px;
     z-index: 3;
 }
