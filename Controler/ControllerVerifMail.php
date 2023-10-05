@@ -15,6 +15,8 @@ $row = $verif->fetch(PDO::FETCH_ASSOC);
 if(isset($_POST["verification"])){
     if (implode($row)===$_POST["verification"]){
         echo $_POST["verification"]." ".implode($row);
+        $delete = $db->prepare("UPDATE etudiant SET CodeMail = NULL where email= ?");
+        $delete->execute(array($mail));
     } else {
         echo "mince";
     }
