@@ -1,5 +1,3 @@
-<?php ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -7,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Principale</title>
 
-    <link rel="stylesheet" type="text/css" href="asserts/css/pageEtu.css" />
+    <link rel="stylesheet" type="text/css" href="../asserts/css/pageEtu.css" />
 </head>
 <body class="body">
 <header class="header">
@@ -15,7 +13,7 @@
             <input id="btn" value="Quitter" type="submit" class="quit">
         </div>
 
-    <script src="asserts/js/main.js"></script>
+    <script src="../asserts/js/main.js"></script>
 
 
 

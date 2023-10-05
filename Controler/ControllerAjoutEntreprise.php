@@ -1,11 +1,12 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 include 'ConnexionBDD.php';
 
-$db = conn('iutinfo-sgbd.uphf.fr', 'iutinfo244','iutinfo244','Gy6pdK1g');
+$db = conn('localhost', 'postgres', 'postgres', 'admin');
 
 if(isset($_POST["ajoutEntreprise"])) {
-    $ajout = $db->prepare("INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur)");
+    $ajout = $db->prepare("INSERT INTO Entreprise VALUES (DEFAULT, :nom, :logo, :adresse, :ville, :codePostal, :num, :secteur)");
 
     $nom = $_POST['nom'];
     $adresse = $_POST['adresse'];
@@ -13,7 +14,8 @@ if(isset($_POST["ajoutEntreprise"])) {
     $codePostal = $_POST['codePostal'];
     $num = $_POST['num'];
     $secteur = $_POST['secteur'];
+    $logo = '../logo.png';
 
-    $ajout->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur));
+    $ajout->execute(array($nom, $logo, $adresse, $ville, $codePostal, $num, $secteur));
 }
 ?>

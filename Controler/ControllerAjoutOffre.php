@@ -1,18 +1,8 @@
 <?php
-try {
-    $host = 'localhost';
-    $dbname = 'postgres';
-    $username = 'postgres';
-    $password = '31lion2004';
 
-    $dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
+include 'ConnexionBDD.php';
 
-    try {
-        $db = new PDO($dsn);
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    } catch (PDOException $e) {
-        echo "Erreur : " . $e->getMessage();
-    }
+$db = conn('localhost', 'postgres', 'postgres', 'admin');
 
     if(isset($_POST["Ajouteroffre"])) {
         $nom = $_POST['Nom'];
@@ -34,7 +24,5 @@ try {
 
         echo "Ajout réussi";
     }
-} catch(PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
-}
+
 ?>

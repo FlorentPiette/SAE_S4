@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include 'ControllerMail.php';
-include 'C:\Users\kylli\SAE\ConnexionBDD.php';
+include 'ConnexionBDD.php';
 
-$db = conn('iutinfo-sgbd.uphf.fr', 'iutinfo244','iutinfo244','Gy6pdK1g');
+$db = conn('localhost', 'postgres', 'postgres', 'admin');
 
 function aleatoire(){
     $conformation = 0;
@@ -30,7 +30,7 @@ if(isset($_POST["valider"])) {
     $anneeEtude = $_POST['anneeetude'];
     $formation = $_POST['formation'];
     $email = $_POST['email'];
-    $mdp = $_POST['mdp'];
+    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
     setcookie("Mail_Etudiant", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
 

@@ -1,16 +1,13 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 2);
-require 'ConnexionBDD.php';
 session_start();
 ob_start();
 
-$conn = conn('localhost', 'postgres', 'postgres', 'admin');
+$conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', 'flo');
 
 // Récupérer tous les étudiants (adresses email et mots de passe)
-$stmt = $conn->prepare("SELECT email,motdepasse  FROM etudiant");
+$stmt = $conn->prepare("SELECT email,motdepasse  FROM Administration");
 $stmt->execute();
-$students = $stmt->fetchall(PDO::FETCH_ASSOC);
+$students = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Supprimer les balises HTML et PHP des données postées
 $email = htmlspecialchars($_POST['Email'], ENT_QUOTES, 'UTF-8');
@@ -19,18 +16,18 @@ $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 $authenticated = false;
 
 foreach ($students as $student) {
-    if (password_verify($motDePasse, $student['motdepasse'])) {
+    if ($student['email'] === $email && $student['motdepasse'] === $motDePasse) {
         $_SESSION['nom'] = $student['email'];
         $authenticated = true;
         break;
     }
 }
 
-if ($authenticated && isset($_POST["valider"])) {
-    header('Location: ../etu/pageEtu.php');
+if ($authenticated) {
+    header('Location: PageAccueil.php');
+    exit();
 } else {
-
-        echo "Mot de passe incorrect.";
+    echo 'Connexion refusée';
 }
 
 ob_end_flush();

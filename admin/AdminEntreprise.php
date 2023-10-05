@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="asserts/css/adminEntreprise.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
     <script>
         function afficherEntreprises() {
             document.getElementById("donneesEntreprise").style.display = "block";
@@ -22,7 +22,7 @@
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form action="Controler/controlerAdminEtu.php" method="post">
+                <form action="../Controler/controlerAdminEtu.php" method="post">
                     <ul class="vertical-menu">
                         <li><input type="submit" name="accueil" value="Accueil" class="btnCreation"></li>
                         <li><input type="submit" name="etudiant" value="Etudiant" class="btnCreation"></li>
@@ -35,7 +35,7 @@
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="asserts/img/logo.png" class="logo">
+            <img src="../asserts/img/logo.png" class="logo">
         </div>
     </div>
 </header>
@@ -52,7 +52,7 @@
     </div>
 
     <div class="rectangle-mid">
-        <form action="Controler/controlerBtnAjout.php" method="post">
+        <form action="../Controler/controlerBtnAjout.php" method="post">
             <input name="btnAjoutEntreprise" class="btnAjoutEntreprise" type="submit" value="Ajouter">
             <input name="btnAjoutOffre" class="btnAjoutOffre" type="submit" value="Ajouter une Offre">
         </form>

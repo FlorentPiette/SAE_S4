@@ -5,7 +5,7 @@
     <title>Oubli Mot De Passe</title>
 </head>
 <body>
-<form action="../../SAE/ControllerOubliMDP.php" method="POST">
+<form action="Controler/ControllerOubliMDP.php" method="POST">
     <ul>
         <li>
             <label for="email">Votre e-mail:</label>

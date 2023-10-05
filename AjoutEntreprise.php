@@ -5,7 +5,7 @@
     <title>Ajout Entreprise</title>
 </head>
 <body>
-<form action="../../SAE/ControllerAjoutEntreprise.php" method="POST">
+<form action="Controler/ControllerAjoutEntreprise.php" method="POST">
     <ul>
         <li>
             <label for="nom">Nom:</label>

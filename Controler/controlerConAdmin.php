@@ -1,13 +1,16 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 2);
+require 'ConnexionBDD.php';
 session_start();
 ob_start();
 
-$conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', '31lion2004');
+$conn = conn('localhost', 'postgres', 'postgres', 'admin');
 
 // Récupérer tous les étudiants (adresses email et mots de passe)
 $stmt = $conn->prepare("SELECT email,motdepasse  FROM adminitrsation");
 $stmt->execute();
-$students = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$students = $stmt->fetch(PDO::FETCH_ASSOC);
 
 // Supprimer les balises HTML et PHP des données postées
 $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
