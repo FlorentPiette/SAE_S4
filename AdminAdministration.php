@@ -1,9 +1,14 @@
+<?php
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="asserts/css/adminMenu.css">
+    <link rel="stylesheet" type="text/css" href="asserts/css/adminAdministration.css">
 </head>
 <body class="body">
 
@@ -16,7 +21,7 @@
                             <li><input type="submit" name="accueil" value="Accueil" class="btnCreation"></li>
                             <li><input type="submit" name="etudiant" value="Etudiant" class="btnCreation"></li>
                             <li><input type="submit" name="entreprise" value="Entreprise" class="btnCreation"></li>
-                            <li><input type="submit" name="administration" value="Administration" class="btnCreation"></li>
+                            <li><input type="submit" name="adminitrsation" value="Administration" class="btnCreation"></li>
                         </ul>
                     </form>
                 </nav>
@@ -58,6 +63,12 @@
             <div class="all-text2">
 
                 <h3 class="titre">Equipe pédagogique</h3>
+
+                <form method="post" action="Controler/controlerBtnAjout.php">
+
+                    <input type="submit" name="btnAjoutAdministration" class="ajoutAdministration" value="Ajouter Administration">
+
+                </form>
 
                 <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont trier par leur
                     statuts dans l’université.

@@ -30,4 +30,10 @@ if ($authenticated && isset($_POST["valider"])) {
     echo 'Connexion refusée';
 }
 
+if(isset($_POST["btnRetour"])){
+
+    header('Location: ../mainetu.php');
+    exit();
+}
+
 ob_end_flush();

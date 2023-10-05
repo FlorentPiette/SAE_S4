@@ -21,14 +21,22 @@
 
 <form class="formulaire" action="Controler/validationConnection.php" method="post">
 
-    <input type="submit" name="connectionEtu" value="Se connecter">
+    <input type="submit" name="connectionEtu" value="Se connecter" class="connectionEtu">
 </form>
 
 <form class="formulaire" action="Controler/validationConnection.php" method="post">
 
-    <input type="submit" name="creationEtu" value="Créer un compte">
+    <input type="submit" name="creationEtu" value="Créer un compte" class="creationEtu">
 
 </form>
+
+<form action="Controler/validationConnection.php" method="post">
+
+    <input type="submit" name="btnRetour" value="Retour" class="btnRetour">
+
+</form>
+
+
 
 
 </body>

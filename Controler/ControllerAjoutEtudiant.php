@@ -4,10 +4,10 @@ ini_set('display_errors', 1);
 
 include 'ControllerMail.php';
 
-$host = 'iutinfo-sgbd.uphf.fr';
-$dbname = 'iutinfo244';
-$username = 'iutinfo244';
-$password = 'Gy6pdK1g';
+$host = 'localhost';
+$dbname = 'postgres';
+$username = 'postgres';
+$password = '31lion2004';
 
 
 
@@ -56,7 +56,7 @@ if(isset($_POST["ajoutEtudiant"])) {
             // erreur -- traiter l'erreur
             echo $result;
         }
-        header('Location: VerifMail.php');
+        header('Location: ../VerifMail.php');
     }
     else {
         $erreur = "Adresse mail déjà utilisée !";

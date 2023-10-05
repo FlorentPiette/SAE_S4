@@ -1,9 +1,9 @@
 <?php
 
 $host = 'localhost';
-$dbname = 'td';
-$username = 'emeline';
-$password = 'root';
+$dbname = 'postgres';
+$username = 'postgres';
+$password = '31lion2004';
 
 $dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
 

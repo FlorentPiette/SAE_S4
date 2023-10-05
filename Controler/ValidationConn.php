@@ -24,7 +24,7 @@ foreach ($students as $student) {
 }
 
 if ($authenticated) {
-    header('Location: PageAccueil.php');
+    header('Location: ../PageAccueil.php');
     exit();
 } else {
     echo 'Connexion refusée';

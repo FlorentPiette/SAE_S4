@@ -1,5 +1,6 @@
 <?php
 
+    session_start();
 
 if(isset($_POST['accueil'])){
 
@@ -13,10 +14,14 @@ if(isset($_POST['accueil'])){
 
     header('Location: ../AdminEntreprise.php');
 
-}elseif (isset($_POST['adminitrsation'])){
+}elseif (isset($_POST['administration'])){
 
     header('Location: ../AdminAdministration.php');
 
-}
+}else
+
+
+
+
 
 ?>

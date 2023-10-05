@@ -33,3 +33,71 @@
     margin: 0;
     font-size: 1rem; /* Taille du texte */
 }
+
+.btnAdmin {
+
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+}
+
+.btnEtu{
+
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    transform: translate(-50%,-50%);
+    font-size: 16px;
+
+
+}
+
+.title{
+
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 20%;
+
+
+}
+
+.btnFermer{
+
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 5%;
+    left: 5%;
+}

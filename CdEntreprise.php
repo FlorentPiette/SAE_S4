@@ -22,12 +22,11 @@
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form action="Controler/controlerAdminEtu.php" method="post">
+                <form action="Controler/controlerCdMenu.php" method="post">
                     <ul class="vertical-menu">
                         <li><input type="submit" name="accueil" value="Accueil" class="btnCreation"></li>
                         <li><input type="submit" name="etudiant" value="Etudiant" class="btnCreation"></li>
                         <li><input type="submit" name="entreprise" value="Entreprise" class="btnCreation"></li>
-                        <li><input type="submit" name="administration" value="Administration" class="btnCreation"></li>
                     </ul>
                 </form>
             </nav>
@@ -36,12 +35,6 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
-            <form method="post" action="Controler/controlerAdminEtu.php">
-
-                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
-
-            </form>
-
         </div>
     </div>
 </header>
@@ -88,20 +81,20 @@
 
 
 
-                // Effectuez une requête SQL pour récupérer les données des offres
-                $sql2 = "SELECT * FROM Offre";
-                $req2 = $pdo->prepare($sql2);
-                $req2->execute();
+            // Effectuez une requête SQL pour récupérer les données des offres
+            $sql2 = "SELECT * FROM Offre";
+            $req2 = $pdo->prepare($sql2);
+            $req2->execute();
 
-                $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($resultat2 as $res2): ?>
-                    <li>
-                        Nom : <?php echo $res2['nom']; ?><br>
-                        Domaine : <?php echo $res2['domaine']; ?><br>
-                        Mission : <?php echo $res2['mission']; ?><br>
-                        Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                    </li>
-                <?php endforeach;
+            $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($resultat2 as $res2): ?>
+                <li>
+                    Nom : <?php echo $res2['nom']; ?><br>
+                    Domaine : <?php echo $res2['domaine']; ?><br>
+                    Mission : <?php echo $res2['mission']; ?><br>
+                    Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
+                </li>
+            <?php endforeach;
 
             ?>
         </ul>
@@ -111,23 +104,23 @@
             <?php
 
 
-                $sql = "SELECT * FROM entreprise";
-                $req = $pdo->prepare($sql);
-                $req->execute();
+            $sql = "SELECT * FROM entreprise";
+            $req = $pdo->prepare($sql);
+            $req->execute();
 
-                $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($resultat as $res): ?>
-                    <li>
-                        Nom : <?php echo $res['nom']; ?><br>
-                        Adresse : <?php echo $res['adresse']; ?><br>
-                        Ville : <?php echo $res['ville']; ?><br>
-                        Téléphone : <?php echo $res['numtel']; ?><br>
-                        Email : <?php echo $res['email']; ?><br>
-                        Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
-                    </li>
+            foreach ($resultat as $res): ?>
+                <li>
+                    Nom : <?php echo $res['nom']; ?><br>
+                    Adresse : <?php echo $res['adresse']; ?><br>
+                    Ville : <?php echo $res['ville']; ?><br>
+                    Téléphone : <?php echo $res['numtel']; ?><br>
+                    Email : <?php echo $res['email']; ?><br>
+                    Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
+                </li>
 
-                <?php endforeach;
+            <?php endforeach;
 
             ?>
         </ul>

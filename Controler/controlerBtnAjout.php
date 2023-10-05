@@ -15,13 +15,19 @@ if(isset($_POST['btnAjoutEntreprise'])){
 
 if(isset($_POST['btnAjoutOffre'])){
 
-    header('Location: ../AjoutOffre.php');
+    header('Location: ../DemandeAjoutOffre.php');
 
 }
 
 if(isset($_POST['btnVoirOffre'])){
 
     header('Location: ../AjoutOffre.php');
+
+}
+
+if(isset($_POST['btnAjoutAdministration'])){
+
+    header('Location: ../AjoutAdministration.php');
 
 }
 

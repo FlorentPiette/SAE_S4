@@ -11,13 +11,7 @@
 
     <header class="header">
 
-        <a href="main.html" class="square-link"> <!-- Lien vers la page à ouvrir -->
-            <div class="quitter-square">
 
-                <p>Quitter</p>
-    
-            </div>
-        </a>
 
         <div class="cercle">
 
@@ -48,6 +42,7 @@
                 <input type="text" name="email" class="email" placeholder="Email">
                 <input type="password" name="mdp" class="mdp" placeholder="Mot de passe">
                 <input type="submit" value="Connexion" name="valider" class="btnConnexion">
+
             </form>
 
 
@@ -62,8 +57,9 @@
 
             </div>
 
-            <a href="#" class="link-p"><p class="mdp-oublie">Mot de passe oublié ?</p></a>
-
+            <a href="OubliMotDePasse.php" class="link-p">
+                <p class="mdp-oublie">Mot de passe oublié ?</p>
+            </a>
         </div>
 
 
@@ -72,7 +68,11 @@
 
     </header>
 
-    
+    <form action="Controler/controlerConAdmin.php" method="post">
+        <input type="submit" value="Retour" name="btnRetour" class="btnRetour">
+    </form>
+
+
 
 </body>
 

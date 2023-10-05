@@ -12,12 +12,11 @@
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form action="Controler/controlerAdminEtu.php" method="post">
+                <form action="Controler/controlerCdMenu.php" method="post">
                     <ul class="vertical-menu">
                         <li><input type="submit" name="accueil" value="Accueil" class="btnCreation"></li>
                         <li><input type="submit" name="etudiant" value="Etudiant" class="btnCreation"></li>
                         <li><input type="submit" name="entreprise" value="Entreprise" class="btnCreation"></li>
-                        <li><input type="submit" name="adminitrsation" value="Administration" class="btnCreation"></li>
                     </ul>
                 </form>
             </nav>
@@ -26,11 +25,6 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
-            <form method="post" action="Controler/controlerAdminEtu.php">
-
-                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
-
-            </form>
         </div>
     </div>
 </header>
@@ -84,14 +78,14 @@
 
             foreach ($resultat as $res): ?>
 
-                    Nom : <?php echo $res['nom']; ?><br>
-                    Prénom : <?php echo $res['prenom']; ?><br>
-                    INE : <?php echo $res['ine']; ?><br>
-                    Formation : <?php echo $res['formation']; ?> km<br>
-                    Date de naissance : <?php echo $res['datedenaissance']; ?><br>
-                    Année : <?php echo $res['anneeetude']; ?><br>
-                    Email : <?php echo $res['email']; ?><br>
-                    Actif : <?php echo $res['actif']; ?><br>
+                Nom : <?php echo $res['nom']; ?><br>
+                Prénom : <?php echo $res['prenom']; ?><br>
+                INE : <?php echo $res['ine']; ?><br>
+                Formation : <?php echo $res['formation']; ?> km<br>
+                Date de naissance : <?php echo $res['datedenaissance']; ?><br>
+                Année : <?php echo $res['anneeetude']; ?><br>
+                Email : <?php echo $res['email']; ?><br>
+                Actif : <?php echo $res['actif']; ?><br>
 
 
 
