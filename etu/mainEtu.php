@@ -25,9 +25,9 @@
     </div>
 </a>
 
-<a href=".html" class="square-link"> <!-- Lien vers la page à ouvrir -->
+<a href="nouvcompteEtu.html" class="square-link"> <!-- Lien vers la page à ouvrir -->
     <div class="square">
-        <p>connexion</p>
+        <p>inscription</p>
     </div>
 </a>
 
