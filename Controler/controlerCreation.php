@@ -3,9 +3,9 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 include 'ControllerMail.php';
-include 'ConnexionBDD.php';
+include '..\ConnexionBDD.php';
 
-$db = conn('localhost', 'postgres', 'postgres', 'admin');
+$db = conn('localhost', 'postgres','postgres','31lion2004');
 
 function aleatoire(){
     $conformation = 0;
@@ -18,7 +18,8 @@ function aleatoire(){
 
 
 if(isset($_POST["valider"])) {
-    $ajout = $db->prepare("INSERT INTO Etudiant VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, NULL, :email, :mdp, NULL, :ine, NULL, :CodeMail)");
+    $ajout = $db->prepare("INSERT INTO Etudiant (Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, CodeConfirmation) 
+                                VALUES (upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :mdp, :ine, :CodeMail)");
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -30,7 +31,9 @@ if(isset($_POST["valider"])) {
     $anneeEtude = $_POST['anneeetude'];
     $formation = $_POST['formation'];
     $email = $_POST['email'];
+    $mdp = $_POST['mdp'];
     $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
 
     setcookie("Mail_Etudiant", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
 
@@ -50,7 +53,7 @@ if(isset($_POST["valider"])) {
             // erreur -- traiter l'erreur
             echo $result;
         }
-        header('Location: ..\VerifMail.php');
+        header('Location: ../VerifMail.php');
     }
     else {
         $erreur = "Adresse mail déjà utilisée !";

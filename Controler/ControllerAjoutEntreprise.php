@@ -1,12 +1,20 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-include 'ConnexionBDD.php';
 
-$db = conn('localhost', 'postgres', 'postgres', 'admin');
+$host = 'localhost';
+$dbname = 'postgres';
+$username = 'postgres';
+$password = '31lion2004';
+
+$dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
+
+try {
+    $db = new PDO($dsn);
+} catch (PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
 
 if(isset($_POST["ajoutEntreprise"])) {
-    $ajout = $db->prepare("INSERT INTO Entreprise VALUES (DEFAULT, :nom, :logo, :adresse, :ville, :codePostal, :num, :secteur)");
+    $ajout = $db->prepare("INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur,:email)");
 
     $nom = $_POST['nom'];
     $adresse = $_POST['adresse'];
@@ -14,8 +22,10 @@ if(isset($_POST["ajoutEntreprise"])) {
     $codePostal = $_POST['codePostal'];
     $num = $_POST['num'];
     $secteur = $_POST['secteur'];
-    $logo = '../logo.png';
+    $email = $_POST['email'];
 
-    $ajout->execute(array($nom, $logo, $adresse, $ville, $codePostal, $num, $secteur));
+    $ajout->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur,$email));
+
+    header('Location: ../AdminEntreprise.php');
 }
 ?>

@@ -12,6 +12,10 @@
             <input type="text" id="nom" name="nom" />
         </li>
         <li>
+            <label for="nom">Email:</label>
+            <input type="text" id="mail" name="email" />
+        </li>
+        <li>
             <label for="adresse">Adresse:</label>
             <input type="text" id="adresse" name="adresse" />
         </li>

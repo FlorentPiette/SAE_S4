@@ -1,3 +1,5 @@
+/* Styles CSS pour le menu vertical sans sous-menus */
+
 .body{
 
     font-family: Arial;
@@ -129,5 +131,159 @@
 
 }
 
+.rectangle-gauche{
 
+    height: 80px;
+    width: 250px;
+    background-color: #EBF4FB;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    left: 25px;
+
+}
+
+.titre{
+
+    padding-left: 50px;
+
+}
+
+.description{
+
+    padding-left: 50px;
+
+}
+
+.nbrCompte{
+
+    font-size: 12px;
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+}
+
+.role{
+
+    font-size: 12px;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+
+}
+
+.rectangle-milieu{
+
+    height: 80px;
+    width: 250px;
+    background-color: #EBF4FB;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    left: 325px;
+
+}
+
+.rectangle-droit{
+
+    height: 80px;
+    width: 250px;
+    background-color: #EBF4FB;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    left: 625px;
+
+}
+
+.roleSpe{
+
+    font-size: 12px;
+    position: absolute;
+    top: 30%;
+    left: 38%;
+
+}
+
+.rectangle-bas{
+
+    height: 300px;
+    width: 900px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 125%;
+    left: 55%;
+
+}
+
+.titre2{
+
+    padding-left: 50px;
+
+}
+
+.description2{
+
+    padding-left: 50px;
+
+}
+
+.compteTous{
+
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-decoration: none;
+    color: inherit;
+    left: 10%;
+
+}
+
+.nbSecretaire{
+
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-decoration: none;
+    color: inherit;
+    left: 25%;
+
+}
+
+.nbCD{
+
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-decoration: none;
+    color: inherit;
+    left: 47%;
+    background-color: transparent;
+    border: transparent;
+
+}
+
+.nbRP{
+
+    transform: translate(-50%,-50%);
+    position: absolute;
+    text-decoration: none;
+    color: inherit;
+    left: 75%;
+
+}
+
+.button-filtre{
+
+
+
+}
 

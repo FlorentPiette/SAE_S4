@@ -5,25 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Principale</title>
     
-    <link rel="stylesheet" type="text/css" href="../asserts/css/nouCompteEtu.css" />
+    <link rel="stylesheet" type="text/css" href="asserts/css/nouCompteEtu.css" />
 </head>
 <body class="body">
 
     <header class="header">
 
-        <a href="../main.html" class="square-link"> <!-- Lien vers la page à ouvrir -->
-            <div class="quitter-square">
-
-                <p>Quitter</p>
-    
-            </div>
-        </a>
-
         <div class="cercle">
 
             <div class="perso">
 
-                <img src="../asserts/img/perso.png" class="perso" alt="Perso en haut du rectangle principale">
+                <img src="asserts/img/perso.png" class="perso" alt="Perso en haut du rectangle principale">
                     
     
             </div>
@@ -34,7 +26,7 @@
 
         <div class="princi-rectangle">
 
-            <form action="../Controler/controlerCreation.php" method="post">
+            <form action="Controler/controlerCreation.php" method="post">
                 <div class="nom-rectangle">
 
                     <input type="text" name="nom" class="input-nom" placeholder="Nom">
@@ -55,7 +47,6 @@
                         <option value="marketing">Responsable pédagogique</option>
                         <option value="finance">Chargés de développement</option>
                         <option value="finance">Responsable du service</option>
-                        <!-- Ajoutez autant d'options que nécessaire -->
                     </select>
 
                 </div>
@@ -111,6 +102,7 @@
                     <input type="submit" name="valider" value="Création" class="btnCreation">
 
                 </div>
+
 
 
 

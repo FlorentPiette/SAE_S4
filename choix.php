@@ -1,5 +1,6 @@
 <?php
 
+
 ?>
 
 
@@ -16,7 +17,7 @@
 
     <header class="header">
 
-        <h1> Je suis :</h1>
+        <h1 class="title"> Je suis</h1>
 
     </header>
 
@@ -26,18 +27,30 @@
         <div class="rec-etudiant">
             <form class="formulaireEtu" action="Controler/controlerChoix.php" method="post">
 
-                <input type="submit" name="choixEtudiant" value="Etudiant">
+                <input type="submit" name="choixEtudiant" value="Etudiant" class="btnEtu">
             </form>
         </div>
 
         <div class="rec-administration">
             <form class="formulaireAdmin" action="Controler/controlerChoix.php" method="post">
 
-                <input type="submit" name="choixAdmin" value="Administration">
+                <input type="submit" name="choixAdmin" value="Administration" class="btnAdmin">
             </form>
         </div>
 
     </div>
+
+    <button class="btnFermer" id="btnFermer">Quitter</button>
+
+
+    <script>
+        function fermerFenetre() {
+            window.close();
+        }
+
+
+        document.getElementById("btnFermer").addEventListener("click", fermerFenetre);
+    </script>
 
 
 </body>

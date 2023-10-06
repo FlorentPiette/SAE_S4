@@ -1,4 +1,7 @@
-<?php ?>
+<?php
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,8 +24,13 @@
 
 <form class="formulaire" action="../Controler/validationConnection.php" method="post">
 
-    <input type="submit" name="connectionAdmin" value="Se connecter">
+    <input type="submit" name="connectionAdmin" class="connexionAdmin" value="Se connecter">
+
+    <input type="submit" name="btnRetour" class="btnRetour" value="Retour">
+
 </form>
+
+
 
 
 

@@ -9,30 +9,6 @@
     background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
 }
 
-.square-link {
-    text-decoration: none; /* Supprimer le soulignement des liens */
-    color: inherit; /* Utiliser la couleur du texte parent (blanc) */
-    margin: 0 40px; /* Espace entre les carrés */
-}
-
-.quitter-square {
-    width: 150px; /* Largeur du carré */
-    height: 50px; /* Hauteur du carré */
-    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-left-radius: 40px;
-    border-top-right-radius: 40px;
-    border-bottom-left-radius: 40px;
-    border-bottom-right-radius: 40px;
-    margin: 30px;
-}
-
-.quitter-square p {
-    margin: 0;
-    font-size: 1rem; /* Taille du texte */
-}
 
 .perso{
 
@@ -187,12 +163,18 @@ p.text-mdp{
 
     text-decoration: none;
     border: none;
-    color: inherit;
-    background-color: transparent;
     transform: translate(-50%,-50%);
     position: absolute;
     top: 90%;
     left: 50%;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3);
 
 }
 
@@ -293,6 +275,45 @@ div.rec-connection {
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
     padding: 5px; /* Ajoutez un peu d'espacement interne */
     color: white;
+
+
+}
+
+.btnRetour{
+
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 5%;
+    left: 5%;
+
+}
+
+.connexionAdmin{
+
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 55%;
+    left: 50%;
 
 
 }

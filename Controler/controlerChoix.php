@@ -1,5 +1,6 @@
 <?php
 
+
     if(isset($_POST['choixEtudiant'])){
 
         header('Location: ../etu/mainEtu.php');
