@@ -3,13 +3,13 @@
 
     if(isset($_POST['choixEtudiant'])){
 
-        header('Location: ../mainEtu.php');
+        header('Location: ../etu/mainEtu.php');
 
     }
 
     if(isset($_POST['choixAdmin'])){
 
-        header('Location: ../mainAdmin.php');
+        header('Location: ../admin/mainAdmin.php');
 
     }
 
