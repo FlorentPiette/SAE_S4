@@ -15,7 +15,7 @@ if(isset($_POST['btnAjoutEntreprise'])){
 
 if(isset($_POST['btnAjoutOffre'])){
 
-    header('Location: ../ControllerAjouttOffre.php');
+    header('Location: ../AjoutOffre.php');
 
 }
 

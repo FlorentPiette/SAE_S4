@@ -55,24 +55,13 @@
             <?php
             session_start();
 
-            $host = "localhost";
-            $dbname = "postgres";
-            $user = "postgres";
-            $password = "31lion2004";
+            include '../Controler/ConnexionBDD.php';
 
-            try {
-                $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                die("Erreur de connexion à la base de données : " . $e->getMessage());
-            }
+            $db = conn('localhost', 'td', 'emeline', 'root');
 
-            if (isset($_POST["select_course"])) {
-                $_SESSION["selected_course_id"] = $_POST["selected_course_id"];
-            }
 
             $sql = "SELECT * FROM etudiant";
-            $req = $pdo->prepare($sql);
+            $req = $db->prepare($sql);
             $req->execute();
 
             $resultat = $req->fetchAll(PDO::FETCH_ASSOC);

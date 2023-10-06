@@ -2,7 +2,7 @@
 
 include 'ConnexionBDD.php';
 
-$db = conn('localhost', 'postgres', 'postgres', 'admin');
+$db = conn('localhost', 'td', 'emeline', 'root');
 
     if(isset($_POST["Ajouteroffre"])) {
         $nom = $_POST['Nom'];

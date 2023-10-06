@@ -1,7 +1,7 @@
 
 <?php
 
-$conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', 'admin');
+$conn = conn('localhost', 'td', 'emeline', 'root');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire

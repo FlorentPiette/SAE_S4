@@ -68,23 +68,15 @@
             <?php
             session_start();
 
-            $host = "localhost";
-            $dbname = "postgres";
-            $user = "postgres";
-            $password = "31lion2004";
+            include '../Controler/ConnexionBDD.php';
 
-            try {
-                $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                die("Erreur de connexion à la base de données : " . $e->getMessage());
-            }
+            $db = conn('localhost', 'td', 'emeline', 'root');
 
 
 
                 // Effectuez une requête SQL pour récupérer les données des offres
                 $sql2 = "SELECT * FROM Offre";
-                $req2 = $pdo->prepare($sql2);
+                $req2 = $db->prepare($sql2);
                 $req2->execute();
 
                 $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
@@ -106,7 +98,7 @@
 
 
                 $sql = "SELECT * FROM entreprise";
-                $req = $pdo->prepare($sql);
+                $req = $db->prepare($sql);
                 $req->execute();
 
                 $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
