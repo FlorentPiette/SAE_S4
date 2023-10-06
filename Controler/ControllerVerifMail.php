@@ -24,7 +24,7 @@ $row = $verif->fetch(PDO::FETCH_ASSOC);
 
 if(isset($_POST["verification"])){
     if (implode($row)==$_POST["verification"]){
-        echo "yeess";
+        echo 'yess';
     } else {
         echo "mince";
     }

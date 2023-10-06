@@ -281,9 +281,24 @@
 
 }
 
-.button-filtre{
+.btnDeco{
+
+    text-decoration: none;
+    border: none;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    height: 40px;
+    width: 120px;
+    color: white;
+    background-color: rgba(98, 98, 98, 0.3); /* Couleur grise transparente */
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 100%;
+    left: 95%;
+    float: left;
 
 
 
 }
-

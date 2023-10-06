@@ -18,7 +18,7 @@ if(isset($_POST['accueil'])){
 
     header('Location: ../AdminAdministration.php');
 
-}else
+}
 
 
 

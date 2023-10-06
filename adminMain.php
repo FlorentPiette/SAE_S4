@@ -1,19 +1,17 @@
 <?php
-session_start();
 
-if (isset($_SESSION['nom_utilisateur'])) {
-    echo 'reussis';
-} else {
-    echo 'Session non trouvée. Veuillez vous connecter d\'abord.';
-}
+session_start();
+ob_start();
 
 if (isset($_POST['btnDeco'])) {
     session_unset();
     session_destroy();
 
-    header('Location: connection.html');
+    header('Location: connection.php');
     exit();
 }
+ob_end_flush();
+
 ?>
 
 <!DOCTYPE html>
@@ -43,8 +41,10 @@ if (isset($_POST['btnDeco'])) {
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
+            <form method="post">
+                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
+            </form>
 
-            <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
 
 
         </div>

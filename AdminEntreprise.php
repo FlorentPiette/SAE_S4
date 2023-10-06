@@ -36,7 +36,7 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
-            <form method="post" action="Controler/controlerAdminEtu.php">
+            <form method="post" action="Controler/controlerBtnDeco.php">
 
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
 
@@ -59,7 +59,7 @@
 
     <div class="rectangle-mid">
         <form action="Controler/controlerBtnAjout.php" method="post">
-            <input name="btnAjoutEntreprise" class="btnAjoutEntreprise" type="submit" value="Ajouter">
+            <input name="btnAjoutEntreprise" class="btnAjoutEntreprise" type="submit" value="Ajouter une entreprise">
             <input name="btnAjoutOffre" class="btnAjoutOffre" type="submit" value="Ajouter une Offre">
         </form>
         <form method="post" action="">

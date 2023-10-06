@@ -25,7 +25,7 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
-            <form method="post" action="Controler/controlerBtnDeco.php">
+            <form method="post" action="Controler/controlerAdminEtu.php">
 
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
 
@@ -44,30 +44,15 @@
         </div>
     </div>
 
-    <!-- ... Votre formulaire de recherche ... -->
-
     <div class="rectangle-mid">
         <form action="Controler/controlerBtnAjout.php" method="post">
-            <input name="btnAjoutEtu" class="btnAjoutEtu" type="submit" value="Ajouter un étudiant">
-
+            <input name="btnAjoutEtu" class="btnAjoutEtu" type="submit" value="Ajouter">
+            <input name="btnRechercheEtu" class="btnRechercheEtu" type="submit" value="Rechercher un étudiant">
         </form>
-
-        <form id="rechercheForm">
-            <!-- Vos champs de recherche ici -->
-            <input type="text" name="nom" id="nom" placeholder="Nom">
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-            <input type="text" name="ine" id="ine" placeholder="INE">
-            <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">
-        </form>
-
 
         <ul id="resultats">
-            <!-- Les résultats seront affichés ici -->
         </ul>
     </div>
-
-    <!-- ... Le reste de votre code HTML ... -->
-
 </div>
 
 <script>
@@ -81,13 +66,12 @@
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('resultats').innerHTML = xhr.responseText; // Correction ici
+                document.getElementById('resultatsRecherche').innerHTML = xhr.responseText;
             }
         };
 
         xhr.send('nom=' + nom + '&prenom=' + prenom + '&ine=' + ine);
     }
-
 </script>
 
 </body>

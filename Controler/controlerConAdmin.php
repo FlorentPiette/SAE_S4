@@ -1,5 +1,6 @@
 <?php
 session_start();
+ob_start();
 
 $conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', '31lion2004');
 
@@ -16,7 +17,7 @@ $authenticated = false;
 $userRole = '';
 
 foreach ($users as $user) {
-    if ($user['email'] === $email && $user['motdepasse'] === $motDePasse) {
+    if ($user['email'] === $email && password_verify($motDePasse , $user['motdepasse'])) {
         $_SESSION['email'] = $user['email'];
         $_SESSION['role'] = $user['role'];
         $authenticated = true;
@@ -46,7 +47,7 @@ if ($authenticated && isset($_POST["valider"])) {
     }
     exit();
 } else {
-    echo 'Connexion refusée';
+    echo 'Connexion refusée'.password_hash('Test@456', PASSWORD_DEFAULT);
 }
 
 if (isset($_POST['btnRetour'])){
@@ -55,3 +56,5 @@ if (isset($_POST['btnRetour'])){
 
 }
 
+
+ob_end_flush();

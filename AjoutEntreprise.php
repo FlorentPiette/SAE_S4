@@ -5,11 +5,15 @@
     <title>Ajout Entreprise</title>
 </head>
 <body>
-<form action="../../SAE/ControllerAjoutEntreprise.php" method="POST">
+<form action="Controler/ControllerAjoutEntreprise.php" method="POST">
     <ul>
         <li>
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom" />
+        </li>
+        <li>
+            <label for="nom">Email:</label>
+            <input type="text" id="mail" name="email" />
         </li>
         <li>
             <label for="adresse">Adresse:</label>

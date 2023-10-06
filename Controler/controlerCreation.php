@@ -32,6 +32,8 @@ if(isset($_POST["valider"])) {
     $formation = $_POST['formation'];
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
+    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
 
     setcookie("Mail_Etudiant", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
 
@@ -51,7 +53,7 @@ if(isset($_POST["valider"])) {
             // erreur -- traiter l'erreur
             echo $result;
         }
-        header('Location: ..\VerifMail.php');
+        header('Location: ../VerifMail.php');
     }
     else {
         $erreur = "Adresse mail déjà utilisée !";

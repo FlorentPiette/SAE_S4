@@ -16,7 +16,7 @@ $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 $authenticated = false;
 
 foreach ($students as $student) {
-    if ($student['email'] === $email && $student['motdepasse'] === $motDePasse) {
+    if ($student['email'] === $email && password_verify($motDePasse ,$student['motdepasse'])) {
         $_SESSION['nom'] = $student['email'];
         $authenticated = true;
         break;
