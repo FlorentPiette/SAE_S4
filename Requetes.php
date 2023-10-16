@@ -1,5 +1,6 @@
 <?php
 
+
 function selectOffres($conn){
     $req = "SELECT * FROM Offre";
     $req2 = $conn->prepare($req);
@@ -125,4 +126,16 @@ function selectEtuWhereINE($conn, $ine){
     $req2->execute(array($ine));
 
     return req2;
+}
+
+function updateActif($conn, $id){
+    $req = "UPDATE etudiant SET actif = TRUE WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($id));
+}
+
+function updateInactif($conn, $id){
+    $req = "UPDATE etudiant SET actif = FALSE WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($id));
 }
