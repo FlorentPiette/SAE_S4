@@ -62,16 +62,36 @@
         var ine = document.getElementById('ine').value;
 
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'Controler/ControllerRechercheEtudiant.php', true);
+        xhr.open('POST', '../Controler/ControllerRechercheEtudiant.php', true);
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-                document.getElementById('resultatsRecherche').innerHTML = xhr.responseText;
+                var resultats = JSON.parse(xhr.responseText);
+
+                if (resultats.length > 0) {
+                    var resultatsHTML = '<ul>';
+                    resultats.forEach(function (etudiant) {
+                        resultatsHTML += '<li>';
+                        resultatsHTML += 'Nom : ' + (etudiant.nom ?? '') + '<br>';
+                        resultatsHTML += 'Prénom : ' + (etudiant.prenom ?? '') + '<br>';
+                        resultatsHTML += 'INE : ' + (etudiant.ine ?? '') + '<br>';
+                        resultatsHTML += 'Date de Naissance : ' + (etudiant.dateDeNaissance ?? '') + '<br>';
+                        resultatsHTML += 'Adresse : ' + (etudiant.adresse ?? '') + '<br>';
+                        // Ajoutez d'autres champs que vous souhaitez afficher
+                        resultatsHTML += '</li>';
+                    });
+                    resultatsHTML += '</ul>';
+                    document.getElementById('resultatsRecherche').innerHTML = resultatsHTML;
+                } else {
+                    document.getElementById('resultatsRecherche').innerHTML = "Aucun résultat trouvé.";
+                }
             }
         };
 
-        xhr.send('nom=' + nom + '&prenom=' + prenom + '&ine=' + ine);
+        var data = 'nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
+        xhr.send(data);
     }
+
 </script>
 
 </body>

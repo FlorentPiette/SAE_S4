@@ -12,13 +12,15 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-// Récupérer les valeurs du formulaire de recherche
-$nom = $_POST['nom'];
-$prenom = $_POST['prenom'];
-$ine = $_POST['ine'];
+// Récupérer les paramètres de recherche depuis l'URL
+$nom = $_GET['nom'] ?? '';
+$prenom = $_GET['prenom'] ?? '';
+$ine = $_GET['ine'] ?? '';
+$formation = $_GET['formation'] ?? '';
 
-// Requête SQL en fonction des critères de recherche
-$sql = "SELECT * FROM Etudiant WHERE 1=1"; // Initialise la requête avec une condition vraie
+
+// Construire la requête SQL
+$sql = "SELECT * FROM Etudiant WHERE 1=1";
 
 if (!empty($nom)) {
     $sql .= " AND nom ILIKE :nom";
@@ -32,10 +34,13 @@ if (!empty($ine)) {
     $sql .= " AND ine ILIKE :ine";
 }
 
-// Préparer la requête
+if (!empty($formation)) {
+    $sql .= " AND formation ILIKE :formation";
+}
+
+// Préparer et exécuter la requête
 $stmt = $conn->prepare($sql);
 
-// Associer les valeurs aux paramètres
 if (!empty($nom)) {
     $stmt->bindValue(':nom', "%$nom%", PDO::PARAM_STR);
 }
@@ -48,32 +53,20 @@ if (!empty($ine)) {
     $stmt->bindValue(':ine', "%$ine%", PDO::PARAM_STR);
 }
 
-// Exécuter la requête
-$stmt->execute();
-
-// Récupérer les résultats
-$resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-// Générer le HTML des résultats
-// ...
-
-// Générer le HTML des résultats
-// ...
-
-if (count($resultats) > 0) {
-    echo '<ul>';
-    foreach ($resultats as $resultat) {
-        echo '<li>';
-        echo 'Nom : ' . (isset($resultat['nom']) ? $resultat['nom'] : '') . '<br>';
-        echo 'Prénom : ' . (isset($resultat['prenom']) ? $resultat['prenom'] : '') . '<br>';
-        echo 'INE : ' . (isset($resultat['ine']) ? $resultat['ine'] : '') . '<br>';
-        // Ajoutez d'autres champs que vous souhaitez afficher
-        echo '</li>';
-    }
-    echo '</ul>';
-} else {
-    echo "Aucun résultat trouvé.";
+if (!empty($formation)) {
+    $stmt->bindValue(':formation', "%$formation%", PDO::PARAM_STR);
 }
 
+if ($stmt->execute()) {
+    // Récupérer les résultats
+    $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    // Renvoyer les résultats au format JSON
+    header('Content-Type: application/json');
+    echo json_encode($resultats);
+} else {
+    // En cas d'erreur d'exécution de la requête, renvoyer un JSON vide
+    header('Content-Type: application/json');
+    echo json_encode([]);
+}
 ?>

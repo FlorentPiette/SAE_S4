@@ -33,7 +33,7 @@ if(isset($_POST['btnAjoutAdministration'])){
 
 if(isset($_POST['BtnRechercherEtu'])){
 
-    header('Location: ../AjoutAdministration.php');
+    header('Location: ../RechercheEtudiant.php');
 
 }
 
