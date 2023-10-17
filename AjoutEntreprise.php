@@ -32,6 +32,10 @@
             <input type="text" id="num" name="num" />
         </li>
         <li>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" />
+        </li>
+        <li>
             <label for="secteur">Secteur d'activité:</label>
             <input type="text" id="secteur" name="secteur" />
         </li>
