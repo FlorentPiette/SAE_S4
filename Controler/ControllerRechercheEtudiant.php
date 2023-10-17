@@ -1,5 +1,4 @@
 <?php
-// Connexion à la base de données
 $host = 'localhost';
 $dbname = 'postgres';
 $username = 'postgres';
@@ -12,7 +11,6 @@ try {
     die("Erreur de connexion à la base de données : " . $e->getMessage());
 }
 
-// Récupérer les paramètres de recherche depuis l'URL
 $nom = $_GET['nom'] ?? '';
 $prenom = $_GET['prenom'] ?? '';
 $ine = $_GET['ine'] ?? '';

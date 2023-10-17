@@ -3,7 +3,6 @@ function rechercherEtudiants() {
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
     console.log("reussis");
-    // Construire l'URL de l'API RESTful
     var apiUrl = '../Controler/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
 
     var xhr = new XMLHttpRequest();

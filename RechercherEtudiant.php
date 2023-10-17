@@ -54,7 +54,7 @@
         </ul>
     </div>
 </div>
-
+ <!-- java script -->
 <script>
     function rechercherEtudiants() {
         var nom = document.getElementById('nom').value;

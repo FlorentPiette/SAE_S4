@@ -48,7 +48,6 @@
         </form>
 
         <form id="rechercheForm">
-            <!-- Champs de recherche étendus -->
             <input type="text" name="nom" id="nom" placeholder="Nom">
             <input type="text" name="prenom" id="prenom" placeholder="Prénom">
             <input type="text" name="ine" id="ine" placeholder="INE">
