@@ -5,6 +5,8 @@
  */
 
 /*
+ * Récupérer toutes les offres de la base de donnée
+ *
  * @param PDO conn
  *
  * @return array $result
@@ -19,6 +21,8 @@ function selectOffres($conn){
 }
 
 /*
+ * Récupérer tous les étudiants de la base de donnée
+ *
  * @param PDO conn
  *
  * @return array $result
@@ -33,6 +37,8 @@ function selectEtudiants($conn){
 }
 
 /*
+ * Récupérer toutes les entreprises de la base de donnée
+ *
  * @param PDO conn
  *
  * @return array $result
@@ -47,6 +53,8 @@ function selectEntreprises($conn){
 }
 
 /*
+ * Ajouter un membre de l'administration à la base de donnée
+ *
  * @param PDO conn
  * @param String nom
  * @param String prenom
