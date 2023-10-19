@@ -4,10 +4,10 @@
  * @author emeline
  */
 
-/*
+/**
  * Récupérer toutes les offres de la base de donnée
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -20,10 +20,10 @@ function selectOffres($conn){
     return $result;
 }
 
-/*
+/**
  * Récupérer tous les étudiants de la base de donnée
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -36,10 +36,10 @@ function selectEtudiants($conn){
     return $result;
 }
 
-/*
+/**
  * Récupérer toutes les entreprises de la base de donnée
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -52,16 +52,16 @@ function selectEntreprises($conn){
     return $result;
 }
 
-/*
+/**
  * Ajouter un membre de l'administration à la base de donnée
  *
- * @param PDO conn
- * @param String nom
- * @param String prenom
- * @param String formation
- * @param String email
- * @param String mdp
- * @param String role
+ * @param PDO $conn
+ * @param String $nom
+ * @param String $prenom
+ * @param String $formation
+ * @param String $email
+ * @param String $mdp
+ * @param String $role
  *
  * @return array $result
  */
@@ -74,22 +74,22 @@ function ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $ro
     return $result;
 }
 
-/*
+/**
  * Ajouter un étudiant dans la base de donnée
  *
- * @param PDO conn
- * @param String nom
- * @param String prenom
- * @param date dateDeNaissance
- * @param String adresse
- * @param String ville
- * @param int codePostal (5 caractères)
- * @param int anneeEtude
- * @param String formation
- * @param String email
- * @param String motDePasse
- * @param String iNE
- * @param int codeConfirmation (8 caractères)
+ * @param PDO $conn
+ * @param String $nom
+ * @param String $prenom
+ * @param date $dateDeNaissance
+ * @param String $adresse
+ * @param String $ville
+ * @param int $codePostal (5 caractères)
+ * @param int $anneeEtude
+ * @param String $formation
+ * @param String $email
+ * @param String $motDePasse
+ * @param String $iNE
+ * @param int $codeConfirmation (8 caractères)
  *
  * @return void
  */
@@ -100,14 +100,14 @@ function ajoutEtudiant($conn, $nom, $prenom, $dateDeNaissance, $adresse, $ville,
     $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $codeConfirmation));
 }
 
-/*
+/**
  * Ajouter une offre dans la base de donnée
  *
- * @param PDO conn
- * @param String nom
- * @param String domaine
- * @param String mission
- * @param int nbetudiant
+ * @param PDO $conn
+ * @param String $nom
+ * @param String $domaine
+ * @param String $mission
+ * @param int $nbetudiant
  *
  * @return void
  */
@@ -117,17 +117,17 @@ function ajoutOffre($conn, $nom, $domaine, $mission, $nbetudiant){
     $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
 }
 
-/*
+/**
  * Ajouter une entreprise dans la base de donnée
  *
- * @param PDO conn
- * @param String nom
- * @param String adresse
- * @param String ville
- * @param int codePostal (5 caractères)
- * @param String num
- * @param String secteur
- * @param String email
+ * @param PDO $conn
+ * @param String $nom
+ * @param String $adresse
+ * @param String $ville
+ * @param int $codePostal (5 caractères)
+ * @param String $num
+ * @param String $secteur
+ * @param String $email
  *
  * @return void
  */
@@ -137,12 +137,12 @@ function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $sect
     $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
 }
 
-/*
+/**
  * Changer le mot de passe d'un étudiant dans la base de donnée
  *
- * @param PDO conn
- * @param String mdp
- * @param String email
+ * @param PDO $conn
+ * @param String $mdp
+ * @param String $email
  *
  * @return void
  */
@@ -152,10 +152,10 @@ function reinitialiserMDP($conn, $mdp, $email){
     $req2->execute(array($mdp, $email));
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les email, mot de passes et roles de toutes les personnes de l'administration
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -168,10 +168,10 @@ function selectEmailMDPRoleAdmin($conn){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les email et mot de passes de toutes les personnes de l'administration
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -184,10 +184,10 @@ function selectEmailMDPAdmin($conn){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les email et mot de passes de tous les étudiants
  *
- * @param PDO conn
+ * @param PDO $conn
  *
  * @return array $result
  */
@@ -200,11 +200,11 @@ function selectEmailMDPEtu($conn){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les étudiants qui ont cette adresse email
  *
- * @param PDO conn
- * @param String email
+ * @param PDO $conn
+ * @param String $email
  *
  * @return array $result
  */
@@ -217,11 +217,11 @@ function selectEtuWhereEmail($conn, $email){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les offres qui ont ce nom
  *
- * @param PDO conn
- * @param String nom
+ * @param PDO $conn
+ * @param String $nom
  *
  * @return array $result
  */
@@ -234,11 +234,11 @@ function selectOffreWhereNom($conn, $nom){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, le code de confirmation de l'étudiant qui a cette adresse email
  *
- * @param PDO conn
- * @param String email
+ * @param PDO $conn
+ * @param String $email
  *
  * @return array $result
  */
@@ -251,11 +251,11 @@ function selectCodeEtuWhereEmail($conn, $email){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les étudiants qui ont ce nom
  *
- * @param PDO conn
- * @param String nom
+ * @param PDO $conn
+ * @param String $nom
  *
  * @return array $result
  */
@@ -268,11 +268,11 @@ function selectEtuWhereNom($conn, $nom){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les étudiants qui ont ce prenom
  *
- * @param PDO conn
- * @param String prenom
+ * @param PDO $conn
+ * @param String $prenom
  *
  * @return array $result
  */
@@ -285,11 +285,11 @@ function selectEtuWherePrenom($conn, $prenom){
     return $result;
 }
 
-/*
+/**
  * Récuperer de la base de donnée, les étudiants qui ont cet ine
  *
- * @param PDO conn
- * @param String ine
+ * @param PDO $conn
+ * @param String $ine
  *
  * @return array $result
  */
@@ -302,11 +302,11 @@ function selectEtuWhereINE($conn, $ine){
     return $result;
 }
 
-/*
+/**
  * Définir dans la base de donnée, le statut actif de l'étudiant ayant cet id
  *
- * @param PDO conn
- * @param String id
+ * @param PDO $conn
+ * @param String $id
  *
  * @return void
  */
@@ -316,11 +316,11 @@ function updateActif($conn, $id){
     $req2->execute(array($id));
 }
 
-/*
+/**
  * Définir dans la base de donnée, le statut inactif de l'étudiant ayant cet id
  *
- * @param PDO conn
- * @param String id
+ * @param PDO $conn
+ * @param String $id
  *
  * @return void
  */
