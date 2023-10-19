@@ -95,7 +95,7 @@ function ajoutEtudiant($conn, $nom, $prenom, $dateDeNaissance, $adresse, $ville,
 /*
  * Ajouter une offre dans la base de donnée
  *
- * @param PDO
+ * @param PDO conn
  * @param String nom
  * @param String domaine
  * @param String mission
@@ -112,7 +112,7 @@ function ajoutOffre($conn, $nom, $domaine, $mission, $nbetudiant){
 /*
  * Ajouter une entreprise dans la base de donnée
  *
- * @param PDO
+ * @param PDO conn
  * @param String nom
  * @param String adresse
  * @param String ville
@@ -132,7 +132,7 @@ function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $sect
 /*
  * Changer le mot de passe d'un étudiant dans la base de donnée
  *
- * @param PDO
+ * @param PDO conn
  * @param String mdp
  * @param String email
  *
