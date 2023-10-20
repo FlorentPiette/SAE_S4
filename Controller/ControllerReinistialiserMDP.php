@@ -1,7 +1,6 @@
 <?php
 
-include 'ConnexionBDD.php';
-include '../Model/Requetes.php';
+include '../Model/ConnexionBDD.php';
 include '../Model/ModelReinitialiserMdp.php';
 $db = Conn::GetInstance();
 
