@@ -1,6 +1,6 @@
 <?php
 
-function selectEmailMDPEtu($conn){
+function selectEmailMDPEtu($conn,$email){
     $req = "SELECT email, motdepasse FROM Etudiant";
     $req2 = $conn->prepare($req);
     $req2->execute();
