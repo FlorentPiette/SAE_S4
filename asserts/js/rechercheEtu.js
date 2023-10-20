@@ -2,6 +2,7 @@ function rechercherEtudiants() {
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
+
     console.log("reussis");
     var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
 
@@ -22,8 +23,14 @@ function rechercherEtudiants() {
                             resultatsHTML += 'Prénom : ' + (etudiant.prenom || '') + '<br>';
                             resultatsHTML += 'INE : ' + (etudiant.ine || '') + '<br>';
                             resultatsHTML += 'Formation : ' + (etudiant.formation || '') + '<br>';
-
-                            // Ajoutez d'autres champs que vous souhaitez afficher
+                            resultatsHTML += 'Adresse : ' + (etudiant.adresse || '') + '<br>';
+                            resultatsHTML += 'Ville : ' + (etudiant.ville || '') + '<br>';
+                            resultatsHTML += 'Code Postal : ' + (etudiant.codepostal || '') + '<br>';
+                            resultatsHTML += 'Année d`étude : ' + (etudiant.anneeetude || '') + '<br>';
+                            resultatsHTML += 'Type d`entreprise : ' + (etudiant.typeentreprise || '') + '<br>';
+                            resultatsHTML += 'Type de mission : ' + (etudiant.typedemission || '') + '<br>';
+                            resultatsHTML += 'Mobile : ' + (etudiant.mobile || '') + '<br>';
+                            resultatsHTML += 'Actif : ' + (etudiant.actif || '') + '<br>';
                             resultatsHTML += '</li>';
                         });
                         resultatsHTML += '</ul>';

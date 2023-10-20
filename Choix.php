@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Choix</title>
 
-    <link rel="stylesheet" type="text/css" href="asserts/css/choix.css" />
+    <link rel="stylesheet" type="text/css" href="/asserts/css/choix.css" />
 </head>
 <body class="body">
 

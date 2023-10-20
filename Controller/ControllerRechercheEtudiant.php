@@ -1,70 +1,22 @@
 <?php
-$host = 'localhost';
-$dbname = 'postgres';
-$username = 'postgres';
-$password = '31lion2004';
+include '../Model/ConnexionBDD.php';
+include '../Model/ModelRechercheEtu.php';
 
-try {
-    $conn = new PDO("pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Erreur de connexion à la base de données : " . $e->getMessage());
-}
+$conn = Conn::getInstance();
 
 $nom = $_GET['nom'] ?? '';
 $prenom = $_GET['prenom'] ?? '';
 $ine = $_GET['ine'] ?? '';
 $formation = $_GET['formation'] ?? '';
+$adresse = $_GET['adresse'] ?? '';
+$ville = $_GET['ville'] ?? '';
+$codepostal = $_GET['codepostal'] ?? '';
+$anneeetude = $_GET['anneeetude'] ?? '';
+$typeentreprise = $_GET['typeentreprise'] ?? '';
+$typedemission = $_GET['typedemission'] ?? '';
+$mobile = $_GET['mobile'] ?? '';
+$actif = $_GET['actif'] ?? '';
 
+RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typedemission,$mobile,$actif)
 
-// Construire la requête SQL
-$sql = "SELECT * FROM Etudiant WHERE 1=1";
-
-if (!empty($nom)) {
-    $sql .= " AND nom ILIKE :nom";
-}
-
-if (!empty($prenom)) {
-    $sql .= " AND prenom ILIKE :prenom";
-}
-
-if (!empty($ine)) {
-    $sql .= " AND ine ILIKE :ine";
-}
-
-if (!empty($formation)) {
-    $sql .= " AND formation ILIKE :formation";
-}
-
-// Préparer et exécuter la requête
-$stmt = $conn->prepare($sql);
-
-if (!empty($nom)) {
-    $stmt->bindValue(':nom', "%$nom%", PDO::PARAM_STR);
-}
-
-if (!empty($prenom)) {
-    $stmt->bindValue(':prenom', "%$prenom%", PDO::PARAM_STR);
-}
-
-if (!empty($ine)) {
-    $stmt->bindValue(':ine', "%$ine%", PDO::PARAM_STR);
-}
-
-if (!empty($formation)) {
-    $stmt->bindValue(':formation', "%$formation%", PDO::PARAM_STR);
-}
-
-if ($stmt->execute()) {
-    // Récupérer les résultats
-    $resultats = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // Renvoyer les résultats au format JSON
-    header('Content-Type: application/json');
-    echo json_encode($resultats);
-} else {
-    // En cas d'erreur d'exécution de la requête, renvoyer un JSON vide
-    header('Content-Type: application/json');
-    echo json_encode([]);
-}
 ?>

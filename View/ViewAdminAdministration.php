@@ -18,7 +18,7 @@
                 <nav>
                     <form >
                         <ul class="vertical-menu">
-                            <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="accueil" class="btnCreation"> Acceuil </button></li>
+                            <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil"class="btnCreation"> Acceuil </button></li>
                             <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
                             <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
                             <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
