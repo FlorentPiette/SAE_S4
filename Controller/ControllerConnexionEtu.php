@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 session_start();
 ob_start();
 
-//Conneion bdd
+//Connexion bdd
 $conn = Conn::getInstance();
 
 // Récupérer tous les étudiants (adresses email et mots de passe)
@@ -18,11 +18,11 @@ $email = htmlspecialchars($_POST['Email'], ENT_QUOTES, 'UTF-8');
 $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 
 
-if (authenticated($students,$email,$motDePasse) == true) {
+if (authenticated($students, $email, $motDePasse)) {
     header('Location: ../PageAccueil.php');
     exit();
 } else {
-    header('Location: ../View/View/ViewEtudiant.html');
+    header('Location: ../View/ViewEtudiant.html');
 }
 
 ob_end_flush();
