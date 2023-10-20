@@ -2,9 +2,9 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'ModelMail.php';
+include '../Model/ModelMail.php';
 include '../Model/ConnexionBDD.php';
-include 'Model/ModelAjout.php';
+include '../Model/ModelAjout.php';
 
 $db = Conn::getInstance();
 
