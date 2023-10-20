@@ -28,9 +28,8 @@ if(isset($_POST["ajoutEtudiant"])) {
     setcookie("Mail_Etudiant", $email, time() + 3600, "/");
 
     $reqmail = selectEtuWhereEmail($db, $email);
-    $mailexist = $reqmail->rowCount();
 
-    if ($mailexist == 0) {
+    if ($reqmail == null) {
         ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $confirmation);
         $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
@@ -38,7 +37,7 @@ if(isset($_POST["ajoutEtudiant"])) {
             // erreur -- traiter l'erreur
             echo $result;
         }
-        header('Location: ../Model\ModelVerifMail.php');
+        header('Location: ../Model/ModelVerifMail.php');
     }
     else {
         $erreur = "Adresse mail déjà utilisée !";

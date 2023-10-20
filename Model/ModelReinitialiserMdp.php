@@ -1,7 +1,4 @@
 <?php
-include 'ConnexionBDD.php';
-
-$conn = Conn::getInstance();
 
 /**
  * Changer le mot de passe d'un étudiant dans la base de donnée

@@ -1,8 +1,5 @@
 <?php
 
-include 'ConnexionBDD.php';
-$conn = Conn::getInstance();
-
 
 /**
  * Définir dans la base de donnée, le statut actif de l'étudiant ayant cet id
