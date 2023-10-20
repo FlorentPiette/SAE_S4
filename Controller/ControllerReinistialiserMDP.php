@@ -2,6 +2,7 @@
 
 include 'ConnexionBDD.php';
 include '../Model/Requetes.php';
+include '../Model/ModelReinitialiserMdp.php';
 $db = Conn::GetInstance();
 
 if(isset($_POST["nouveauMDP"])){
