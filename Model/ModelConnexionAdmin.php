@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * Récuperer de la base de donnée, les email, mot de passes et roles de toutes les personnes de l'administration
+ *
+ * @param PDO $conn
+ *
+ * @return array $result
+ */
 function selectEmailMDPRoleAdmin($conn){
     $req = "SELECT email, motdepasse, role FROM Administration";
     $req2 = $conn->prepare($req);
@@ -8,6 +16,15 @@ function selectEmailMDPRoleAdmin($conn){
     return $result;
 }
 
+/**
+ * Vérifier si les identifiants correspondent à une personne de la base de donnée et rediriger vers la bonne page selon le role
+ *
+ * @param array $user
+ * @param string $email
+ * @param string $motDePasse
+ *
+ * @return void
+ */
 function authenticatedAdmin ($user,$email,$motDePasse)
 {
     if ($user['email'] === $email && password_verify($motDePasse, $user['motdepasse'])) {
