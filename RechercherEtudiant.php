@@ -11,12 +11,12 @@
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form action="Controler/controlerAdminEtu.php" method="post">
+                <form  method="post">
                     <ul class="vertical-menu">
-                        <li><input type="submit" name="accueil" value="Accueil" class="btnCreation"></li>
-                        <li><input type="submit" name="etudiant" value="Etudiant" class="btnCreation"></li>
-                        <li><input type="submit" name="entreprise" value="Entreprise" class="btnCreation"></li>
-                        <li><input type="submit" name="adminitrsation" value="Administration" class="btnCreation"></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php" name="accueil"  class="btnCreation"> Accueil </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminEtu.php" name="etudiant" class="btnCreation"> Etudiant </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php" name="entreprise"  class="btnCreation"> Entreprise </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php" name="adminitrsation"  class="btnCreation"> Administration </button></li>
                     </ul>
                 </form>
             </nav>
@@ -25,7 +25,7 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="asserts/img/logo.png" class="logo">
-            <form method="post" action="Controler/controlerAdminEtu.php">
+            <form method="post" action="../Controler/controlerBtnDeco.php">
 
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
 
@@ -45,9 +45,9 @@
     </div>
 
     <div class="rectangle-mid">
-        <form action="Controler/controlerBtnAjout.php" method="post">
-            <input name="btnAjoutEtu" class="btnAjoutEtu" type="submit" value="Ajouter">
-            <input name="btnRechercheEtu" class="btnRechercheEtu" type="submit" value="Rechercher un étudiant">
+        <form >
+            <button name="btnAjoutEtu"  onclick="window.location.href ='View/ViewAjoutEtudiant.html'" class="btnAjoutEtu" type="button" >  Ajouter </button>
+            <button name="btnRechercheEtu" onclick="window.location.href ='RechercherEtudiant.php'" class="btnRechercheEtu" type="button" > Recherche Etudiant </button>
         </form>
 
         <ul id="resultats">

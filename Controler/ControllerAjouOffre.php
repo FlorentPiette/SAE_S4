@@ -1,7 +1,9 @@
 
 <?php
+include '../Model/ModelAjout.php';
+include '../Model/ConnexionBDD.php';
 
-$conn = new PDO('pgsql:host=localhost;port=5432;dbname=postgres', 'postgres', 'admin');
+$conn = Conn::getInstance();
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,19 +14,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nbEtudiant = $_POST["NbEtudiant"];
     $estBrouillon = isset($_POST["Brouillon"]);
 
+    ajoutOffre($conn, $nom, $domaine, $mission, $nbEtudiant);
     // Traitement en tant que brouillon ou entrée complète
     if ($estBrouillon) {
-
-        $Offre1 = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)");
-
-        $Offre1->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant));
-
         $message = "L'offre a été enregistrée en tant que brouillon.";
     } else {
-
-        $Offre = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)");
-
-        $Offre->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant));
 
         $message = "L'offre a été enregistrée avec succès.";
     }

@@ -2,18 +2,18 @@
 
 if (isset($_POST["connectionEtu"])) {
 
-    header('Location: ../connectionEtu.html');
+    header('Location: ../ViewEtudiant.html');
     exit();
 
 }
 if (isset($_POST["creationEtu"])) {
-    header('Location: ../nouvcompte.html');
+    header('Location: ../ViewNouvCompteAdmin.html');
     exit();
 
 }
 if(isset($_POST["connectionAdmin"])){
 
-    header('Location: ../connection.php');
+    header('Location: ../ViewConnexionAdmin.php');
     exit();
 }
 if(isset($_POST["btnRetour"])){

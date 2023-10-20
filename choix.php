@@ -1,9 +1,3 @@
-<?php
-
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,16 +19,16 @@
     <div class="choix">
 
         <div class="rec-etudiant">
-            <form class="formulaireEtu" action="Controler/controlerChoix.php" method="post">
+            <form class="formulaireEtu"  method="post">
 
-                <input type="submit" name="choixEtudiant" value="Etudiant" class="btnEtu">
+                <button type="button" onclick="window.location.href = 'View/ViewConnexionEtu.html'" name="choixEtudiant" class="btnEtu"> Etudiant </button>
             </form>
         </div>
 
         <div class="rec-administration">
-            <form class="formulaireAdmin" action="Controler/controlerChoix.php" method="post">
+            <form class="formulaireAdmin"  method="post">
 
-                <input type="submit" name="choixAdmin" value="Administration" class="btnAdmin">
+                <button type="button" onclick="window.location.href = 'View/ViewAvConnexionAdmin.php'" name="choixAdmin" class="btnAdmin"> Admin </button>
             </form>
         </div>
 
@@ -47,7 +41,6 @@
         function fermerFenetre() {
             window.close();
         }
-
 
         document.getElementById("btnFermer").addEventListener("click", fermerFenetre);
     </script>

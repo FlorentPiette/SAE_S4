@@ -2,27 +2,15 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-include 'ControllerMail.php';
+include 'ModelMail.php';
+include '../Model/ConnexionBDD.php';
+include 'Model/ModelAjout.php';
 
-$host = 'localhost';
-$dbname = 'postgres';
-$username = 'postgres';
-$password = '31lion2004';
-
-
-
-
-$dsn = "pgsql:host=$host;port=5432;dbname=$dbname;user=$username;password=$password";
-
-try {
-    $db = new PDO($dsn);
-} catch (PDOException $e) {
-    echo "Erreur : " . $e->getMessage();
-}
+$db = Conn::getInstance();
 
 
 if(isset($_POST["ajoutEtudiant"])) {
-    $ajout = $db->prepare("INSERT INTO Etudiant VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, NULL, :email, :mdp, NULL, :ine, NULL, :CodeMail)");
+
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -35,22 +23,16 @@ if(isset($_POST["ajoutEtudiant"])) {
     $formation = $_POST['formation'];
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
+
+    $confirmation = code();
     setcookie("Mail_Etudiant", $email, time() + 3600, "/");
 
-    $conformation = 0;
-    for ($i = 0; $i < 7; $i++) {
-        $chiffreAleatoire = mt_rand(0, 9); // Génère un chiffre aléatoire entre 0 et 9
-        $conformation.= $chiffreAleatoire; // Ajoute le chiffre à la sélection
-    }
-
-
-    $reqmail = $db->prepare("SELECT * FROM Etudiant where email = ?");
-    $reqmail->execute(array($email));
+    $reqmail = selectEtuWhereEmail($db, $email);
     $mailexist = $reqmail->rowCount();
 
     if ($mailexist == 0) {
-        $ajout->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $conformation));
-        $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$conformation);
+        $ajout = ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $confirmation);
+        $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
         {
             // erreur -- traiter l'erreur
