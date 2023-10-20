@@ -5,7 +5,7 @@
     <title>Verification du Mail</title>
 </head>
 <body>
-<form action="Controler/ControllerVerifMail.php" method="post">
+<form action="Controller/ControllerVerifMail.php" method="post">
     <input type="text" name="verification" placeholder=" Veuillez saisir le code reçu par mail">
     <input type="submit" name="validation" >
     <br><br>

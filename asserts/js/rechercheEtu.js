@@ -3,7 +3,7 @@ function rechercherEtudiants() {
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
     console.log("reussis");
-    var apiUrl = '../Controler/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);

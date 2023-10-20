@@ -22,7 +22,7 @@
     <h1>Bienvenue dans notre<br> gestionnaire des candidats<br> en alternance</h1>
 </div>
 
-<form class="formulaire" action="../Controler/ControllerValidationConnexion.php" method="post">
+<form class="formulaire" action="../Controller/ControllerValidationConnexion.php" method="post">
 
     <input type="submit" name="connectionAdmin" class="connexionAdmin" value="Se connecter">
 

@@ -36,7 +36,7 @@
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
             <img src="/asserts/img/logo.png" class="logo">
-            <form method="post" action="/Controler/ControllerBtnDeco.php">
+            <form method="post" action="/Controller/ControllerBtnDeco.php">
 
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
 
@@ -74,7 +74,7 @@
             <?php
             session_start();
 
-            include '../Controler/ConnexionBDD.php';
+            include '../Controller/ConnexionBDD.php';
 
             $db = conn('localhost', 'td', 'emeline', 'root');
 
