@@ -119,24 +119,8 @@
                     <button class="nbRP">Responsable pédagogique</button>
 
                 </div>
-
-
-
-
-
-
-
             </div>
-
-
-
-
         </div>
-
-
     </div>
-
-
-
 </body>
 </html>

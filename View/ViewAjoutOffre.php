@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <body>
-<form action="../Controller/ControllerAjoutOffre.php" method="post" id="formulaire">
+<form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
 
     <p>
         Nom de l'offre :
