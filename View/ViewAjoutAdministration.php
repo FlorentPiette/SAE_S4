@@ -8,7 +8,7 @@
     <title>Ajout Entreprise</title>
 </head>
 <body>
-<form action="../Controler/ControlerAjoutAdministration.php" method="POST">
+<form action="../Controler/ControllerAjoutAdministration.php" method="POST">
     <ul>
         <li>
             <label for="nom">Nom:</label>

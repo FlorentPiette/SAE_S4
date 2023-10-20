@@ -19,18 +19,18 @@
     <h1>Bienvenue dans notre<br> gestionnaire des candidats<br> en alternance</h1>
 </div>
 
-<form class="formulaire" action="../Controler/validationConnection.php" method="post">
+<form class="formulaire" action="../Controler/ControllerValidationConnexion.php" method="post">
 
     <input type="submit" name="connectionEtu" value="Se connecter" class="connectionEtu">
 </form>
 
-<form class="formulaire" action="../Controler/validationConnection.php" method="post">
+<form class="formulaire" action="../Controler/ControllerValidationConnexion.php" method="post">
 
     <input type="submit" name="creationEtu" value="Créer un compte" class="creationEtu">
 
 </form>
 
-<form action="../Controler/validationConnection.php" method="post">
+<form action="../Controler/ControllerValidationConnexion.php" method="post">
 
     <input type="submit" name="btnRetour" value="Retour" class="btnRetour">
 

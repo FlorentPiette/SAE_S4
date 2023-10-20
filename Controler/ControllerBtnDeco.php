@@ -12,7 +12,7 @@ if (isset($_POST['btnDeco'])){
     session_destroy();
 
     // Redirigez l'utilisateur vers la page de connexion
-    header('Location: ../choix.php');
+    header('Location: ../Choix.php');
     exit;
 
 }

@@ -45,7 +45,7 @@
 
         </div>
 
-        <form action="../Controler/controlerConAdmin.php" method="post">
+        <form action="../Controler/ControllerConAdmin.php" method="post">
             <input type="text" name="email" class="email" placeholder="Email">
             <input type="password" name="mdp" class="mdp" placeholder="Mot de passe">
             <input type="submit" value="Connexion" name="valider" class="btnConnexion">
@@ -75,7 +75,7 @@
 
 </header>
 
-<form action="../Controler/controlerConAdmin.php" method="post">
+<form action="../Controler/ControllerConAdmin.php" method="post">
     <input type="submit" value="Retour" name="btnRetour" class="btnRetour">
 </form>
 
