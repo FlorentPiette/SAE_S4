@@ -18,7 +18,7 @@ if(isset($_POST["connectionAdmin"])){
 }
 if(isset($_POST["btnRetour"])){
 
-    header('Location: ../choix.php');
+    header('Location: ../Choix.php');
     exit();
 }
 

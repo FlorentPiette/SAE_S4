@@ -17,6 +17,19 @@ try {
     echo "Mailer Error: ".$mail->ErrorInfo;
 }
 
+
+/**
+ * Envoyer un mail de vérification par mail
+ *
+ * @param string $to
+ * @param string $from
+ * @param string $from_name
+ * @param string $subject
+ * @param string $body
+ *
+ * @return boolean
+ * @return error
+ */
 function envoieMail($to, $from, $from_name, $subject, $body) {
     define('GMailUSER', 'supersae59@gmail.com'); // utilisateur Gmail
     define('GMailPWD', 'jxvt dzqq saie yyhn'); // Mot de passe Gmail

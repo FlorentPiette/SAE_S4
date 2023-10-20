@@ -6,7 +6,7 @@
     <title>Oubli Mot De Passe</title>
 </head>
 <body>
-<form action="../Controler/ControllerReinistialiserMDP.php" method="POST">
+<form action="../Controller/ControllerReinistialiserMDP.php" method="POST">
     <ul>
         <li>
             <label for="mdp">Nouveau mot de passe:</label>
