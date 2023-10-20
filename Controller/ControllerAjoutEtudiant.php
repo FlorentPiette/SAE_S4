@@ -31,14 +31,14 @@ if(isset($_POST["ajoutEtudiant"])) {
     $mailexist = $reqmail->rowCount();
 
     if ($mailexist == 0) {
-        $ajout = ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $confirmation);
+        ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $confirmation);
         $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
         {
             // erreur -- traiter l'erreur
             echo $result;
         }
-        header('Location: ../VerifMail.php');
+        header('Location: ../Model\ModelVerifMail.php');
     }
     else {
         $erreur = "Adresse mail déjà utilisée !";
