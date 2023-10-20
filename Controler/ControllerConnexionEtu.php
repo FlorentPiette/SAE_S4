@@ -22,7 +22,7 @@ if (authenticated($students,$email,$motDePasse) == true) {
     header('Location: ../PageAccueil.php');
     exit();
 } else {
-    header('Location: ../View/ViewEtudiant.html');
+    header('Location: ../View/View/ViewEtudiant.html');
 }
 
 ob_end_flush();

@@ -16,7 +16,7 @@ function authenticatedAdmin ($user,$email,$motDePasse)
         $userRole = $user['role'];
         switch ($userRole) {
             case 'cd':
-                header('Location: ../ViewCdMain.php');
+                header('Location: ../View/ViewCdMain.php');
                 break;
             case 'rp':
                 header('Location: RpMain.php');

@@ -20,7 +20,7 @@ if ( isset($_POST["valider"])) {
 }
 
 if (isset($_POST['btnRetour'])){
-    header('Location: ../ViewAvConnexionAdmin.php');
+    header('Location: ../View/ViewAvConnexionAdmin.php');
 }
 
 

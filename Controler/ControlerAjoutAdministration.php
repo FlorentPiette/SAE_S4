@@ -13,6 +13,6 @@ $role = $_POST['role'];
 
 if(isset($_POST["valider"])) {
     ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role);
-    header('Location: ../ViewAdminAdministration.php');
+    header('Location: ../View/ViewAdminAdministration.php');
 }
 ?>
