@@ -11,7 +11,7 @@ function selectEmailMDPRoleAdmin($conn){
     $req = "SELECT email, motdepasse, role FROM Administration";
     $req2 = $conn->prepare($req);
     $req2->execute();
-    $result = $req2->fetchAll(PDO::FETCH_ASSOC);
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
 
     return $result;
 }

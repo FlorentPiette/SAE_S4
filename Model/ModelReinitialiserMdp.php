@@ -9,7 +9,8 @@
  *
  * @return void
  */
-function reinitialiserMDP($conn, $mdp, $email){
+function reinitialiserMDP($conn, $mdp, $email): void
+{
     $req = "UPDATE Etudiant SET motDePasse = ? WHERE email = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($mdp, $email));
