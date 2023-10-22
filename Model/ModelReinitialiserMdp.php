@@ -1,7 +1,4 @@
 <?php
-include 'ConnexionBDD.php';
-
-$conn = Conn::getInstance();
 
 /**
  * Changer le mot de passe d'un étudiant dans la base de donnée
@@ -12,7 +9,8 @@ $conn = Conn::getInstance();
  *
  * @return void
  */
-function reinitialiserMDP($conn, $mdp, $email){
+function reinitialiserMDP($conn, $mdp, $email): void
+{
     $req = "UPDATE Etudiant SET motDePasse = ? WHERE email = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($mdp, $email));

@@ -1,6 +1,4 @@
 <?php
-include 'ConnexionBDD.php';
-$conn = Conn::getInstance();
 
 /**
  * Ajouter une offre dans la base de donnée
@@ -104,4 +102,23 @@ function code()
     }
     return $confirmation ;
 }
+
+/**
+ * Récuperer de la base de donnée, les étudiants qui ont cette adresse email
+ *
+ * @param PDO $conn
+ * @param String $email
+ *
+ * @return array $result
+ */
+function selectEtuWhereEmail($conn, $email){
+    $req = "SELECT * FROM Etudiant where email = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($email));
+    $result = $req2->fetchAll(PDO::FETCH_ASSOC);
+
+    return $result;
+}
 ?>
+
+

@@ -14,7 +14,6 @@ $email = htmlspecialchars($_POST['email'], ENT_QUOTES, 'UTF-8');
 $motDePasse = htmlspecialchars($_POST['mdp'], ENT_QUOTES, 'UTF-8');
 
 
-
 if ( isset($_POST["valider"])) {
     authenticatedAdmin($users,$email,$motDePasse);
 }
