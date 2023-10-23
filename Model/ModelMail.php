@@ -31,8 +31,6 @@ try {
  * @return error
  */
 function envoieMail($to, $from, $from_name, $subject, $body) {
-    define('GMailUSER', 'supersae59@gmail.com'); // utilisateur Gmail
-    define('GMailPWD', 'jxvt dzqq saie yyhn'); // Mot de passe Gmail
     $mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
     $mail->IsSMTP(); // active SMTP
     $mail->SMTPDebug = 2;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
@@ -40,8 +38,8 @@ function envoieMail($to, $from, $from_name, $subject, $body) {
     $mail->SMTPSecure = 'tls'; // Gmail REQUIERT Le transfert securise
     $mail->Host = "tls://smtp.gmail.com";;
     $mail->Port = 587;
-    $mail->Username = GMailUSER;
-    $mail->Password = GMailPWD;
+    $mail->Username = 'supersae59@gmail.com';
+    $mail->Password = 'jxvt dzqq saie yyhn';
     $mail->SetFrom($from, $from_name);
     $mail->Subject = $subject;
     $mail->Body = $body;
