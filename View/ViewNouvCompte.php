@@ -26,7 +26,7 @@
 
     <div class="princi-rectangle">
 
-        <form action="../Controler/controllerCreation.php" method="post">
+        <form action="../Controller/ControllerInscriptionEtu.php" method="post">
             <div class="nom-rectangle">
 
                 <input type="text" name="nom" class="input-nom" placeholder="Nom">

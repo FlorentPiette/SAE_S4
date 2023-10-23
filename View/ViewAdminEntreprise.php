@@ -58,8 +58,8 @@
     </div>
 
     <div class="rectangle-mid">
-        <form action="Controler/controlerBtnAjout.php" method="post">
-            <input name="btnAjoutEntreprise" class="btnAjoutEntreprise" type="submit" value="Ajouter une entreprise">
+        <form >
+            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button" > Ajouter une entreprise </button>
             <input name="btnAjoutOffre" class="btnAjoutOffre" type="submit" value="Ajouter une Offre">
         </form>
         <form method="post" action="">
