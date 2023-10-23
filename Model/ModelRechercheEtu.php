@@ -1,4 +1,24 @@
 <?php
+
+/**
+ * Rechercher des étudiants
+ *
+ * @param PDO $conn
+ * @param String $nom
+ * @param String $prenom
+ * @param String $ine
+ * @param String $formation
+ * @param String $adresse
+ * @param String $ville
+ * @param int $codePostal (5 caractères)
+ * @param int $codePostal (1 caractère)
+ * @param String $typeentreprise
+ * @param String $typedemission
+ * @param boolean $mobile
+ * @param boolean $actif
+ *
+ * @return json $roles_json
+ */
 function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typedemission,$mobile,$actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
