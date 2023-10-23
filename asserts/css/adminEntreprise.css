@@ -129,5 +129,25 @@
 
 }
 
+/* CSS pour afficher deux offres par ligne */
+ul#donneesOffre {
+    column-count: 2; /* Deux colonnes */
+    column-gap: 10px; /* Espace entre les colonnes */
+    list-style: none; /* Supprimer les puces de liste */
+}
+
+.offres-container {
+    max-height: 300px; /* Ajustez la hauteur maximale en pixels selon vos besoins */
+    overflow-y: auto; /* Barre de défilement verticale si nécessaire */
+}
+
+.offre {
+    display: inline-block;
+    width: 100%; /* Pour que chaque offre occupe 50% de la largeur */
+    margin-bottom: 6px;
+    border: 1px solid #ccc;
+    padding: 1px;
+}
+
 
 
