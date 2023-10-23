@@ -19,10 +19,14 @@ $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 
 
 if (authenticated($students, $email, $motDePasse)) {
-    header('Location: ../PageAccueil.php');
+    header('Location: ../View/ViewPageEtu.php');
     exit();
 } else {
     header('Location: ../View/ViewEtudiant.html');
+}
+
+if (isset($_POST['btnRetour'])){
+    header('Location: ../View/ViewConnexionEtu.html');
 }
 
 ob_end_flush();
