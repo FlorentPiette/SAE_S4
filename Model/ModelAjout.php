@@ -80,7 +80,7 @@ function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $sect
  * @return array $result
  */
 function ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role){
-    $req = "INSERT INTO Adminitrsation VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
+    $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $prenom, $formation, $email, $mdp, $role));
     $result = $req2->fetchAll(PDO::FETCH_ASSOC);

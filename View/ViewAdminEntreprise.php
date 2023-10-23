@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminEntreprise.css">
+
     <script>
         function afficherEntreprises() {
             document.getElementById("donneesEntreprise").style.display = "block";
@@ -58,9 +59,9 @@
     </div>
 
     <div class="rectangle-mid">
-        <form >
+        <form action="" method="post">
             <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button" > Ajouter une entreprise </button>
-            <input name="btnAjoutOffre" class="btnAjoutOffre" type="submit" value="Ajouter une Offre">
+            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button" > Ajouter une offre </button>
         </form>
         <form method="post" action="">
 
@@ -70,30 +71,94 @@
         </form>
 
         <!-- Affichez les données des offres par défaut -->
-        <ul id="donneesOffre">
+        <ul id="donneesOffre" class="offres-container">
             <?php
             session_start();
 
-            include '../Controller/ConnexionBDD.php';
-
-            $db = conn('localhost', 'td', 'emeline', 'root');
-
+            include '../Model/ConnexionBDD.php';
+            $db = Conn::getInstance();
 
 
-                // Effectuez une requête SQL pour récupérer les données des offres
-                $sql2 = "SELECT * FROM Offre";
-                $req2 = $db->prepare($sql2);
-                $req2->execute();
 
-                $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
-                foreach ($resultat2 as $res2): ?>
-                    <li>
-                        Nom : <?php echo $res2['nom']; ?><br>
-                        Domaine : <?php echo $res2['domaine']; ?><br>
-                        Mission : <?php echo $res2['mission']; ?><br>
-                        Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                    </li>
-                <?php endforeach;
+            // Effectuez une requête SQL pour récupérer les données des offres
+            $sql2 = "SELECT * FROM Offre";
+            $req2 = $db->prepare($sql2);
+            $req2->execute();
+
+            $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
+            $count = 0;
+            foreach ($resultat2 as $res2):
+                if ($count % 2 == 0) {
+                    echo '<li>';
+                }?>
+                <li class="offre">
+                    Nom : <?php echo $res2['nom']; ?><br>
+                    Domaine : <?php echo $res2['domaine']; ?><br>
+                    Mission : <?php echo $res2['mission']; ?><br>
+                    Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
+                    <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
+                    <form method="post" action="" enctype="multipart/form-data">
+                        <input type="file" name="fichier" accept=".pdf, .doc, .docx"> <!-- Permet d'accepter les fichiers PDF, DOC et DOCX -->
+                        <input type="submit" value="Déposer le fichier">
+                    </form>
+                    <br>
+
+                </li>
+                <?php if ($count % 2 == 1) {
+                echo '</li>';
+            }
+                $count++;
+            endforeach;
+
+            if ($count % 2 == 1) {
+                echo '</li>';
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_FILES['fichier'])) {
+                    $file = $_FILES['fichier'];
+
+                    if ($file['error'] === 0) {
+                        // Le téléchargement du fichier s'est bien déroulé.
+                        $uploadDir = 'dossier_de_stockage/'; // Répertoire de stockage des fichiers
+
+                        // Assurez-vous que le répertoire de stockage existe et est accessible en écriture.
+                        if (!is_dir($uploadDir)) {
+                            mkdir($uploadDir, 0777, true);
+                        }
+
+                        $fileName = $file['name'];
+                        $uploadPath = $uploadDir . $fileName;
+
+                        // Déplacez le fichier téléchargé vers le répertoire de stockage.
+                        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
+                            // Le fichier a été téléchargé avec succès.
+
+                            // Obtenez l'ID de l'offre à laquelle vous souhaitez associer le fichier (remplacez par votre propre logique pour obtenir l'ID de l'offre).
+                            $offreId = 1; // Remplacez ceci par l'ID de l'offre.
+
+                            // Maintenant, ajoutez les informations du fichier dans la table Postule.
+                            $nomFichier = $fileName;
+
+                            // Vous devez également obtenir l'ID de l'étudiant à partir de votre session ou d'autres méthodes, et remplacez '1' par l'ID de l'étudiant approprié.
+                            $etudiantId = 1; // Remplacez ceci par l'ID de l'étudiant.
+
+                            // Insérez le fichier téléchargé dans la table Postule.
+                            $sqlInsert = "INSERT INTO Postule (IdEtudiant, IdOfffre, cv) VALUES (?, ?, ?)";
+                            $stmt = $db->prepare($sqlInsert);
+                            $stmt->execute([$etudiantId, $offreId, file_get_contents($uploadPath)]);
+
+                            echo 'Fichier téléchargé et ajouté à la table Postule avec succès.';
+                        } else {
+                            echo 'Erreur lors du téléchargement du fichier.';
+                        }
+                    } else {
+                        echo 'Erreur lors du téléchargement du fichier.';
+                    }
+                }
+            }
+
+
 
             ?>
         </ul>
@@ -103,23 +168,24 @@
             <?php
 
 
-                $sql = "SELECT * FROM entreprise";
-                $req = $db->prepare($sql);
-                $req->execute();
+            $sql = "SELECT * FROM entreprise";
+            $req = $db->prepare($sql);
+            $req->execute();
 
-                $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
 
-                foreach ($resultat as $res): ?>
-                    <li>
-                        Nom : <?php echo $res['nom']; ?><br>
-                        Adresse : <?php echo $res['adresse']; ?><br>
-                        Ville : <?php echo $res['ville']; ?><br>
-                        Téléphone : <?php echo $res['numtel']; ?><br>
-                        Email : <?php echo $res['email']; ?><br>
-                        Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
-                    </li>
+            foreach ($resultat as $res): ?>
+                <li>
+                    Nom : <?php echo $res['nom']; ?><br>
+                    Adresse : <?php echo $res['adresse']; ?><br>
+                    Ville : <?php echo $res['ville']; ?><br>
+                    Téléphone : <?php echo $res['numtel']; ?><br>
+                    Email : <?php echo $res['email']; ?><br>
+                    Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
 
-                <?php endforeach;
+                </li>
+
+            <?php endforeach;
 
             ?>
         </ul>

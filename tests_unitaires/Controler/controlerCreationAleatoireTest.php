@@ -1,9 +1,9 @@
 <?php
 
 // il faut adapter ces 3 lignes de code pour que ça marche
-namespace src\phpunit_tests;
-use src\classes\controlerCreation;
-require "C:\Users\user1\PhpstormProjects\untitled1\src\classes\controlerCreation.php";
+//namespace src\phpunit_tests;
+//use src\classes\controlerCreation;
+require "SAE\controller\controllerCreation.php";
 
 use PHPUnit\Framework\TestCase;
 

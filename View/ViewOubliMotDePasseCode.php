@@ -5,7 +5,7 @@
     <title>Oubli Mot De Passe</title>
 </head>
 <body>
-<form action="../Controller/ControllerOubliMDPCode.php" method="POST">
+<form action="../Controller/ControllerReinistialiserMDP.php" method="POST">
     <ul>
         <li>
             <label for="code">Code de confirmation:</label>

@@ -1,6 +1,7 @@
 <?php
 
 include '../Model/ConnexionBDD.php';
+include '../Model/ModelAjout.php';
 $conn = Conn::getInstance();
 
 $nom = $_POST['nom'];
