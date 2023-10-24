@@ -27,11 +27,10 @@ function selectEmailMDPEtu($conn){
  */
 function authenticated ($students,$email,$motDePasse){
     foreach ($students as $student) {
-        if ($student['email'] === $email && password_verify($student['motdepasse'],$motDePasse)) {
-            $_SESSION['nom'] = $student['email'];
+        if ($student['email'] === $email && password_verify($motDePasse,$student['motdepasse'])) {
             return true;
         }
-        return false;
-    }
 
+    }
+    return false;
 }

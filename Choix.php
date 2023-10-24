@@ -28,7 +28,7 @@
         <div class="rec-administration">
             <form class="formulaireAdmin"  method="post">
 
-                <button type="button" onclick="window.location.href = 'View/ViewAvConnexionAdmin.php'" name="choixAdmin" class="btnAdmin"> Admin </button>
+                <button type="button" onclick="window.location.href = 'View/ViewEtudiant.html'" name="choixAdmin" class="btnAdmin"> Admin </button>
             </form>
         </div>
 

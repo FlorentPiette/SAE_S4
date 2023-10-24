@@ -16,7 +16,7 @@ if ($_POST['token'] && $_COOKIE['token']) {
         $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
         mdpEtu($conn,$token,$mdp);
         session_start();
-        $_SESSION["Etu"]= 1;
+        $_SESSION["Etu"] = true;
         header('location: ../View/ViewEtudiant.html');
     }
 } else {
