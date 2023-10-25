@@ -17,7 +17,7 @@
  * @param boolean $mobile
  * @param boolean $actif
  *
- * @return json $roles_json
+ * @return void
  */
 function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typedemission,$mobile,$actif)
 {
@@ -99,7 +99,7 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
     }
 
     if (!empty($codepostal)) {
-        $stmt->bindValue(':codepostal', "%codepostal%", PDO::PARAM_STR);
+        $stmt->bindValue(':codepostal', "%$codepostal%", PDO::PARAM_STR);
     }
 
     if (!empty($anneeetude)) {

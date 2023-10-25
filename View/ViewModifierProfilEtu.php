@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Modifier le profil de l'étudiant</title>
+        <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
     </head>
 
     <body>
