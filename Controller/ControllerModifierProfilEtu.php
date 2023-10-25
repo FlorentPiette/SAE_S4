@@ -4,7 +4,7 @@ include '../Model/ModelModifierProfilEtu.php';
 
 $conn = Conn::getInstance();
 
-$id = 5;
+$id = 1;
 $etu = selectEtudiant($conn, $id);
 
 include ("../View/ViewModifierProfilEtu.php");
@@ -67,4 +67,3 @@ if(isset($_POST["setActif"])){
     }
     header("Location: ControllerModifierProfilEtu.php");
 }
-?>

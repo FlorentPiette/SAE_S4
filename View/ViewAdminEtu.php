@@ -46,19 +46,69 @@
         <form
 
                 method="post">
-            <button name="btnAjoutEtu" onclick="window.location.href ='ViewAjoutEtudiant.html'" class="btnAjoutEtu" type="button" >  Ajouter </button>
+            <button name="btnAjoutEtu" onclick="window.location.href ='ViewAjoutEtudiant.php'" class="btnAjoutEtu" type="button" >  Ajouter </button>
         </form>
 
         <form id="rechercheForm">
-            <input type="text" name="nom" id="nom" placeholder="Nom">
-            <input type="text" name="prenom" id="prenom" placeholder="Prénom">
-            <input type="text" name="ine" id="ine" placeholder="INE">
-            <input type="text" name="ville" id="ville" placeholder="Ville">
-            <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
-            <input type="text" name="formation" id="formation" placeholder="Formation">
+            <label for="nomCheckbox">
+                <input type="checkbox" id="nomCheckbox"> Nom
+            </label>
+            <label for="prenomCheckbox">
+                <input type="checkbox" id="prenomCheckbox"> Prénom
+            </label>
+            <label for="ineCheckbox">
+                <input type="checkbox" id="ineCheckbox"> INE
+            </label>
+            <label for="villeCheckbox">
+                <input type="checkbox" id="villeCheckbox"> Ville
+            </label>
+            <label for="codepostalCheckbox">
+                <input type="checkbox" id="codepostalCheckbox"> Code Postal
+            </label>
+            <label for="formationCheckbox">
+                <input type="checkbox" id="formationCheckbox"> Formation
+            </label>
+            <label for="anneeEtudeCheckbox">
+                <input type="checkbox" id="anneeEtudeCheckbox"> Année d'étude
+            </label>
+            <label for="typeEntrepriseCheckbox">
+                <input type="checkbox" id="typeEntrepriseCheckbox"> Type d'entreprise
+            </label>
+            <label for="typeMissionCheckbox">
+                <input type="checkbox" id="typeMissionCheckbox"> Type de missions
+            </label>
+
+            <div id="nomDiv" style="display: none">
+                <input type="text" name="nom" id="nom" placeholder="Nom">
+            </div>
+            <div id="prenomDiv" style="display: none">
+                <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+            </div>
+            <div id="ineDiv" style="display: none">
+                <input type="text" name="ine" id="ine" placeholder="INE">
+            </div>
+            <div id="villeDiv" style="display: none">
+                <input type="text" name="ville" id="ville" placeholder="Ville">
+            </div>
+            <div id="codepostalDiv" style="display: none">
+                <input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
+            </div>
+            <div id="formationDiv" style="display: none">
+                <input type="text" name="formation" id="formation" placeholder="Formation">
+            </div>
+            <div id="anneeEtudeDiv" style="display: none">
+                <input type="number" name="anneeEtude" id="anneeEtude" placeholder="Année d'étude">
+            </div>
+            <div id="typeEntrepriseDiv" style="display: none">
+                <input type="text" name="typeEntreprise" id="typeEntreprise" placeholder="Type d'entreprise">
+            </div>
+            <div id="typeMissionDiv" style="display: none">
+                <input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
+            </div>
 
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">
         </form>
+
         <ul id="resultats" class="result">
             <!-- Les résultats seront affichés ici -->
         </ul>

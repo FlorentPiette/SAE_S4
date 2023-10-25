@@ -2,9 +2,12 @@ function rechercherEtudiants() {
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
+    var ville = document.getElementById('ville').value;
+    var codepostal = document.getElementById('codepostal').value;
+    var formation = document.getElementById('formation').value;
 
     console.log("reussis");
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine;
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine + '&ville=' + ville + '&codepostal=' + codepostal + '&formation=' + formation;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -49,3 +52,73 @@ function rechercherEtudiants() {
 
     xhr.send();
 }
+
+function afficherChamps() {
+    if (document.getElementById("nomCheckbox").checked) {
+        document.getElementById("nomDiv").style.display = "block";
+    } else {
+        document.getElementById("nomDiv").style.display = "none";
+    }
+
+    if (document.getElementById("prenomCheckbox").checked) {
+        document.getElementById("prenomDiv").style.display = "block";
+    } else {
+        document.getElementById("prenomDiv").style.display = "none";
+    }
+
+    if (document.getElementById("ineCheckbox").checked) {
+        document.getElementById("ineDiv").style.display = "block";
+    } else {
+        document.getElementById("ineDiv").style.display = "none";
+    }
+
+    if (document.getElementById("villeCheckbox").checked) {
+        document.getElementById("villeDiv").style.display = "block";
+    } else {
+        document.getElementById("villeDiv").style.display = "none";
+    }
+
+    if (document.getElementById("codepostalCheckbox").checked) {
+        document.getElementById("codepostalDiv").style.display = "block";
+    } else {
+        document.getElementById("codepostalDiv").style.display = "none";
+    }
+
+    if (document.getElementById("formationCheckbox").checked) {
+        document.getElementById("formationDiv").style.display = "block";
+    } else {
+        document.getElementById("formationDiv").style.display = "none";
+    }
+
+    if (document.getElementById("anneeEtudeCheckbox").checked) {
+        document.getElementById("anneeEtudeDiv").style.display = "block";
+    } else {
+        document.getElementById("anneeEtudeDiv").style.display = "none";
+    }
+
+    if (document.getElementById("typeEntrepriseCheckbox").checked) {
+        document.getElementById("typeEntrepriseDiv").style.display = "block";
+    } else {
+        document.getElementById("typeEntrepriseDiv").style.display = "none";
+    }
+
+    if (document.getElementById("typeMissionCheckbox").checked) {
+        document.getElementById("typeMissionDiv").style.display = "block";
+    } else {
+        document.getElementById("typeMissionDiv").style.display = "none";
+    }
+}
+
+// Écouteurs d'événements pour les cases à cocher
+document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("prenomCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("ineCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("formationCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
+
+// Appeler la fonction initiale pour masquer tous les champs au chargement de la page
+afficherChamps();
