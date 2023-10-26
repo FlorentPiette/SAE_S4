@@ -10,14 +10,14 @@ class testModelAjout extends TestCase {
             "testNom",
             "testPrenom",
             "testFormation",
-            "test@email.com",
+            "test@gmail.com",
             "testMotdepasse",
             "testRole"
         );
         self::assertIsArray($result);
     }
     function testSelectEtuWhereEmail() {
-        $result = selectEtuWhereEmail(Conn::getInstance(), "test@email.com");
+        $result = selectEtuWhereEmail(Conn::getInstance(), "test@gmail.com");
         self::assertIsArray($result);
     }
 }
