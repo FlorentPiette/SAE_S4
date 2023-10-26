@@ -77,6 +77,11 @@
             <label for="typeMissionCheckbox">
                 <input type="checkbox" id="typeMissionCheckbox"> Type de missions
             </label>
+            <label for="mobile">
+                <input type="checkbox" id="mobileCheckbox"> Mobile
+            </label>
+
+
 
             <div id="nomDiv" style="display: none">
                 <input type="text" name="nom" id="nom" placeholder="Nom">
@@ -104,6 +109,12 @@
             </div>
             <div id="typeMissionDiv" style="display: none">
                 <input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
+            </div>
+            <div id="mobileDiv" style="display: none">
+                <label for="mobile">
+                    <input type="checkbox" name="mobile" id="mobileCheckbox"> Mobile
+                    <input type="checkbox" name="nonmobile" id="nonmobileCheckbox"> Non Mobile
+                </label>
             </div>
 
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">

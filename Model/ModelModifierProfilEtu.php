@@ -191,6 +191,20 @@ function selectEtudiant($conn, $id){
 }
 
 /**
+ * Modifier dans la base de donnée, le statut mobile de l'étudiant ayant cet id
+ *
+ * @param PDO $conn
+ * @param int $id
+ *
+ * @return void
+ */
+function updateMobile($conn, $mobile, $id){
+    $req = "UPDATE etudiant SET mobile = ? WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($mobile, $id));
+}
+
+/**
  * Définir dans la base de donnée, le statut actif de l'étudiant ayant cet id
  *
  * @param PDO $conn

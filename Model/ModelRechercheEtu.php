@@ -13,13 +13,13 @@
  * @param int $codePostal (5 caractères)
  * @param int $codePostal (1 caractère)
  * @param String $typeentreprise
- * @param String $typedemission
+ * @param String $typemission
  * @param boolean $mobile
  * @param boolean $actif
  *
  * @return void
  */
-function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typedemission,$mobile,$actif)
+function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typemission,$mobile,$actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
 
@@ -59,16 +59,16 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
         $sql .= " AND typeentreprise ILIKE :typeentreprise";
     }
 
-    if (!empty($typedemission)) {
-        $sql .= " AND typedemission ILIKE :typedemission";
+    if (!empty($typemission)) {
+        $sql .= " AND typemission ILIKE :typemission";
     }
 
     if (!empty($mobile)) {
-        $sql .= " AND mobile ILIKE :mobile";
+        $sql .= " AND mobile = :mobile";
     }
 
     if (!empty($actif)) {
-        $sql .= " AND actif ILIKE :actif";
+        $sql .= " AND actif = :actif";
     }
 
 // Préparer et exécuter la requête
@@ -111,7 +111,7 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
     }
 
     if (!empty($typedemission)) {
-        $stmt->bindValue(':typedemission', "%$typedemission%", PDO::PARAM_STR);
+        $stmt->bindValue(':typemission', "%$typemission%", PDO::PARAM_STR);
     }
 
     if (!empty($mobile)) {
