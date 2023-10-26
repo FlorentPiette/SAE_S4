@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class testModelConnexion extends TestCase {
     function testselectEmailMDPRoleAdmin() {
-        $result = selectEmailMDPRoleAdmin(Conn::getInstance(), "test@email.com");
+        $result = selectEmailMDPRoleAdmin(Conn::getInstance(), "test@gmail.com");
         self::assertIsArray($result);
     }
 }
