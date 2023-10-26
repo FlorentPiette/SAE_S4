@@ -58,6 +58,18 @@ if (isset($_POST['modifier_email'])){
     header("Location: ControllerModifierProfilEtu.php");
 }
 
+if (isset($_POST['modifier_typeentreprise'])){
+    $typeentreprise = $_POST['nouveau_typeentreprise'];
+    updateTypeEntrepriseEtu($conn, $typeentreprise, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
+if (isset($_POST['modifier_typemission'])){
+    $typemission = $_POST['nouveau_typemission'];
+    updateTypeMissionEtu($conn, $typemission, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
 if(isset($_POST["setActif"])){
     if (isset($_POST['actif'])){
         updateActif($conn, $id);

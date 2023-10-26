@@ -58,6 +58,18 @@
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Type d'entreprises recherchées : </label>
+            <input type="text" name="nouveau_typeentreprise" value="<?= $etu['typeentreprise'] ?>">
+            <input type="submit" name="modifier_typeentreprise" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Type de missions recherchées : </label>
+            <input type="text" name="nouveau_typemission" value="<?= $etu['typemission'] ?>">
+            <input type="submit" name="modifier_typemission" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
             <label> Actif : </label>
             <input type="checkbox" name="actif" id="actif" value="actif" <?php if ($etu['actif']) echo 'checked'; ?>>
             <input type="submit" name="setActif" value="Modifier">

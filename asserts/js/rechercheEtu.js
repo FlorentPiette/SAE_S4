@@ -120,5 +120,4 @@ document.getElementById("anneeEtudeCheckbox").addEventListener("change", affiche
 document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
 
-// Appeler la fonction initiale pour masquer tous les champs au chargement de la page
 afficherChamps();

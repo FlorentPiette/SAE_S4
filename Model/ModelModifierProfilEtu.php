@@ -143,6 +143,37 @@ function updateEmailEtu($conn, $email, $id){
 }
 
 /**
+ * Modifier dans la base de donnée le type d'entreprises que l'étudiant ayant cet id recherche
+ *
+ * @param PDO $conn
+ * @param int $id
+ * @param String $typeentreprise
+ *
+ * @return void
+ */
+function updateTypeEntrepriseEtu($conn, $typeentreprise, $id){
+    $req = "UPDATE etudiant SET typeentreprise = ? WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($typeentreprise, $id));
+}
+
+/**
+ * Modifier dans la base de donnée le type de missions que l'étudiant ayant cet id recherche
+ *
+ * @param PDO $conn
+ * @param int $id
+ * @param String $typemission
+ *
+ * @return void
+ */
+
+function updateTypeMissionEtu($conn, $typemission, $id){
+    $req = "UPDATE etudiant SET typemission = ? WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($typemission, $id));
+}
+
+/**
  * Récupérer tous les informations de l'étudiant ayant cet id
  *
  * @param PDO $conn

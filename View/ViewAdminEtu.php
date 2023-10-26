@@ -119,7 +119,5 @@
 
 <script src="../asserts/js/rechercheEtu.js"></script>
 
-
-
 </body>
 </html>
