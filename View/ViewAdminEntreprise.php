@@ -69,6 +69,7 @@
                 <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
 
             </form>
+            <!--
             <form id="rechercheOffre">
                 <label for="nomCheckbox">
                     <input type="checkbox" id="nomCheckbox"> Nom
@@ -102,11 +103,10 @@
             </form>
 
             <ul id="resultatsOffre" class="result">
-                <!-- Les résultats seront affichés ici -->
             </ul>
-            <!-- Affichage des résultats -->
 
             <script src="../asserts/js/rechercheOffre.js"></script>
+            -->
 
             <!-- Affichez les données des offres par défaut -->
             <ul id="donneesOffre" class="offres-container">
