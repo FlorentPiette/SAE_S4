@@ -8,12 +8,16 @@ function rechercherEtudiants() {
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-    var mobile = document.getElementById("mobile").checked;
-
-    if (mobile) {
-        mobile = true;
-    } else {
-        mobile = false;
+    if(document.getElementById("mobileCheckbox").checked){
+        var mobile = document.getElementById("mobile").checked;
+        if (mobile) {
+            mobile = true;
+        } else {
+            mobile = false;
+        }
+    }
+    else{
+        var mobile = "";
     }
 
     console.log("Nom: " + nom);
@@ -49,6 +53,7 @@ function rechercherEtudiants() {
                             resultatsHTML += 'Nom : ' + (etudiant.nom || '') + '<br>';
                             resultatsHTML += 'Prénom : ' + (etudiant.prenom || '') + '<br>';
                             resultatsHTML += 'INE : ' + (etudiant.ine || '') + '<br>';
+                            resultatsHTML += 'Adresse email : ' + (etudiant.email || '') + '<br>';
                             resultatsHTML += 'Formation : ' + (etudiant.formation || '') + '<br>';
                             resultatsHTML += 'Adresse : ' + (etudiant.adresse || '') + '<br>';
                             resultatsHTML += 'Ville : ' + (etudiant.ville || '') + '<br>';
