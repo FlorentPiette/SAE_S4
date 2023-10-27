@@ -7,7 +7,7 @@
  * @param String $nom
  * @param String $domaine
  * @param String $mission
- * @param String $nbetudiant
+ * @param int $nbetudiant
  *
  * @return void
  */
@@ -28,7 +28,7 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
     }
 
     if (!empty($nbetudiant)) {
-        $sql .= " AND nbetudiant ILIKE :nbetudiant";
+        $sql .= " AND nbetudiant = :nbetudiant";
     }
 
     $req = $conn->prepare($sql);
@@ -46,7 +46,7 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
     }
 
     if (!empty($nbetudiant)) {
-        $req->bindValue(':nbetudiant', "%$nbetudiant%", PDO::PARAM_STR);
+        $req->bindValue(':nbetudiant', $nbetudiant, PDO::PARAM_INT);
     }
 
     if ($req->execute()) {
