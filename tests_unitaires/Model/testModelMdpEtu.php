@@ -10,5 +10,6 @@ class testModelMdpEtu extends TestCase {
             Conn::getInstance(),
             "test@gmail.com"
         );
+        self::assertIsString($result);
     }
 }
