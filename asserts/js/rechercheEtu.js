@@ -5,9 +5,33 @@ function rechercherEtudiants() {
     var ville = document.getElementById('ville').value;
     var codepostal = document.getElementById('codepostal').value;
     var formation = document.getElementById('formation').value;
+    var anneeEtude = document.getElementById('anneeEtude').value;
+    var typeEntreprise = document.getElementById("typeEntreprise").value;
+    var typeMission = document.getElementById("typeMission").value;
+    var mobile = document.getElementById("mobile").checked;
 
+    if (mobile) {
+        mobile = true;
+    } else {
+        mobile = false;
+    }
+
+    console.log("Nom: " + nom);
+    console.log("Prénom: " + prenom);
+    console.log("Année d'étude: " + anneeEtude);
+    console.log("Mobile: " + mobile);
     console.log("reussis");
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine + '&ville=' + ville + '&codepostal=' + codepostal + '&formation=' + formation;
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
+        '&nom=' + nom +
+        '&prenom=' + prenom +
+        '&ine=' + ine +
+        '&ville=' + ville +
+        '&codepostal=' + codepostal +
+        '&formation=' + formation +
+        '&typeEntreprise=' + typeEntreprise +
+        '&typeMission=' + typeMission +
+        '&anneeEtude=' + (anneeEtude !== '' ? parseInt(anneeEtude) : '') +
+        '&mobile=' + mobile;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -31,7 +55,7 @@ function rechercherEtudiants() {
                             resultatsHTML += 'Code Postal : ' + (etudiant.codepostal || '') + '<br>';
                             resultatsHTML += 'Année d`étude : ' + (etudiant.anneeetude || '') + '<br>';
                             resultatsHTML += 'Type d`entreprise : ' + (etudiant.typeentreprise || '') + '<br>';
-                            resultatsHTML += 'Type de mission : ' + (etudiant.typedemission || '') + '<br>';
+                            resultatsHTML += 'Type de mission : ' + (etudiant.typemission || '') + '<br>';
                             resultatsHTML += 'Mobile : ' + (etudiant.mobile || '') + '<br>';
                             resultatsHTML += 'Actif : ' + (etudiant.actif || '') + '<br>';
                             resultatsHTML += '</li>';
@@ -107,6 +131,12 @@ function afficherChamps() {
     } else {
         document.getElementById("typeMissionDiv").style.display = "none";
     }
+
+    if (document.getElementById("mobileCheckbox").checked) {
+        document.getElementById("mobileDiv").style.display = "block";
+    } else {
+        document.getElementById("mobileDiv").style.display = "none";
+    }
 }
 
 // Écouteurs d'événements pour les cases à cocher
@@ -119,5 +149,6 @@ document.getElementById("formationCheckbox").addEventListener("change", afficher
 document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("mobileCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();
