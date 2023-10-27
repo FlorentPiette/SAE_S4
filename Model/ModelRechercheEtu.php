@@ -10,16 +10,16 @@
  * @param String $formation
  * @param String $adresse
  * @param String $ville
- * @param int $codePostal (5 caractères)
- * @param int $codePostal (1 caractère)
- * @param String $typeentreprise
- * @param String $typemission
+ * @param String $codePostal
+ * @param int $anneeEtude
+ * @param String $typeEntreprise
+ * @param String $typeMission
  * @param boolean $mobile
  * @param boolean $actif
  *
  * @return void
  */
-function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typemission,$mobile,$actif)
+function RecherEtu($conn, $nom, $prenom, $ine, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
 
@@ -47,20 +47,20 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
         $sql .= " AND ville ILIKE :ville";
     }
 
-    if (!empty($codepostal)) {
-        $sql .= " AND codepostal ILIKE :codepostal";
+    if (!empty($codePostal)) {
+        $sql .= " AND codepostal ILIKE :codePostal";
     }
 
-    if (!empty($anneeetude)) {
-        $sql .= " AND anneeetude ILIKE :anneeetude";
+    if (!empty($anneeEtude)) {
+        $sql .= " AND anneeetude = :anneeEtude";
     }
 
-    if (!empty($typeentreprise)) {
-        $sql .= " AND typeentreprise ILIKE :typeentreprise";
+    if (!empty($typeEntreprise)) {
+        $sql .= " AND typeentreprise ILIKE :typeEntreprise";
     }
 
-    if (!empty($typemission)) {
-        $sql .= " AND typemission ILIKE :typemission";
+    if (!empty($typeMission)) {
+        $sql .= " AND typemission ILIKE :typeMission";
     }
 
     if (!empty($mobile)) {
@@ -71,7 +71,7 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
         $sql .= " AND actif = :actif";
     }
 
-// Préparer et exécuter la requête
+    // Préparer et exécuter la requête
     $stmt = $conn->prepare($sql);
 
     if (!empty($nom)) {
@@ -98,28 +98,28 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
         $stmt->bindValue(':ville', "%$ville%", PDO::PARAM_STR);
     }
 
-    if (!empty($codepostal)) {
-        $stmt->bindValue(':codepostal', "%$codepostal%", PDO::PARAM_STR);
+    if (!empty($codePostal)) {
+        $stmt->bindValue(':codePostal', "%$codePostal%", PDO::PARAM_STR);
     }
 
-    if (!empty($anneeetude)) {
-        $stmt->bindValue(':anneeetude', "%$anneeetude%", PDO::PARAM_STR);
+    if (!empty($anneeEtude)) {
+        $stmt->bindValue(':anneeEtude', $anneeEtude, PDO::PARAM_INT);
     }
 
-    if (!empty($typeentreprise)) {
-        $stmt->bindValue(':typeentreprise', "%$typeentreprise%", PDO::PARAM_STR);
+    if (!empty($typeEntreprise)) {
+        $stmt->bindValue(':typeEntreprise', "%$typeEntreprise%", PDO::PARAM_STR);
     }
 
-    if (!empty($typedemission)) {
-        $stmt->bindValue(':typemission', "%$typemission%", PDO::PARAM_STR);
+    if (!empty($typeMission)) {
+        $stmt->bindValue(':typeMission', "%$typeMission%", PDO::PARAM_STR);
     }
 
     if (!empty($mobile)) {
-        $stmt->bindValue(':mobile', "%$mobile%", PDO::PARAM_STR);
+        $stmt->bindValue(':mobile', $mobile, PDO::PARAM_BOOL);
     }
 
     if (!empty($actif)) {
-        $stmt->bindValue(':actif', "%$actif%", PDO::PARAM_STR);
+        $stmt->bindValue(':actif', $actif, PDO::PARAM_BOOL);
     }
 
     if ($stmt->execute()) {
@@ -135,4 +135,3 @@ function RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codeposta
         echo json_encode([]);
     }
 }
-?>

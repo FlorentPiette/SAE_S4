@@ -5,11 +5,34 @@ function rechercherEtudiants() {
     var ville = document.getElementById('ville').value;
     var codepostal = document.getElementById('codepostal').value;
     var formation = document.getElementById('formation').value;
+    var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
+    var mobile = document.getElementById("mobile").checked;
 
+    if (mobile) {
+        mobile = true;
+    } else {
+        mobile = false;
+    }
+
+    console.log("Nom: " + nom);
+    console.log("Prénom: " + prenom);
+    console.log("Année d'étude: " + anneeEtude);
+    console.log("Mobile: " + mobile);
     console.log("reussis");
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom + '&prenom=' + prenom + '&ine=' + ine + '&ville=' + ville + '&codepostal=' + codepostal + '&formation=' + formation + '&typeEntreprise=' + typeEntreprise + '&typeMission=' + typeMission;
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
+        '&nom=' + nom +
+        '&prenom=' + prenom +
+        '&ine=' + ine +
+        '&ville=' + ville +
+        '&codepostal=' + codepostal +
+        '&formation=' + formation +
+        '&typeEntreprise=' + typeEntreprise +
+        '&typeMission=' + typeMission +
+        '&anneeEtude=' + (anneeEtude !== '' ? parseInt(anneeEtude) : '') +
+        '&mobile=' + mobile;
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
     xhr.onreadystatechange = function () {

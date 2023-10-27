@@ -199,9 +199,14 @@ function selectEtudiant($conn, $id){
  * @return void
  */
 function updateMobile($conn, $mobile, $id){
-    $req = "UPDATE etudiant SET mobile = ? WHERE idEtudiant = ?";
+    if($mobile == true){
+        $req = "UPDATE etudiant SET mobile = TRUE WHERE idEtudiant = ?";
+    }
+    else{
+        $req = "UPDATE etudiant SET mobile = FALSE WHERE idEtudiant = ?";
+    }
     $req2 = $conn->prepare($req);
-    $req2->execute(array($mobile, $id));
+    $req2->execute(array($id));
 }
 
 /**

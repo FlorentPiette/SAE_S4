@@ -70,6 +70,17 @@ if (isset($_POST['modifier_typemission'])){
     header("Location: ControllerModifierProfilEtu.php");
 }
 
+if (isset($_POST['modifier_mobile'])){
+    if (isset($_POST['mobile'])){
+        $mobile = true;
+    }
+    else{
+        $mobile = false;
+    }
+    updateMobile($conn, $mobile, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
 if(isset($_POST["setActif"])){
     if (isset($_POST['actif'])){
         updateActif($conn, $id);

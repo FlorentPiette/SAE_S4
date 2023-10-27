@@ -112,8 +112,7 @@
             </div>
             <div id="mobileDiv" style="display: none">
                 <label for="mobile">
-                    <input type="checkbox" name="mobile" id="mobileCheckbox"> Mobile
-                    <input type="checkbox" name="nonmobile" id="nonmobileCheckbox"> Non Mobile
+                    <input type="checkbox" name="mobile" id="mobile"> Mobile
                 </label>
             </div>
 

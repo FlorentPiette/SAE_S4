@@ -70,6 +70,12 @@
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Mobile : </label>
+            <input type="checkbox" name="mobile" id="mobile" value="mobile" <?php if ($etu['mobile']) echo 'checked'; ?>>
+            <input type="submit" name="modifier_mobile" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
             <label> Actif : </label>
             <input type="checkbox" name="actif" id="actif" value="actif" <?php if ($etu['actif']) echo 'checked'; ?>>
             <input type="submit" name="setActif" value="Modifier">
