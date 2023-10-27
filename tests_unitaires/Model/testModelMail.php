@@ -7,5 +7,6 @@ use PHPUnit\Framework\TestCase;
 class testModelMail extends TestCase {
     function testEnvoieMail() {
         $result = envoieMail();
+        self::assertIsBool($result);
     }
 }
