@@ -1,6 +1,7 @@
 <?php
 
-require "Model\ModelAdminBtnRole.php";
+require "..\..\Model\ConnexionBDD.php ";
+require "..\..\Model\ModelAdminBtnRole.php";
 use PHPUnit\Framework\TestCase;
 
 class ModelAdminBtnRoleTest extends TestCase {

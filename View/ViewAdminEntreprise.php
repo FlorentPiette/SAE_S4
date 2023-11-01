@@ -7,6 +7,12 @@ include '../Controller/ControllerVerificationDroit.php';
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminEntreprise.css">
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Admin</title>
+        <link rel="stylesheet" type="text/css" href="/asserts/css/adminEntreprise.css">
 
     <script>
         function afficherEntreprises() {

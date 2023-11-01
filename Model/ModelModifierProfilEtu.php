@@ -143,6 +143,37 @@ function updateEmailEtu($conn, $email, $id){
 }
 
 /**
+ * Modifier dans la base de donnée le type d'entreprises que l'étudiant ayant cet id recherche
+ *
+ * @param PDO $conn
+ * @param int $id
+ * @param String $typeentreprise
+ *
+ * @return void
+ */
+function updateTypeEntrepriseEtu($conn, $typeentreprise, $id){
+    $req = "UPDATE etudiant SET typeentreprise = ? WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($typeentreprise, $id));
+}
+
+/**
+ * Modifier dans la base de donnée le type de missions que l'étudiant ayant cet id recherche
+ *
+ * @param PDO $conn
+ * @param int $id
+ * @param String $typemission
+ *
+ * @return void
+ */
+
+function updateTypeMissionEtu($conn, $typemission, $id){
+    $req = "UPDATE etudiant SET typemission = ? WHERE idEtudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($typemission, $id));
+}
+
+/**
  * Récupérer tous les informations de l'étudiant ayant cet id
  *
  * @param PDO $conn
@@ -157,6 +188,25 @@ function selectEtudiant($conn, $id){
     $result = $req2->fetch(PDO::FETCH_ASSOC);
 
     return $result;
+}
+
+/**
+ * Modifier dans la base de donnée, le statut mobile de l'étudiant ayant cet id
+ *
+ * @param PDO $conn
+ * @param int $id
+ *
+ * @return void
+ */
+function updateMobile($conn, $mobile, $id){
+    if($mobile == true){
+        $req = "UPDATE etudiant SET mobile = TRUE WHERE idEtudiant = ?";
+    }
+    else{
+        $req = "UPDATE etudiant SET mobile = FALSE WHERE idEtudiant = ?";
+    }
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($id));
 }
 
 /**

@@ -11,12 +11,12 @@ $formation = $_GET['formation'] ?? '';
 $adresse = $_GET['adresse'] ?? '';
 $ville = $_GET['ville'] ?? '';
 $codepostal = $_GET['codepostal'] ?? '';
-$anneeetude = $_GET['anneeetude'] ?? '';
-$typeentreprise = $_GET['typeentreprise'] ?? '';
-$typedemission = $_GET['typedemission'] ?? '';
+$anneeetude = $_GET['anneeEtude'] ?? '';
+$typeentreprise = $_GET['typeEntreprise'] ?? '';
+$typemission = $_GET['typeMission'] ?? '';
 $mobile = $_GET['mobile'] ?? '';
 $actif = $_GET['actif'] ?? '';
 
-RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typedemission,$mobile,$actif)
+RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typemission,$mobile,$actif)
 
 ?>

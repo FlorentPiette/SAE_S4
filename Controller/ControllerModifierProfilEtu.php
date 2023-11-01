@@ -4,7 +4,7 @@ include '../Model/ModelModifierProfilEtu.php';
 
 $conn = Conn::getInstance();
 
-$id = 5;
+$id = 1;
 $etu = selectEtudiant($conn, $id);
 
 include ("../View/ViewModifierProfilEtu.php");
@@ -58,6 +58,29 @@ if (isset($_POST['modifier_email'])){
     header("Location: ControllerModifierProfilEtu.php");
 }
 
+if (isset($_POST['modifier_typeentreprise'])){
+    $typeentreprise = $_POST['nouveau_typeentreprise'];
+    updateTypeEntrepriseEtu($conn, $typeentreprise, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
+if (isset($_POST['modifier_typemission'])){
+    $typemission = $_POST['nouveau_typemission'];
+    updateTypeMissionEtu($conn, $typemission, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
+if (isset($_POST['modifier_mobile'])){
+    if (isset($_POST['mobile'])){
+        $mobile = true;
+    }
+    else{
+        $mobile = false;
+    }
+    updateMobile($conn, $mobile, $id);
+    header("Location: ControllerModifierProfilEtu.php");
+}
+
 if(isset($_POST["setActif"])){
     if (isset($_POST['actif'])){
         updateActif($conn, $id);
@@ -67,4 +90,3 @@ if(isset($_POST["setActif"])){
     }
     header("Location: ControllerModifierProfilEtu.php");
 }
-?>

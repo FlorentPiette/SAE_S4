@@ -4,7 +4,7 @@ include '../Controller/ControllerVerificationDroit.php';
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Modifier le profil de l'étudiant</title>
+        <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
     </head>
 
     <body>
@@ -58,6 +58,24 @@ include '../Controller/ControllerVerificationDroit.php';
             <label> Email : </label>
             <input type="email" name="nouvel_email" value="<?= $etu['email'] ?>">
             <input type="submit" name="modifier_email" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Type d'entreprises recherchées : </label>
+            <input type="text" name="nouveau_typeentreprise" value="<?= $etu['typeentreprise'] ?>">
+            <input type="submit" name="modifier_typeentreprise" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Type de missions recherchées : </label>
+            <input type="text" name="nouveau_typemission" value="<?= $etu['typemission'] ?>">
+            <input type="submit" name="modifier_typemission" value="Modifier">
+        </form>
+
+        <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+            <label> Mobile : </label>
+            <input type="checkbox" name="mobile" id="mobile" value="mobile" <?php if ($etu['mobile']) echo 'checked'; ?>>
+            <input type="submit" name="modifier_mobile" value="Modifier">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php">

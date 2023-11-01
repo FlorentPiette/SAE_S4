@@ -57,6 +57,18 @@ include '../Controller/ControllerVerificationDroit.php';
                     <label for="mdp">Mot de passe:</label>
                     <input type="password" id="mdp" name="mdp" />
                 </li>
+                <li>
+                    <label for="entreprise">Type d'entreprises recherchées:</label>
+                    <input type="text" id="entreprise" name="entreprise" />
+                </li>
+                <li>
+                    <label for="mission">Type de missions recherchées:</label>
+                    <input type="text" id="mission" name="mission" />
+                </li>
+                <li>
+                    <label for="mobile">Etudiant mobile:</label>
+                    <input type="checkbox" id="mobile" name="mobile" />
+                </li>
             </ul>
 
             <div class="button">
