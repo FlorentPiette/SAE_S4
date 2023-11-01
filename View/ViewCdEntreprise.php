@@ -1,3 +1,6 @@
+<?php
+include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,7 +68,7 @@
         <!-- Affichez les données des offres par défaut -->
         <ul id="donneesOffre">
             <?php
-            session_start();
+
 
             $host = "localhost";
             $dbname = "postgres";

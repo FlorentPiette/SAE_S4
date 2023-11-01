@@ -8,7 +8,6 @@ session_start();
 
 $essaiMaximal = 1;
 
-
 $conn = Conn::getInstance();
 
 if (!isset($_SESSION['essai'])) {
@@ -17,10 +16,7 @@ if (!isset($_SESSION['essai'])) {
 
 $essaiMaximal = 3;
 
-
 attente($essaiMaximal);
-
-
 
 // Supprimer les balises HTML et PHP des données postées
 $email = htmlspecialchars($_POST['Email'], ENT_QUOTES, 'UTF-8');
@@ -29,29 +25,26 @@ $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-
 $users = selectEmailMDPEtu($conn,$email);
 
 if ($users){
     if (authenticatedEtu($users, $email, $motDePasse)){
-        $_SESSION['Etu'] = true;
-        header("location: ../View/ViewPageEtu.html");
+        $_SESSION['etu'] = true;
+        header("location: ../View/ViewPageEtudiant.php");
     } else {
         $_SESSION['essai'] ++;
-        header('location: ../View/ViewEtudiant.html');
+        header('location: ../View/ViewConnexion.html');
     }
 
 }
 $users = selectEmailMDPRoleAdmin($conn,$email);
 if ($users) {
     if (authenticatedAdmin($users, $email, $motDePasse)) {
-        $_SESSION['admin'] = true;
+        $_SESSION['administration'] = true;
         role($users);
-
     } else {
         $_SESSION['essai']++;
-        header('location: ../View/ViewEtudiant.html');
-
+        header('location: ../View/ViewConnexion.html');
     }
 }
 

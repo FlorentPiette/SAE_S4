@@ -21,14 +21,14 @@
         <div class="rec-etudiant">
             <form class="formulaireEtu"  method="post">
 
-                <button type="button" onclick="window.location.href = 'View/ViewConnexionEtu.html'" name="choixEtudiant" class="btnEtu"> Etudiant </button>
+                <button type="button" onclick="window.location.href = 'View/ViewAvConnexion.html'" name="choixEtudiant" class="btnEtu"> Etudiant </button>
             </form>
         </div>
 
         <div class="rec-administration">
             <form class="formulaireAdmin"  method="post">
 
-                <button type="button" onclick="window.location.href = 'View/ViewEtudiant.html'" name="choixAdmin" class="btnAdmin"> Admin </button>
+                <button type="button" onclick="window.location.href = 'View/ViewConnexion.html'" name="choixAdmin" class="btnAdmin"> Admin </button>
             </form>
         </div>
 

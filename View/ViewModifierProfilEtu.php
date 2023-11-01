@@ -1,3 +1,6 @@
+<?php
+include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html>
     <head>

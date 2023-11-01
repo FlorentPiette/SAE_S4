@@ -17,7 +17,7 @@ if ($_POST['token'] && $_COOKIE['token']) {
         mdpEtu($conn,$token,$mdp);
         session_start();
         $_SESSION["Etu"] = true;
-        header('location: ../View/ViewEtudiant.html');
+        header('location: ../View/ViewConnexion.html');
     }
 } else {
     // Gestion des erreurs si le token est manquant
