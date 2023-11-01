@@ -1,12 +1,12 @@
 <?php
-
+include '../Controller/ControllerVerificationDroit.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Chargé de Développement</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cdmain.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/CdMain.css">
 </head>
 <body class="body">
 
@@ -26,7 +26,7 @@
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
+            <img src="../asserts/img/logo.png" class="logo" alt="">
         </div>
     </div>
 </header>
