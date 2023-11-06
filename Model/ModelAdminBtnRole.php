@@ -3,7 +3,7 @@
 /**
  * Récupérer les données d'un rôle au format json
  *
- * @param String $role
+ * @param String $role sert à selectionner le rôle pour lequel on veut les données
  *
  * @return json $roles_json
  */

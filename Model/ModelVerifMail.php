@@ -3,8 +3,8 @@
 /**
  * Récuperer de la base de donnée, le code de confirmation de l'étudiant qui a cette adresse email
  *
- * @param PDO $conn
- * @param String $email
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $email sert à rechercher l'étudiant ayant cette adresse email
  *
  * @return array $result
  */

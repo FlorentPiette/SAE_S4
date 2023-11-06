@@ -3,23 +3,24 @@
 /**
  * Rechercher des étudiants
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $prenom
- * @param String $ine
- * @param String $formation
- * @param String $adresse
- * @param String $ville
- * @param String $codePostal
- * @param int $anneeEtude
- * @param String $typeEntreprise
- * @param String $typeMission
- * @param boolean $mobile
- * @param boolean $actif
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à rechercher les étudiants ayant ce nom
+ * @param String $prenom sert à rechercher les étudiants ayant ce prénom
+ * @param String $ine sert à rechercher les étudiants ayant cet INE
+ * @param String $email sert à rechercher l'étudiant ayant cette email
+ * @param String $formation sert à rechercher les étudiants inscrits dans cette formation
+ * @param String $adresse sert à rechercher les étudiants habitant à cette adresse
+ * @param String $ville sert à rechercher les étudiants habitant dans cette ville
+ * @param String $codePostal sert à rechercher l'étudiant ayant ce code postal
+ * @param int $anneeEtude sert à rechercher les étudiants inscrits dans cette année d'étude
+ * @param String $typeEntreprise sert à rechercher les étudiants recherchant ce type d'entreprise
+ * @param String $typeMission sert à rechercher les étudiants recherchant ce type de mission
+ * @param boolean $mobile sert à rechercher les étudiants étant mobile ou non
+ * @param boolean $actif sert à rechercher les étudiants étant actif ou non
  *
  * @return void
  */
-function RecherEtu($conn, $nom, $prenom, $ine, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
+function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
 
@@ -33,6 +34,10 @@ function RecherEtu($conn, $nom, $prenom, $ine, $formation, $adresse, $ville, $co
 
     if (!empty($ine)) {
         $sql .= " AND ine ILIKE :ine";
+    }
+
+    if (!empty($email)) {
+        $sql .= " AND ine ILIKE :email";
     }
 
     if (!empty($formation)) {

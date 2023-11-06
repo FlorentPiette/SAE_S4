@@ -3,7 +3,7 @@
 /**
  * Récuperer de la base de donnée, les email, mot de passes et roles de toutes les personnes de l'administration
  *
- * @param PDO $conn
+ * @param PDO $conn sert à se connecter à la base de donnée
  *
  * @return array $result
  */
@@ -19,9 +19,9 @@ function selectEmailMDPRoleAdmin($conn){
 /**
  * Vérifier si les identifiants correspondent à une personne de la base de donnée et rediriger vers la bonne page selon le role
  *
- * @param array $user
- * @param string $email
- * @param string $motDePasse
+ * @param array $user liste de tous les utilisateurs de la base de donnée
+ * @param string $email sert à chercher cette email dans la base de donnée
+ * @param string $motDePasse sert à vérifier si ce mot de passe correspond à cette email dans la base de donnée
  *
  * @return void
  */

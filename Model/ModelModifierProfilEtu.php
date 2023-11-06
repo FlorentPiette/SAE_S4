@@ -3,16 +3,16 @@
 /**
  * Modifier dans la base de donnée les informations de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $nom
- * @param String $prenom
- * @param String $adresse
- * @param String $ville
- * @param int $codePostal (5 caractères)
- * @param int $anneeEtude (1 caractère)
- * @param String $formation
- * @param String $email
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $nom sert à modifier le nom de l'étudiant
+ * @param String $prenom sert à modifier le prénom de l'étudiant
+ * @param String $adresse sert à modifier l'adresse de l'étudiant
+ * @param String $ville sert à modifier la ville de l'étudiant
+ * @param int $codePostal (5 caractères) sert à modifier le code postal de l'étudiant
+ * @param int $anneeEtude (1 caractère) sert à modifier l'année d'étude de l'étudiant
+ * @param String $formation sert à modifier la formation de l'étudiant
+ * @param String $email sert à modifier l'email de l'étudiant
  *
  * @return void
  */
@@ -25,9 +25,9 @@ function updateEtu($conn, $nom, $prenom, $adresse, $ville, $codePostal, $anneeEt
 /**
  * Modifier dans la base de donnée le nom de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $nom
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $nom sert à modifier le nom de l'étudiant
  *
  * @return void
  */
@@ -40,9 +40,9 @@ function updateNomEtu($conn, $nom, $id){
 /**
  * Modifier dans la base de donnée le prénom de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $prénom
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $prenom sert à modifier le prénom de l'étudiant
  *
  * @return void
  */
@@ -55,9 +55,9 @@ function updatePrenomEtu($conn, $prenom, $id){
 /**
  * Modifier dans la base de donnée l'adresse email de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $adresse
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $adresse sert à modifier l'adresse de l'étudiant
  *
  * @return void
  */
@@ -70,9 +70,9 @@ function updateAdresseEtu($conn, $adresse, $id){
 /**
  * Modifier dans la base de donnée la ville de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $ville
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $ville sert à modifier la ville de l'étudiant
  *
  * @return void
  */
@@ -85,9 +85,9 @@ function updateVilleEtu($conn, $ville, $id){
 /**
  * Modifier dans la base de donnée le code postal de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param int $codePostal (5 caractères)
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param int $codePostal (5 caractères) sert à modifier le code postal de l'étudiant
  *
  * @return void
  */
@@ -100,9 +100,9 @@ function updateCpEtu($conn, $codePostal, $id){
 /**
  * Modifier dans la base de donnée l' année d'étude de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param int $anneeEtude (1 caractères)
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param int $anneeEtude (1 caractères) sert à modifier l'année d'étude de l'étudiant
  *
  * @return void
  */
@@ -115,9 +115,9 @@ function updateAnneeEtudeEtu($conn, $anneeEtude, $id){
 /**
  * Modifier dans la base de donnée l' année d'étude de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $formation
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $formation sert à modifier la formation de l'étudiant
  *
  * @return void
  */
@@ -130,9 +130,9 @@ function updateFormationEtu($conn, $formation, $id){
 /**
  * Modifier dans la base de donnée l'adresse email de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
- * @param String $email
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $email sert à modifier l'adresse email de l'étudiant
  *
  * @return void
  */
@@ -145,9 +145,9 @@ function updateEmailEtu($conn, $email, $id){
 /**
  * Modifier dans la base de donnée le type d'entreprises que l'étudiant ayant cet id recherche
  *
- * @param PDO $conn
- * @param int $id
- * @param String $typeentreprise
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $typeentreprise sert à modifier le type d'entreprise que l'étudiant recherche
  *
  * @return void
  */
@@ -160,9 +160,9 @@ function updateTypeEntrepriseEtu($conn, $typeentreprise, $id){
 /**
  * Modifier dans la base de donnée le type de missions que l'étudiant ayant cet id recherche
  *
- * @param PDO $conn
- * @param int $id
- * @param String $typemission
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $typemission sert à modifier le type de mission que l'étudiant recherche
  *
  * @return void
  */
@@ -176,8 +176,8 @@ function updateTypeMissionEtu($conn, $typemission, $id){
 /**
  * Récupérer tous les informations de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
  *
  * @return array $result
  */
@@ -193,8 +193,9 @@ function selectEtudiant($conn, $id){
 /**
  * Modifier dans la base de donnée, le statut mobile de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param boolean $mobile sert à modifier le status mobile de l'étudiant
  *
  * @return void
  */
@@ -212,8 +213,8 @@ function updateMobile($conn, $mobile, $id){
 /**
  * Définir dans la base de donnée, le statut actif de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
  *
  * @return void
  */
@@ -226,8 +227,8 @@ function updateActif($conn, $id){
 /**
  * Définir dans la base de donnée, le statut inactif de l'étudiant ayant cet id
  *
- * @param PDO $conn
- * @param int $id
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param int $id sert à rechercher l'étudiant ayant cet id
  *
  * @return void
  */
