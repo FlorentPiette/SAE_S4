@@ -7,6 +7,13 @@ use PHPUnit\Framework\TestCase;
 
 class testModelModifierProfilEtu extends TestCase
 {
+    /**
+     * Teste la fonction updateEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateEtu()
     {
         if(updateEtu(
@@ -30,6 +37,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateNomEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateNomEtu()
     {
         if(updateNomEtu(
@@ -46,6 +60,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updatePrenomEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdatePrenomEtu()
     {
         if(updatePrenomEtu(
@@ -62,6 +83,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateDateEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateDateEtu()
     {
         if(updateDateEtu(
@@ -78,6 +106,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateAdresseEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateAdresseEtu()
     {
         if(updateAdresseEtu(
@@ -94,6 +129,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateVilleEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateVilleEtu()
     {
         if(updateVilleEtu(
@@ -110,6 +152,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateCpEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateCpEtu()
     {
         if(updateCpEtu(
@@ -126,6 +175,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateAnneeEtudeEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateAnneeEtudeEtu()
     {
         if(updateAnneeEtudeEtu(
@@ -142,6 +198,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateFormationEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateFormationEtu()
     {
         if(updateFormationEtu(
@@ -158,6 +221,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateEmailEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateEmailEtu()
     {
         if(updateEmailEtu(
@@ -174,6 +244,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateTypeEntrepriseEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateTypeEntrepriseEtu()
     {
         if(updateTypeEntrepriseEtu(
@@ -190,6 +267,13 @@ class testModelModifierProfilEtu extends TestCase
     }
 
 
+    /**
+     * Teste la fonction updateTypeMissionEtu()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateTypeMissionEtu()
     {
         if(updateTypeMissionEtu(
@@ -205,6 +289,14 @@ class testModelModifierProfilEtu extends TestCase
         self::assertIsString($result);
     }
 
+
+    /**
+     * Teste la fonction updateMobile()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateMobile()
     {
         if(updateMobile(
@@ -220,6 +312,14 @@ class testModelModifierProfilEtu extends TestCase
         self::assertIsString($result);
     }
 
+
+    /**
+     * Teste la fonction updateActif()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateActif()
     {
         if(updateActif(
@@ -234,6 +334,14 @@ class testModelModifierProfilEtu extends TestCase
         self::assertIsString($result);
     }
 
+
+    /**
+     * Teste la fonction updateInactif()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
     function testUpdateInactif()
     {
         if(updateInactif(
@@ -248,6 +356,15 @@ class testModelModifierProfilEtu extends TestCase
         self::assertIsString($result);
     }
 
+
+
+    /**
+     * Teste la fonction selectEtudiant()
+     *
+     * @author Emeline
+     *
+     * @return void
+     */
    function testSelectEtudiant() {
         $result = selectEtudiant(
             Conn::getInstance(),
