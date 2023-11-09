@@ -3,7 +3,7 @@
 /**
  * Récuperer de la base de donnée, les email, mot de passes et roles de toutes les personnes de l'administration
  *
- * @param PDO $conn
+ * @param PDO $conn sert à se connecter à la base de donnée
  *
  * @return array $result
  */
@@ -19,9 +19,9 @@ function selectEmailMDPRoleAdmin($conn,$email){
 /**
  * Vérifier si les identifiants correspondent à une personne de la base de donnée et rediriger vers la bonne page selon le role
  *
- * @param array $user
- * @param string $email
- * @param string $motDePasse
+ * @param array $user liste de tous les utilisateurs de la base de donnée
+ * @param string $email sert à chercher cette email dans la base de donnée
+ * @param string $motDePasse sert à vérifier si ce mot de passe correspond à cette email dans la base de donnée
  *
  * @return void
  */
@@ -68,7 +68,7 @@ function role($user) {
 /**
  * Récuperer de la base de donnée, les email et mot de passes de tous les étudiants
  *
- * @param PDO $conn
+ * @param PDO $conn sert à se connecter à la base de donnée
  *
  * @return array $result
  */
@@ -84,15 +84,15 @@ function selectEmailMDPEtu($conn,$email){
 /**
  * Vérifier si les identifiants correspondent à une personne de la base de donnée
  *
- * @param array $students
- * @param string $email
- * @param string $motDePasse
+ * @param array $etudiants liste de tous les étudiants de la base de donnée
+ * @param string $email sert à chercher cette email dans la base de donnée
+ * @param string $motDePasse sert à vérifier si ce mot de passe correspond à cette email dans la base de donnée
  *
- * @return boolean
+ * @return boolean true si le mot de passe et l'email sont associé à un étudiant, sinon false
  */
-function authenticatedEtu($students,$email,$motDePasse){
-    foreach ($students as $student) {
-        if ($student['email'] === $email && password_verify($motDePasse,$student['motdepasse'])) {
+function authenticatedEtu($etudiants,$email,$motDePasse){
+    foreach ($etudiants as $etudiant) {
+        if ($etudiant['email'] === $email && password_verify($motDePasse,$etudiant['motdepasse'])) {
             return true;
         }
 

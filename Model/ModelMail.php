@@ -21,11 +21,11 @@ try {
 /**
  * Envoyer un mail de vérification par mail
  *
- * @param string $to
- * @param string $from
- * @param string $from_name
- * @param string $subject
- * @param string $body
+ * @param string $to sert à définir le destinataire du mail
+ * @param string $from sert à définir l'envoyeur du mail
+ * @param string $from_name sert à définir le nom de l'envoyeur du mail
+ * @param string $subject sert à définir l'objet du mail
+ * @param string $body sert à définir le contenu du mail
  *
  * @return boolean
  * @return error

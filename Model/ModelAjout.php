@@ -3,11 +3,11 @@
 /**
  * Ajouter une offre dans la base de donnée
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $domaine
- * @param String $mission
- * @param int $nbetudiant
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à définir le nom de l'offre
+ * @param String $domaine sert à définir le domaine de l'offre
+ * @param String $mission sert à définir les missions de l'offre
+ * @param int $nbetudiant sert à définir le nombre d'étudiant voulu pour cette offre
  *
  * @return void
  */
@@ -22,22 +22,22 @@ function ajoutOffre($conn, $nom, $domaine, $mission, $nbetudiant){
 /**
  * Ajouter un étudiant dans la base de donnée
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $prenom
- * @param date $dateDeNaissance
- * @param String $adresse
- * @param String $ville
- * @param int $codePostal (5 caractères)
- * @param int $anneeEtude
- * @param String $formation
- * @param String $email
- * @param String $motDePasse
- * @param String $iNE
- * @param String $entreprise
- * @param String $mission
- * @param Boolean $mobile
- * @param int $codeConfirmation (8 caractères)
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à définir le nom de l'étudiant
+ * @param String $prenom sert à définir le prénom de l'étudiant
+ * @param date $dateDeNaissance sert à définir la date de naissance de l'étudiant
+ * @param String $adresse sert à définir l'adresse de l'étudiant
+ * @param String $ville sert à définir la ville de l'étudiant
+ * @param int $codePostal (5 caractères) sert à définir le code postal de l'étudiant
+ * @param int $anneeEtude sert à définir l'année d'étude de l'étudiant
+ * @param String $formation sert à définir la formation de l'étudiant
+ * @param String $email sert à définir l'email de l'étudiant
+ * @param String $motDePasse sert à définir le mot de passe de l'étudiant
+ * @param String $iNE sert à définir l'INE de l'étudiant
+ * @param String $entreprise sert à définir le type d'entreprise que l'étudiant recherche
+ * @param String $mission sert à définir le type de mission que l'étudiant recherche
+ * @param Boolean $mobile sert à définir le status mobile ou non de l'étudiant
+ * @param int $codeConfirmation (8 caractères) sert à confirmer le compte de l'étudiant
  *
  * @return void
  */
@@ -51,14 +51,14 @@ function ajoutEtudiant($conn, $nom, $prenom, $dateDeNaissance, $adresse, $ville,
 /**
  * Ajouter une entreprise dans la base de donnée
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $adresse
- * @param String $ville
- * @param int $codePostal (5 caractères)
- * @param String $num
- * @param String $secteur
- * @param String $email
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à définir le nom de l'entreprise
+ * @param String $adresse sert à définir l'adresse de l'entreprise
+ * @param String $ville sert à définir la ville de l'entreprise
+ * @param int $codePostal (5 caractères) sert à définir le code postal de l'entreprise
+ * @param String $num sert à définir le numéro de téléphone de l'entreprise
+ * @param String $secteur sert à définir le secteur d'activité de l'entreprise
+ * @param String $email sert à définir l'adresse email de l'entreprise
  *
  * @return void
  */
@@ -72,13 +72,13 @@ function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $sect
 /**
  * Ajouter un membre de l'administration à la base de donnée
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $prenom
- * @param String $formation
- * @param String $email
- * @param String $mdp
- * @param String $role
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à définir le nom du membre de l'administration
+ * @param String $prenom sert à définir le prénom du membre de l'administration
+ * @param String $formation sert à définir la formation à laquelle le membre de l'administration est rattaché
+ * @param String $email sert à définir l'adresse email du membre de l'administration
+ * @param String $mdp sert à définir le mot de passe du membre de l'administration
+ * @param String $role sert à définir le role du membre de l'administration
  *
  * @return array $result
  */
@@ -109,8 +109,8 @@ function code()
 /**
  * Récuperer de la base de donnée, les étudiants qui ont cette adresse email
  *
- * @param PDO $conn
- * @param String $email
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $email sert à  chercher si l'email est dans la base de donnée
  *
  * @return array $result
  */

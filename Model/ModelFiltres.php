@@ -3,11 +3,11 @@
 /**
  * Filtrer les offres
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $domaine
- * @param String $mission
- * @param int $nbetudiant
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à rechercher les offres ayant ce nom
+ * @param String $domaine sert à rechercher les offres ayant ce domaine
+ * @param String $mission sert à rechercher les offres ayant ces missions
+ * @param int $nbetudiant sert à rechercher les offres ayant ce nombre d'étudiants
  *
  * @return void
  */
@@ -67,11 +67,11 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
 /**
  * Filtrer les entreprises
  *
- * @param PDO $conn
- * @param String $nom
- * @param String $ville
- * @param int $codepostal (5 caractères)
- * @param String $secteurActivite
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à rechercher les entreprises ayant ce nom
+ * @param String $ville sert à rechercher les entreprises situées dans cette ville
+ * @param int $codepostal (5 caractères) sert à rechercher les entreprises ayant ce code postal
+ * @param String $secteurActivite sert à rechercher les entreprises ayant ce secteur d'activité
  *
  * @return void
  */

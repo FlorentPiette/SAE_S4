@@ -3,7 +3,7 @@
 /**
  * Récuperer de la base de donnée, les email et mot de passes de tous les étudiants
  *
- * @param PDO $conn
+ * @param PDO $conn sert à se connecter à la base de donnée
  *
  * @return array $result
  */
@@ -19,18 +19,19 @@ function selectEmailMDPEtu($conn){
 /**
  * Vérifier si les identifiants correspondent à une personne de la base de donnée
  *
- * @param array $students
- * @param string $email
- * @param string $motDePasse
+ * @param array $etudiants liste de tous les étudiants de la base de donnée
+ * @param string $email sert à chercher cette email dans la base de donnée
+ * @param string $motDePasse sert à vérifier si ce mot de passe correspond à cette email dans la base de donnée
  *
- * @return boolean
+ * @return boolean true si le mot de passe et l'email sont associé à un étudiant, sinon false
  */
-function authenticated ($students,$email,$motDePasse){
-    foreach ($students as $student) {
-        if ($student['email'] === $email && password_verify($motDePasse,$student['motdepasse'])) {
+function authenticatedEtu($etudiants,$email,$motDePasse){
+    foreach ($etudiants as $etudiant) {
+        if ($etudiant['email'] === $email && password_verify($motDePasse,$etudiant['motdepasse'])) {
             return true;
         }
 
     }
     return false;
+
 }
