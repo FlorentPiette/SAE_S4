@@ -1,6 +1,3 @@
-<?php
-include '../Controller/ControllerVerificationDroit.php';
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -62,6 +59,9 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="ineCheckbox">
                 <input type="checkbox" id="ineCheckbox"> INE
             </label>
+            <label for="emailCheckbox">
+                <input type="checkbox" id="emailCheckbox"> Adresse Email
+            </label>
             <label for="villeCheckbox">
                 <input type="checkbox" id="villeCheckbox"> Ville
             </label>
@@ -83,6 +83,9 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="mobile">
                 <input type="checkbox" id="mobileCheckbox"> Mobile
             </label>
+            <label for="actif">
+                <input type="checkbox" id="actifCheckbox"> Actif
+            </label>
 
 
 
@@ -94,6 +97,9 @@ include '../Controller/ControllerVerificationDroit.php';
             </div>
             <div id="ineDiv" style="display: none">
                 <input type="text" name="ine" id="ine" placeholder="INE">
+            </div>
+            <div id="emailDiv" style="display: none">
+                <input type="text" name="email" id="email" placeholder="Adresse Email">
             </div>
             <div id="villeDiv" style="display: none">
                 <input type="text" name="ville" id="ville" placeholder="Ville">
@@ -116,6 +122,11 @@ include '../Controller/ControllerVerificationDroit.php';
             <div id="mobileDiv" style="display: none">
                 <label for="mobile">
                     <input type="checkbox" name="mobile" id="mobile"> Mobile
+                </label>
+            </div>
+            <div id="actifDiv" style="display: none">
+                <label for="actif">
+                    <input type="checkbox" name="actif" id="actif"> Actif
                 </label>
             </div>
 

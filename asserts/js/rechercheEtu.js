@@ -1,7 +1,15 @@
+
+/**
+ * Rechercher des étudiants
+ *
+ * @return void
+ */
+
 function rechercherEtudiants() {
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
+    var email = document.getElementById('email').value;
     var ville = document.getElementById('ville').value;
     var codepostal = document.getElementById('codepostal').value;
     var formation = document.getElementById('formation').value;
@@ -20,22 +28,32 @@ function rechercherEtudiants() {
         var mobile = "";
     }
 
-    console.log("Nom: " + nom);
-    console.log("Prénom: " + prenom);
-    console.log("Année d'étude: " + anneeEtude);
-    console.log("Mobile: " + mobile);
+    if(document.getElementById("actifCheckbox").checked){
+        var actif = document.getElementById("actif").checked;
+        if (actif) {
+            actif = true;
+        } else {
+            actif = false;
+        }
+    }
+    else{
+        var actif = "";
+    }
+
     console.log("reussis");
     var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
         '&nom=' + nom +
         '&prenom=' + prenom +
         '&ine=' + ine +
+        '&email=' + email +
         '&ville=' + ville +
         '&codepostal=' + codepostal +
         '&formation=' + formation +
         '&typeEntreprise=' + typeEntreprise +
         '&typeMission=' + typeMission +
         '&anneeEtude=' + (anneeEtude !== '' ? parseInt(anneeEtude) : '') +
-        '&mobile=' + mobile;
+        '&mobile=' + mobile +
+        '&actif=' + actif;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -101,6 +119,12 @@ function afficherChamps() {
         document.getElementById("ineDiv").style.display = "none";
     }
 
+    if (document.getElementById("emailCheckbox").checked) {
+        document.getElementById("emailDiv").style.display = "block";
+    } else {
+        document.getElementById("emailDiv").style.display = "none";
+    }
+
     if (document.getElementById("villeCheckbox").checked) {
         document.getElementById("villeDiv").style.display = "block";
     } else {
@@ -142,12 +166,19 @@ function afficherChamps() {
     } else {
         document.getElementById("mobileDiv").style.display = "none";
     }
+
+    if (document.getElementById("actifCheckbox").checked) {
+        document.getElementById("actifDiv").style.display = "block";
+    } else {
+        document.getElementById("actifDiv").style.display = "none";
+    }
 }
 
 // Écouteurs d'événements pour les cases à cocher
 document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("prenomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("ineCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("emailCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("formationCheckbox").addEventListener("change", afficherChamps);
@@ -155,5 +186,6 @@ document.getElementById("anneeEtudeCheckbox").addEventListener("change", affiche
 document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("mobileCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("actifCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();

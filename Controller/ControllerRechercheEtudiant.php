@@ -7,6 +7,7 @@ $conn = Conn::getInstance();
 $nom = $_GET['nom'] ?? '';
 $prenom = $_GET['prenom'] ?? '';
 $ine = $_GET['ine'] ?? '';
+$email = $_GET['email'] ?? '';
 $formation = $_GET['formation'] ?? '';
 $adresse = $_GET['adresse'] ?? '';
 $ville = $_GET['ville'] ?? '';
@@ -17,6 +18,5 @@ $typemission = $_GET['typeMission'] ?? '';
 $mobile = $_GET['mobile'] ?? '';
 $actif = $_GET['actif'] ?? '';
 
-RecherEtu($conn,$nom,$prenom,$ine,$formation,$adresse,$ville,$codepostal,$anneeetude,$typeentreprise,$typemission,$mobile,$actif)
+RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typemission, $mobile, $actif);
 
-?>

@@ -37,7 +37,7 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
     }
 
     if (!empty($email)) {
-        $sql .= " AND ine ILIKE :email";
+        $sql .= " AND email ILIKE :email";
     }
 
     if (!empty($formation)) {
@@ -91,8 +91,8 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
         $stmt->bindValue(':ine', "%$ine%", PDO::PARAM_STR);
     }
 
-    if (!empty($formation)) {
-        $stmt->bindValue(':formation', "%$formation%", PDO::PARAM_STR);
+    if (!empty($email)) {
+        $stmt->bindValue(':email', "%$email%", PDO::PARAM_STR);
     }
 
     if (!empty($adresse)) {
