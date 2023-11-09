@@ -14,11 +14,12 @@ include '../Controller/ControllerVerificationDroit.php';
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form  method="post">
+                <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='CdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button</li>
-                        <li><button type="button" onclick="window.location.href ='CdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
-                        <li><button type="button" onclick="window.location.href ='CdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
+                        <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
             </nav>
@@ -83,7 +84,7 @@ include '../Controller/ControllerVerificationDroit.php';
                 Nom : <?php echo $res['nom']; ?><br>
                 Prénom : <?php echo $res['prenom']; ?><br>
                 INE : <?php echo $res['ine']; ?><br>
-                Formation : <?php echo $res['formation']; ?> km<br>
+                Formation : <?php echo $res['formation']; ?> <br>
                 Date de naissance : <?php echo $res['datedenaissance']; ?><br>
                 Année : <?php echo $res['anneeetude']; ?><br>
                 Email : <?php echo $res['email']; ?><br>
