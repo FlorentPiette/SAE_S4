@@ -100,6 +100,11 @@ function rechercherEtudiants() {
     xhr.send();
 }
 
+/**
+ * Affiche les zones de text ou les checkbox lorsque la catégorie est cochée
+ *
+ * @return void
+ */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
         document.getElementById("nomDiv").style.display = "block";
