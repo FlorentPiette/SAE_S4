@@ -224,6 +224,7 @@
     transform: translate(-50%,-50%);
     top: 125%;
     left: 55%;
+    margin-top: 30px;
 
 }
 
@@ -239,51 +240,113 @@
 
 }
 
-.compteTous{
-
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-decoration: none;
-    color: inherit;
-    left: 10%;
-
-}
-
-.nbSecretaire{
-
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-decoration: none;
-    color: inherit;
-    left: 25%;
-
-}
-
-.nbCD{
-
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-decoration: none;
-    color: inherit;
-    left: 47%;
-    background-color: transparent;
-    border: transparent;
-
-}
-
-.nbRP{
-
-    transform: translate(-50%,-50%);
-    position: absolute;
-    text-decoration: none;
-    color: inherit;
-    left: 75%;
-
-}
 
 .button-filtre{
 
 
 
 }
+
+/* Styles pour le tableau de données */
+#dataTable {
+    width: 100% ;
+    border-collapse: collapse ;
+    margin-top: 50px ;
+}
+
+
+#dataTable th, #dataTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#dataTable th {
+    background-color: #f2f2f2;
+}
+
+/* Ajout d'un espace entre le tableau et les autres éléments */
+#chargeDeDevData {
+    margin-top: 80px;
+}
+
+/* Styles pour les boutons de filtrage */
+
+
+.ajoutAdministration {
+    text-decoration: none;
+    background-color: #EBF4FB;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 14%;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.ajoutAdministration:hover {
+    text-decoration: none;
+    background-color: #EBF4FB;
+    border: none;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    transform: translate(-50%, -50%);
+    left: 14%;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 10px 10px 5px #E2E2E2;
+}
+
+.compteTous,
+.nbSecretaire,
+.nbCD,
+.nbRP {
+    text-decoration: none;
+    background-color: #EBF4FB;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    display: inline; /* Aligne les éléments en ligne */
+    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
+}
+
+.compteTous:hover,
+.nbSecretaire:hover,
+.nbCD:hover,
+.nbRP:hover {
+    text-decoration: none;
+    background-color: #EBF4FB;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    display: inline; /* Aligne les éléments en ligne */
+    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
+    box-shadow: 10px 10px 5px #E2E2E2;
+}
+
 

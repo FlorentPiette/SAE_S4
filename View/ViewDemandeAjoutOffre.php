@@ -3,12 +3,15 @@ include '../Controller/ControllerVerificationDroit.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
-
+<head>
+    <meta charset="UTF-8">
+    <title>Votre Titre</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
+</head>
 <body>
 <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
-
     <p>
-Nom de l'offre :
+        Nom de l'offre :
     </p>
     <input type="text" name="Nom" id="offre">
 
@@ -18,16 +21,23 @@ Nom de l'offre :
     <input type="text" name="Domaine" id="domaine">
 
     <p>
-Mission :
+        Mission :
     </p>
     <textarea name="Mission" id="mission" class="zoneText"></textarea>
 
     <p>
-Nombre d'étudiant :
+        Nombre d'étudiant :
     </p>
     <input type="text" name="NbEtudiant" id="nbetudiant"><br>
 
-    <p id="message"></p>
+    <p id="message" class="error-message"></p>
+
+    <p>Entreprise :</p>
+    <select name="entreprise" id="entreprise"></select><br>
+
+    <p>Autre(s) fichier(s) :</p>
+    <input type="file" name="fichier" id="fichier"><br>
+    <br>
 
     <input type="checkbox" name="Brouillon" id="brouillon">
     <label>
@@ -42,31 +52,8 @@ Nombre d'étudiant :
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
 </form>
 
-<script>
-    var formulaire = document.getElementById("formulaire");
-    var message = document.getElementById("message");
-    var brouillon = document.getElementById("brouillon");
-    var visible = document.getElementById("visible");
-
-    formulaire.addEventListener("submit", function (event) {
-        var offre = document.getElementById("offre").value;
-        var domaine = document.getElementById("domaine").value;
-        var mission = document.getElementById("mission").value;
-        var nbetudiant = document.getElementById("nbetudiant").value;
-
-        if (!brouillon.checked) { // Validez uniquement si la case "Brouillon" n'est pas cochée
-            if (isNaN(nbetudiant)) {
-                event.preventDefault(); // Empêche l'envoi du formulaire
-                message.innerText = "Erreur, le nombre d'étudiant doit être un nombre valide.";
-            }
-
-            if (offre === "" || domaine === "" || mission === "" || nbetudiant === "") {
-                event.preventDefault(); // Empêche l'envoi du formulaire
-                message.innerText = "Erreur, veuillez remplir tous les champs de saisie.";
-            }
-        }
-    });
-</script>
+<script src="../asserts/js/AdminEntreprise.js"></script>
 </body>
 </html>
+
 

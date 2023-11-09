@@ -6,14 +6,7 @@ include '../Controller/ControllerVerificationDroit.php';
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="/asserts/css/adminEntreprise.css">
-    <!DOCTYPE html>
-    <html lang="fr">
-    <head>
-        <meta charset="UTF-8">
-        <title>Admin</title>
-        <link rel="stylesheet" type="text/css" href="/asserts/css/adminEntreprise.css">
-
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
     <script>
         function afficherEntreprises() {
             document.getElementById("donneesEntreprise").style.display = "block";
@@ -29,15 +22,17 @@ include '../Controller/ControllerVerificationDroit.php';
 <body class="body">
 
 <header class="header">
+
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form method="post">
+                <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html" name="accueil"  class="btnCreation"> Accueil </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminEtu.php" name="etudiant" class="btnCreation"> Etudiant </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php" name="entreprise"  class="btnCreation"> Entreprise </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php" name="adminitrsation"  class="btnCreation"> Administration </button></li></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil"class="btnCreation"> Acceuil </button></li>
+                        <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
+                        <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
             </nav>
@@ -45,13 +40,10 @@ include '../Controller/ControllerVerificationDroit.php';
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="/asserts/img/logo.png" class="logo">
-            <form method="post" action="/Controller/ControllerBtnDeco.php">
-
+            <img src="../asserts/img/logo.png" class="logo">
+            <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
-
             </form>
-
         </div>
     </div>
 </header>
@@ -69,37 +61,28 @@ include '../Controller/ControllerVerificationDroit.php';
 
     <div class="rectangle-mid">
         <form action="" method="post">
-            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button" > Ajouter une entreprise </button>
-            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button" > Ajouter une offre </button>
+            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
+            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
         </form>
         <form method="post" action="">
-
             <input type="button" value="Afficher les Offres" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
-
         </form>
 
         <!-- Affichez les données des offres par défaut -->
         <ul id="donneesOffre" class="offres-container">
             <?php
-            session_start();
-
             include '../Model/ConnexionBDD.php';
             $db = Conn::getInstance();
-
-
 
             // Effectuez une requête SQL pour récupérer les données des offres
             $sql2 = "SELECT * FROM Offre";
             $req2 = $db->prepare($sql2);
             $req2->execute();
-
             $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
             $count = 0;
             foreach ($resultat2 as $res2):
-                if ($count % 2 == 0) {
-                    echo '<li>';
-                }?>
+                ?>
                 <li class="offre">
                     Nom : <?php echo $res2['nom']; ?><br>
                     Domaine : <?php echo $res2['domaine']; ?><br>
@@ -107,10 +90,75 @@ include '../Controller/ControllerVerificationDroit.php';
                     Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
                     <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
                     <form method="post" action="" enctype="multipart/form-data">
-                        <input type="file" name="fichier" accept=".pdf, .doc, .docx"> <!-- Permet d'accepter les fichiers PDF, DOC et DOCX -->
+                        <input type="file" name="fichier" accept=".pdf, .doc, .docx">
                         <input type="submit" value="Déposer le fichier">
                     </form>
                     <br>
+                </li>
+                <?php if ($count % 2 == 1) {
+                echo '</li>';
+            }
+
+            endforeach;
+
+            if ($count % 2 == 1) {
+                echo '</li>';
+            }
+
+            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if (isset($_FILES['fichier'])) {
+                    $file = $_FILES['fichier'];
+
+                    if ($file['error'] === 0) {
+                        $uploadDir = 'dossier_de_stockage/';
+                        if (!is_dir($uploadDir)) {
+                            mkdir($uploadDir, 0777, true);
+                        }
+
+                        $fileName = $file['name'];
+                        $uploadPath = $uploadDir . $fileName;
+
+                        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
+                            $offreId = 1; // Remplacez ceci par l'ID de l'offre.
+                            $nomFichier = $fileName;
+                            $etudiantId = 1; // Remplacez ceci par l'ID de l'étudiant.
+                            $sqlInsert = "INSERT INTO Postule (IdEtudiant, IdOffre, cv) VALUES (?, ?, ?)";
+                            $stmt = $db->prepare($sqlInsert);
+                            $stmt->execute([$etudiantId, $offreId, file_get_contents($uploadPath)]);
+                            echo 'Fichier téléchargé et ajouté à la table Postule avec succès.';
+                        } else {
+                            echo 'Erreur lors du téléchargement du fichier.';
+                        }
+                    } else {
+                        echo 'Erreur lors du téléchargement du fichier.';
+                    }
+                }
+            }
+            ?>
+        </ul>
+
+        <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
+        <ul id="donneesEntreprise" style="display: none;" class="affichEntreprise">
+            <?php
+            $sql = "SELECT * FROM entreprise";
+            $req = $db->prepare($sql);
+            $req->execute();
+            $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
+
+            $count = 0;
+            foreach ($resultat2 as $resultat):
+                if ($count % 2 == 0) {
+                    echo '<li>';
+                } ?>
+                <li class="entreprise">
+                    Nom : <?php echo $resultat['nomentreprise']; ?><br>
+                    Adresse : <?php echo $resultat['adresse']; ?><br>
+                    Ville : <?php echo $resultat['ville']; ?><br>
+                    Code postal : <?php echo $resultat['codepostal']; ?><br>
+                    Numéro de téléphone : <?php echo $resultat['numtel']; ?><br>
+                    Secteur d'activité : <?php echo $resultat['secteuractivite']; ?><br>
+                    Email : <?php echo $resultat['email']; ?><br>
+                    <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
 
                 </li>
                 <?php if ($count % 2 == 1) {
@@ -123,83 +171,80 @@ include '../Controller/ControllerVerificationDroit.php';
                 echo '</li>';
             }
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_FILES['fichier'])) {
-                    $file = $_FILES['fichier'];
+            ?>
+        </ul>
 
-                    if ($file['error'] === 0) {
-                        // Le téléchargement du fichier s'est bien déroulé.
-                        $uploadDir = 'dossier_de_stockage/'; // Répertoire de stockage des fichiers
+        <script>
+            function adjustRectangleHeight() {
+                const offreList = document.getElementById('donneesOffre');
+                const entrepriseList = document.getElementById('donneesEntreprise');
+                const dynamicRectangle = document.querySelector('.rectangle-mid');
 
-                        // Assurez-vous que le répertoire de stockage existe et est accessible en écriture.
-                        if (!is_dir($uploadDir)) {
-                            mkdir($uploadDir, 0777, true);
-                        }
+                const maxListHeight = Math.max(offreList.clientHeight, entrepriseList.clientHeight);
+                const margin = 20;
 
-                        $fileName = $file['name'];
-                        $uploadPath = $uploadDir . $fileName;
+                dynamicRectangle.style.height = maxListHeight + margin + 'px';
 
-                        // Déplacez le fichier téléchargé vers le répertoire de stockage.
-                        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-                            // Le fichier a été téléchargé avec succès.
-
-                            // Obtenez l'ID de l'offre à laquelle vous souhaitez associer le fichier (remplacez par votre propre logique pour obtenir l'ID de l'offre).
-                            $offreId = 1; // Remplacez ceci par l'ID de l'offre.
-
-                            // Maintenant, ajoutez les informations du fichier dans la table Postule.
-                            $nomFichier = $fileName;
-
-                            // Vous devez également obtenir l'ID de l'étudiant à partir de votre session ou d'autres méthodes, et remplacez '1' par l'ID de l'étudiant approprié.
-                            $etudiantId = 1; // Remplacez ceci par l'ID de l'étudiant.
-
-                            // Insérez le fichier téléchargé dans la table Postule.
-                            $sqlInsert = "INSERT INTO Postule (IdEtudiant, IdOfffre, cv) VALUES (?, ?, ?)";
-                            $stmt = $db->prepare($sqlInsert);
-                            $stmt->execute([$etudiantId, $offreId, file_get_contents($uploadPath)]);
-
-                            echo 'Fichier téléchargé et ajouté à la table Postule avec succès.';
-                        } else {
-                            echo 'Erreur lors du téléchargement du fichier.';
-                        }
-                    } else {
-                        echo 'Erreur lors du téléchargement du fichier.';
-                    }
+                const elementsToMove = document.getElementsByClassName('move-down');
+                for (const element of elementsToMove) {
+                    element.style.transform = 'translateY(' + (maxListHeight + margin) + 'px)';
                 }
             }
 
+            adjustRectangleHeight();
+
+            function updateRectangleHeight() {
+                adjustRectangleHeight();
+            }
+
+            function limiterElements(elementSelector) {
+                const elements = document.querySelectorAll(elementSelector);
+                for (let i = 3; i < elements.length; i++) {
+                    elements[i].style.display = 'none';
+                }
+            }
+
+            limiterElements('.offre');
+            limiterElements('.entreprise');
+        </script>
 
 
-            ?>
-        </ul>
 
-        <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
-        <ul id="donneesEntreprise" style="display: none;">
-            <?php
-
-
-            $sql = "SELECT * FROM entreprise";
-            $req = $db->prepare($sql);
-            $req->execute();
-
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
-
-            foreach ($resultat as $res): ?>
-                <li>
-                    Nom : <?php echo $res['nom']; ?><br>
-                    Adresse : <?php echo $res['adresse']; ?><br>
-                    Ville : <?php echo $res['ville']; ?><br>
-                    Téléphone : <?php echo $res['numtel']; ?><br>
-                    Email : <?php echo $res['email']; ?><br>
-                    Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
-
-                </li>
-
-            <?php endforeach;
-
-            ?>
-        </ul>
     </div>
 </div>
+
+<div id="popup" class="popup">
+    L'offre a été ajoutée avec succès !
+</div>
+
+<script>
+
+    <!-- Incluez ce script JavaScript dans votre vue -->
+
+    // Dès que la page est chargée, vérifiez la session pour afficher la popup
+    window.addEventListener('load', function () {
+        <?php
+        // Vérifiez la session pour afficher la popup
+        session_start();
+        if (isset($_SESSION['afficher_popup']) && $_SESSION['afficher_popup'] === true) {
+            echo 'afficherPopup();';
+            // Réinitialisez l'indicateur pour qu'il ne s'affiche qu'une fois.
+            $_SESSION['afficher_popup'] = false;
+        }
+        ?>
+    });
+
+    function afficherPopup() {
+        var popup = document.getElementById("popup");
+        popup.style.display = "block";
+
+        setTimeout(function () {
+            popup.style.display = "none";
+        }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
+
+    }
+</script>
+
 
 </body>
 </html>

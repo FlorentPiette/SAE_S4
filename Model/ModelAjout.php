@@ -17,6 +17,44 @@ function ajoutOffre($conn, $nom, $domaine, $mission, $nbetudiant){
     $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
 
 }
+/**
+ * Ajouter une offre a une entreprise dans la base de données
+ *
+ * @param PDO $conn
+ * @param String $nomOffre
+ * @param String $nomEntreprise
+ * @return void
+ */
+function ajouterOffreEntreprise($conn, $nomOffre, $nomEntreprise){
+    $req = "INSERT INTO Poste (nomoffre, nomentreprise) VALUES (:nomOffre, :nomEntreprise)";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array(':nomOffre' => $nomOffre, ':nomEntreprise' => $nomEntreprise));
+}
+
+/**
+ * Voir fichier
+ * @param String $fichier
+ * @return void
+ */
+function voirFichier($conn, $offreId) {
+    if (!empty($offreId)) {
+        $sql = "SELECT document FROM Offre WHERE IdOffre = :offreId";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':offreId', $offreId, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetchColumn();
+
+        if ($result !== false) {
+            header('Content-Type: application/pdf'); // Changez le type de contenu si nécessaire
+            echo $result;
+        } else {
+            echo "Fichier non trouvé.";
+        }
+    } else {
+        echo "ID de l'offre vide.";
+    }
+}
+
 
 
 /**
@@ -67,6 +105,34 @@ function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $sect
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
 
+}
+/**
+ * Afficher les entreprises dans le menu
+ *
+ * @param PDO $conn
+ * @return void
+ */
+
+function affichageEntreprise($conn) {
+    try {
+        // Requête SQL pour récupérer les noms des entreprises
+        $query = "SELECT nomentreprise FROM Entreprise";
+        $stmt = $conn->prepare($query);
+        $stmt->execute();
+
+        $entreprises = array();
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $entreprises[] = $row;
+        }
+
+        // Renvoyer les entreprises au format JSON
+        header('Content-Type: application/json');
+        echo json_encode($entreprises);
+    } catch (PDOException $e) {
+        // Gérez les erreurs de base de données ici (enregistrez-les dans un journal, renvoyez une réponse d'erreur appropriée, etc.)
+        echo json_encode(array('error' => 'Erreur lors de la récupération des entreprises.'));
+    }
 }
 
 /**
