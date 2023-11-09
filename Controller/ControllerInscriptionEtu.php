@@ -9,7 +9,6 @@ include '../Model/Requetes.php';
 
 $db = Conn::getInstance();
 
-
 $token = generationToken();
 
 setcookie("token", $token, time() + 350 , '/');

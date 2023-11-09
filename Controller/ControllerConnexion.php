@@ -26,26 +26,26 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $users = selectEmailMDPEtu($conn,$email);
+    if ($users) {
+        if (authenticatedEtu($users, $email, $motDePasse)) {
+            $_SESSION['etu'] = true;
+            header("location: ../View/ViewPageEtudiant.php");
+        } else {
+            $_SESSION['essai']++;
+            header('location: ../View/ViewConnexion.html');
+        }
 
-if ($users){
-    if (authenticatedEtu($users, $email, $motDePasse)){
-        $_SESSION['etu'] = true;
-        header("location: ../View/ViewPageEtudiant.php");
-    } else {
-        $_SESSION['essai'] ++;
-        header('location: ../View/ViewConnexion.html');
     }
-
+    $users = selectEmailMDPRoleAdmin($conn, $email);
+    if ($users) {
+        if (authenticatedAdmin($users, $email, $motDePasse)) {
+            $_SESSION['administration'] = true;
+            role($users);
+        } else {
+            $_SESSION['essai']++;
+            header('location: ../View/ViewConnexion.html');
+        }
 }
-$users = selectEmailMDPRoleAdmin($conn,$email);
-if ($users) {
-    if (authenticatedAdmin($users, $email, $motDePasse)) {
-        $_SESSION['administration'] = true;
-        role($users);
-    } else {
-        $_SESSION['essai']++;
-        header('location: ../View/ViewConnexion.html');
-    }
-}
+header('location: ../View/ViewConnexion.html')
 
 ?>

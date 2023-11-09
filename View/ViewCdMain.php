@@ -14,11 +14,12 @@ include '../Controller/ControllerVerificationDroit.php';
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form >
+                <form method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button</li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
                         <li><button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
                         <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
+                        <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
             </nav>
