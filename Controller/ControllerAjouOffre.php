@@ -1,7 +1,6 @@
 <?php
 include '../Model/ModelAjout.php';
-include_once '../Model/ConnexionBDD.php';
-
+include '../Model/ConnexionBDD.php';
 
 $conn = Conn::getInstance();
 
@@ -11,29 +10,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $domaine = $_POST["Domaine"];
     $mission = $_POST["Mission"];
     $nbEtudiant = $_POST["NbEtudiant"];
+    $fichier = $_POST["fichier"];
+    $entreprise = $_POST["entreprise"];
     $estBrouillon = isset($_POST["Brouillon"]);
-    $estvisible = isset($_POST["Visible"]);
 
-    // Traitement en tant que brouillon ou entrée complète
+    // voirFichier($conn, $fichier);
+    ajoutOffre($conn, $nom, $domaine, $mission, $nbEtudiant, $fichier);
+    ajouterOffreEntreprise($conn, $nom, $entreprise);
+
+    // Activer l'indicateur pour afficher la popup
+    $_SESSION['afficher_popup'] = true;
+
+    // Rediriger l'utilisateur après avoir ajouté l'offre
     if ($estBrouillon) {
-        $Offre1 = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)");
-
-        $Offre1->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant));
-
         $message = "L'offre a été enregistrée en tant que brouillon.";
     } else {
-        $Offre = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)");
-
-        $Offre->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant));
-
         $message = "L'offre a été enregistrée avec succès.";
     }
 
-    if ($estvisible) {
-        echo "L'offre a été enregistrée avec succès, de plus elle sera visible.";
-    } else {
-        echo "L'offre a été enregistrée avec succès, mais elle sera invisible.";
-    }
-
+    // Redirection vers la page souhaitée
     header('Location: ../View/ViewAdminEntreprise.php');
+    exit; // Assurez-vous de sortir du script après la redirection.
+} else {
+    // Si ce n'est pas une requête POST, on doit récupérer les données des entreprises
+    affichageEntreprise($conn);
 }
+

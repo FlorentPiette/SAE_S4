@@ -1,15 +1,16 @@
+// Fonction pour charger les données en fonction du rôle
 function chargerDonnees(role) {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'Controler/ControllerAdminbtnRole.php', true);
+    xhr.open('POST', '../Controller/ControllerAdminBtnRole.php', true);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var rolesData = JSON.parse(xhr.responseText);
-                var tableBody = document.querySelector('#dataTable tbody');
-                tableBody.innerHTML = '';
+                var rolesData = JSON.parse(xhr.responseText); // Récupérez les données JSON
 
-                var isAdmin = (role === 'administrateur'); // Vérifiez si l'utilisateur est un administrateur
+                // Sélectionnez le corps du tableau dans la vue
+                var tableBody = document.querySelector('#dataTable tbody');
+                tableBody.innerHTML = ''; // Réinitialisez le contenu du tableau
 
                 rolesData.forEach(function (role) {
                     var row = tableBody.insertRow();
@@ -23,43 +24,18 @@ function chargerDonnees(role) {
                     nomCell.textContent = role.nom;
                     prenomCell.textContent = role.prenom;
                     formationCell.textContent = role.formation;
-
-                    if (role.role === 'cd') {
-                        roleCell.textContent = 'Chargé de développement';
-                    } else {
-                        roleCell.textContent = role.role;
-                    }
-
+                    roleCell.textContent = role.role;
                     emailCell.textContent = role.email;
 
                     // Ajoutez un bouton "Accéder au compte" avec un lien vers la page du compte de l'utilisateur
                     var accessButton = document.createElement('button');
                     accessButton.textContent = 'Accéder au compte';
                     accessButton.addEventListener('click', function () {
-                        // Récupérez l'URL correspondant au rôle de l'utilisateur
-                        var accountURL = roleURLs[role.role];
-
-                        // Redirigez l'utilisateur vers l'URL du compte
-                        if (accountURL) {
-                            window.location.href = accountURL;
-                        } else {
-                            // Gérez le cas où l'URL n'est pas définie pour ce rôle
-                            console.error("L'URL n'est pas définie pour ce rôle.");
-                        }
+                        // Vous pouvez ajouter ici le code pour rediriger l'utilisateur vers le compte
+                        // Cela dépendra de la structure de vos URL
                     });
                     accessCell.appendChild(accessButton);
                 });
-
-                // Ajoutez un bouton de retour visible uniquement pour l'administrateur
-                if (isAdmin) {
-                    var retourAdminButton = document.createElement('button');
-                    retourAdminButton.textContent = 'Retour au menu de l\'administrateur';
-                    retourAdminButton.addEventListener('click', function () {
-                        window.location.href = originalURL;
-                    });
-                    // Ajoutez le bouton de retour en bas de la page
-                    document.body.appendChild(retourAdminButton);
-                }
             } else {
                 console.error("Erreur de la requête : " + xhr.status);
             }
@@ -71,18 +47,6 @@ function chargerDonnees(role) {
 
     xhr.send(data);
 }
-// Objet associant les rôles aux URLs correspondantes
-var roleURLs = {
-    'cd': '../View/ViewCdmain.php', // Remplacez par l'URL du chargé de développement
-    'secretaire': '../View/ViewSecretairemain.php', // Remplacez par l'URL du secrétaire
-    // Ajoutez d'autres rôles et leurs URLs ici si nécessaire
-};
-
-// URL d'origine (la page de l'administrateur)
-var originalURL = 'AdminMain.php'; // Remplacez par l'URL de la page de l'administrateur
-
-// Fonction pour charger les données en fonction du rôle
-
 
 // Écoutez les clics sur les boutons
 document.getElementById('tous').addEventListener('click', function (e) {
