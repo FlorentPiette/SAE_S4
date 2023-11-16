@@ -1,3 +1,11 @@
+/**
+ * Rechercher des entreprises
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
+
 function rechercherEntreprises() {
     var nom = document.getElementById('nomEntreprise').value;
     var ville = document.getElementById('ville').value;
@@ -47,6 +55,14 @@ function rechercherEntreprises() {
     xhr.send();
 }
 
+
+/**
+ * Affiche les zones de text ou les checkbox lorsque la catégorie est cochée
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
 function afficherChamps() {
     if (document.getElementById("nomEntrepriseCheckbox").checked) {
         document.getElementById("nomEntrepriseDiv").style.display = "block";

@@ -1,3 +1,11 @@
+/**
+ * Rechercher des offres
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
+
 function rechercherOffres() {
     var nom = document.getElementById('nom').value;
     var domaine = document.getElementById('domaine').value;
@@ -47,6 +55,13 @@ function rechercherOffres() {
     xhr.send();
 }
 
+/**
+ * Affiche les zones de text ou les checkbox lorsque la catégorie est cochée
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
         document.getElementById("nomDiv").style.display = "block";

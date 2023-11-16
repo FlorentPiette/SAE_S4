@@ -2,6 +2,8 @@
 /**
  * Rechercher des étudiants
  *
+ * @author Emeline
+ *
  * @return void
  */
 
@@ -102,6 +104,8 @@ function rechercherEtudiants() {
 
 /**
  * Affiche les zones de text ou les checkbox lorsque la catégorie est cochée
+ *
+ * @author Emeline
  *
  * @return void
  */
