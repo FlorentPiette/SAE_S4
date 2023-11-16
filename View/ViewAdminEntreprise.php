@@ -7,17 +7,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
-    <script>
-        function afficherEntreprises() {
-            document.getElementById("donneesEntreprise").style.display = "block";
-            document.getElementById("donneesOffre").style.display = "none";
-        }
-
-        function afficherOffres() {
-            document.getElementById("donneesEntreprise").style.display = "none";
-            document.getElementById("donneesOffre").style.display = "block";
-        }
-    </script>
+    <script src="../asserts/js/AdminEntreprise.js"></script>
 </head>
 <body class="body">
 
@@ -64,152 +54,90 @@ include '../Controller/ControllerVerificationDroit.php';
             <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
             <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
         </form>
+
         <form method="post" action="">
             <input type="button" value="Afficher les Offres" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
         </form>
 
-        <!-- Affichez les données des offres par défaut -->
+
         <ul id="donneesOffre" class="offres-container">
-            <?php
-            include '../Model/ConnexionBDD.php';
-            $db = Conn::getInstance();
+            <form id="rechercheOffre">
+                <label for="nomCheckbox">
+                    <input type="checkbox" id="nomCheckbox"> Nom
+                </label>
+                <label for="domaineCheckbox">
+                    <input type="checkbox" id="domaineCheckbox"> Domaine
+                </label>
+                <label for="missionCheckbox">
+                    <input type="checkbox" id="missionCheckbox"> Missions
+                </label>
+                <label for="nbEtudiantCheckbox">
+                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                </label>
 
-            // Effectuez une requête SQL pour récupérer les données des offres
-            $sql2 = "SELECT * FROM Offre";
-            $req2 = $db->prepare($sql2);
-            $req2->execute();
-            $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
-            $count = 0;
-            foreach ($resultat2 as $res2):
-                ?>
-                <li class="offre">
-                    Nom : <?php echo $res2['nom']; ?><br>
-                    Domaine : <?php echo $res2['domaine']; ?><br>
-                    Mission : <?php echo $res2['mission']; ?><br>
-                    Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                    <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
-                    <form method="post" action="" enctype="multipart/form-data">
-                        <input type="file" name="fichier" accept=".pdf, .doc, .docx">
-                        <input type="submit" value="Déposer le fichier">
-                    </form>
-                    <br>
-                </li>
-                <?php if ($count % 2 == 1) {
-                echo '</li>';
-            }
 
-            endforeach;
 
-            if ($count % 2 == 1) {
-                echo '</li>';
-            }
+                <div id="nomDiv" style="display: none">
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div id="domaineDiv" style="display: none">
+                    <input type="text" name="domaine" id="domaine" placeholder="Domaine">
+                </div>
+                <div id="missionDiv" style="display: none">
+                    <input type="text" name="mission" id="mission" placeholder="Missions">
+                </div>
+                <div id="nbEtudiantDiv" style="display: none">
+                    <input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
+                </div>
 
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_FILES['fichier'])) {
-                    $file = $_FILES['fichier'];
+                <input type="button" value="Rechercher une offre" onclick="rechercherOffres()">
+            </form>
 
-                    if ($file['error'] === 0) {
-                        $uploadDir = 'dossier_de_stockage/';
-                        if (!is_dir($uploadDir)) {
-                            mkdir($uploadDir, 0777, true);
-                        }
+            <ul id="resultatsOffre" class="result">
+            </ul>
 
-                        $fileName = $file['name'];
-                        $uploadPath = $uploadDir . $fileName;
-
-                        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-                            $offreId = 1; // Remplacez ceci par l'ID de l'offre.
-                            $nomFichier = $fileName;
-                            $etudiantId = 1; // Remplacez ceci par l'ID de l'étudiant.
-                            $sqlInsert = "INSERT INTO Postule (IdEtudiant, IdOffre, cv) VALUES (?, ?, ?)";
-                            $stmt = $db->prepare($sqlInsert);
-                            $stmt->execute([$etudiantId, $offreId, file_get_contents($uploadPath)]);
-                            echo 'Fichier téléchargé et ajouté à la table Postule avec succès.';
-                        } else {
-                            echo 'Erreur lors du téléchargement du fichier.';
-                        }
-                    } else {
-                        echo 'Erreur lors du téléchargement du fichier.';
-                    }
-                }
-            }
-            ?>
+            <script src="../asserts/js/rechercheOffre.js"></script>
         </ul>
 
-        <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
-        <ul id="donneesEntreprise" style="display: none;" class="affichEntreprise">
-            <?php
-            $sql = "SELECT * FROM entreprise";
-            $req = $db->prepare($sql);
-            $req->execute();
-            $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
+        <ul id="donneesEntreprise" class="affichEntreprise">
+            <form id="rechercheEntreprise">
+                <label for="nomEntrepriseCheckbox">
+                    <input type="checkbox" id="nomEntrepriseCheckbox"> Nom
+                </label>
+                <label for="villeCheckbox">
+                    <input type="checkbox" id="villeCheckbox"> Ville
+                </label>
+                <label for="codepostalCheckbox">
+                    <input type="checkbox" id="codepostalCheckbox"> Code Postal
+                </label>
+                <label for="secteurActiviteCheckbox">
+                    <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
+                </label>
 
-            $count = 0;
-            foreach ($resultat2 as $resultat):
-                if ($count % 2 == 0) {
-                    echo '<li>';
-                } ?>
-                <li class="entreprise">
-                    Nom : <?php echo $resultat['nomentreprise']; ?><br>
-                    Adresse : <?php echo $resultat['adresse']; ?><br>
-                    Ville : <?php echo $resultat['ville']; ?><br>
-                    Code postal : <?php echo $resultat['codepostal']; ?><br>
-                    Numéro de téléphone : <?php echo $resultat['numtel']; ?><br>
-                    Secteur d'activité : <?php echo $resultat['secteuractivite']; ?><br>
-                    Email : <?php echo $resultat['email']; ?><br>
-                    <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
 
-                </li>
-                <?php if ($count % 2 == 1) {
-                echo '</li>';
-            }
-                $count++;
-            endforeach;
 
-            if ($count % 2 == 1) {
-                echo '</li>';
-            }
+                <div id="nomEntrepriseDiv" style="display: none">
+                    <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
+                </div>
+                <div id="villeDiv" style="display: none">
+                    <input type="text" name="ville" id="ville" placeholder="Ville">
+                </div>
+                <div id="codepostalDiv" style="display: none">
+                    <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
+                </div>
+                <div id="secteurActiviteDiv" style="display: none">
+                    <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                </div>
 
-            ?>
+                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()">
+            </form>
+
+            <ul id="resultatsEntreprise" class="result">
+            </ul>
+
+            <script src="../asserts/js/rechercherEntreprise.js"></script>
         </ul>
-
-        <script>
-            function adjustRectangleHeight() {
-                const offreList = document.getElementById('donneesOffre');
-                const entrepriseList = document.getElementById('donneesEntreprise');
-                const dynamicRectangle = document.querySelector('.rectangle-mid');
-
-                const maxListHeight = Math.max(offreList.clientHeight, entrepriseList.clientHeight);
-                const margin = 20;
-
-                dynamicRectangle.style.height = maxListHeight + margin + 'px';
-
-                const elementsToMove = document.getElementsByClassName('move-down');
-                for (const element of elementsToMove) {
-                    element.style.transform = 'translateY(' + (maxListHeight + margin) + 'px)';
-                }
-            }
-
-            adjustRectangleHeight();
-
-            function updateRectangleHeight() {
-                adjustRectangleHeight();
-            }
-
-            function limiterElements(elementSelector) {
-                const elements = document.querySelectorAll(elementSelector);
-                for (let i = 3; i < elements.length; i++) {
-                    elements[i].style.display = 'none';
-                }
-            }
-
-            limiterElements('.offre');
-            limiterElements('.entreprise');
-        </script>
-
-
-
     </div>
 </div>
 
@@ -218,10 +146,6 @@ include '../Controller/ControllerVerificationDroit.php';
 </div>
 
 <script>
-
-    <!-- Incluez ce script JavaScript dans votre vue -->
-
-    // Dès que la page est chargée, vérifiez la session pour afficher la popup
     window.addEventListener('load', function () {
         <?php
         // Vérifiez la session pour afficher la popup
@@ -233,16 +157,6 @@ include '../Controller/ControllerVerificationDroit.php';
         }
         ?>
     });
-
-    function afficherPopup() {
-        var popup = document.getElementById("popup");
-        popup.style.display = "block";
-
-        setTimeout(function () {
-            popup.style.display = "none";
-        }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
-
-    }
 </script>
 
 

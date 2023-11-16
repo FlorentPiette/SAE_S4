@@ -1,15 +1,15 @@
-function rechercherOffres() {
-    var nom = document.getElementById('nom').value;
-    var domaine = document.getElementById('domaine').value;
-    var mission = document.getElementById("mission").value;
-    var nbEtudiant = document.getElementById('nbEtudiant').value;
+function rechercherEntreprises() {
+    var nom = document.getElementById('nomEntreprise').value;
+    var ville = document.getElementById('ville').value;
+    var codepostal = document.getElementById("codepostal").value;
+    var secteurActivite = document.getElementById('secteurActivite').value;
 
     console.log("reussis");
-    var apiUrl = '../Controller/ControllerRechercherOffre.php?' +
+    var apiUrl = '../Controller/ControllerRechercherEntreprise.php?' +
         'nom=' + nom +
-        '&domaine=' + domaine +
-        '&mission=' + mission +
-        '&nbEtudiant=' + (nbEtudiant !== '' ? parseInt(nbEtudiant) : '');
+        '&ville=' + ville +
+        '&codepostal=' + codepostal +
+        '&secteurActivite=' + secteurActivite;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -22,18 +22,18 @@ function rechercherOffres() {
 
                     if (resultats.length > 0) {
                         var resultatsHTML = '<ul>';
-                        resultats.forEach(function (offre) {
-                            resultatsHTML += '<li class="offre">';
-                            resultatsHTML += 'Nom : ' + (offre.nom || '') + '<br>';
-                            resultatsHTML += 'Domaine : ' + (offre.domaine || '') + '<br>';
-                            resultatsHTML += 'Missions : ' + (offre.mission || '') + '<br>';
-                            resultatsHTML += 'Nombre d`étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
+                        resultats.forEach(function (entreprise) {
+                            resultatsHTML += '<li class="entreprise">';
+                            resultatsHTML += 'Nom : ' + (entreprise.nom || '') + '<br>';
+                            resultatsHTML += 'Ville : ' + (entreprise.ville || '') + '<br>';
+                            resultatsHTML += 'Code Postal : ' + (entreprise.codepostal || '') + '<br>';
+                            resultatsHTML += 'Secteur d activité : ' + (entreprise.secteurActivite || '') + '<br>';
                             resultatsHTML += '</li>';
                         });
                         resultatsHTML += '</ul>';
-                        document.getElementById('resultatsOffre').innerHTML = resultatsHTML;
+                        document.getElementById('resultatsEntreprise').innerHTML = resultatsHTML;
                     } else {
-                        document.getElementById('resultatsOffre').innerHTML = "Aucun résultat trouvé.";
+                        document.getElementById('resultatsEntreprise').innerHTML = "Aucun résultat trouvé.";
                     }
                 } catch (e) {
                     console.error("Erreur d'analyse JSON : " + e);
@@ -48,10 +48,10 @@ function rechercherOffres() {
 }
 
 function afficherChamps() {
-    if (document.getElementById("nomCheckbox").checked) {
-        document.getElementById("nomDiv").style.display = "block";
+    if (document.getElementById("nomEntrepriseCheckbox").checked) {
+        document.getElementById("nomEntrepriseDiv").style.display = "block";
     } else {
-        document.getElementById("nomDiv").style.display = "none";
+        document.getElementById("nomEntrepriseDiv").style.display = "none";
     }
 
     if (document.getElementById("domaineCheckbox").checked) {
@@ -73,7 +73,7 @@ function afficherChamps() {
     }
 }
 
-document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("nomEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("domaineCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("missionCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("nbEtudiantCheckbox").addEventListener("change", afficherChamps);
