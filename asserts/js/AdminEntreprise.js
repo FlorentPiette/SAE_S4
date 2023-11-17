@@ -106,27 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     afficherPopup();
 });
 
-function adjustRectangleHeight() {
-    const offreList = document.getElementById('donneesOffre');
-    const entrepriseList = document.getElementById('donneesEntreprise');
-    const dynamicRectangle = document.querySelector('.rectangle-mid');
 
-    const maxListHeight = Math.max(offreList.clientHeight, entrepriseList.clientHeight);
-    const margin = 20;
-
-    dynamicRectangle.style.height = maxListHeight + margin + 'px';
-
-    const elementsToMove = document.getElementsByClassName('move-down');
-    for (const element of elementsToMove) {
-        element.style.transform = 'translateY(' + (maxListHeight + margin) + 'px)';
-    }
-}
-
-adjustRectangleHeight();
-
-function updateRectangleHeight() {
-    adjustRectangleHeight();
-}
 
 function limiterElements(elementSelector) {
     const elements = document.querySelectorAll(elementSelector);
@@ -146,6 +126,4 @@ function afficherPopup() {
     setTimeout(function () {
         popup.style.display = "none";
     }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
-
 }
-

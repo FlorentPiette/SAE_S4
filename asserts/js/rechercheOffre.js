@@ -7,6 +7,9 @@
  */
 
 function rechercherOffres() {
+
+    //Ces variables récuperent les éléments de recherche
+
     var nom = document.getElementById('nom').value;
     var domaine = document.getElementById('domaine').value;
     var mission = document.getElementById("mission").value;

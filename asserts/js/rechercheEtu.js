@@ -8,6 +8,9 @@
  */
 
 function rechercherEtudiants() {
+
+    //Ces variables récuperent les éléments de recherche
+
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
@@ -43,8 +46,7 @@ function rechercherEtudiants() {
     }
 
     console.log("reussis");
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
-        '&nom=' + nom +
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' + nom +
         '&prenom=' + prenom +
         '&ine=' + ine +
         '&email=' + email +
@@ -69,7 +71,7 @@ function rechercherEtudiants() {
                     if (resultats.length > 0) {
                         var resultatsHTML = '<ul>';
                         resultats.forEach(function (etudiant) {
-                            resultatsHTML += '<li>';
+                            resultatsHTML += '<li class="etu">';
                             resultatsHTML += 'Nom : ' + (etudiant.nom || '') + '<br>';
                             resultatsHTML += 'Prénom : ' + (etudiant.prenom || '') + '<br>';
                             resultatsHTML += 'INE : ' + (etudiant.ine || '') + '<br>';

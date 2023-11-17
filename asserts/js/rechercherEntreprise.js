@@ -7,6 +7,9 @@
  */
 
 function rechercherEntreprises() {
+
+    //Ces variables récuperent les éléments de recherche
+
     var nom = document.getElementById('nomEntreprise').value;
     var ville = document.getElementById('ville').value;
     var codepostal = document.getElementById("codepostal").value;
@@ -35,7 +38,7 @@ function rechercherEntreprises() {
                             resultatsHTML += 'Nom : ' + (entreprise.nom || '') + '<br>';
                             resultatsHTML += 'Ville : ' + (entreprise.ville || '') + '<br>';
                             resultatsHTML += 'Code Postal : ' + (entreprise.codepostal || '') + '<br>';
-                            resultatsHTML += 'Secteur d activité : ' + (entreprise.secteurActivite || '') + '<br>';
+                            resultatsHTML += 'Secteur d activité : ' + (entreprise.secteuractivite || '') + '<br>';
                             resultatsHTML += '</li>';
                         });
                         resultatsHTML += '</ul>';
@@ -70,28 +73,28 @@ function afficherChamps() {
         document.getElementById("nomEntrepriseDiv").style.display = "none";
     }
 
-    if (document.getElementById("domaineCheckbox").checked) {
-        document.getElementById("domaineDiv").style.display = "block";
+    if (document.getElementById("villeCheckbox").checked) {
+        document.getElementById("villeDiv").style.display = "block";
     } else {
-        document.getElementById("domaineDiv").style.display = "none";
+        document.getElementById("villeDiv").style.display = "none";
     }
 
-    if (document.getElementById("missionCheckbox").checked) {
-        document.getElementById("missionDiv").style.display = "block";
+    if (document.getElementById("codepostalCheckbox").checked) {
+        document.getElementById("codepostalDiv").style.display = "block";
     } else {
-        document.getElementById("missionDiv").style.display = "none";
+        document.getElementById("codepostalDiv").style.display = "none";
     }
 
-    if (document.getElementById("nbEtudiantCheckbox").checked) {
-        document.getElementById("nbEtudiantDiv").style.display = "block";
+    if (document.getElementById("secteurActiviteCheckbox").checked) {
+        document.getElementById("secteurActiviteDiv").style.display = "block";
     } else {
-        document.getElementById("nbEtudiantDiv").style.display = "none";
+        document.getElementById("secteurActiviteDiv").style.display = "none";
     }
 }
 
 document.getElementById("nomEntrepriseCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("domaineCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("missionCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("nbEtudiantCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("secteurActiviteCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();
