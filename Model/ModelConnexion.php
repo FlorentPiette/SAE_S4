@@ -23,16 +23,11 @@ function selectEmailMDPRoleAdmin($conn,$email){
  * @param string $email sert à chercher cette email dans la base de donnée
  * @param string $motDePasse sert à vérifier si ce mot de passe correspond à cette email dans la base de donnée
  *
- * @return void
+ * @return bool
  */
 function authenticatedAdmin ($user,$email,$motDePasse)
 {
-    if ($user['email'] === $email && password_verify($motDePasse, $user['motdepasse'])) {
-        return true ;
-    }
-    else {
-        echo false;
-    }
+    return $user['email'] === $email && password_verify($motDePasse, $user['motdepasse']);
 }
 
 function role($user) {
