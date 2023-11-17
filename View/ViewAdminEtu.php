@@ -66,6 +66,9 @@
             <label for="villeCheckbox">
                 <input type="checkbox" id="villeCheckbox"> Ville
             </label>
+            <label for="adresseCheckbox">
+                <input type="checkbox" id="adresseCheckbox"> Adresse
+            </label>
             <label for="codepostalCheckbox">
                 <input type="checkbox" id="codepostalCheckbox"> Code Postal
             </label>
@@ -105,6 +108,9 @@
             <div id="villeDiv" style="display: none">
                 <input type="text" name="ville" id="ville" placeholder="Ville">
             </div>
+            <div id="adresseDiv" style="display: none">
+                <input type="text" name="adresse" id="adresse" placeholder="Adresse">
+            </div>
             <div id="codepostalDiv" style="display: none">
                 <input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
             </div>
@@ -134,6 +140,8 @@
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">
         </form>
 
+        <script src="../asserts/js/rechercheEtu.js"></script>
+
         <ul id="resultats" class="result">
             <!-- Les résultats seront affichés ici -->
         </ul>
@@ -142,7 +150,7 @@
     </div>
 </div>
 
-<script src="../asserts/js/rechercheEtu.js"></script>
+
 
 </body>
 </html>

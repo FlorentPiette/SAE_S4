@@ -125,14 +125,10 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
 
     if (!empty($mobile)) {
         $stmt->bindValue(':mobile', $mobile, PDO::PARAM_BOOL);
-    } else {
-        $stmt->bindValue(':mobile', null, PDO::PARAM_NULL);
     }
 
     if (!empty($actif)) {
         $stmt->bindValue(':actif', $actif, PDO::PARAM_BOOL);
-    } else {
-        $stmt->bindValue(':actif', null, PDO::PARAM_NULL);
     }
 
     if ($stmt->execute()) {
