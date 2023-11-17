@@ -51,6 +51,18 @@ include '../Controller/ControllerVerificationDroit.php';
             </select>
         </li>
         <li>
+            <label for="entreprise">Type d'entreprises recherchées:</label>
+            <input type="text" id="entreprise" name="entreprise" class="input"/>
+        </li>
+        <li>
+            <label for="mission">Type de missions recherchées:</label>
+            <input type="text" id="mission" name="mission" class="input" />
+        </li>
+        <li>
+            <label for="mobile">Etudiant mobile:</label>
+            <input type="checkbox" id="mobile" name="mobile" class="input" />
+        </li>
+        <li>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" class="input" />
         </li>
