@@ -36,7 +36,6 @@ if(isset($_POST["valider"])) {
         setcookie("mailEtu", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
         if (true !== $result)
         {
-            // erreur -- traiter l'erreur
             echo $result;
         }
     exit();
