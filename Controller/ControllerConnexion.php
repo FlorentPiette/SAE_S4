@@ -46,6 +46,4 @@ $users = selectEmailMDPEtu($conn,$email);
             header('location: ../View/ViewConnexion.html');
         }
 }
-header('location: ../View/ViewConnexion.html')
-
-?>
+header('location: ../View/ViewConnexion.html');

@@ -5,6 +5,7 @@ include '../Model/ModelReinitialiserMdp.php';
 include '../Model/ModelMail.php';
 $db = Conn::GetInstance();
 setcookie("email", $_POST['email'], time() + 3600, "/");
+$verif = array();
 
 if(isset($_POST["envoieCode"])){
     envoieMail($_POST['email'],'supersae59@gmail.com','SAE', 'MDP', 'code');
@@ -22,5 +23,4 @@ if(isset($_POST["confirmationCode"])){
 
 echo 'mot de passe reset';
 
-?>
 

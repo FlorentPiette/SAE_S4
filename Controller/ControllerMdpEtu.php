@@ -26,6 +26,3 @@ if ($_POST['token'] && $_COOKIE['token']) {
     header('location: ../View/ViewNouvCompte.php');
     exit;
 }
-
-
-?>

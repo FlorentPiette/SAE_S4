@@ -9,6 +9,4 @@ $domaine = $_GET['domaine'] ?? '';
 $mission = $_GET['mission'] ?? '';
 $nbEtudiant = $_GET['nbEtudiant'] ?? '';
 
-FiltrerOffres($conn,$nom,$domaine,$mission,$nbEtudiant)
-
-?>
+FiltrerOffres($conn,$nom,$domaine,$mission,$nbEtudiant);

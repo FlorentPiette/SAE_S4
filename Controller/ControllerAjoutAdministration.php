@@ -16,4 +16,3 @@ if(isset($_POST["valider"])) {
     ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role);
     header('Location: ../View/ViewAdminAdministration.php');
 }
-?>

@@ -16,4 +16,3 @@ if (isset($_POST['deco'])){
 }
 
 ob_end_flush();
-?>
