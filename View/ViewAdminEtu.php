@@ -94,37 +94,37 @@
 
 
             <div id="nomDiv" style="display: none">
-                <input type="text" name="nom" id="nom" placeholder="Nom">
+                <label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom">
             </div>
             <div id="prenomDiv" style="display: none">
-                <input type="text" name="prenom" id="prenom" placeholder="Prénom">
+                <label for="prenom"></label><input type="text" name="prenom" id="prenom" placeholder="Prénom">
             </div>
             <div id="ineDiv" style="display: none">
-                <input type="text" name="ine" id="ine" placeholder="INE">
+                <label for="ine"></label><input type="text" name="ine" id="ine" placeholder="INE">
             </div>
             <div id="emailDiv" style="display: none">
-                <input type="text" name="email" id="email" placeholder="Adresse Email">
+                <label for="email"></label><input type="text" name="email" id="email" placeholder="Adresse Email">
             </div>
             <div id="villeDiv" style="display: none">
-                <input type="text" name="ville" id="ville" placeholder="Ville">
+                <label for="ville"></label><input type="text" name="ville" id="ville" placeholder="Ville">
             </div>
             <div id="adresseDiv" style="display: none">
-                <input type="text" name="adresse" id="adresse" placeholder="Adresse">
+                <label for="adresse"></label><input type="text" name="adresse" id="adresse" placeholder="Adresse">
             </div>
             <div id="codepostalDiv" style="display: none">
-                <input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
+                <label for="codepostal"></label><input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
             </div>
             <div id="formationDiv" style="display: none">
-                <input type="text" name="formation" id="formation" placeholder="Formation">
+                <label for="formation"></label><input type="text" name="formation" id="formation" placeholder="Formation">
             </div>
             <div id="anneeEtudeDiv" style="display: none">
-                <input type="number" name="anneeEtude" id="anneeEtude" placeholder="Année d'étude">
+                <label for="anneeEtude"></label><input type="number" name="anneeEtude" id="anneeEtude" placeholder="Année d'étude">
             </div>
             <div id="typeEntrepriseDiv" style="display: none">
-                <input type="text" name="typeEntreprise" id="typeEntreprise" placeholder="Type d'entreprise">
+                <label for="typeEntreprise"></label><input type="text" name="typeEntreprise" id="typeEntreprise" placeholder="Type d'entreprise">
             </div>
             <div id="typeMissionDiv" style="display: none">
-                <input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
+                <label for="typeMission"></label><input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
             </div>
             <div id="mobileDiv" style="display: none">
                 <label for="mobile">
