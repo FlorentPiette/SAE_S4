@@ -9,7 +9,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
 </head>
 <body>
-<form action="../Controller/ControllerAjoutEtudiant.php" method="post">
+<form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaireAjoutEtudiant">
     <ul>
         <li>
             <label for="nom">Nom:</label>

@@ -6,17 +6,14 @@ include '../Controller/ControllerVerificationDroit.php';
 <head>
     <meta charset="UTF-8">
     <title>Ajout Entreprise</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEntreprise.css">
 </head>
 <body>
-<form action="../Controller/ControllerAjoutEntreprise.php" method="POST">
+<form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire">
     <ul>
         <li>
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom">
-        </li>
-        <li>
-            <label for="nom">Email:</label>
-            <label for="mail"></label><input type="text" id="mail" name="email">
         </li>
         <li>
             <label for="adresse">Adresse:</label>
