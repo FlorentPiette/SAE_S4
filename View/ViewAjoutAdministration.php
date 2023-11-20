@@ -21,7 +21,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <li>
             <div class="formation-rectangle">
 
-                <select id="formation-select" name="formation">
+                <label for="formation-select"></label><select id="formation-select" name="formation">
                     <option value="informatique">BUT informatique</option>
                     <option value="marketing">Responsable pédagogique</option>
                     <option value="finance">Chargés de développement</option>
@@ -42,7 +42,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <li>
             <div class="role-rectangle">
 
-                <select id="role-select" name="role">
+                <label for="role-select"></label><select id="role-select" name="role">
                     <option value="admin">Administration</option>
                     <option value="rp">Responsable pédagogique</option>
                     <option value="cd">Chargés de développement</option>
