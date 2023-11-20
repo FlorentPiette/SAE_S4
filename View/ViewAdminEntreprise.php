@@ -79,16 +79,16 @@ include '../Controller/ControllerVerificationDroit.php';
 
 
                 <div id="nomDiv" style="display: none">
-                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                    <label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom">
                 </div>
                 <div id="domaineDiv" style="display: none">
-                    <input type="text" name="domaine" id="domaine" placeholder="Domaine">
+                    <label for="domaine"></label><input type="text" name="domaine" id="domaine" placeholder="Domaine">
                 </div>
                 <div id="missionDiv" style="display: none">
-                    <input type="text" name="mission" id="mission" placeholder="Missions">
+                    <label for="mission"></label><input type="text" name="mission" id="mission" placeholder="Missions">
                 </div>
                 <div id="nbEtudiantDiv" style="display: none">
-                    <input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
+                    <label for="nbEtudiant"></label><input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
                 </div>
 
                 <input type="button" value="Rechercher une offre" onclick="rechercherOffres()">
@@ -118,16 +118,16 @@ include '../Controller/ControllerVerificationDroit.php';
 
 
                 <div id="nomEntrepriseDiv" style="display: none">
-                    <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
+                    <label for="nomEntreprise"></label><input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
                 </div>
                 <div id="villeDiv" style="display: none">
-                    <input type="text" name="ville" id="ville" placeholder="Ville">
+                    <label for="ville"></label><input type="text" name="ville" id="ville" placeholder="Ville">
                 </div>
                 <div id="codepostalDiv" style="display: none">
-                    <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
+                    <label for="codepostal"></label><input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
                 </div>
                 <div id="secteurActiviteDiv" style="display: none">
-                    <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                    <label for="secteurActivite"></label><input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
                 </div>
 
                 <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()">

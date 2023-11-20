@@ -16,7 +16,7 @@ include '../Controller/ControllerVerificationDroit.php';
         </li>
         <li>
             <label for="nom">Email:</label>
-            <input type="text" id="mail" name="email">
+            <label for="mail"></label><input type="text" id="mail" name="email">
         </li>
         <li>
             <label for="adresse">Adresse:</label>
