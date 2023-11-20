@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 include '../Model/ModelMail.php';
 include '../Model/ConnexionBDD.php';
 include '../Model/ModelInscriptionEtu.php';
-include '../Model/Requetes.php';
 
 $db = Conn::getInstance();
 
@@ -37,7 +36,6 @@ if(isset($_POST["valider"])) {
         setcookie("mailEtu", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
         if (true !== $result)
         {
-            // erreur -- traiter l'erreur
             echo $result;
         }
     exit();

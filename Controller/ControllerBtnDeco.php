@@ -10,7 +10,6 @@ if (isset($_POST['deco'])){
     session_unset();
     session_destroy();
 
-    // Redirigez l'utilisateur vers la page de connexion
     header('Location: ../View/ViewAvConnexion.html');
     exit;
 

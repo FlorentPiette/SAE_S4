@@ -60,7 +60,7 @@ function rechercherEntreprises() {
 
 
 /**
- * Affiche les zones de text ou les checkbox lorsque la catégorie est cochée
+ * Affiche les zones de texte ou les checkbox lorsque la catégorie est cochée
  *
  * @author Emeline
  *
