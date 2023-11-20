@@ -42,7 +42,7 @@
 
             <div class="formation-rectangle">
 
-                <select id="formation-select" name="formation">
+                <label for="formation-select"></label><select id="formation-select" name="formation">
                     <option value="informatique">BUT informatique</option>
                     <option value="marketing">Responsable pédagogique</option>
                     <option value="finance">Chargé de développement</option>
