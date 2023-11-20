@@ -145,20 +145,5 @@ include '../Controller/ControllerVerificationDroit.php';
     L'offre a été ajoutée avec succès !
 </div>
 
-<script>
-    window.addEventListener('load', function () {
-        <?php
-        // Vérifiez la session pour afficher la popup
-        session_start();
-        if (isset($_SESSION['afficher_popup']) && $_SESSION['afficher_popup'] === true) {
-            echo 'afficherPopup();';
-            // Réinitialisez l'indicateur pour qu'il ne s'affiche qu'une fois.
-            $_SESSION['afficher_popup'] = false;
-        }
-        ?>
-    });
-</script>
-
-
 </body>
 </html>
