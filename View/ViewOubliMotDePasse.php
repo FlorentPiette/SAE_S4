@@ -9,7 +9,7 @@
     <ul>
         <li>
             <label for="email">Votre e-mail:</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email">
         </li>
     </ul>
 

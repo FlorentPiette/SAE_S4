@@ -10,7 +10,7 @@
     <ul>
         <li>
             <label for="mdp">Nouveau mot de passe:</label>
-            <input type="password" id="mdp" name="mdp" />
+            <input type="password" id="mdp" name="mdp">
         </li>
     </ul>
 

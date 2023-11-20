@@ -13,7 +13,7 @@
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil"class="btnCreation"> Acceuil </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil" class="btnCreation"> Acceuil </button></li>
                         <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
                         <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
                         <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
@@ -25,7 +25,7 @@
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
+            <img src="../asserts/img/logo.png" class="logo" alt="logo uphf">
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
             </form>
@@ -66,6 +66,9 @@
             <label for="villeCheckbox">
                 <input type="checkbox" id="villeCheckbox"> Ville
             </label>
+            <label for="adresseCheckbox">
+                <input type="checkbox" id="adresseCheckbox"> Adresse
+            </label>
             <label for="codepostalCheckbox">
                 <input type="checkbox" id="codepostalCheckbox"> Code Postal
             </label>
@@ -81,10 +84,10 @@
             <label for="typeMissionCheckbox">
                 <input type="checkbox" id="typeMissionCheckbox"> Type de missions
             </label>
-            <label for="mobile">
+            <label for="mobileCheckbox">
                 <input type="checkbox" id="mobileCheckbox"> Mobile
             </label>
-            <label for="actif">
+            <label for="actifCheckbox">
                 <input type="checkbox" id="actifCheckbox"> Actif
             </label>
 
@@ -104,6 +107,9 @@
             </div>
             <div id="villeDiv" style="display: none">
                 <input type="text" name="ville" id="ville" placeholder="Ville">
+            </div>
+            <div id="adresseDiv" style="display: none">
+                <input type="text" name="adresse" id="adresse" placeholder="Adresse">
             </div>
             <div id="codepostalDiv" style="display: none">
                 <input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
@@ -134,6 +140,8 @@
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">
         </form>
 
+        <script src="../asserts/js/rechercheEtu.js"></script>
+
         <ul id="resultats" class="result">
             <!-- Les résultats seront affichés ici -->
         </ul>
@@ -142,7 +150,7 @@
     </div>
 </div>
 
-<script src="../asserts/js/rechercheEtu.js"></script>
+
 
 </body>
 </html>

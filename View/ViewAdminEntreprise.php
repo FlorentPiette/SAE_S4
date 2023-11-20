@@ -30,7 +30,7 @@ include '../Controller/ControllerVerificationDroit.php';
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
+            <img src="../asserts/img/logo.png" class="logo" alt="logo uphf">
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
             </form>
@@ -73,7 +73,7 @@ include '../Controller/ControllerVerificationDroit.php';
                     <input type="checkbox" id="missionCheckbox"> Missions
                 </label>
                 <label for="nbEtudiantCheckbox">
-                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherchés
                 </label>
 
 
@@ -144,21 +144,6 @@ include '../Controller/ControllerVerificationDroit.php';
 <div id="popup" class="popup">
     L'offre a été ajoutée avec succès !
 </div>
-
-<script>
-    window.addEventListener('load', function () {
-        <?php
-        // Vérifiez la session pour afficher la popup
-        session_start();
-        if (isset($_SESSION['afficher_popup']) && $_SESSION['afficher_popup'] === true) {
-            echo 'afficherPopup();';
-            // Réinitialisez l'indicateur pour qu'il ne s'affiche qu'une fois.
-            $_SESSION['afficher_popup'] = false;
-        }
-        ?>
-    });
-</script>
-
 
 </body>
 </html>

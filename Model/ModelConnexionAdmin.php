@@ -50,6 +50,6 @@ function authenticatedAdmin ($user,$email,$motDePasse)
         }
         exit();
     } else {
-        echo 'Connexion refusée' . password_hash('Test@456', PASSWORD_DEFAULT);
+        echo 'Connexion refusée' . password_hash('testModelRechercheEtu@456', PASSWORD_DEFAULT);
     }
 }

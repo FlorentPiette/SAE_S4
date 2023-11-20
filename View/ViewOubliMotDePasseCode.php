@@ -9,7 +9,7 @@
     <ul>
         <li>
             <label for="code">Code de confirmation:</label>
-            <input type="text" id="code" name="code" />
+            <input type="text" id="code" name="code">
         </li>
     </ul>
 
