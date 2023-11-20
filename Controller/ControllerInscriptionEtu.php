@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 include '../Model/ModelMail.php';
 include '../Model/ConnexionBDD.php';
 include '../Model/ModelInscriptionEtu.php';
-include '../Model/Requetes.php';
 
 $db = Conn::getInstance();
 
