@@ -13,7 +13,7 @@
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" class="btnCreation"> Acceuil </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" class="btnCreation"> Accueil </button></li>
                         <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
                         <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
                         <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="administration"  class="btnCreation"> Administration </button> </li>
@@ -39,7 +39,7 @@
             <h3 class="nbrEtu">Nombre d'étudiants</h3>
             <h3 class="nbrEnt">Nombre d'entreprises</h3>
             <h3 class="nbrOff">Nombre d'offres</h3>
-            <h3 class="nbrPers">Nombre de personnel</h3>
+            <h3 class="nbrPers">Nombre de personnels</h3>
         </div>
     </div>
 
