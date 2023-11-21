@@ -106,14 +106,14 @@
 
 /* Rectangle du milieu (pour les offres et entreprises) */
 .rectangle-mid {
-    width: 900px;
+    width: 880px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 15px;
     position: absolute;
-    transform: translate(-50%, -50%);
-    top: calc(70% + 30px);
-    left: 55%;
+    top: calc(40% + 30px);
+    left: 835px;
+    margin-left: -450px;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
