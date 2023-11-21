@@ -36,9 +36,9 @@
 <div class="body-container">
     <div class="rectangle-haut">
         <div class="all-text">
-            <h3 class="nbrEtu">Nombre d'étudiant</h3>
-            <h3 class="nbrEnt">Nombre d'entreprise</h3>
-            <h3 class="nbrOff">Nombre d'offre</h3>
+            <h3 class="nbrEtu">Nombre d'étudiants</h3>
+            <h3 class="nbrEnt">Nombre d'entreprises</h3>
+            <h3 class="nbrOff">Nombre d'offres</h3>
             <h3 class="nbrPers">Nombre de personnel</h3>
         </div>
     </div>
