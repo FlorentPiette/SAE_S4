@@ -5,9 +5,9 @@
  *
  * @param String $role sert à selectionner le rôle pour lequel on veut les données
  *
- * @return json $roles_json
+ * @return false|string $roles_json
  */
-function getAdminDataByRoleAndReturnJSON($role)
+function getAdminDataByRoleAndReturnJSON(String $role) : false|string
 {
     try {
         $conn = Conn::getInstance();
@@ -35,5 +35,5 @@ function getAdminDataByRoleAndReturnJSON($role)
     } catch (PDOException $e) {
         echo "Erreur : " . $e->getMessage();
     }
-
+    return false;
 }

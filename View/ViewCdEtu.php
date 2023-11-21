@@ -13,10 +13,10 @@
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.html'" name="accueil" class="btnCreation"> Acceuil </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" class="btnCreation"> Acceuil </button></li>
                         <li><button type="button"  onclick="window.location.href ='ViewCdEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
                         <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="administration"  class="btnCreation"> Administration </button> </li>
                         <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
@@ -66,6 +66,9 @@
             <label for="villeCheckbox">
                 <input type="checkbox" id="villeCheckbox"> Ville
             </label>
+            <label for="adresseCheckbox">
+                <input type="checkbox" id="adresseCheckbox"> Adresse
+            </label>
             <label for="codepostalCheckbox">
                 <input type="checkbox" id="codepostalCheckbox"> Code Postal
             </label>
@@ -105,6 +108,9 @@
             <div id="villeDiv" style="display: none">
                 <label for="ville"></label><input type="text" name="ville" id="ville" placeholder="Ville">
             </div>
+            <div id="adresseDiv" style="display: none">
+                <label for="adresse"></label><input type="text" name="adresse" id="adresse" placeholder="Adresse">
+            </div>
             <div id="codepostalDiv" style="display: none">
                 <label for="codepostal"></label><input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
             </div>
@@ -134,6 +140,8 @@
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()">
         </form>
 
+        <script src="../asserts/js/rechercheEtu.js"></script>
+
         <ul id="resultats" class="result">
             <!-- Les résultats seront affichés ici -->
         </ul>
@@ -142,7 +150,7 @@
     </div>
 </div>
 
-<script src="../asserts/js/rechercheEtu.js"></script>
+
 
 </body>
 </html>
