@@ -3,9 +3,11 @@
 <html>
 <head>
     <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
 </head>
 
 <body>
+<div class="content">
 <h1><?= $etu['nom'] ?> <?= $etu['prenom'] ?></h1>
 
 <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
@@ -20,7 +22,11 @@
     <input type="submit" name="modifier_prenom" value="Modifier">
 </form>
 
-<label> Date de naissance : <?= $etu['datedenaissance'] ?></label>
+<form method="post" action="../Controller/ControllerModifierProfilEtu.php">
+    <label> Date de naissance : </label>
+    <input type="date" name="modifier_date" value="<?= $etu['datedenaissance'] ?>">
+    <input type="submit" name="modifier_date" value="Modifier">
+</form>
 
 <form method="post" action="../Controller/ControllerModifierProfilEtu.php">
     <label> Adresse : </label>
@@ -81,5 +87,6 @@
     <input type="checkbox" name="actif" id="actif" value="actif" <?php if ($etu['actif']) echo 'checked'; ?>>
     <input type="submit" name="setActif" value="Modifier">
 </form>
+</div>
 </body>
 </html>
