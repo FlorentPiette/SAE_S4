@@ -1,4 +1,15 @@
+/**
+ * Rechercher des offres
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
+
 function rechercherOffres() {
+
+    //Ces variables récuperent les éléments de recherche
+
     var nom = document.getElementById('nom').value;
     var domaine = document.getElementById('domaine').value;
     var mission = document.getElementById("mission").value;
@@ -23,7 +34,7 @@ function rechercherOffres() {
                     if (resultats.length > 0) {
                         var resultatsHTML = '<ul>';
                         resultats.forEach(function (offre) {
-                            resultatsHTML += '<li>';
+                            resultatsHTML += '<li class="offre">';
                             resultatsHTML += 'Nom : ' + (offre.nom || '') + '<br>';
                             resultatsHTML += 'Domaine : ' + (offre.domaine || '') + '<br>';
                             resultatsHTML += 'Missions : ' + (offre.mission || '') + '<br>';
@@ -47,6 +58,13 @@ function rechercherOffres() {
     xhr.send();
 }
 
+/**
+ * Affiche les zones de texte ou les checkbox lorsque la catégorie est cochée
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
         document.getElementById("nomDiv").style.display = "block";

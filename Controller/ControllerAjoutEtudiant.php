@@ -42,7 +42,6 @@ if(isset($_POST["ajoutEtudiant"])) {
         $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
         {
-            // erreur -- traiter l'erreur
             echo $result;
         }
         header('Location: ../Model/ModelVerifMail.php');
@@ -53,4 +52,3 @@ if(isset($_POST["ajoutEtudiant"])) {
 
 
 }
-?>

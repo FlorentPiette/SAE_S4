@@ -8,8 +8,8 @@
 
 <form action="../Controller/ControllerMdpEtu.php" method="post" onsubmit="return ValidationMdp();">
     <input type="hidden" name="token" value="<?php echo $_GET['token']; ?>">
-    <input type="password" name="mdp" id = "mdp" placeholder=" Veuillez saisir votre code">
-    <input type="password" name="mdpVerif" id = "mdpVerif" placeholder=" Veuillez saisir votre code" required>
+    <label for="mdp"></label><input type="password" name="mdp" id = "mdp" placeholder=" Veuillez saisir votre code">
+    <label for="mdpVerif"></label><input type="password" name="mdpVerif" id = "mdpVerif" placeholder=" Veuillez saisir votre code" required>
     <span id="error_message" style="color: red;"></span>
 
     <input type="submit" name="Valider" >

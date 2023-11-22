@@ -1,3 +1,4 @@
+<?php include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,9 +14,9 @@
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
                         <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
                         <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
@@ -25,7 +26,7 @@
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="/asserts/img/logo.png" class="logo">
+            <img src="/asserts/img/logo.png" class="logo" alt="logo uphf">
             <form method="post" action="/Controller/ControllerBtnDeco.php">
 
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
@@ -42,13 +43,13 @@
 
         <div class="all-text">
 
-            <h3 class = "nbrEtu">Nombre d'étudiant</h3>
+            <h3 class = "nbrEtu">Nombre d'étudiants</h3>
 
-            <h3 class = "nbrEnt">Nombre d'entreprise</h3>
+            <h3 class = "nbrEnt">Nombre d'entreprises</h3>
 
-            <h3 class = "nbrOff">Nombre d'offre</h3>
+            <h3 class = "nbrOff">Nombre d'offres</h3>
 
-            <h3 class = "nbrPers">Nombre de personnel</h3>
+            <h3 class = "nbrPers">Nombre de personnels</h3>
 
         </div>
 
@@ -60,8 +61,8 @@
 
             <h3 class="titre">Equipe pédagogique</h3>
 
-            <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont trier par leur
-                statuts dans l’université.
+            <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont triés par leur
+                statut dans l’université.
             </p>
 
             <div class="rectangle-gauche">
@@ -99,7 +100,7 @@
         <div class="all-text3">
 
             <h3 class="titre2">Compte de l'administration</h3>
-            <p class="description2">Vous trouverez ici l’ensemble des comptes du personnel avec leurs rôles, leurs permissions, leurs adresse mails etc... </p>
+            <p class="description2">Vous trouverez ici l’ensemble des comptes du personnel avec leurs rôles, leurs permissions, leurs adresses mails, etc. </p>
 
             <div class="button-filtre">
 

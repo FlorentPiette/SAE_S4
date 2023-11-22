@@ -1,35 +1,25 @@
-<?php
-include '../Controller/ControllerVerificationDroit.php';
-?>
+<?php include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
-    <script>
-        function afficherEntreprises() {
-            document.getElementById("donneesEntreprise").style.display = "block";
-            document.getElementById("donneesOffre").style.display = "none";
-        }
-
-        function afficherOffres() {
-            document.getElementById("donneesEntreprise").style.display = "none";
-            document.getElementById("donneesOffre").style.display = "block";
-        }
-    </script>
+    <script src="../asserts/js/AdminEntreprise.js"></script>
 </head>
 <body class="body">
 
 <header class="header">
+
     <div class="menu-container">
         <div class="menu-header">
             <nav>
-                <form method="post" action="../Controller/ControllerBtnDeco.php">
+                <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" class="btnCreation"> Accueil </button></li>
+                        <li><button type="button"  onclick="window.location.href ='ViewCdEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
                         <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
@@ -38,7 +28,10 @@ include '../Controller/ControllerVerificationDroit.php';
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
+            <img src="../asserts/img/logo.png" class="logo" alt="logo uphf">
+            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
+            </form>
         </div>
     </div>
 </header>
@@ -50,85 +43,104 @@ include '../Controller/ControllerVerificationDroit.php';
             <h3 class="nbrEtu">Nombre d'étudiants</h3>
             <h3 class="nbrEnt">Nombre d'entreprises</h3>
             <h3 class="nbrOff">Nombre d'offres</h3>
-            <h3 class="nbrPers">Nombre de personnel</h3>
+            <h3 class="nbrPers">Nombre de personnels</h3>
         </div>
     </div>
 
     <div class="rectangle-mid">
-        <form method="post">
-            <button name="btnAjoutEntreprise" onclick="window.location.href ='AjoutEntreprise.php'"  class="btnAjoutEntreprise" type="button" > Ajouter une entreprise </button>
-            <button name="btnAjoutOffre" onclick="window.location.href ='DemandeAjoutOffre.php'" class="btnAjoutOffre" type="button" > Ajouter une Offre</button>
+        <form action="" method="post">
+            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
+            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
         </form>
-        <form method="post" action="">
 
+        <form method="post" action="">
             <input type="button" value="Afficher les Offres" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
-
         </form>
 
-        <!-- Affichez les données des offres par défaut -->
-        <ul id="donneesOffre">
-            <?php
+
+        <ul id="donneesOffre" class="offres-container">
+            <form id="rechercheOffre">
+                <label for="nomCheckbox">
+                    <input type="checkbox" id="nomCheckbox"> Nom
+                </label>
+                <label for="domaineCheckbox">
+                    <input type="checkbox" id="domaineCheckbox"> Domaine
+                </label>
+                <label for="missionCheckbox">
+                    <input type="checkbox" id="missionCheckbox"> Missions
+                </label>
+                <label for="nbEtudiantCheckbox">
+                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                </label>
 
 
-            $host = "localhost";
-            $dbname = "postgres";
-            $user = "postgres";
-            $password = "31lion2004";
 
-            try {
-                $pdo = new PDO("pgsql:host=$host;dbname=$dbname", $user, $password);
-                $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            } catch (PDOException $e) {
-                die("Erreur de connexion à la base de données : " . $e->getMessage());
-            }
+                <div id="nomDiv" style="display: none">
+                    <label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div id="domaineDiv" style="display: none">
+                    <label for="domaine"></label><input type="text" name="domaine" id="domaine" placeholder="Domaine">
+                </div>
+                <div id="missionDiv" style="display: none">
+                    <label for="mission"></label><input type="text" name="mission" id="mission" placeholder="Missions">
+                </div>
+                <div id="nbEtudiantDiv" style="display: none">
+                    <label for="nbEtudiant"></label><input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
+                </div>
 
+                <input type="button" value="Rechercher une offre" onclick="rechercherOffres()">
+            </form>
 
+            <ul id="resultatsOffre" class="result">
+            </ul>
 
-            // Effectuez une requête SQL pour récupérer les données des offres
-            $sql2 = "SELECT * FROM Offre";
-            $req2 = $pdo->prepare($sql2);
-            $req2->execute();
-
-            $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
-            foreach ($resultat2 as $res2): ?>
-                <li>
-                    Nom : <?php echo $res2['nom']; ?><br>
-                    Domaine : <?php echo $res2['domaine']; ?><br>
-                    Mission : <?php echo $res2['mission']; ?><br>
-                    Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                </li>
-            <?php endforeach;
-
-            ?>
+            <script src="../asserts/js/rechercheOffre.js"></script>
         </ul>
 
-        <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
-        <ul id="donneesEntreprise" style="display: none;">
-            <?php
+        <ul id="donneesEntreprise" class="affichEntreprise">
+            <form id="rechercheEntreprise">
+                <label for="nomEntrepriseCheckbox">
+                    <input type="checkbox" id="nomEntrepriseCheckbox"> Nom
+                </label>
+                <label for="villeCheckbox">
+                    <input type="checkbox" id="villeCheckbox"> Ville
+                </label>
+                <label for="codepostalCheckbox">
+                    <input type="checkbox" id="codepostalCheckbox"> Code Postal
+                </label>
+                <label for="secteurActiviteCheckbox">
+                    <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
+                </label>
 
 
-            $sql = "SELECT * FROM entreprise";
-            $req = $pdo->prepare($sql);
-            $req->execute();
 
-            $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
+                <div id="nomEntrepriseDiv" style="display: none">
+                    <label for="nomEntreprise"></label><input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
+                </div>
+                <div id="villeDiv" style="display: none">
+                    <label for="ville"></label><input type="text" name="ville" id="ville" placeholder="Ville">
+                </div>
+                <div id="codepostalDiv" style="display: none">
+                    <label for="codepostal"></label><input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
+                </div>
+                <div id="secteurActiviteDiv" style="display: none">
+                    <label for="secteurActivite"></label><input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                </div>
 
-            foreach ($resultat as $res): ?>
-                <li>
-                    Nom : <?php echo $res['nom']; ?><br>
-                    Adresse : <?php echo $res['adresse']; ?><br>
-                    Ville : <?php echo $res['ville']; ?><br>
-                    Téléphone : <?php echo $res['numtel']; ?><br>
-                    Email : <?php echo $res['email']; ?><br>
-                    Secteur d'activité : <?php echo $res['secteuractivite']; ?><br>
-                </li>
+                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()">
+            </form>
 
-            <?php endforeach;
+            <ul id="resultatsEntreprise" class="result">
+            </ul>
 
-            ?>
+            <script src="../asserts/js/rechercherEntreprise.js"></script>
         </ul>
     </div>
+</div>
+
+<div id="popup" class="popup">
+    L'offre a été ajoutée avec succès !
 </div>
 
 </body>

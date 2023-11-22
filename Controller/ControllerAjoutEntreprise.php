@@ -20,4 +20,3 @@ if(isset($_POST["ajoutEntreprise"])) {
 
     header('Location: ../View/ViewAdminEntreprise.php');
 }
-?>

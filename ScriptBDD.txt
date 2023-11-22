@@ -1,98 +1,116 @@
-DROP TABLE IF EXISTS Etudiant, Adminitrsation, Entreprise, Offre, Poste, Reponse, Postule;
+Drop table if exists administration, entreprise, etudiant, offre, poste, recrute, postule, reponse CASCADE;
 
-CREATE TABLE Etudiant (
-    IdEtudiant serial PRIMARY KEY,
-    Nom text NOT NULL CHECK (Nom = UPPER(Nom)),
-    Prenom text NOT NULL,
-    DateDeNaissance date NOT NULL CHECK (DateDeNaissance >= '1900-01-01' AND DateDeNaissance <= CURRENT_DATE),
-    Adresse text NOT NULL,
-    Ville text NOT NULL,
-    CodePostal VARCHAR(5) NOT NULL CHECK (LENGTH(CodePostal) = 5),
-    AnneeEtude int NOT NULL,
-    Formation text NOT NULL,
-    CV VARCHAR(255) CHECK (CV ~ '.pdf$'),
-    Email text NOT NULL CHECK (POSITION('@' IN Email) > 0),
-    MotDePasse text NOT NULL CHECK (
-        LENGTH(MotDePasse) >= 8 AND
-        MotDePasse ~ '[A-Z]' AND
-        MotDePasse ~ '[a-z]' AND
-        MotDePasse ~ '[0-9]' AND
-        MotDePasse ~ '[!@#$%^&*()]' AND
-        NOT (MotDePasse ~ '^(password|123456|admin)$')
-    ),
-    Photo VARCHAR(255) CHECK (Photo ~ '.(png|jpeg|jpg)$'),
-    INE text NOT NULL,
-    Actif boolean
-);
-
-CREATE TABLE Adminitration(
+CREATE TABLE Administration(
 
     IdProfil serial PRIMARY KEY,
     Nom text NOT NULL CHECK (Nom = UPPER(Nom)),
     Prenom text not null,
     Formation text not null,
     Email text not null,
-    MotDePasse text NOT NULL CHECK (
-        LENGTH(MotDePasse) >= 8 AND
-        MotDePasse ~ '[A-Z]' AND
-        MotDePasse ~ '[a-z]' AND
-        MotDePasse ~ '[0-9]' AND
-        MotDePasse ~ '[!@#$%^&*()]' AND
-        NOT (MotDePasse ~ '^(password|123456|admin)$')
-    ),
-	Role text not null
+    MotDePasse text NOT NULL 
+constraint administration_motdepasse_check
+            check ((length(motdepasse) >= 8) AND (motdepasse ~ '[A-Z]'::text) AND (motdepasse ~ '[a-z]'::text) AND
+                   (motdepasse ~ '[0-9]'::text) AND (motdepasse ~ '[!@#$%^&*()]'::text) AND
+                   (NOT (motdepasse ~ '^(password|123456|admin)$'::text))),
+    Role text not null
 
 );
 
-CREATE TABLE Entreprise(
-
-    IdEntreprise serial primary key,
-    Nom text not null,
-    Logo VARCHAR(255) NOT NULL CHECK (Logo ~ '\.(png|jpeg|jpg)$'),
-    Adresse text not null,
-    Ville text not null,
-    CodePostal VARCHAR(5) NOT NULL CHECK (LENGTH(CodePostal) = 5),
-    NumTel VARCHAR(10) not null CHECK ( length(NumTel) = 10),
-    SecteurActivite text not null
+create table entreprise
+(
+    identreprise    serial
+        primary key,
+    nom             text        not null,
+    logo            varchar(255),
+    adresse         text        not null,
+    ville           text        not null,
+    codepostal      varchar(5)  not null
+        constraint entreprise_codepostal_check
+            check (length((codepostal)::text) = 5),
+    numtel          varchar(10) not null
+        constraint entreprise_numtel_check
+            check (length((numtel)::text) = 10),
+    secteuractivite text        not null,
+    email           text        not null
+        constraint entreprise_email_check
+            check (POSITION(('@'::text) IN (email)) > 0)
 );
 
-CREATE TABLE Offre(
-
-    IdOffre serial primary key,
-    Nom text not null,
-    Domaine text not null,
-    Mission text not null,
-    NbEtudiant int
-
+create table etudiant
+(
+    idetudiant      serial
+        primary key,
+    nom             text       not null
+        constraint etudiant_nom_check
+            check (nom = upper(nom)),
+    prenom          text       not null,
+    datedenaissance date       not null
+        constraint etudiant_datedenaissance_check
+            check ((datedenaissance >= '1900-01-01'::date) AND (datedenaissance <= CURRENT_DATE)),
+    adresse         text       not null,
+    ville           text       not null,
+    codepostal      varchar(5) not null
+        constraint etudiant_codepostal_check
+            check (length((codepostal)::text) = 5),
+    anneeetude      integer    not null,
+    formation       text       not null,
+    cv              varchar(255)
+        constraint etudiant_cv_check
+            check ((cv)::text ~ '.pdf$'::text),
+    email           text       not null
+        constraint etudiant_email_check
+            check (POSITION(('@'::text) IN (email)) > 0),
+    motdepasse      text
+        constraint etudiant_motdepasse_check
+            check ((length(motdepasse) >= 8) AND (motdepasse ~ '[A-Z]'::text) AND (motdepasse ~ '[a-z]'::text) AND
+                   (motdepasse ~ '[0-9]'::text) AND (motdepasse ~ '[!@#$%^&*()]'::text) AND
+                   (NOT (motdepasse ~ '^(password|123456|admin)$'::text))),
+    photo           varchar(255)
+        constraint etudiant_photo_check
+            check ((photo)::text ~ '.(png|jpeg|jpg)$'::text),
+    ine             text       not null,
+    actif           boolean,
+    codemail        varchar
 );
 
-CREATE TABLE Poste(
+
+create table offre
+(
+    idoffre    serial
+        primary key,
+    nom        text not null,
+    domaine    text not null,
+    mission    text not null,
+    nbetudiant integer,
+    visible boolean
+);
+
+create table Poste(
     IdOffre serial references Offre,
     IdEntreprise serial references Entreprise,
     PRIMARY KEY (IdEntreprise, IdOffre)
 
 );
 
-CREATE TABLE Profil(
-    Idprofil int PRIMARY KEY ,
+CREATE TABLE Postule(
+    idPostule int Primary Key,
+    idoffre int REFERENCES Offre,
     Nom text,
-    Prenom text,
-    Formation text,
-    Email text,
-    MotDePasse text,
-    Role text
+    prenom text, 
+	date date
 );
 
 CREATE TABLE Reponse(
     Idreponse int,
-    IdProfil int REFERENCES Profil,
+    IdProfil int REFERENCES Administration,
     Identreprise int REFERENCES Entreprise,
     Reponse boolean,
     PRIMARY KEY (Identreprise, IdProfil)
 );
 
-CREATE TABLE Postule(
+CREATE TABLE Recrute(
     IdEtudiant int REFERENCES Etudiant,
-    IdOfffre int REFERENCES Offre,
-    PRIMARY KEY (IdEtudiant, IdOfffre)
+    IdEntreprise int REFERENCES Entreprise,
+    Date date,
+    PRIMARY KEY (IdEtudiant, IdEntreprise)
 );

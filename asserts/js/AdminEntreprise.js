@@ -105,3 +105,25 @@ document.addEventListener("DOMContentLoaded", function() {
     // Par exemple, après une redirection vers cette page ou après une requête réussie.
     afficherPopup();
 });
+
+
+
+function limiterElements(elementSelector) {
+    const elements = document.querySelectorAll(elementSelector);
+    for (let i = 3; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+    }
+}
+
+limiterElements('.offre');
+limiterElements('.entreprise');
+
+
+function afficherPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(function () {
+        popup.style.display = "none";
+    }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
+}

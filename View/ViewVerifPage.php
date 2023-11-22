@@ -9,7 +9,7 @@
 
     <h1 class="titre">L'offre à bien été créée !</h1>
     <h3 class="choix">Où voulez vous revenir :</h3>
-    <button><a href="">Nom du fichier</a></button>
+    <button>Nom du fichier</button>
 
 </body>
 </html>

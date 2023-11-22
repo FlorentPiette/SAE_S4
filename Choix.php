@@ -28,7 +28,7 @@
         <div class="rec-administration">
             <form class="formulaireAdmin"  method="post">
 
-                <button type="button" onclick="window.location.href = 'View/ViewConnexion.html'" name="choixAdmin" class="btnAdmin"> Admin </button>
+                <bu0tton type="button" onclick="window.location.href = 'View/ViewConnexion.html'" name="choixAdmin" class="btnAdmin"> Admin </bu0tton>
             </form>
         </div>
 
@@ -37,18 +37,6 @@
     <button class="btnFermer" id="btnFermer">Quitter</button>
 
 
-    <script>
-        function fermerFenetre() {
-            window.close();
-        }
-
-        document.getElementById("btnFermer").addEventListener("click", fermerFenetre);
-    </script>
-
-
 </body>
-
-
-
 
 </html>

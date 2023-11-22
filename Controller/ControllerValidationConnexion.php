@@ -22,13 +22,3 @@ if(isset($_POST["btnRetour"])){
     exit();
 }
 
-
-
-
-
-
-
-
-
-
-?>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Principale</title>
 
-    <link rel="stylesheet" type="text/css" href="../asserts/css/nouCompteEtu.css" />
+    <link rel="stylesheet" type="text/css" href="../asserts/css/nouCompteEtu.css">
 </head>
 <body class="body">
 
@@ -42,10 +42,10 @@
 
             <div class="formation-rectangle">
 
-                <select id="formation-select" name="formation">
+                <label for="formation-select"></label><select id="formation-select" name="formation">
                     <option value="informatique">BUT informatique</option>
                     <option value="marketing">Responsable pédagogique</option>
-                    <option value="finance">Chargés de développement</option>
+                    <option value="finance">Chargé de développement</option>
                     <option value="finance">Responsable du service</option>
                 </select>
 
@@ -74,7 +74,7 @@
 
             <div class="cp-rectangle">
 
-                <input type="text" name="cp" class="input-cp" placeholder="Code Postale">
+                <input type="text" name="cp" class="input-cp" placeholder="Code Postal">
             </div>
 
             <div class="date-rectangle">
@@ -84,12 +84,12 @@
 
             <div class="cv-rectangle">
 
-                <input type="file" name="cv" class="input-cv" placeholder="CV">
+                <input type="url" name="cv" class="input-cv" placeholder="CV">
             </div>
 
             <div class="anneeetude-rectangle">
 
-                <input type="int" name="anneeetude" class="input-anneeetude" placeholder="Année d'étude">
+                <input type="number" name="anneeetude" class="input-anneeetude" placeholder="Année d'étude">
             </div>
 
             <div class="ine-rectangle">
@@ -111,7 +111,7 @@
     </div>
 
     <p class="info">Si vous possédez déjà un compte veuillez vous connecter en appuyant ici :</p>
-    <a href="connection.html" class="lien"><p class="lien-info">Connexion</p></a>
+    <a href="ViewConnexion.html" class="lien"><p class="lien-info">Connexion</p></a>
 
 
 

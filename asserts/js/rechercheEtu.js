@@ -2,21 +2,27 @@
 /**
  * Rechercher des étudiants
  *
+ * @author Emeline
+ *
  * @return void
  */
 
 function rechercherEtudiants() {
+
+    //Ces variables récuperent les éléments de recherche
+
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
     var email = document.getElementById('email').value;
     var ville = document.getElementById('ville').value;
+    var adresse = document.getElementById('adresse').value;
     var codepostal = document.getElementById('codepostal').value;
     var formation = document.getElementById('formation').value;
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-    if(document.getElementById("mobileCheckbox").checked){
+    if (document.getElementById("mobileCheckbox").checked){
         var mobile = document.getElementById("mobile").checked;
         if (mobile) {
             mobile = true;
@@ -24,7 +30,7 @@ function rechercherEtudiants() {
             mobile = false;
         }
     }
-    else{
+    else {
         var mobile = "";
     }
 
@@ -47,6 +53,7 @@ function rechercherEtudiants() {
         '&ine=' + ine +
         '&email=' + email +
         '&ville=' + ville +
+        '&adresse=' + adresse +
         '&codepostal=' + codepostal +
         '&formation=' + formation +
         '&typeEntreprise=' + typeEntreprise +
@@ -67,7 +74,7 @@ function rechercherEtudiants() {
                     if (resultats.length > 0) {
                         var resultatsHTML = '<ul>';
                         resultats.forEach(function (etudiant) {
-                            resultatsHTML += '<li>';
+                            resultatsHTML += '<li class="etu">';
                             resultatsHTML += 'Nom : ' + (etudiant.nom || '') + '<br>';
                             resultatsHTML += 'Prénom : ' + (etudiant.prenom || '') + '<br>';
                             resultatsHTML += 'INE : ' + (etudiant.ine || '') + '<br>';
@@ -100,6 +107,13 @@ function rechercherEtudiants() {
     xhr.send();
 }
 
+/**
+ * Affiche les zones de texte ou les checkbox lorsque la catégorie est cochée
+ *
+ * @author Emeline
+ *
+ * @return void
+ */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
         document.getElementById("nomDiv").style.display = "block";
@@ -129,6 +143,12 @@ function afficherChamps() {
         document.getElementById("villeDiv").style.display = "block";
     } else {
         document.getElementById("villeDiv").style.display = "none";
+    }
+
+    if (document.getElementById("adresseCheckbox").checked) {
+        document.getElementById("adresseDiv").style.display = "block";
+    } else {
+        document.getElementById("adresseDiv").style.display = "none";
     }
 
     if (document.getElementById("codepostalCheckbox").checked) {
@@ -180,6 +200,7 @@ document.getElementById("prenomCheckbox").addEventListener("change", afficherCha
 document.getElementById("ineCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("emailCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("adresseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("formationCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
