@@ -25,7 +25,7 @@ function reinitialiserMDP($conn, $mdp, $email): void
  * @return array $result
  */
 function selectCodeEtuWhereEmail($conn, $email){
-    $req = "SELECT CodeConfirmation from Etudiant where email = ?";
+    $req = "SELECT CodeMail from Etudiant where email = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($email));
     $result = $req2->fetchAll(PDO::FETCH_ASSOC);

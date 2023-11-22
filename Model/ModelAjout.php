@@ -81,16 +81,16 @@ function voirFichier($conn, $offreId): void
  * @param String $entreprise sert à définir le type d'entreprise que l'étudiant recherche
  * @param String $mission sert à définir le type de mission que l'étudiant recherche
  * @param Boolean $mobile sert à définir le status mobile ou non de l'étudiant
- * @param int $codeConfirmation (8 caractères) sert à confirmer le compte de l'étudiant
+ * @param int $CodeMail (8 caractères) sert à confirmer le compte de l'étudiant
  *
  * @return void
  */
-function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $motDePasse, String $iNE, string $entreprise, String $mission, bool $mobile, $codeConfirmation): void
+function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $motDePasse, String $iNE, string $entreprise, String $mission, bool $mobile, $CodeMail): void
 {
-    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeConfirmation)
+    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
             VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :motDePasse, :ine, :entreprise, :mission, " . ($mobile ? 'true' : 'false') . ", True, :CodeConfirmation)";
     $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $codeConfirmation));
+    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $CodeMail));
 }
 
 /**
