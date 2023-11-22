@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Votre Titre</title>
+    <title>Ajout offre</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
 </head>
 <body>

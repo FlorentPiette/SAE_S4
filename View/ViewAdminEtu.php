@@ -1,3 +1,4 @@
+<?php include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
