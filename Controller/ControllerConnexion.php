@@ -14,7 +14,7 @@ if (!isset($_SESSION['essai'])) {
     $_SESSION['essai'] = 0;
 }
 
-$essaiMaximal = 3;
+$essaiMaximal = 99999;
 
 attente($essaiMaximal);
 
@@ -43,7 +43,6 @@ $users = selectEmailMDPEtu($conn,$email);
             role($users);
         } else {
             $_SESSION['essai']++;
-            header('location: ../View/ViewConnexion.html');
+            //header('location: ../View/ViewConnexion.html');
         }
 }
-header('location: ../View/ViewConnexion.html');
