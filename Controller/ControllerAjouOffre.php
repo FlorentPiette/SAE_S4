@@ -1,6 +1,7 @@
 <?php
 include '../Model/ModelAjout.php';
-include '../Model/ConnexionBDD.php';
+include_once '../Model/ConnexionBDD.php';
+
 
 $conn = Conn::getInstance();
 
@@ -10,29 +11,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $domaine = $_POST["Domaine"];
     $mission = $_POST["Mission"];
     $nbEtudiant = $_POST["NbEtudiant"];
-    $fichier = $_POST["fichier"];
-    $entreprise = $_POST["entreprise"];
     $estBrouillon = isset($_POST["Brouillon"]);
+    $estvisible = isset($_POST["Visible"]) ? 1 : 0;
 
-    // voirFichier($conn, $fichier);
-    ajoutOffre($conn, $nom, $domaine, $mission, $nbEtudiant, $fichier);
-    ajouterOffreEntreprise($conn, $nom, $entreprise);
 
-    // Activer l'indicateur pour afficher la popup
-    $_SESSION['afficher_popup'] = true;
-
-    // Rediriger l'utilisateur après avoir ajouté l'offre
+    // Traitement en tant que brouillon ou entrée complète
     if ($estBrouillon) {
+        $Offre1 = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant, visible) VALUES (:nom, :domaine, :mission, :nbetudiant, :visible)");
+
+        $Offre1->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant, ':visible' => $estvisible));
+
         $message = "L'offre a été enregistrée en tant que brouillon.";
     } else {
+        $Offre = $conn->prepare("INSERT INTO Offre (nom, domaine, mission, nbetudiant, visible) VALUES (:nom, :domaine, :mission, :nbetudiant, :visible)");
+
+        $Offre->execute(array(':nom' => $nom, ':domaine' => $domaine, ':mission' => $mission, ':nbetudiant' => $nbEtudiant, ':visible' => $estvisible));
+
         $message = "L'offre a été enregistrée avec succès.";
     }
 
-    // Redirection vers la page souhaitée
-    header('Location: ../View/ViewAdminEntreprise.php');
-    exit; // Assurez-vous de sortir du script après la redirection.
-} else {
-    // Si ce n'est pas une requête POST, on doit récupérer les données des entreprises
-    affichageEntreprise($conn);
-}
 
+    header('Location: ../View/ViewAdminEntreprise.php');
+}

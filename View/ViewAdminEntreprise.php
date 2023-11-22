@@ -1,5 +1,5 @@
 <?php
-include '../Controller/ControllerVerificationDroit.php';
+//include '../Controller/ControllerVerificationDroit.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -80,64 +80,46 @@ include '../Controller/ControllerVerificationDroit.php';
             $req2 = $db->prepare($sql2);
             $req2->execute();
             $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
+            ?>
+            <!-- Affichez les données des offres par défaut -->
+            <?php
             $count = 0;
             foreach ($resultat2 as $res2):
+                $nomOffre = $res2['nom'];
+            $selectnom = $db->prepare('SELECT nom, prenom FROM postule WHERE nom = :nom');
+            $selectnom->bindParam(':nom', $nomOffre);
+            $selectnom->execute();
+            $etudiant = $selectnom->fetch(PDO::FETCH_ASSOC);
                 ?>
-                <li class="offre">
-                    Nom : <?php echo $res2['nom']; ?><br>
-                    Domaine : <?php echo $res2['domaine']; ?><br>
-                    Mission : <?php echo $res2['mission']; ?><br>
-                    Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                    <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
-                    <form method="post" action="" enctype="multipart/form-data">
-                        <input type="file" name="fichier" accept=".pdf, .doc, .docx">
-                        <input type="submit" value="Déposer le fichier">
-                    </form>
-                    <br>
-                </li>
-                <?php if ($count % 2 == 1) {
-                echo '</li>';
-            }
-
+                <form action="../Controller/ControllerAjoutEtudiantOffre.php" method="post" name="formAjoutEtu_<?php echo $count; ?>">
+                    <ul id="donneesOffre" class="offres-container">
+                        <li class="offre">
+                            Nom : <?php echo $res2['nom']; ?><br>
+                            Domaine : <?php echo $res2['domaine']; ?><br>
+                            Mission : <?php echo $res2['mission']; ?><br>
+                            Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
+                            <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
+                            <input type="submit" name="BtAjoutEtudiant" value="Ajouter un étudiant à cette offre">
+                            <label> Les étudiants qui ont déjà postuler :</label>
+                            <?php
+                            if ($etudiant) {
+                                echo $etudiant['nom'] . ' ' . $etudiant['prenom'];
+                            } else {
+                                echo 'Aucun étudiant n\'a encore postulé.';
+                            }
+                            ?>
+                            <br>
+                        </li>
+                    </ul>
+                </form>
+                <?php
+                $count++;
             endforeach;
-
-            if ($count % 2 == 1) {
-                echo '</li>';
-            }
-
-            if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                if (isset($_FILES['fichier'])) {
-                    $file = $_FILES['fichier'];
-
-                    if ($file['error'] === 0) {
-                        $uploadDir = 'dossier_de_stockage/';
-                        if (!is_dir($uploadDir)) {
-                            mkdir($uploadDir, 0777, true);
-                        }
-
-                        $fileName = $file['name'];
-                        $uploadPath = $uploadDir . $fileName;
-
-                        if (move_uploaded_file($file['tmp_name'], $uploadPath)) {
-                            $offreId = 1; // Remplacez ceci par l'ID de l'offre.
-                            $nomFichier = $fileName;
-                            $etudiantId = 1; // Remplacez ceci par l'ID de l'étudiant.
-                            $sqlInsert = "INSERT INTO Postule (IdEtudiant, IdOffre, cv) VALUES (?, ?, ?)";
-                            $stmt = $db->prepare($sqlInsert);
-                            $stmt->execute([$etudiantId, $offreId, file_get_contents($uploadPath)]);
-                            echo 'Fichier téléchargé et ajouté à la table Postule avec succès.';
-                        } else {
-                            echo 'Erreur lors du téléchargement du fichier.';
-                        }
-                    } else {
-                        echo 'Erreur lors du téléchargement du fichier.';
-                    }
-                }
-            }
             ?>
-        </ul>
 
-        <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
+
+
+            <!-- Ajoutez un conteneur similaire pour les données des entreprises et masquez-le par défaut -->
         <ul id="donneesEntreprise" style="display: none;" class="affichEntreprise">
             <?php
             $sql = "SELECT * FROM entreprise";
