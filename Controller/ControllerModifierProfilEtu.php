@@ -4,7 +4,7 @@ include '../Model/ModelModifierProfilEtu.php';
 
 $conn = Conn::getInstance();
 
-$id = 1;
+$id = 3;
 $etu = selectEtudiant($conn, $id);
 
 include ("../View/ViewModifierProfilEtu.php");
