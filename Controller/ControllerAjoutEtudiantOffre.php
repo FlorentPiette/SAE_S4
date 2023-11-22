@@ -9,6 +9,7 @@ $conn = Conn::getInstance();
 // Initialize la variable de session si elle n'existe pas
 if (!isset($_SESSION['selectedStudents'])) {
     $_SESSION['selectedStudents'] = array();
+
 }
 
 // Afficher la liste des étudiants

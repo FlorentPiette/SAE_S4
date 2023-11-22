@@ -11,6 +11,7 @@ if (isset($_POST['nomOffre'])) {
     $brouillon->bindParam(':nom', $inputnombrouillon, PDO::PARAM_STR);
     $brouillon->execute();
 
+
     if ($brouillon->rowCount() > 0) {
         echo "valide"; // Réponse AJAX pour une offre valide
         exit;
