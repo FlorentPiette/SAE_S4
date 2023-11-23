@@ -76,21 +76,25 @@
             include '../Model/ConnexionBDD.php';
             $db = Conn::getInstance();
 
-            // Effectuez une requête SQL pour récupérer les données des offres
+            // requête SQL pour récupérer les données des offres
             $sql2 = "SELECT * FROM Offre";
             $req2 = $db->prepare($sql2);
             $req2->execute();
             $resultat2 = $req2->fetchAll(PDO::FETCH_ASSOC);
-            ?>
-            <!-- Affichez les données des offres par défaut -->
-            <?php
+
             $count = 0;
             foreach ($resultat2 as $res2):
                 $nomOffre = $res2['nom'];
-            $selectnom = $db->prepare('SELECT nom, prenom FROM postule WHERE nom = :nom');
-            $selectnom->bindParam(':nom', $nomOffre);
+            $selectIDoffre = $db->prepare('SELECT idOffre FROM Offre WHERE nom = :nom');
+            $selectIDoffre->bindParam(':nom', $nomOffre);
+            $selectIDoffre->execute();
+            $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
+            $idOffre = $resultatID['idoffre'];
+
+            $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule WHERE idoffre = :idoffre');
+            $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
             $selectnom->execute();
-            $etudiant = $selectnom->fetch(PDO::FETCH_ASSOC);
+            $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
                 ?>
                 <form action="../Controller/ControllerAjoutEtudiantOffre.php" method="post" name="formAjoutEtu_<?php echo $count; ?>">
                     <ul id="donneesOffre" class="offres-container">
@@ -101,13 +105,12 @@
                             Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
                             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
                             <input type="submit" name="BtAjoutEtudiant" value="Ajouter un étudiant à cette offre">
-                            <label> Les étudiants qui ont déjà postuler :</label>
+                            <label> Les étudiants qui ont déjà postulés :</label><br>
                             <?php
-                            if ($etudiant) {
-                                echo $etudiant['nom'] . ' ' . $etudiant['prenom'];
-                            } else {
-                                echo 'Aucun étudiant n\'a encore postulé.';
-                            }
+                            if ($etudiants){
+                            foreach ($etudiants as $etudiant) {
+                                echo $etudiant['nom'] . ' ' . $etudiant['prenom'] . '<br>';
+                            }}
                             ?>
                             <br>
                         </li>

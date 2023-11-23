@@ -21,6 +21,9 @@ if ($sqlTousEtudiants->execute()) {
 
     if ($result) {
         ?>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
+            </head>
         <form action="" method="post">
             <?php
             $nomOffre = isset($_POST['nomOffre']) ? $_POST['nomOffre'] : null;
@@ -31,7 +34,7 @@ if ($sqlTousEtudiants->execute()) {
             }
             ?>
             <input type="submit" name="buttonValider" value="Valider">
-            <input type="submit" name="BoutonRetour" value="Retour">
+            <input type="submit" name="BoutonRetour" value="Retour aux offres">
             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
         </form>
         <?php
@@ -98,3 +101,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['BoutonRetour'])) {
     exit();
 }
 ?>
+
