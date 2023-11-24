@@ -190,6 +190,14 @@ function selectEtudiant($conn, $id){
     return $result;
 }
 
+function selectEtudiantIne($conn, $ine){
+    $req = "SELECT * FROM Etudiant where ine = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($ine));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
+    return $result;
+}
+
 /**
  * Modifier dans la base de donnée, le statut mobile de l'étudiant ayant cet id
  *
