@@ -15,6 +15,7 @@ function rechercherOffres() {
     var mission = document.getElementById("mission").value;
     var nbEtudiant = document.getElementById('nbEtudiant').value;
 
+
     console.log("reussis");
     var apiUrl = '../Controller/ControllerRechercherOffre.php?' +
         'nom=' + nom +
@@ -39,6 +40,7 @@ function rechercherOffres() {
                             resultatsHTML += 'Domaine : ' + (offre.domaine || '') + '<br>';
                             resultatsHTML += 'Missions : ' + (offre.mission || '') + '<br>';
                             resultatsHTML += 'Nombre d`étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
+                            resultatsHTML += 'Offre valide : ' + (offre.valide || '') + '<br>';
                             resultatsHTML += '</li>';
                         });
                         resultatsHTML += '</ul>';
