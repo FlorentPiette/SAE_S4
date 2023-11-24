@@ -1,3 +1,6 @@
+<?php
+include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -53,7 +56,9 @@
         <p><span id="infoTypeMission"></span></p>
         <p><span id="infoMobile"></span></p>
 
-        <button onclick="window.location.href ='../Controller/ControllerModifierProfilEtu.php'">Modifier le profil</button>
+
+        <script src="../asserts/js/rechercheEtu.js"></script>
+        <button onclick="redirectModifierProfil()">Modifier le profil</button>
     </div>
 </div>
 

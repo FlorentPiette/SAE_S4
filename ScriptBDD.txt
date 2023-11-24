@@ -93,7 +93,7 @@ create table Poste(
 );
 
 CREATE TABLE Postule(
-    idPostule int Primary Key,
+    idPostule serial Primary Key,
     idoffre int REFERENCES Offre,
     Nom text,
     prenom text, 

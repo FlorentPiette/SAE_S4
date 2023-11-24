@@ -11,6 +11,22 @@
  *
  * @return void
  */
+
+/*
+foreach ($resultat2 as $res2):
+    $nomOffre = $res2['nom'];
+    $selectIDoffre = $db->prepare('SELECT idOffre FROM Offre WHERE nom = :nom');
+    $selectIDoffre->bindParam(':nom', $nomOffre);
+    $selectIDoffre->execute();
+    $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
+    $idOffre = $resultatID['idoffre'];
+
+    $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule WHERE idoffre = :idoffre');
+    $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
+    $selectnom->execute();
+    $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
+*/
+
 function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
 {
     $sql = "SELECT * FROM Offre WHERE 1=1";
