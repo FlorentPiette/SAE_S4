@@ -98,6 +98,16 @@ function rechercherEtudiants() {
                                 obtenirTousLesEtudiants(etudiant);
                                 // Ensuite, ouvrir le menu burger
                                 ouvrirMenuBurger(etudiant);
+                                if (etudiant != null) {
+                                    var studentId = etudiant.ine;
+                                    var nouvelleURL = window.location.href.split('?')[0]
+                                    console.log("ID de l'étudiant:", studentId);
+                                    nouvelleURL += '?ine=' + studentId;
+                                    history.pushState({}, '', nouvelleURL);
+
+                                } else {
+                                    console.error("La propriété 'idetudiant' est indéfinie dans la réponse ou la réponse est invalide.");
+                                }
                             });
                             newRow.appendChild(btnVoirProfil);
                         });
@@ -254,6 +264,17 @@ function obtenirTousLesEtudiants(ine) {
     };
 
     xhrTousLesEtudiants.send();
+}
+
+
+
+
+function redirectModifierProfil() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var id = urlParams.get('ine');
+    if (id !== null) {
+        window.location.href = '../Controller/ControllerModifierProfilEtu.php?ine=' + id;
+    }
 }
 
 /**
