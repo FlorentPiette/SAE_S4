@@ -4,7 +4,7 @@
  * Modifier dans la base de donnée les informations de l'étudiant ayant cet id
  *
  * @param PDO $conn sert à se connecter à la base de donnée
- * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param string $ine sert à rechercher l'étudiant ayant cet id
  * @param String $nom sert à modifier le nom de l'étudiant
  * @param String $prenom sert à modifier le prénom de l'étudiant
  * @param String $adresse sert à modifier l'adresse de l'étudiant
@@ -17,7 +17,7 @@
  * @return void
  */
 function updateEtu($conn, $nom, $prenom, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $id){
-    $req = "UPDATE etudiant SET nom = ?, prenom = ?, adresse = ?, ville = ?, codePostal = ?, anneeEtude = ?, formation = ?, email = ?, WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET nom = ?, prenom = ?, adresse = ?, ville = ?, codePostal = ?, anneeEtude = ?, formation = ?, email = ?, WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $prenom, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $id));
 }
@@ -26,13 +26,13 @@ function updateEtu($conn, $nom, $prenom, $adresse, $ville, $codePostal, $anneeEt
  * Modifier dans la base de donnée le nom de l'étudiant ayant cet id
  *
  * @param PDO $conn sert à se connecter à la base de donnée
- * @param int $id sert à rechercher l'étudiant ayant cet id
+ * @param String $id sert à rechercher l'étudiant ayant cet id
  * @param String $nom sert à modifier le nom de l'étudiant
  *
  * @return void
  */
 function updateNomEtu($conn, $nom, $id){
-    $req = "UPDATE etudiant SET nom = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET nom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $id));
 }
@@ -47,7 +47,7 @@ function updateNomEtu($conn, $nom, $id){
  * @return void
  */
 function updatePrenomEtu($conn, $prenom, $id){
-    $req = "UPDATE etudiant SET prenom = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET prenom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($prenom, $id));
 }
@@ -62,7 +62,7 @@ function updatePrenomEtu($conn, $prenom, $id){
  * @return void
  */
 function updateAdresseEtu($conn, $adresse, $id){
-    $req = "UPDATE etudiant SET adresse = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET adresse = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($adresse, $id));
 }
@@ -77,7 +77,7 @@ function updateAdresseEtu($conn, $adresse, $id){
  * @return void
  */
 function updateVilleEtu($conn, $ville, $id){
-    $req = "UPDATE etudiant SET ville = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET ville = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($ville, $id));
 }
@@ -92,7 +92,7 @@ function updateVilleEtu($conn, $ville, $id){
  * @return void
  */
 function updateCpEtu($conn, $codePostal, $id){
-    $req = "UPDATE etudiant SET codePostal = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET codePostal = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($codePostal, $id));
 }
@@ -107,7 +107,7 @@ function updateCpEtu($conn, $codePostal, $id){
  * @return void
  */
 function updateAnneeEtudeEtu($conn, $anneeEtude, $id){
-    $req = "UPDATE etudiant SET anneeEtude = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET anneeEtude = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($anneeEtude, $id));
 }
@@ -122,7 +122,7 @@ function updateAnneeEtudeEtu($conn, $anneeEtude, $id){
  * @return void
  */
 function updateFormationEtu($conn, $formation, $id){
-    $req = "UPDATE etudiant SET formation = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET formation = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($formation, $id));
 }
@@ -137,7 +137,7 @@ function updateFormationEtu($conn, $formation, $id){
  * @return void
  */
 function updateEmailEtu($conn, $email, $id){
-    $req = "UPDATE etudiant SET email = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET email = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($email, $id));
 }
@@ -152,7 +152,7 @@ function updateEmailEtu($conn, $email, $id){
  * @return void
  */
 function updateTypeEntrepriseEtu($conn, $typeentreprise, $id){
-    $req = "UPDATE etudiant SET typeentreprise = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET typeentreprise = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($typeentreprise, $id));
 }
@@ -168,7 +168,7 @@ function updateTypeEntrepriseEtu($conn, $typeentreprise, $id){
  */
 
 function updateTypeMissionEtu($conn, $typemission, $id){
-    $req = "UPDATE etudiant SET typemission = ? WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET typemission = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($typemission, $id));
 }
@@ -182,19 +182,11 @@ function updateTypeMissionEtu($conn, $typemission, $id){
  * @return array $result
  */
 function selectEtudiant($conn, $id){
-    $req = "SELECT * FROM Etudiant where idEtudiant = ?";
+    $req = "SELECT * FROM Etudiant where ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($id));
     $result = $req2->fetch(PDO::FETCH_ASSOC);
 
-    return $result;
-}
-
-function selectEtudiantIne($conn, $ine){
-    $req = "SELECT * FROM Etudiant where ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($ine));
-    $result = $req2->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
 
@@ -209,10 +201,10 @@ function selectEtudiantIne($conn, $ine){
  */
 function updateMobile($conn, $mobile, $id){
     if($mobile == true){
-        $req = "UPDATE etudiant SET mobile = TRUE WHERE idEtudiant = ?";
+        $req = "UPDATE etudiant SET mobile = TRUE WHERE ine = ?";
     }
     else{
-        $req = "UPDATE etudiant SET mobile = FALSE WHERE idEtudiant = ?";
+        $req = "UPDATE etudiant SET mobile = FALSE WHERE ine = ?";
     }
     $req2 = $conn->prepare($req);
     $req2->execute(array($id));
@@ -227,7 +219,7 @@ function updateMobile($conn, $mobile, $id){
  * @return void
  */
 function updateActif($conn, $id){
-    $req = "UPDATE etudiant SET actif = TRUE WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET actif = TRUE WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($id));
 }
@@ -241,7 +233,15 @@ function updateActif($conn, $id){
  * @return void
  */
 function updateInactif($conn, $id){
-    $req = "UPDATE etudiant SET actif = FALSE WHERE idEtudiant = ?";
+    $req = "UPDATE etudiant SET actif = FALSE WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($id));
+}
+
+function selectEtudiantIne($conn, $ine){
+    $req = "SELECT * FROM Etudiant where ine = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($ine));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
+    return $result;
 }
