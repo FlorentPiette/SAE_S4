@@ -12,6 +12,7 @@ if (!isset($_SESSION['selectedStudents'])) {
 
 }
 
+
 // Afficher la liste des étudiants
 $sqlTousEtudiants = $conn->prepare('SELECT * FROM Etudiant');
 if ($sqlTousEtudiants->execute()) {
@@ -55,7 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
             $sqlEtudiant = $conn->prepare('SELECT nom, prenom FROM Etudiant WHERE idetudiant = :id');
             $sqlEtudiant->bindParam(':id', $selectedStudentId, PDO::PARAM_INT);
 
-
             if ($sqlEtudiant->execute()) {
                 $etudiant = $sqlEtudiant->fetch(PDO::FETCH_ASSOC);
 
@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
                     $sqlInsert->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
                     $sqlInsert->bindParam(':nom', $etudiant['nom']);
                     $sqlInsert->bindParam(':prenom', $etudiant['prenom']);
+
                     $sqlInsert->execute();
                 } else {
                     echo "Étudiant non trouvé.";
@@ -100,5 +101,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['BoutonRetour'])) {
     header('Location: ../View/ViewAdminEntreprise.php');
     exit();
 }
-?>
 

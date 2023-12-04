@@ -24,7 +24,6 @@
                     <option value="marketing">Responsable pédagogique</option>
                     <option value="finance">Chargés de développement</option>
                     <option value="finance">Responsable du service</option>
-                    <!-- Ajoutez autant d'options que nécessaire -->
                 </select>
 
             </div>

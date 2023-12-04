@@ -39,7 +39,6 @@ function rechercherEtudiants() {
         var actif = "";
     }
 
-    // ... (ajoutez d'autres variables pour les options que vous souhaitez inclure) ...
 
     var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
         '&nom=' + nom +
@@ -55,8 +54,6 @@ function rechercherEtudiants() {
         '&anneeEtude=' + (anneeEtude !== '' ? parseInt(anneeEtude) : '') +
         '&mobile=' + mobile +
         '&actif=' + actif;
-
-    // ... (ajoutez d'autres paramètres à apiUrl pour les options que vous souhaitez inclure) ...
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -249,11 +246,7 @@ function obtenirTousLesEtudiants(ine) {
             if (xhrTousLesEtudiants.status === 200) {
                 try {
                     var response = JSON.parse(xhrTousLesEtudiants.responseText);
-
-                    // Utiliser les données pour afficher toutes les informations de l'étudiant
                     console.log("Informations de l'étudiant:", response);
-
-                    // Vous pouvez utiliser ces données pour afficher les informations de l'étudiant où vous en avez besoin dans votre application
                 } catch (e) {
                     console.error("Erreur d'analyse JSON (Obtenir tous les étudiants) : " + e);
                 }
@@ -280,7 +273,6 @@ function redirectModifierProfil() {
  * @param {Object} etudiant - Objet contenant les informations de l'étudiant
  * @return void
  */
-// Ajoutez ce code à votre fichier JavaScript (rechercheEtu.js)
 
 function ouvrirMenuBurger(etudiant) {
     // Afficher le menu burger

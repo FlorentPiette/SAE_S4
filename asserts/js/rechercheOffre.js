@@ -33,7 +33,7 @@ function rechercherOffres() {
                     var resultats = JSON.parse(xhr.responseText);
 
                     if (resultats.length > 0) {
-                        var resultatsHTML = '<ul>';
+                        var resultatsHTML = '<form action="../../Controller/ControllerAjoutEtudiantOffre.php" method="post"><ul>';
                         resultats.forEach(function (offre) {
                             resultatsHTML += '<li class="offre">';
                             resultatsHTML += 'Nom : ' + (offre.nom || '') + '<br>';
@@ -41,7 +41,10 @@ function rechercherOffres() {
                             resultatsHTML += 'Missions : ' + (offre.mission || '') + '<br>';
                             resultatsHTML += 'Nombre d`étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
                             resultatsHTML += 'Offre valide : ' + (offre.valide || '') + '<br>';
-                            resultatsHTML += '</li>';
+                            resultatsHTML += '<input type="hidden" name="nomOffre">';
+                            resultatsHTML += '<input type="submit" name="BtAjoutEtudiant" value="Ajouter un étudiant à cette offre">';
+                            resultatsHTML += '<label> Les étudiants qui ont déjà postulé :</label><br>';
+                            resultatsHTML += '</li></form>';
                         });
                         resultatsHTML += '</ul>';
                         document.getElementById('resultatsOffre').innerHTML = resultatsHTML;

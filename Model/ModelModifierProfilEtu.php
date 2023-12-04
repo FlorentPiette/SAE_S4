@@ -113,7 +113,7 @@ function updateAnneeEtudeEtu($conn, $anneeEtude, $id){
 }
 
 /**
- * Modifier dans la base de donnée l' année d'étude de l'étudiant ayant cet id
+ * Modifier dans la base de donnée la formation de l'étudiant ayant cet id
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param int $id sert à rechercher l'étudiant ayant cet id

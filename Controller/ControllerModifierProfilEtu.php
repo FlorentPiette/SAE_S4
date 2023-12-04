@@ -46,7 +46,7 @@ if (isset($_POST['modifier_cp'])){
 }
 
 if (isset($_POST['modifier_anneeEtude'])){
-    $anneeEtude = $_POST['annouvelle_anneeEtudeneeetude'];
+    $anneeEtude = $_POST['nouvelle_anneeEtude'];
     updateAnneeEtudeEtu($conn, $anneeEtude, $id);
     header("Location: ControllerModifierProfilEtu.php?ine=$id");
 }
