@@ -126,3 +126,7 @@ function afficherPopup() {
         popup.style.display = "none";
     }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
 }
+
+    document.getElementById('redirigerVersAjoutEntreprise').addEventListener('click', function() {
+    window.location.href = '../View/ViewAjoutEntreprise.php';
+});
