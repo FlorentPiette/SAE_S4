@@ -1,4 +1,7 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+
+<?php
+//include '../Controller/ControllerVerificationDroit.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,6 +36,8 @@
     <p>Entreprise :</p>
     <label for="entreprise"></label><select name="entreprise" id="entreprise"></select><br>
 
+    <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
+
     <p>Autre(s) fichier(s) :</p>
     <input type="file" name="fichier" id="fichier"><br>
     <br>
@@ -49,6 +54,7 @@
 
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
 </form>
+
 
 <script src="../asserts/js/AdminEntreprise.js"></script>
 </body>
