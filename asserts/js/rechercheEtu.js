@@ -10,44 +10,41 @@ function rechercherEtudiants() {
     var email = document.getElementById('email').value;
     var ville = document.getElementById('ville').value;
     var adresse = document.getElementById('adresse').value;
-    var codepostal = document.getElementById('codepostal').value;
+    var codePostal = document.getElementById('codePostal').value;
     var formation = document.getElementById('formation').value;
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-    if (document.getElementById("mobileCheckbox").checked){
-        var mobile = document.getElementById("mobile").checked;
+
+    if (document.getElementById("autresCheckbox").checked) {
+        var mobile = document.getElementById("mobileCheckbox").checked;
         if (mobile) {
             mobile = true;
         } else {
             mobile = false;
         }
-    }
-    else {
-        var mobile = "";
-    }
 
-    if(document.getElementById("actifCheckbox").checked){
-        var actif = document.getElementById("actif").checked;
+        var actif = document.getElementById("actifCheckbox").checked;
         if (actif) {
             actif = true;
         } else {
             actif = false;
         }
     }
-    else{
-        var actif = "";
+    else {
+        mobile = "";
+        actif = "";
     }
 
 
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?' +
         '&nom=' + nom +
         '&prenom=' + prenom +
-        '&ine=' + ine
+        '&ine=' + ine +
         '&email=' + email +
         '&ville=' + ville +
         '&adresse=' + adresse +
-        '&codepostal=' + codepostal +
+        '&codePostal=' + (codePostal !== '' ? parseInt(codePostal) : '')  +
         '&formation=' + formation +
         '&typeEntreprise=' + typeEntreprise +
         '&typeMission=' + typeMission +
@@ -73,8 +70,6 @@ function rechercherEtudiants() {
                             var cell1 = newRow.insertCell(0);
                             var cell2 = newRow.insertCell(1);
                             var cell3 = newRow.insertCell(2);
-
-                            // ... (ajoutez d'autres cellules ici) ...
 
                             cell1.innerHTML = etudiant.nom || '';
                             cell2.innerHTML = etudiant.prenom || '';
@@ -194,18 +189,11 @@ function afficherChamps() {
         document.getElementById("typeMissionDiv").style.display = "none";
     }
 
-    if (document.getElementById("mobileCheckbox").checked) {
-        document.getElementById("mobileDiv").style.display = "block";
+    if (document.getElementById("autresCheckbox").checked) {
+        document.getElementById("autresDiv").style.display = "block";
     } else {
-        document.getElementById("mobileDiv").style.display = "none";
+        document.getElementById("autresDiv").style.display = "none";
     }
-
-    if (document.getElementById("actifCheckbox").checked) {
-        document.getElementById("actifDiv").style.display = "block";
-    } else {
-        document.getElementById("actifDiv").style.display = "none";
-    }
-
 }
 
 // Écouteurs d'événements pour les cases à cocher
@@ -220,10 +208,8 @@ document.getElementById("formationCheckbox").addEventListener("change", afficher
 document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("mobileCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("actifCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("autresCheckbox").addEventListener("change", afficherChamps);
 
-// ... (ajoutez d'autres écouteurs d'événements pour les options que vous souhaitez inclure) ...
 
 afficherChamps();
 

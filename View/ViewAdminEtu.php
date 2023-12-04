@@ -111,11 +111,8 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="typeMissionCheckbox">
                 <input type="checkbox" id="typeMissionCheckbox"> Type de missions
             </label>
-            <label for="mobileCheckbox">
-                <input type="checkbox" id="mobileCheckbox"> Mobile
-            </label>
-            <label for="actifCheckbox">
-                <input type="checkbox" id="actifCheckbox"> Actif
+            <label for="autresCheckbox">
+                <input type="checkbox" id="autresCheckbox"> Autres
             </label>
 
 
@@ -139,7 +136,7 @@ include '../Controller/ControllerVerificationDroit.php';
                 <label for="adresse"></label><input type="text" name="adresse" id="adresse" placeholder="Adresse">
             </div>
             <div id="codepostalDiv" style="display: none">
-                <label for="codepostal"></label><input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
+                <label for="codepostal"></label><input type="number" name="codePostal" id="codePostal" placeholder="Code Postal">
             </div>
             <div id="formationDiv" style="display: none">
                 <label for="formation"></label><input type="text" name="formation" id="formation" placeholder="Formation">
@@ -153,13 +150,9 @@ include '../Controller/ControllerVerificationDroit.php';
             <div id="typeMissionDiv" style="display: none">
                 <label for="typeMission"></label><input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
             </div>
-            <div id="mobileDiv" style="display: none">
+            <div id="autresDiv" style="display: none">
                 <label for="mobile">
                     <input type="checkbox" name="mobile" id="mobile"> Mobile
-                </label>
-            </div>
-            <div id="actifDiv" style="display: none">
-                <label for="actif">
                     <input type="checkbox" name="actif" id="actif"> Actif
                 </label>
             </div>
