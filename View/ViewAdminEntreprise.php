@@ -53,7 +53,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <div class="rectangle-mid">
         <form action="" method="post">
             <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
-            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
+            <button name="btnAjoutOffre" onclick="window.location.href ='ViewAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
         </form>
 
         <form method="post" action="">
@@ -61,7 +61,6 @@ include '../Controller/ControllerVerificationDroit.php';
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
         </form>
 
-        <!-- Affichez les données des offres par défaut -->
         <ul id="donneesOffre" class="offres-container">
             <form id="rechercheOffre">
                 <label for="nomCheckbox">
