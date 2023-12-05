@@ -108,7 +108,7 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
     }
 
     if (!empty($codePostal)) {
-        $stmt->bindValue(':codePostal', $codePostal, PDO::PARAM_INT);
+        $stmt->bindValue(':codePostal', "%$codePostal%", PDO::PARAM_INT);
     }
 
     if (!empty($anneeEtude)) {
