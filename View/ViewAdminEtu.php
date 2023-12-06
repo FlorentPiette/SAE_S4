@@ -87,9 +87,6 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="ineCheckbox">
                 <input type="checkbox" id="ineCheckbox"> INE
             </label>
-            <label for="emailCheckbox">
-                <input type="checkbox" id="emailCheckbox"> Adresse Email
-            </label>
             <label for="codepostalCheckbox">
                 <input type="checkbox" id="codepostalCheckbox"> Code Postal
             </label>
@@ -114,9 +111,6 @@ include '../Controller/ControllerVerificationDroit.php';
             <div id="ineDiv" style="display: none">
                 <label for="ine"></label><input type="text" name="ine" id="ine" placeholder="INE">
             </div>
-            <div id="emailDiv" style="display: none">
-                <label for="email"></label><input type="text" name="email" id="email" placeholder="Adresse Email">
-            </div>
             <div id="codepostalDiv" style="display: none">
                 <label for="codepostal"></label><input type="number" name="codePostal" id="codePostal" placeholder="Code Postal">
             </div>
@@ -127,6 +121,9 @@ include '../Controller/ControllerVerificationDroit.php';
                 <label for="anneeEtude"></label><input type="number" name="anneeEtude" id="anneeEtude" placeholder="Année d'étude">
             </div>
             <div id="autresDiv" style="display: none">
+                <label for="email">
+                    <input type="text" name="email" id="email" placeholder="Adresse Email">
+                </label>
                 <label for="adresse">
                     <input type="text" name="adresse" id="adresse" placeholder="Adresse">
                 </label>

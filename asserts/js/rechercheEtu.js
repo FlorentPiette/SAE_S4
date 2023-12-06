@@ -20,6 +20,7 @@ function rechercherEtudiants() {
     var actif = "";
 
     if (document.getElementById("autresCheckbox").checked) {
+        email = document.getElementById('email').value;
         adresse = document.getElementById("adresse").value;
         ville = document.getElementById("ville").value;
         typeEntreprise = document.getElementById("typeEntreprise").value;
@@ -151,11 +152,6 @@ function afficherChamps() {
     } else {
         document.getElementById("ineDiv").style.display = "none";
     }
-    if (document.getElementById("emailCheckbox").checked) {
-        document.getElementById("emailDiv").style.display = "block";
-    } else {
-        document.getElementById("emailDiv").style.display = "none";
-    }
 
     if (document.getElementById("codepostalCheckbox").checked) {
         document.getElementById("codepostalDiv").style.display = "block";
@@ -177,6 +173,7 @@ function afficherChamps() {
 
     if (document.getElementById("autresCheckbox").checked) {
         document.getElementById("autresDiv").style.display = "block";
+        document.getElementById("emailDiv").style.display = "block";
         document.getElementById("adresseDiv").style.display = "block";
         document.getElementById("villeDiv").style.display = "block";
         document.getElementById("typeEntrepriseDiv").style.display = "block";
@@ -185,6 +182,7 @@ function afficherChamps() {
         document.getElementById("actifSelect").style.display = "block";
     } else {
         document.getElementById("autresDiv").style.display = "none";
+        document.getElementById("emailDiv").style.display = "none";
         document.getElementById("adresseDiv").style.display = "none";
         document.getElementById("villeDiv").style.display = "none";
         document.getElementById("typeEntrepriseDiv").style.display = "none";
@@ -198,7 +196,6 @@ function afficherChamps() {
 document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("prenomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("ineCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("emailCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("formationCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
