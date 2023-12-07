@@ -51,39 +51,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
 
     if (isset($_POST['selectedStudents'])) {
         foreach ($_POST['selectedStudents'] as $selectedStudentId) {
+
             // Récupérer le nom et prénom de l'étudiant depuis la base de données
             $sqlEtudiant = $conn->prepare('SELECT nom, prenom FROM Etudiant WHERE idetudiant = :id');
             $sqlEtudiant->bindParam(':id', $selectedStudentId, PDO::PARAM_INT);
 
-
             if ($sqlEtudiant->execute()) {
                 $etudiant = $sqlEtudiant->fetch(PDO::FETCH_ASSOC);
 
+                // Vérifier si l'étudiant est déjà sélectionné
+                if (in_array($selectedStudentId, $_SESSION['selectedStudents'])) {
+                    echo '<div class="error-message">Erreur : L\'étudiant ' . $etudiant['nom'] . ' ' . $etudiant['prenom'] . ' est déjà sélectionné.</div>';
+                    continue; // Passe à l'étudiant suivant dans la boucle
+                }
+
+
                 if ($etudiant) {
-
-                    $sqlRecherceID = $conn->prepare('SELECT Idoffre FROM Offre WHERE nom = :nom');
-                    $sqlRecherceID->bindParam(':nom',$nomOffre);
-                    if ($sqlRecherceID->execute()) {
-                        $resultatSelect = $sqlRecherceID->fetch(PDO::FETCH_ASSOC);
-
-                        if (isset($resultatSelect['idoffre'])) {
-                            $idOffre = $resultatSelect['idoffre'];
-                        } else {
-                            echo "Aucun résultat trouvé pour 'L idoffre";
-                        }
-                    } else {
-                        echo "Erreur lors de l'exécution de la requête SQL pour rechercher l'ID de l'offre : " . $sqlRecherceID->errorInfo()[2];
-                    }
-
-
-                    // Ajouter le nom et prénom de l'étudiant à la variable de session
-                    $_SESSION['selectedStudents'][] = $etudiant['nom'] . ' ' . $etudiant['prenom'];
                     echo "-" . $etudiant['nom'] . ' ' . $etudiant['prenom'] . "<br>";
-                    $sqlInsert = $conn->prepare('INSERT INTO Postule (idpostule,idoffre,nom, prenom) VALUES (DEFAULT,:idoffre,:nom, :prenom)');
-                    $sqlInsert->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
-                    $sqlInsert->bindParam(':nom', $etudiant['nom']);
-                    $sqlInsert->bindParam(':prenom', $etudiant['prenom']);
-                    $sqlInsert->execute();
+                    $_SESSION['selectedStudents'][] = $selectedStudentId;
+
                 } else {
                     echo "Étudiant non trouvé.";
                 }
@@ -95,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
         echo 'Aucun étudiant sélectionné.';
     }
 }
+
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['BoutonRetour'])) {
     header('Location: ../View/ViewAdminEntreprise.php');
