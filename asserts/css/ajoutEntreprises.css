@@ -1,0 +1,65 @@
+/* Style de base pour le formulaire */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    height: 100vh;
+}
+
+#formulaire {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+
+
+}
+
+/* Style pour les étiquettes de champ */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Style des champs de saisie */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Style pour le bouton d'enregistrement */
+#ajoutEntreprise {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Ajouter un peu d'espace entre les éléments de la liste */
+li {
+    margin-bottom: 10px;
+}
+
+/* Style pour le message d'erreur */
+#message {
+    color: red;
+}
+
+/* Supprimer les puces des listes à puces */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Ajouter un style de survol au bouton */
+#ajoutEntreprise:hover {
+    background-color: #0056b3;
+}

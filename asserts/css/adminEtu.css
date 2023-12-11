@@ -3,7 +3,6 @@
     font-family: Arial;
     overflow: scroll;
     background-color: #EBF4FB;
-    height: 100%;
 
 }
 
@@ -62,7 +61,8 @@
     left: 80px;
 }
 
-.rectangle-haut {
+.rectangle-haut{
+
     width: 900px;
     height: 80px;
     background-color: white;
@@ -71,12 +71,10 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     position: absolute;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%,-50%);
     top: 30%;
     left: 55%;
     z-index: 0;
-    padding: 10px;
-    text-align: center;
 }
 
 .nbrEtu{
@@ -115,189 +113,21 @@
 
 }
 
-.rectangle-mid {
-    width: 880px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 15px;
+.rectangle-mid{
+
+    height: 300px;
+    width: 900px;
+    background-color: white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
     position: absolute;
-    top: calc(40% + 30px);
-    left: 835px;
-    margin-left: -450px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transform: translate(-50%,-50%);
+    top: 70%;
+    left: 55%;
+
 }
-
-
-.etu {
-    background-color: #EBF4FB;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    list-style-type: none;
-}
-
-
-ul {
-    padding: 0;
-    margin: 0;
-}
-
-#rechercheForm {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#dataTable {
-    width: 100%;
-    border-spacing: 0;
-    margin: 20px auto;
-}
-
-#dataTable th,
-#dataTable td {
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: center;
-}
-
-#dataTable th.colonne {
-    background-color: #EBF4FB;
-    color: black;
-}
-
-#dataTable tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#dataTable tbody tr:hover {
-    background-color: #ddd;
-}
-
-#burgerMenu {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    overflow: scroll;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-#profileInfo {
-    padding: 20px;
-}
-
-.menu-burger {
-    display: none;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    background-color: #f8f9fa;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-    z-index: 1;
-}
-
-.menu-burger a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 20px;
-    color: #343a40;
-    display: block;
-    transition: 0.3s;
-}
-
-.menu-burger a:hover {
-    color: #007bff;
-}
-
-.close-btn {
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 16px;
-    margin-right: 20px;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-.menu-content {
-    padding: 20px;
-    max-height: 80vh; /* Adjust as needed */
-    overflow-y: auto; /* Enable vertical scrolling */
-}
-
-.btnAjoutEtu {
-    text-decoration: none;
-    color: black;
-    border: none;
-    background-color: #EBF4FB;
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    transition: box-shadow 0.3s ease; /* Ajout d'une transition pour une animation plus fluide */
-}
-
-.btnAjoutEtu:hover {
-    text-decoration: none;
-    color: black;
-    border: none;
-    background-color: #EBF4FB;
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 0 0 10px #333333; /* Ajout de l'ombre lors du survol */
-}
-
-.btnRechercheEtu {
-    text-decoration: none;
-    color: black;
-    border: none;
-    background-color: #EBF4FB;
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    transition: box-shadow 0.3s ease; /* Ajout d'une transition pour une animation plus fluide */
-    margin-top: 5px;
-}
-
-.btnRechercheEtu:hover {
-    text-decoration: none;
-    color: black;
-    border: none;
-    background-color: #EBF4FB;
-    padding: 10px;
-    font-weight: bold;
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-    box-shadow: 0 0 10px #333333; /* Ajout de l'ombre lors du survol */
-}
-
-
-
-
 
 
 

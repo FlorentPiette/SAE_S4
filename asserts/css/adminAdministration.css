@@ -1,11 +1,9 @@
 /* Styles CSS pour le menu vertical sans sous-menus */
 
-.body{
-
+.body {
     font-family: Arial;
     overflow: scroll;
     background-color: #EBF4FB;
-
 }
 
 .menu-container {
@@ -16,7 +14,7 @@
 .menu-header {
     width: 250px; /* Largeur du menu vertical */
     color: black;
-    position: fixed; /* Menu fixé à gauche */
+    position: absolute; /* Menu fixé à gauche */
     height: 100%; /* Hauteur à 100% de la fenêtre */
     top: 150px; /* Ajustez cette valeur pour abaisser le menu */
 }
@@ -31,14 +29,12 @@
     text-align: center;
 }
 
-.btnCreation{
-
+.btnCreation {
     text-decoration: none;
     color: inherit;
     background-color: transparent;
     border: none;
     font-size: 16px;
-
 }
 
 /* Styles pour le contenu principal à droite (titre et logo) */
@@ -63,8 +59,7 @@
     left: 80px;
 }
 
-.rectangle-haut{
-
+.rectangle-haut {
     width: 900px;
     height: 80px;
     background-color: white;
@@ -73,50 +68,41 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 30%;
     left: 55%;
     z-index: 0;
 }
 
-.nbrEtu{
-
-    transform: translate(-50%,-50%);
+.nbrEtu {
+    transform: translate(-50%, -50%);
     font-size: small;
     position: absolute;
     left: 20%;
-
 }
 
-.nbrEnt{
-
-    transform: translate(-50%,-50%);
+.nbrEnt {
+    transform: translate(-50%, -50%);
     font-size: small;
     position: absolute;
     left: 40%;
-
 }
 
-.nbrOff{
-
-    transform: translate(-50%,-50%);
+.nbrOff {
+    transform: translate(-50%, -50%);
     font-size: small;
     position: absolute;
     left: 60%;
-
 }
 
-.nbrPers{
-
-    transform: translate(-50%,-50%);
+.nbrPers {
+    transform: translate(-50%, -50%);
     font-size: small;
     position: absolute;
     left: 80%;
-
 }
 
-.rectangle-mid{
-
+.rectangle-mid {
     height: 300px;
     width: 900px;
     background-color: white;
@@ -125,14 +111,12 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     position: absolute;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     top: 70%;
     left: 55%;
-
 }
 
-.rectangle-gauche{
-
+.rectangle-gauche {
     height: 80px;
     width: 250px;
     background-color: #EBF4FB;
@@ -142,40 +126,31 @@
     border-top-left-radius: 15px;
     position: absolute;
     left: 25px;
-
 }
 
-.titre{
-
+.titre {
     padding-left: 50px;
-
 }
 
-.description{
-
+.description {
     padding-left: 50px;
-
 }
 
-.nbrCompte{
-
+.nbrCompte {
     font-size: 12px;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
     position: absolute;
     left: 50%;
 }
 
-.role{
-
+.role {
     font-size: 12px;
     position: absolute;
     top: 30%;
     left: 20%;
-
 }
 
-.rectangle-milieu{
-
+.rectangle-milieu {
     height: 80px;
     width: 250px;
     background-color: #EBF4FB;
@@ -185,11 +160,9 @@
     border-top-left-radius: 15px;
     position: absolute;
     left: 325px;
-
 }
 
-.rectangle-droit{
-
+.rectangle-droit {
     height: 80px;
     width: 250px;
     background-color: #EBF4FB;
@@ -199,61 +172,52 @@
     border-top-left-radius: 15px;
     position: absolute;
     left: 625px;
-
 }
 
-.roleSpe{
-
+.roleSpe {
     font-size: 12px;
     position: absolute;
     top: 30%;
     left: 38%;
-
 }
 
-.rectangle-bas{
-
-    height: 300px;
-    width: 900px;
+.rectangle-bas {
+    height: 300px; /* Hauteur fixe */
+    width: 95%;
+    max-width: 900px;
     background-color: white;
     border-bottom-left-radius: 15px;
     border-bottom-right-radius: 15px;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     position: absolute;
-    transform: translate(-50%,-50%);
-    top: 125%;
+    transform : translate(-50%,-50%);
+    top: 130%;
     left: 55%;
-    margin-top: 30px;
-
+    overflow-y: auto; /* Ajout de défilement vertical si le contenu dépasse la hauteur fixe */
 }
 
-.titre2{
 
+
+
+.titre2 {
     padding-left: 50px;
-
 }
 
-.description2{
-
+.description2 {
     padding-left: 50px;
-
 }
 
-
-.button-filtre{
-
-
-
+.button-filtre {
 }
 
 /* Styles pour le tableau de données */
 #dataTable {
-    width: 100% ;
-    border-collapse: collapse ;
-    margin-top: 50px ;
-}
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Ajustez la marge supérieure comme nécessaire */
 
+}
 
 #dataTable th, #dataTable td {
     border: 1px solid #ddd;
@@ -271,8 +235,6 @@
 }
 
 /* Styles pour les boutons de filtrage */
-
-
 .ajoutAdministration {
     text-decoration: none;
     background-color: #EBF4FB;
@@ -348,5 +310,3 @@
     margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
     box-shadow: 10px 10px 5px #E2E2E2;
 }
-
-

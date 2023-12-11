@@ -40,11 +40,11 @@ function chargerEntreprises() {
     fetch("../../Controller/ControllerAjouOffre.php")
         .then(response => response.json())
         .then(data => {
-
+            // Parcourir les données renvoyées par l'API et ajouter des options au menu déroulant
             data.forEach(entreprise => {
                 const option = document.createElement("option");
-                option.value = entreprise.nomentreprise;
-                option.textContent = entreprise.nomentreprise;
+                option.value = entreprise.nomentreprise; // Assurez-vous que votre API renvoie le nom de l'entreprise
+                option.textContent = entreprise.nomentreprise; // Assurez-vous que votre API renvoie le nom de l'entreprise
                 selectEntreprise.appendChild(option);
             });
         })
@@ -53,6 +53,7 @@ function chargerEntreprises() {
         });
 }
 
+// Appelez la fonction pour charger les entreprises au chargement de la page
 chargerEntreprises();
 
 // Récupération des éléments du formulaire
@@ -104,25 +105,3 @@ document.addEventListener("DOMContentLoaded", function() {
     // Par exemple, après une redirection vers cette page ou après une requête réussie.
     afficherPopup();
 });
-
-
-
-function limiterElements(elementSelector) {
-    const elements = document.querySelectorAll(elementSelector);
-    for (let i = 3; i < elements.length; i++) {
-        elements[i].style.display = 'none';
-    }
-}
-
-limiterElements('.offre');
-limiterElements('.entreprise');
-
-
-function afficherPopup() {
-    var popup = document.getElementById("popup");
-    popup.style.display = "block";
-
-    setTimeout(function () {
-        popup.style.display = "none";
-    }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
-}
