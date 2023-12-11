@@ -5,32 +5,6 @@
     </head>
 
     <body>
-        <div id="menuBurger" class="menu-burger">
-            <div id="closeBtn" class="close-btn" onclick="fermerMenuBurger()">×</div>
-
-            <div class="menu-content">
-                <h2>Informations de l'étudiant</h2>
-                <p><span id="infoNom"></span></p>
-                <p><span id="infoPrenom"></span></p>
-                <p><span id="infoIne"></span></p>
-                <p><span id="infoDate"></span></p>
-                <p><span id="infoAdresse"></span></p>
-                <p><span id="infoVille"></span></p>
-                <p><span id="infoCP"></span></p>
-                <p><span id="infoAnnee"></span></p>
-                <p><span id="infoFormation"></span></p>
-                <p><span id="infoEmail"></span></p>
-                <p><span id="infoActif"></span></p>
-                <p><span id="infoTypeEntreprise"></span></p>
-                <p><span id="infoTypeMission"></span></p>
-                <p><span id="infoMobile"></span></p>
-
-
-                <script src="../asserts/js/rechercheEtu.js"></script>
-                <button onclick="redirectModifierProfil()">Modifier le profil</button>
-            </div>
-        </div>
-
         <form id="rechercheForm">
             <label for="nomCheckbox">
                 <input type="checkbox" id="nomCheckbox"> Nom
@@ -111,23 +85,10 @@
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()" class="btnRechercheEtu">
         </form>
 
-        <table id="dataTable">
-            <thead>
-            <tr>
-                <th class="colonne">Nom</th>
-                <th class="colonne">Prénom</th>
-                <th class="colonne">INE</th>
-            </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <script src="../asserts/js/rechercheEtuOffre.js"></script>
 
-        </div>
-        </div>
-
-        <script src="../asserts/js/rechercheEtu.js"></script>
         <form action="../Controller/ControllerAjoutEtudiantOffre.php" method="post">
-            <div class="result"> </div>
+            <div class="result" id="result"> </div>
             <input type="submit" name="buttonValider" value="Valider">
             <input type="submit" name="BoutonRetour" value="Retour aux offres">
         </form>

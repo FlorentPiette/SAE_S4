@@ -17,8 +17,6 @@ $sqlTousEtudiants = $conn->prepare('SELECT * FROM Etudiant');
 if ($sqlTousEtudiants->execute()) {
     $result = $sqlTousEtudiants->fetchAll(PDO::FETCH_ASSOC);
 
-    echo "Voici la liste de tous les étudiants :" . "<br>";
-
     if ($result) {
         ?>
         <head>
