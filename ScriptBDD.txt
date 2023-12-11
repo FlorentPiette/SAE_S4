@@ -93,10 +93,9 @@ create table Poste(
 );
 
 CREATE TABLE Postule(
-    idPostule serial Primary Key,
+    idetudiant serial REFERENCES Etudiant,
     idoffre int REFERENCES Offre,
-    Nom text,
-    prenom text, 
+	Primary Key(idetudiant, idoffre),
 	date date
 );
 

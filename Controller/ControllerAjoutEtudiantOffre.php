@@ -12,7 +12,6 @@ if (!isset($_SESSION['selectedStudents'])) {
 
 }
 
-
 // Afficher la liste des étudiants
 $sqlTousEtudiants = $conn->prepare('SELECT * FROM Etudiant');
 if ($sqlTousEtudiants->execute()) {
@@ -22,9 +21,9 @@ if ($sqlTousEtudiants->execute()) {
 
     if ($result) {
         ?>
-            <head>
-                <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
-            </head>
+        <head>
+            <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
+        </head>
         <form action="" method="post">
             <?php
             $nomOffre = isset($_POST['nomOffre']) ? $_POST['nomOffre'] : null;
@@ -56,16 +55,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
             $sqlEtudiant = $conn->prepare('SELECT nom, prenom FROM Etudiant WHERE idetudiant = :id');
             $sqlEtudiant->bindParam(':id', $selectedStudentId, PDO::PARAM_INT);
 
+
             if ($sqlEtudiant->execute()) {
                 $etudiant = $sqlEtudiant->fetch(PDO::FETCH_ASSOC);
 
                 if ($etudiant) {
-
                     $sqlRecherceID = $conn->prepare('SELECT Idoffre FROM Offre WHERE nom = :nom');
-                    $sqlRecherceID->bindParam(':nom',$nomOffre);
+                    var_dump($nomOffre);
+                    $sqlRecherceID->bindValue(':nom', $nomOffre, PDO::PARAM_STR);
                     if ($sqlRecherceID->execute()) {
                         $resultatSelect = $sqlRecherceID->fetch(PDO::FETCH_ASSOC);
-
                         if (isset($resultatSelect['idoffre'])) {
                             $idOffre = $resultatSelect['idoffre'];
                         } else {
@@ -79,12 +78,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
                     // Ajouter le nom et prénom de l'étudiant à la variable de session
                     $_SESSION['selectedStudents'][] = $etudiant['nom'] . ' ' . $etudiant['prenom'];
                     echo "-" . $etudiant['nom'] . ' ' . $etudiant['prenom'] . "<br>";
-                    $sqlInsert = $conn->prepare('INSERT INTO Postule (idpostule,idoffre,nom, prenom) VALUES (DEFAULT,:idoffre,:nom, :prenom)');
+                    $sqlInsert = $conn->prepare('INSERT INTO Postule (idoffre,idetudiant) VALUES (:idoffre, :idetudiant)');
                     $sqlInsert->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
-                    $sqlInsert->bindParam(':nom', $etudiant['nom']);
-                    $sqlInsert->bindParam(':prenom', $etudiant['prenom']);
+                    $sqlInsert->bindParam(':idetudiant', $selectedStudentId);
 
                     $sqlInsert->execute();
+
                 } else {
                     echo "Étudiant non trouvé.";
                 }
@@ -101,4 +100,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['BoutonRetour'])) {
     header('Location: ../View/ViewAdminEntreprise.php');
     exit();
 }
+?>
 
