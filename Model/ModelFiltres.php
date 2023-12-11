@@ -12,20 +12,7 @@
  * @return void
  */
 
-/*
-foreach ($resultat2 as $res2):
-    $nomOffre = $res2['nom'];
-    $selectIDoffre = $db->prepare('SELECT idOffre FROM Offre WHERE nom = :nom');
-    $selectIDoffre->bindParam(':nom', $nomOffre);
-    $selectIDoffre->execute();
-    $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
-    $idOffre = $resultatID['idoffre'];
 
-    $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule WHERE idoffre = :idoffre');
-    $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
-    $selectnom->execute();
-    $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
-*/
 
 function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
 {
@@ -65,18 +52,20 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
         $req->bindValue(':nbetudiant', $nbetudiant, PDO::PARAM_INT);
     }
 
-    if ($req->execute()) {
-        // Récupérer les résultats
-        $resultats = $req->fetchAll(PDO::FETCH_ASSOC);
+    $req->execute();
+    $resultats = $req->fetchAll(PDO::FETCH_ASSOC);
 
-        // Renvoyer les résultats au format JSON
-        header('Content-Type: application/json');
-        echo json_encode($resultats);
-    } else {
-        // En cas d'erreur d'exécution de la requête, renvoyer un JSON vide
-        header('Content-Type: application/json');
-        echo json_encode([]);
+    foreach ($resultats as &$offre) {
+        $sqlEtudiants = "SELECT nom, prenom FROM postule join Etudiant using(idetudiant) WHERE idoffre = :idOffre";
+        $reqEtudiants = $conn->prepare($sqlEtudiants);
+        $reqEtudiants->bindParam(':idOffre', $offre['idoffre'], PDO::PARAM_INT);
+        $reqEtudiants->execute();
+        $etudiants = $reqEtudiants->fetchAll(PDO::FETCH_ASSOC);
+        $offre['offreEtudiants'] = $etudiants;
     }
+
+    header('Content-Type: application/json');
+    echo json_encode($resultats);
 }
 
 
