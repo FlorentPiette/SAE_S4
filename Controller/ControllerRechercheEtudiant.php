@@ -6,17 +6,18 @@ $conn = Conn::getInstance();
 
 $nom = $_GET['nom'] ?? '';
 $prenom = $_GET['prenom'] ?? '';
+$date = $_GET['date'] ?? '';
 $ine = $_GET['ine'] ?? '';
 $email = $_GET['email'] ?? '';
 $formation = $_GET['formation'] ?? '';
 $adresse = $_GET['adresse'] ?? '';
 $ville = $_GET['ville'] ?? '';
 $codepostal = $_GET['codepostal'] ?? '';
-$anneeetude = $_GET['anneeEtude'] ?? '';
-$typeentreprise = $_GET['typeEntreprise'] ?? '';
-$typemission = $_GET['typeMission'] ?? '';
+$anneeetude = $_GET['anneeetude'] ?? '';
+$typeentreprise = $_GET['typeentreprise'] ?? '';
+$typedemission = $_GET['typedemission'] ?? '';
 $mobile = $_GET['mobile'] ?? '';
 $actif = $_GET['actif'] ?? '';
 
-RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typemission, $mobile, $actif);
+RecherEtu($conn, $nom, $prenom,$date,$ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typedemission, $mobile, $actif);
 

@@ -11,8 +11,7 @@
  *
  * @return void
  */
-function ajoutOffre(PDO $conn, string $nom, string $domaine, string $mission, int $nbetudiant): void
-{
+function ajoutOffre($conn, $nom, $domaine, $mission, $nbetudiant){
     $req = "INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
@@ -26,8 +25,7 @@ function ajoutOffre(PDO $conn, string $nom, string $domaine, string $mission, in
  * @param String $nomEntreprise
  * @return void
  */
-function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntreprise): void
-{
+function ajouterOffreEntreprise($conn, $nomOffre, $nomEntreprise){
     $req = "INSERT INTO Poste (nomoffre, nomentreprise) VALUES (:nomOffre, :nomEntreprise)";
     $req2 = $conn->prepare($req);
     $req2->execute(array(':nomOffre' => $nomOffre, ':nomEntreprise' => $nomEntreprise));
@@ -35,14 +33,10 @@ function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntrepri
 
 /**
  * Voir fichier
- *
- * @param $conn
- * @param $offreId
- *
+ * @param String $fichier
  * @return void
  */
-function voirFichier($conn, $offreId): void
-{
+function voirFichier($conn, $offreId) {
     if (!empty($offreId)) {
         $sql = "SELECT document FROM Offre WHERE IdOffre = :offreId";
         $stmt = $conn->prepare($sql);
@@ -81,16 +75,15 @@ function voirFichier($conn, $offreId): void
  * @param String $entreprise sert à définir le type d'entreprise que l'étudiant recherche
  * @param String $mission sert à définir le type de mission que l'étudiant recherche
  * @param Boolean $mobile sert à définir le status mobile ou non de l'étudiant
- * @param int $CodeMail (8 caractères) sert à confirmer le compte de l'étudiant
+ * @param int $codeConfirmation (8 caractères) sert à confirmer le compte de l'étudiant
  *
  * @return void
  */
-function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $motDePasse, String $iNE, string $entreprise, String $mission, bool $mobile, $CodeMail): void
-{
-    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
+function ajoutEtudiant($conn, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $mobile, $codeConfirmation){
+    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeConfirmation)
             VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :motDePasse, :ine, :entreprise, :mission, " . ($mobile ? 'true' : 'false') . ", True, :CodeConfirmation)";
     $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $CodeMail));
+    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $codeConfirmation));
 }
 
 /**
@@ -107,8 +100,7 @@ function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance,
  *
  * @return void
  */
-function ajoutEntreprise(PDO $conn, string $nom, string $adresse, string $ville, int $codePostal, string $num, string $secteur, string $email): void
-{
+function ajoutEntreprise($conn, $nom, $adresse, $ville, $codePostal, $num, $secteur, $email){
     $req = "INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur,:email)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
@@ -121,8 +113,7 @@ function ajoutEntreprise(PDO $conn, string $nom, string $adresse, string $ville,
  * @return void
  */
 
-function affichageEntreprise(PDO $conn): void
-{
+function affichageEntreprise($conn) {
     try {
         // Requête SQL pour récupérer les noms des entreprises
         $query = "SELECT nomentreprise FROM Entreprise";
@@ -157,8 +148,7 @@ function affichageEntreprise(PDO $conn): void
  *
  * @return array $result
  */
-function ajoutAdministration(PDO $conn, string $nom, string $prenom, string $formation, string $email, string $mdp, string $role): array
-{
+function ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role){
     $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $prenom, $formation, $email, $mdp, $role));
@@ -170,9 +160,9 @@ function ajoutAdministration(PDO $conn, string $nom, string $prenom, string $for
 /**
  * Création du code de confirmation pour confirmer son email
  *
- * @return int|string $result
+ * @return int $result
  */
-function code(): int|string
+function code()
 {
     $confirmation = 0;
     for ($i = 0; $i < 7; $i++) {
@@ -190,8 +180,7 @@ function code(): int|string
  *
  * @return array $result
  */
-function selectEtuWhereEmail($conn, $email): array
-{
+function selectEtuWhereEmail($conn, $email){
     $req = "SELECT * FROM Etudiant where email = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($email));
@@ -199,5 +188,6 @@ function selectEtuWhereEmail($conn, $email): array
 
     return $result;
 }
+?>
 
 

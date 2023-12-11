@@ -1,26 +1,29 @@
 <?php
 
+use Cassandra\Date;
+
 /**
  * Rechercher des étudiants
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param String $nom sert à rechercher les étudiants ayant ce nom
  * @param String $prenom sert à rechercher les étudiants ayant ce prénom
+ * @param date $date sert à rechercher les étudiants ayant ce prénom
  * @param String $ine sert à rechercher les étudiants ayant cet INE
  * @param String $email sert à rechercher l'étudiant ayant cette email
  * @param String $formation sert à rechercher les étudiants inscrits dans cette formation
  * @param String $adresse sert à rechercher les étudiants habitant à cette adresse
  * @param String $ville sert à rechercher les étudiants habitant dans cette ville
- * @param String $codePostal sert à rechercher l'étudiant ayant ce code postal
- * @param int $anneeEtude sert à rechercher les étudiants inscrits dans cette année d'étude
- * @param String $typeEntreprise sert à rechercher les étudiants recherchant ce type d'entreprise
- * @param String $typeMission sert à rechercher les étudiants recherchant ce type de mission
+ * @param String $codepostal sert à rechercher l'étudiant ayant ce code postal
+ * @param int $anneeetude sert à rechercher les étudiants inscrits dans cette année d'étude
+ * @param String $typeentreprise sert à rechercher les étudiants recherchant ce type d'entreprise
+ * @param String $typedemission sert à rechercher les étudiants recherchant ce type de mission
  * @param boolean $mobile sert à rechercher les étudiants étant mobile ou non
  * @param boolean $actif sert à rechercher les étudiants étant actif ou non
  *
  * @return void
  */
-function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
+function RecherEtu($conn, $nom, $prenom,$date, $ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typedemission, $mobile, $actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
 
@@ -30,6 +33,9 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
 
     if (!empty($prenom)) {
         $sql .= " AND prenom ILIKE :prenom";
+    }
+    if (!empty($date)) {
+        $sql .= " AND date ILIKE :date";
     }
 
     if (!empty($ine)) {
@@ -52,20 +58,20 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
         $sql .= " AND ville ILIKE :ville";
     }
 
-    if (!empty($codePostal)) {
-        $sql .= " AND codepostal ILIKE :codePostal";
+    if (!empty($codepostal)) {
+        $sql .= " AND codepostal ILIKE :codepostal";
     }
 
-    if (!empty($anneeEtude)) {
-        $sql .= " AND anneeetude = :anneeEtude";
+    if (!empty($anneeetude)) {
+        $sql .= " AND anneeetude = :anneeetude";
     }
 
-    if (!empty($typeEntreprise)) {
-        $sql .= " AND typeentreprise ILIKE :typeEntreprise";
+    if (!empty($typeentreprise)) {
+        $sql .= " AND typeentreprise ILIKE :typeentreprise";
     }
 
-    if (!empty($typeMission)) {
-        $sql .= " AND typemission ILIKE :typeMission";
+    if (!empty($typedemission)) {
+        $sql .= " AND typedemission ILIKE :typedemission";
     }
 
     if (!empty($mobile)) {
@@ -85,6 +91,10 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
 
     if (!empty($prenom)) {
         $stmt->bindValue(':prenom', "%$prenom%", PDO::PARAM_STR);
+    }
+
+    if (!empty($date)) {
+        $stmt->bindValue(':date', "%$date%", PDO::PARAM_STR);
     }
 
     if (!empty($ine)) {
@@ -107,20 +117,20 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
         $stmt->bindValue(':ville', "%$ville%", PDO::PARAM_STR);
     }
 
-    if (!empty($codePostal)) {
-        $stmt->bindValue(':codePostal', "%$codePostal%", PDO::PARAM_STR);
+    if (!empty($codepostal)) {
+        $stmt->bindValue(':codepostal', "%$codepostal%", PDO::PARAM_STR);
     }
 
-    if (!empty($anneeEtude)) {
-        $stmt->bindValue(':anneeEtude', $anneeEtude, PDO::PARAM_INT);
+    if (!empty($anneeetude)) {
+        $stmt->bindValue(':anneeetude', $anneeetude, PDO::PARAM_INT);
     }
 
-    if (!empty($typeEntreprise)) {
-        $stmt->bindValue(':typeEntreprise', "%$typeEntreprise%", PDO::PARAM_STR);
+    if (!empty($typeentreprise)) {
+        $stmt->bindValue(':typeentreprise', "%$typeentreprise%", PDO::PARAM_STR);
     }
 
-    if (!empty($typeMission)) {
-        $stmt->bindValue(':typeMission', "%$typeMission%", PDO::PARAM_STR);
+    if (!empty($typedemission)) {
+        $stmt->bindValue(':typedemission', "%$typedemission%", PDO::PARAM_STR);
     }
 
     if (!empty($mobile)) {

@@ -32,6 +32,7 @@ if(isset($_POST["ajoutEtudiant"])) {
         $mobile = false;
     }
 
+
     $confirmation = code();
     setcookie("Mail_Etudiant", $email, time() + 3600, "/");
 
