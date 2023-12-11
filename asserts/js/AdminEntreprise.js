@@ -19,24 +19,22 @@ formulaire.addEventListener("submit", function (event) {
     var mission = document.getElementById("mission").value;
     var nbetudiant = document.getElementById("nbetudiant").value;
 
-    if (!brouillon.checked) { // Validez uniquement si la case "Brouillon" n'est pas cochée
+    if (!brouillon.checked) {
         if (isNaN(nbetudiant)) {
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault();
             message.innerText = "Erreur, le nombre d'étudiant doit être un nombre valide.";
         }
 
         if (offre === "" || domaine === "" || mission === "" || nbetudiant === "") {
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault();
             message.innerText = "Erreur, veuillez remplir tous les champs de saisie.";
         }
     }
 });
 
 function chargerEntreprises() {
-    // Récupérer l'élément select
     const selectEntreprise = document.getElementById("entreprise");
 
-    // Faites une requête GET à votre API PHP pour récupérer la liste des entreprises
     fetch("../../Controller/ControllerAjouOffre.php")
         .then(response => response.json())
         .then(data => {
@@ -69,14 +67,14 @@ formulaire.addEventListener("submit", function (event) {
     var mission = document.getElementById("mission").value;
     var nbetudiant = document.getElementById("nbetudiant").value;
 
-    if (!brouillon.checked) { // Validez uniquement si la case "Brouillon" n'est pas cochée
+    if (!brouillon.checked) {
         if (isNaN(nbetudiant)) {
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault();
             afficherMessageErreur("Erreur, le nombre d'étudiant doit être un nombre valide.");
         }
 
         if (offre === "" || domaine === "" || mission === "" || nbetudiant === "") {
-            event.preventDefault(); // Empêche l'envoi du formulaire
+            event.preventDefault();
             afficherMessageErreur("Erreur, veuillez remplir tous les champs de saisie.");
         }
     }

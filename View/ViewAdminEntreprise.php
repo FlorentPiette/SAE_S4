@@ -32,7 +32,7 @@
         <div class="header-content">
             <div class="header-content">
                 <h1 class="title">Gestionnaire des apprentis</h1>
-                <img src="../asserts/img/logo.png" class="logo">
+                <img src="../asserts/img/logo.png" class="logo" alt="logo uphf">
             </div>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
@@ -101,7 +101,7 @@
             </ul>
 
             <script src="../asserts/js/rechercheOffre.js"></script>
-
+        </ul>
 
 
 
@@ -142,46 +142,7 @@
                 </ul>
 
                 <script src="../asserts/js/rechercherEntreprise.js"></script>
-
-                <?php
-                include '../Model/ConnexionBDD.php';
-                $db = Conn::getInstance();
-
-                $sql = "SELECT * FROM entreprise";
-                $req = $db->prepare($sql);
-                $req->execute();
-                $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
-
-                $count = 0;
-                foreach ($resultat2 as $resultat):
-                    if ($count % 2 == 0) {
-                        echo '<li>';
-                    } ?>
-                    <li class="entreprise">
-                        Nom : <?php echo $resultat['nomentreprise']; ?><br>
-                        Adresse : <?php echo $resultat['adresse']; ?><br>
-                        Ville : <?php echo $resultat['ville']; ?><br>
-                        Code postal : <?php echo $resultat['codepostal']; ?><br>
-                        Numéro de téléphone : <?php echo $resultat['numtel']; ?><br>
-                        Secteur d'activité : <?php echo $resultat['secteuractivite']; ?><br>
-                        Email : <?php echo $resultat['email']; ?><br>
-                        <!-- Ajoutez ce code à votre formulaire dans la section pour afficher les offres -->
-
-                    </li>
-                    <?php if ($count % 2 == 1) {
-                    echo '</li>';
-                }
-                    $count++;
-                endforeach;
-
-                if ($count % 2 == 1) {
-                    echo '</li>';
-                }
-
-                ?>
-            </ul>
-
-
+                </ul>
 
     </div>
 </div>
