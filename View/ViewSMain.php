@@ -1,3 +1,7 @@
+<?php
+//include "../Controller/ControllerVerificationDroit.php"
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,10 +17,9 @@
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewSMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewSEtudiant.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewSEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button></li>
                         <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
@@ -94,23 +97,7 @@
 
     </div>
 
-    <div class="rectangle-bas">
 
-        <div class="all-text3">
-
-            <h3 class="titre2">Compte de l'administration</h3>
-            <p class="description2">Vous trouverez ici l’ensemble des comptes du personnel avec leurs rôles, leurs permissions, leurs adresse mails etc... </p>
-
-            <div class="button-filtre">
-
-                <button class="compteTous">Tous (X)</button>
-                <button class="nbSecretaire">Secrétaire</button>
-                <button class="nbCD">Chargés de développement</button>
-                <button class="nbRP">Responsable pédagogique</button>
-
-            </div>
-        </div>
-    </div>
 </div>
 </body>
 </html>

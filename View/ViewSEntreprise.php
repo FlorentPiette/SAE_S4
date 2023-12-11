@@ -1,25 +1,24 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php
+//include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
-    <script src="../asserts/js/AdminEntreprise.js"></script>
 </head>
 <body class="body">
 
 <header class="header">
-
     <div class="menu-container">
         <div class="menu-header">
             <nav>
                 <form  method="post" action="../Controller/ControllerBtnDeco.php">
                     <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" class="btnCreation"> Accueil </button></li>
-                        <li><button type="button"  onclick="window.location.href ='ViewCdEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
+                        <li><button type="button" onclick="window.location.href ='ViewSMain.php'" name="accueil" class="btnCreation"> Accueil </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewSEtudiant.php'" name="etudiant" class="btnCreation"> Étudiant </button></li>
+                        <li><button type="button" onclick="window.location.href ='ViewSEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
                         <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
                     </ul>
                 </form>
@@ -28,7 +27,7 @@
 
         <div class="header-content">
             <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo" alt="logo uphf">
+            <img src="../asserts/img/logo.png" class="logo">
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
             </form>
@@ -43,7 +42,7 @@
             <h3 class="nbrEtu">Nombre d'étudiants</h3>
             <h3 class="nbrEnt">Nombre d'entreprises</h3>
             <h3 class="nbrOff">Nombre d'offres</h3>
-            <h3 class="nbrPers">Nombre de personnels</h3>
+            <h3 class="nbrPers">Nombre de personnel</h3>
         </div>
     </div>
 
@@ -58,7 +57,6 @@
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
         </form>
 
-
         <ul id="donneesOffre" class="offres-container">
             <form id="rechercheOffre">
                 <label for="nomCheckbox">
@@ -71,7 +69,7 @@
                     <input type="checkbox" id="missionCheckbox"> Missions
                 </label>
                 <label for="nbEtudiantCheckbox">
-                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherchés
                 </label>
 
 
@@ -113,8 +111,6 @@
                     <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
                 </label>
 
-
-
                 <div id="nomEntrepriseDiv" style="display: none">
                     <label for="nomEntreprise"></label><input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
                 </div>
@@ -133,8 +129,6 @@
 
             <ul id="resultatsEntreprise" class="result">
             </ul>
-
-            <script src="../asserts/js/rechercherEntreprise.js"></script>
         </ul>
     </div>
 </div>
@@ -143,5 +137,13 @@
     L'offre a été ajoutée avec succès !
 </div>
 
+<script>
+    // ... (Votre script JavaScript existant)
+</script>
+
 </body>
 </html>
+
+
+
+

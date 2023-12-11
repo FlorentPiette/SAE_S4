@@ -1,4 +1,6 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php
+include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -10,16 +12,16 @@
     <ul>
         <li>
             <label for="nom">Nom:</label>
-            <input type="text" id="nom" name="nom">
+            <input type="text" id="nom" name="nom" />
         </li>
         <li>
             <label for="prenom">Prenom:</label>
-            <input type="text" id="prenom" name="prenom">
+            <input type="text" id="prenom" name="prenom" />
         </li>
         <li>
             <div class="formation-rectangle">
 
-                <label for="formation-select"></label><select id="formation-select" name="formation">
+                <select id="formation-select" name="formation">
                     <option value="informatique">BUT informatique</option>
                     <option value="marketing">Responsable pédagogique</option>
                     <option value="finance">Chargés de développement</option>
@@ -31,16 +33,16 @@
         </li>
         <li>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
+            <input type="text" id="email" name="email" />
         </li>
         <li>
             <label for="mdp">Mot de passe:</label>
-            <input type="text" id="mdp" name="mdp">
+            <input type="text" id="mdp" name="mdp" />
         </li>
         <li>
             <div class="role-rectangle">
 
-                <label for="role-select"></label><select id="role-select" name="role">
+                <select id="role-select" name="role">
                     <option value="admin">Administration</option>
                     <option value="rp">Responsable pédagogique</option>
                     <option value="cd">Chargés de développement</option>
