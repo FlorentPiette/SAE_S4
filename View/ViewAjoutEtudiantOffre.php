@@ -85,12 +85,12 @@
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()" class="btnRechercheEtu">
         </form>
 
-        <script src="../asserts/js/rechercheEtuOffre.js"></script>
-
         <form action="../Controller/ControllerAjoutEtudiantOffre.php" method="post">
             <div class="result" id="result"> </div>
             <input type="submit" name="buttonValider" value="Valider">
             <input type="submit" name="BoutonRetour" value="Retour aux offres">
         </form>
+
+        <script src="../asserts/js/rechercheEtuOffre.js"></script>
     </body>
 </html>

@@ -42,8 +42,12 @@ function rechercherOffres() {
                             offreHTML += 'Missions : ' + (offre.mission || '') + '<br>';
                             offreHTML += 'Nombre d\'étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
 
-                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre">' + '<br>';
-                            offreHTML += '<input type="hidden" name="nomOffre" value="' + offre.nom + '">';
+                            var nomOffre = offre.nom;
+
+                            offreHTML += '<input type="hidden" name="selectedOffer" id="selectedOffer" value="' + nomOffre + '">'
+                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre" onclick="ajouterEtudiant(\'' + nomOffre + '\')">' + '<br>';
+
+                            offreHTML += '<input type="hidden" name="nomOffre" value="' + nomOffre + '">';
 
                             if (offre.offreEtudiants && offre.offreEtudiants.length > 0) {
                                 offreHTML += '<label> Les étudiants qui ont déjà postulés :</label><br>';
@@ -83,6 +87,10 @@ function rechercherOffres() {
 
     xhr.send();
 
+}
+
+function ajouterEtudiant(nomOffre) {
+    document.getElementById('selectedOffer').value = nomOffre;
 }
 
 
