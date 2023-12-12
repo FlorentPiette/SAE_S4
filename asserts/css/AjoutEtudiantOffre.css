@@ -60,4 +60,9 @@ li.offre {
     background-color: #f5f5f5;
 }
 
-/* Add your additional styling as needed */
+
+ .error-message {
+     color: red; /* Couleur du texte pour le message d'erreur */
+     font-weight: bold; /* Texte en gras */
+ }
+
