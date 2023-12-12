@@ -50,6 +50,8 @@
 
     <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
 
+    <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
+
     <p>Autre(s) fichier(s) :</p>
     <input type="file" name="fichier" id="fichier"><br>
     <br>
