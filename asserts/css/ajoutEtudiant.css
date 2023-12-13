@@ -6,13 +6,13 @@
 
 /* Ajustements pour le formulaire dans la pop-up */
 #formulaireAjoutEtudiant {
-    width: 80%;
+    width: 40%;
     max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
     margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #f9f9f9;
+    background-color: white;
     text-align: center;
     overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
 }
@@ -42,6 +42,7 @@ label {
     border: none;
     cursor: pointer;
     font-size: 16px;
+    margin-top: 30px;
 }
 
 /* Style pour le message d'erreur */
@@ -54,4 +55,11 @@ label {
 ul {
     list-style: none;
     padding: 0;
+}
+
+.popup-content ul{
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
 }

@@ -237,11 +237,11 @@
 }
 
 .inner-rectangle {
-    background-color: rgba(0, 140, 173, 0.75);
-    width: 80%;
-    height: 75%;
+    background-color: white;/*rgba(0, 140, 173, 0.75);*/
+    width: 90%;
+    height: 80%;
     transform: translate(-50%,-50%);
-    top: 50%;
+    top: 47%;
     left: 50%;
     position: absolute;
 }

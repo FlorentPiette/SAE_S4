@@ -5,9 +5,8 @@
 }
 
 /* Ajustements pour le formulaire d'ajout du personnel */
-#popUpPerso #formulaireAjoutPersonnel {
-    width: 80%;
-    max-width: 600px;
+#popUpPerso form {
+    width: 400px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -34,24 +33,18 @@
     border-radius: 5px;
 }
 
+/* Supprimer les puces des listes à puces dans la pop-up d'ajout du personnel */
+#popUpPerso ul {
+    list-style: none;
+    padding: 0;
+}
+
 /* Style pour le bouton de validation */
 #popUpPerso #ajoutPersonnel {
     background-color: #007BFF;
     color: white;
-    padding: 12px 20px;
+    padding: 12px 20px; /* Ajustez la taille du bouton */
     border: none;
     cursor: pointer;
     font-size: 16px;
-}
-
-/* Style pour le message d'erreur */
-#popUpPerso #messagePersonnel {
-    color: red;
-    margin-top: 10px;
-}
-
-/* Supprimer les puces des listes à puces */
-#popUpPerso ul {
-    list-style: none;
-    padding: 0;
 }

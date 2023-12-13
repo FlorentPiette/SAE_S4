@@ -10,9 +10,10 @@
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -44,10 +45,10 @@
 
 <div id="popUpEtu" class="popupEtu">
 
-    <div class="popup-content">
+    <div class="popup-content" id="formulaireAjoutEtudiant">
 
 
-        <form action="../Controller/ControllerAjoutEtudiant.php" method="post">
+        <form action="../Controller/ControllerAjoutEtudiant.php" method="post" >
             <ul>
                 <li>
                     <label for="nom">Nom:</label>
@@ -231,7 +232,7 @@
             </ul>
 
             <div class="button">
-                <button type="submit" id="ajoutEntreprise" name="valider">Valider</button>
+                <button type="submit" id="ajoutPersonnel" name="valider">Valider</button>
             </div>
         </form>
 
@@ -250,7 +251,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>

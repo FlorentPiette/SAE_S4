@@ -6,7 +6,7 @@
 
 /* Ajustements pour le formulaire dans la pop-up */
 #formulaire {
-    width: 80%;
+    width: 90%;
     max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
     margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
     padding: 20px;

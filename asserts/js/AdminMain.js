@@ -153,5 +153,32 @@ function loadCompanies() {
     });
 }
 
+function redirectWithAjax(url) {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'html',
+        success: function () {
+            // Redirection après le succès de la requête AJAX
+            window.location.replace(url);
+        },
+        error: function (error) {
+            console.error('Erreur AJAX :', error);
+            // Gérer les erreurs si nécessaire
+        }
+    });
+}
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Ajoutez un écouteur d'événements au bouton "Afficher Plus" des offres
+    document.getElementById('afficherOffres').addEventListener('click', function () {
+        // Remplacez 'URL_DE_VOTRE_PAGE_OFFRES' par l'URL vers laquelle vous souhaitez rediriger
+        var urlOffres = 'ViewAfficherPlusOffre.html';
+        redirectWithAjax(urlOffres);
+    });
+});
+
+
 
 
