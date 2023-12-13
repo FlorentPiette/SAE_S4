@@ -118,7 +118,7 @@ function loadStudents() {
 // Fonction pour charger les offres via AJAX
 function loadOffers() {
     $.ajax({
-        url: '../Controller/ControllerAffichageOffreMain.php',
+        url: '../Model/ModelAffichageOffreMain.php',
         type: 'GET',
         dataType: 'html',
         data: {

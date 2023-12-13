@@ -1,0 +1,18 @@
+/* Style pour la liste d'étudiants générée par PHP */
+#etudiants-container {
+    list-style: none;
+    padding: 0;
+}
+
+#etudiants-container li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#etudiants-container li strong {
+    font-weight: bold;
+}
+
+/* Ajoutez d'autres styles au besoin */

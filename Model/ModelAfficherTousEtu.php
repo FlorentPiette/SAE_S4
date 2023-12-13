@@ -10,7 +10,6 @@ foreach ($resultat as $etudiant) {
     echo "<strong>Prénom:</strong> " . $etudiant['prenom'] . "<br>";
     echo "<strong>INE:</strong> " . $etudiant['ine'] . "<br>";
     echo "<strong>Formation:</strong> " . $etudiant['formation'] . "</li><br>";
-    echo "-------------------------------------------------<br>";
 }
 
 
