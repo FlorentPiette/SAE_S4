@@ -80,26 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     loadCompanies();
 
-    // Écouteur d'événements pour le bouton "Afficher Plus" des étudiants
-    document.getElementById('afficherEtudiants').addEventListener('click', function () {
-        loadStudents();
-    });
-
-    // Écouteur d'événements pour le bouton "Afficher Plus" des offres
-    document.getElementById('afficherOffres').addEventListener('click', function () {
-        loadOffers();
-    });
-
-    // Écouteur d'événements pour le bouton "Afficher Plus" des entreprises
-    document.getElementById('afficherEntreprises').addEventListener('click', function () {
-        loadCompanies();
-    });
 });
 
 // Fonction pour charger les étudiants via AJAX
 function loadStudents() {
     $.ajax({
-        url: '../Model/ModelAfficherTousEtu.php',
+        url: '../Model/ModelAfficherEtuMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -173,11 +159,16 @@ function redirectWithAjax(url) {
     document.addEventListener("DOMContentLoaded", function () {
     // Ajoutez un écouteur d'événements au bouton "Afficher Plus" des offres
     document.getElementById('afficherOffres').addEventListener('click', function () {
-        // Remplacez 'URL_DE_VOTRE_PAGE_OFFRES' par l'URL vers laquelle vous souhaitez rediriger
         var urlOffres = 'ViewAfficherPlusOffre.html';
         redirectWithAjax(urlOffres);
     });
+
+    document.getElementById('afficherEtudiants').addEventListener('click', function () {
+        var urlOffres = 'ViewAfficherPlusEtu.html';
+        redirectWithAjax(urlOffres);
+    });
 });
+
 
 
 
