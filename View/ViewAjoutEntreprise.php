@@ -1,4 +1,5 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php
+//include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,7 @@
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEntreprise.css">
 </head>
 <body>
+<h3> Création d'une Entreprise </h3>
 <form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire">
     <ul>
         <li>
