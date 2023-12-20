@@ -8,6 +8,13 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
@@ -37,9 +44,11 @@
 <body class="body">
 
 <div id="popUpEtu" class="popupEtu">
-    <div class="popup-content">
 
-        <form action="../Controller/ControllerAjoutEtudiant.php" method="post">
+    <div class="popup-content" id="formulaireAjoutEtudiant">
+
+
+        <form action="../Controller/ControllerAjoutEtudiant.php" method="post" >
             <ul>
                 <li>
                     <label for="nom">Nom:</label>
@@ -111,47 +120,63 @@
     <div class="popup-content">
 
         <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
+
             <p>
                 Nom de l'offre :
             </p>
-            <input type="text" name="Nom" id="offre">
+            <label for="offre"></label><input type="text" name="Nom" id="offre">
 
             <p>
                 Domaine de l'offre :
             </p>
-            <input type="text" name="Domaine" id="domaine">
+            <label for="domaine"></label><input type="text" name="Domaine" id="domaine">
 
             <p>
                 Mission :
             </p>
-            <textarea name="Mission" id="mission" class="zoneText"></textarea>
+            <label for="mission"></label><textarea name="Mission" id="mission" class="zoneText"></textarea>
 
             <p>
                 Nombre d'étudiant :
             </p>
-            <input type="text" name="NbEtudiant" id="nbetudiant"><br>
+            <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant"><br>
 
             <p id="message" class="error-message"></p>
 
             <p>Entreprise :</p>
-            <select name="entreprise" id="entreprise"></select><br>
+            <label for="entreprise"></label><select name="entreprise" id="entreprise">
+                <?php
+                include_once '../Model/ConnexionBDD.php';
+                $conn = Conn::getInstance();
+                $sql = "SELECT identreprise, nom FROM entreprise";
+                $result = $conn->query($sql);
+                // Boucler à travers les résultats de la requête pour afficher les entreprises dans la liste déroulante
+                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                    echo "<option value='" . $row['identreprise'] . "'>" . $row['nom'] . "</option>";
+                }
+                ?>
+            </select><br>
+
+
+            <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
 
             <p>Autre(s) fichier(s) :</p>
             <input type="file" name="fichier" id="fichier"><br>
             <br>
 
-            <input type="checkbox" name="Brouillon" id="brouillon">
+            <label for="brouillon"></label><input type="checkbox" name="Brouillon" id="brouillon">
             <label>
                 Enregistrer en tant que brouillon
             </label><br>
 
-            <input type="checkbox" name="Visible" id="visible">
+            <label for="visible"></label><input type="checkbox" name="Visible" id="visible">
             <label>
                 Voulez-vous que l'offre soit visible ?
             </label><br>
 
             <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
         </form>
+        <script src="../asserts/js/AdminEntreprise.js"></script>
 
         <span class="close" onclick="closePopup2()">&times;</span>
     </div>
@@ -207,7 +232,7 @@
             </ul>
 
             <div class="button">
-                <button type="submit" id="ajoutEntreprise" name="valider">Valider</button>
+                <button type="submit" id="ajoutPersonnel" name="valider">Valider</button>
             </div>
         </form>
 
@@ -226,7 +251,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -361,15 +386,34 @@
 
 </div>
 </body>
-<footer>
+<footer class="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>À propos de nous</h2>
+            <p>Le Gestionnaire des Apprentis est une plateforme dédiée à la gestion des étudiants, des offres et des entreprises pour les programmes d'apprentissage.</p>
+        </div>
 
-    <div class="footer">
+        <div class="footer-section contact">
+            <h2>Contactez-nous</h2>
+            <p>Email : communication@uphf.fr</p>
+            <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
+        </div>
 
-
-
+        <div class="footer-section links">
+            <h2>Liens rapides</h2>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Etudiants</a></li>
+                <li><a href="#">Entreprises</a></li>
+                <li><a href="#">Administration</a></li>
+            </ul>
+        </div>
     </div>
 
-
+    <div class="footer-bottom">
+        <p>&copy; 2023 Gestionnaire des Apprentis | Tous droits réservés</p>
+    </div>
 </footer>
+
 
 </html>

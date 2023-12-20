@@ -80,26 +80,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     loadCompanies();
 
-    // Écouteur d'événements pour le bouton "Afficher Plus" des étudiants
-    document.getElementById('afficherEtudiants').addEventListener('click', function () {
-        loadStudents();
-    });
-
-    // Écouteur d'événements pour le bouton "Afficher Plus" des offres
-    document.getElementById('afficherOffres').addEventListener('click', function () {
-        loadOffers();
-    });
-
-    // Écouteur d'événements pour le bouton "Afficher Plus" des entreprises
-    document.getElementById('afficherEntreprises').addEventListener('click', function () {
-        loadCompanies();
-    });
 });
 
 // Fonction pour charger les étudiants via AJAX
 function loadStudents() {
     $.ajax({
-        url: '../Model/ModelAfficherTousEtu.php',
+        url: '../Model/ModelAfficherEtuMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -118,7 +104,7 @@ function loadStudents() {
 // Fonction pour charger les offres via AJAX
 function loadOffers() {
     $.ajax({
-        url: '../Controller/ControllerAffichageOffreMain.php',
+        url: '../Model/ModelAffichageOffreMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -152,6 +138,38 @@ function loadCompanies() {
         }
     });
 }
+
+function redirectWithAjax(url) {
+    $.ajax({
+        url: url,
+        type: 'GET',
+        dataType: 'html',
+        success: function () {
+            // Redirection après le succès de la requête AJAX
+            window.location.replace(url);
+        },
+        error: function (error) {
+            console.error('Erreur AJAX :', error);
+            // Gérer les erreurs si nécessaire
+        }
+    });
+}
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+    // Ajoutez un écouteur d'événements au bouton "Afficher Plus" des offres
+    document.getElementById('afficherOffres').addEventListener('click', function () {
+        var urlOffres = 'ViewAfficherPlusOffre.html';
+        redirectWithAjax(urlOffres);
+    });
+
+    document.getElementById('afficherEtudiants').addEventListener('click', function () {
+        var urlOffres = 'ViewAfficherPlusEtu.html';
+        redirectWithAjax(urlOffres);
+    });
+});
+
+
 
 
 

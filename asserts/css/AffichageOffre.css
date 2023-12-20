@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style pour le conteneur d'offres */
+.offres-container {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style pour chaque offre */
+.offre {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+/* Style pour le bouton "Ajouter un étudiant à cette offre" */
+.offre input[type="submit"] {
+    background-color: floralwhite;
+    color: black;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+/* Style pour la liste des étudiants qui ont déjà postulé */
+.offre label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Style pour la liste des étudiants qui

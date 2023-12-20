@@ -1,17 +1,10 @@
 <?php
             include '../Model/ConnexionBDD.php';
             $db = Conn::getInstance();
-            $offersPerPage = 2;
-            $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-            // Calculer le décalage en fonction de la page actuelle
-            $offset = ($page - 1) * $offersPerPage;
 
-            // Récupérer les données pour la page spécifiée
-            $sql2 = "SELECT * FROM Offre OFFSET :offset LIMIT :perPage";
+            $sql2 = "SELECT * FROM Offre ORDER BY idoffre DESC LIMIT 2";
             $req = $db->prepare($sql2);
-            $req->bindParam(':offset', $offset, PDO::PARAM_INT);
-            $req->bindParam(':perPage', $offersPerPage, PDO::PARAM_INT);
             $req->execute();
             $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
 
