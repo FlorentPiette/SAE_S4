@@ -126,3 +126,11 @@ function selectPersoId($conn, $id){
     $result = $req2->fetch(PDO::FETCH_ASSOC);
     return $result;
 }
+
+function selectId($conn, $email){
+    $req = "SELECT idprofil FROM Administration where email = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($email));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
+    return (int) $result['idprofil'];
+}

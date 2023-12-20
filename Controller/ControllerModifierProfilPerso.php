@@ -13,7 +13,8 @@ ini_set('display_errors', 1);
 
 $conn = Conn::getInstance();
 
-$id = 1;
+$email = $_SESSION['email'];
+$id = selectId($conn, $email);
 $perso = selectPersoId($conn, $id);
 
 include ("../View/ViewModifierProfilPerso.php");
