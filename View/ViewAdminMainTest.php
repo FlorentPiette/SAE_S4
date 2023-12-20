@@ -280,8 +280,8 @@
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
-                                <input class="" name="compte" type="button" value="Mon compte">
-                                <input class="" name="compte" type="button" value="Se déconnecter">
+                                <input class="" name="compte" type="submit" value="Mon compte">
+                                <input class="" name="deco" type="submit" value="Se déconnecter">
 
                             </form>
 

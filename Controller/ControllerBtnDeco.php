@@ -15,4 +15,11 @@ if (isset($_POST['deco'])){
 
 }
 
+if (isset($_POST['compte'])){
+
+    header('Location: ../Controller/ControllerModifierProfilPerso.php');
+    exit;
+
+}
+
 ob_end_flush();

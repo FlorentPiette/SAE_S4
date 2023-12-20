@@ -2,9 +2,8 @@ body {
     font-family: Arial, sans-serif;
     height: 100%;
     margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+
 }
 
 label {
@@ -13,7 +12,10 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"], input[type="date"], input[type="number"], input[type="email"] {
+input[type="text"],
+input[type="date"],
+input[type="number"],
+input[type="email"] {
     width: 400px;
     padding: 5px;
     margin-bottom: 10px;
@@ -21,7 +23,32 @@ input[type="text"], input[type="date"], input[type="number"], input[type="email"
     border-radius: 5px;
 }
 
-input[type="submit"] {
+.content {
+    display: flex; /* Utilisation de flexbox pour aligner les enfants en ligne */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 0;
+    position: relative;
+    border-top: solid white 2px;
+}
+
+.editable {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.annulerModif {
+    margin-bottom: 10px;
+    margin-left: 20px;
+    width: 25px;
+    height: 25px;
+}
+
+.reinitBtn,
+.sauvegardeBtn {
+    margin-top: 15px;
     background-color: #007BFF;
     color: white;
     padding: 10px 20px;
@@ -29,7 +56,219 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-.content{
-    width: 600px;
-    margin: 0 auto;
+.sauvegardeBtn {
+    margin-left: 20px; /* Ajustez la marge à votre convenance */
 }
+
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+}
+
+.logo-container {
+    order: 1;
+}
+
+.menu-container {
+    order: 2;
+    position: relative;
+}
+
+.menu-container nav {
+    display: flex;
+}
+
+.vertical-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+.vertical-menu li {
+    margin-right: 20px;
+}
+
+.btnCreation {
+    text-decoration: none;
+    color: inherit;
+    background-color: transparent;
+    border: none;
+    font-size: 16px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 70px;
+}
+
+.notification {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.utilisateur {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .vertical-menu {
+        margin-top: 10px;
+    }
+
+    .rectangle-gauche,
+    .rectangle-milieu,
+    .rectangle-droit {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+#account-photo {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+#account-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: rgba(0, 140, 173, 0.75);
+    /* Couleur avec transparence à 75% */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 999;
+}
+
+#account-dropdown button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    /* Blanc */
+    background-color: rgba(0, 140, 173, 0.75);
+    /* Couleur avec transparence à 75% */
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+#account-dropdown button:hover {
+    background-color: rgb(128, 128, 128);
+    /* Bleu foncé au survol */
+}
+
+/* Style pour l'image utilisateur dans le menu */
+#account-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content {
+    display: flex;
+}
+
+.photo {
+    margin-left: 250px;
+    margin-top: 50px;
+    border: solid black 2px;
+    width: 300px; /* Ajustez la largeur selon vos besoins */
+    height: 400px; /* Ajustez la hauteur selon vos besoins pour créer un rectangle vertical */
+    background-color: #e1e1e1; /* Ajoutez une couleur de fond si nécessaire */
+    border-radius: 30px;
+}
+
+.container-content {
+    flex: 1; /* Fait en sorte que le contenu prenne le reste de l'espace disponible */
+    margin-left: 150px; /* Déplace container-content à droite */
+}
+
+.information {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.information div {
+    width: calc(50% - 5px);
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.information label,
+.information input[type="text"],
+.information input[type="password"],
+.information input[type="date"] {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.information input[type="text"],
+.information input[type="password"],
+.information input[type="date"] {
+    width: calc(100% - 10px); /* Réduire la largeur des inputs */
+}
+
+
+.footer {
+    margin-top: 100px;
+    background-color: #00738C;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; /* Pour centrer verticalement les boutons */
+}
+
+.sauvegardeBtn,
+.reinitBtn {
+    background-color: rgb(15, 155, 180);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+
+}
+
+.transparent-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.transparent-button img {
+    width: 24px;
+    height: 24px;
+}
+
+
+
+
+
+
+
+
+
+

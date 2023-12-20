@@ -4,6 +4,7 @@
 <head>
     <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
+    <script src="../asserts/js/modifProfil.js"></script>
 </head>
 
 <body>
