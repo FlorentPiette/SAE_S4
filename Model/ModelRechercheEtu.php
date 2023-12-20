@@ -20,9 +20,10 @@
  *
  * @return void
  */
-function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
+function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
 {
     $sql = "SELECT * FROM Etudiant WHERE 1=1";
+
 
     if (!empty($nom)) {
         $sql .= " AND nom ILIKE :nom";
@@ -76,8 +77,16 @@ function RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $vi
         $sql .= " AND actif = :actif";
     }
 
+    if (!empty($userFormation)) {
+        $sql .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END";
+    }
+
     // Préparer et exécuter la requête
     $stmt = $conn->prepare($sql);
+
+    if (!empty($userFormation)) {
+        $stmt->bindValue(':userFormation', "%$userFormation%", PDO::PARAM_STR);
+    }
 
     if (!empty($nom)) {
         $stmt->bindValue(':nom', "%$nom%", PDO::PARAM_STR);

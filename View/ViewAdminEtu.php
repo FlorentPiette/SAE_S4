@@ -87,15 +87,6 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="ineCheckbox">
                 <input type="checkbox" id="ineCheckbox"> INE
             </label>
-            <label for="emailCheckbox">
-                <input type="checkbox" id="emailCheckbox"> Adresse Email
-            </label>
-            <label for="villeCheckbox">
-                <input type="checkbox" id="villeCheckbox"> Ville
-            </label>
-            <label for="adresseCheckbox">
-                <input type="checkbox" id="adresseCheckbox"> Adresse
-            </label>
             <label for="codepostalCheckbox">
                 <input type="checkbox" id="codepostalCheckbox"> Code Postal
             </label>
@@ -105,17 +96,8 @@ include '../Controller/ControllerVerificationDroit.php';
             <label for="anneeEtudeCheckbox">
                 <input type="checkbox" id="anneeEtudeCheckbox"> Année d'étude
             </label>
-            <label for="typeEntrepriseCheckbox">
-                <input type="checkbox" id="typeEntrepriseCheckbox"> Type d'entreprise
-            </label>
-            <label for="typeMissionCheckbox">
-                <input type="checkbox" id="typeMissionCheckbox"> Type de missions
-            </label>
-            <label for="mobileCheckbox">
-                <input type="checkbox" id="mobileCheckbox"> Mobile
-            </label>
-            <label for="actifCheckbox">
-                <input type="checkbox" id="actifCheckbox"> Actif
+            <label for="autresCheckbox">
+                <input type="checkbox" id="autresCheckbox"> Autres
             </label>
 
 
@@ -129,17 +111,8 @@ include '../Controller/ControllerVerificationDroit.php';
             <div id="ineDiv" style="display: none">
                 <label for="ine"></label><input type="text" name="ine" id="ine" placeholder="INE">
             </div>
-            <div id="emailDiv" style="display: none">
-                <label for="email"></label><input type="text" name="email" id="email" placeholder="Adresse Email">
-            </div>
-            <div id="villeDiv" style="display: none">
-                <label for="ville"></label><input type="text" name="ville" id="ville" placeholder="Ville">
-            </div>
-            <div id="adresseDiv" style="display: none">
-                <label for="adresse"></label><input type="text" name="adresse" id="adresse" placeholder="Adresse">
-            </div>
             <div id="codepostalDiv" style="display: none">
-                <label for="codepostal"></label><input type="number" name="codepostal" id="codepostal" placeholder="Code Postal">
+                <label for="codepostal"></label><input type="number" name="codePostal" id="codePostal" placeholder="Code Postal">
             </div>
             <div id="formationDiv" style="display: none">
                 <label for="formation"></label><input type="text" name="formation" id="formation" placeholder="Formation">
@@ -147,20 +120,37 @@ include '../Controller/ControllerVerificationDroit.php';
             <div id="anneeEtudeDiv" style="display: none">
                 <label for="anneeEtude"></label><input type="number" name="anneeEtude" id="anneeEtude" placeholder="Année d'étude">
             </div>
-            <div id="typeEntrepriseDiv" style="display: none">
-                <label for="typeEntreprise"></label><input type="text" name="typeEntreprise" id="typeEntreprise" placeholder="Type d'entreprise">
-            </div>
-            <div id="typeMissionDiv" style="display: none">
-                <label for="typeMission"></label><input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
-            </div>
-            <div id="mobileDiv" style="display: none">
-                <label for="mobile">
-                    <input type="checkbox" name="mobile" id="mobile"> Mobile
+            <div id="autresDiv" style="display: none">
+                <label for="email">
+                    <input type="text" name="email" id="email" placeholder="Adresse Email">
                 </label>
-            </div>
-            <div id="actifDiv" style="display: none">
-                <label for="actif">
-                    <input type="checkbox" name="actif" id="actif"> Actif
+                <label for="adresse">
+                    <input type="text" name="adresse" id="adresse" placeholder="Adresse">
+                </label>
+                <label for="ville">
+                    <input type="text" name="ville" id="ville" placeholder="Ville">
+                </label>
+                <label for="typeEntreprise">
+                    <input type="text" name="typeEntreprise" id="typeEntreprise" placeholder="Type d'entreprise">
+                </label>
+                <label for="typeMission">
+                    <input type="text" name="typeMission" id="typeMission" placeholder="Type de missions">
+                </label>
+                <label for="mobileSelect">
+                    Mobile:
+                    <select id="mobileSelect">
+                        <option value="peuimporte">Peu importe</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
+                </label>
+                <label for="actifSelect">
+                    Actif:
+                    <select id="actifSelect">
+                        <option value="peuimporte">Peu importe</option>
+                        <option value="oui">Oui</option>
+                        <option value="non">Non</option>
+                    </select>
                 </label>
             </div>
 

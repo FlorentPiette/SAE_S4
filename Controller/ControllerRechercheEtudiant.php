@@ -4,6 +4,13 @@ include '../Model/ModelRechercheEtu.php';
 
 $conn = Conn::getInstance();
 
+if (isset($_SESSION['formation'])) {
+    $userFormation = $_SESSION['formation'];
+}
+else {
+    $userFormation = $_GET['userFormation'] ?? '';
+}
+
 $nom = $_GET['nom'] ?? '';
 $prenom = $_GET['prenom'] ?? '';
 $ine = $_GET['ine'] ?? '';
@@ -18,5 +25,5 @@ $typemission = $_GET['typeMission'] ?? '';
 $mobile = $_GET['mobile'] ?? '';
 $actif = $_GET['actif'] ?? '';
 
-RecherEtu($conn, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typemission, $mobile, $actif);
+RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codepostal, $anneeetude, $typeentreprise, $typemission, $mobile, $actif);
 
