@@ -29,7 +29,6 @@ $users = selectEmailMDPEtu($conn,$email);
     if ($users) {
         if (authenticatedEtu($users, $email, $motDePasse)) {
             $_SESSION['etu'] = true;
-            $_SESSION['formation'] = $users['formation'];
             $_SESSION['email'] = $users['email'];
             header("location: ../View/ViewPageEtudiant.php");
         } else {
@@ -42,7 +41,7 @@ $users = selectEmailMDPEtu($conn,$email);
     if ($users) {
         if (authenticatedAdmin($users, $email, $motDePasse)) {
             $_SESSION['administration'] = true;
-            $_SESSION['formation'] = $users['formation'];
+            $_SESSION['formation'] = selectFormationAdmin($conn, $users['email']);
             $_SESSION['email'] = $users['email'];
             role($users);
         } else {

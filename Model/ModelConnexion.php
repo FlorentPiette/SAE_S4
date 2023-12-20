@@ -121,4 +121,13 @@ function attente($essaiMaximal){
     }
 }
 
+function selectFormationAdmin($conn, $email)
+{
+    $req = "SELECT formation FROM Administration where email = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($email));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
+    return $result['formation'];
+}
+
 ?>
