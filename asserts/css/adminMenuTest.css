@@ -239,7 +239,7 @@
     border-radius: 10px;
     padding: 15px;
     width: 300px;
-    height: 600px;
+    height: 610px;
     position: relative;
 }
 
@@ -259,19 +259,22 @@
 
 }
 
-.btnAfficherPlus{
+.btnAfficherPlus {
     background-color: rgba(0, 140, 173, 0.75);
     color: white;
-    padding: 15px;
-    width: 200px;
+    padding: 10px;
+    width: 150px;
     border-radius: 45px;
     position: absolute;
-    transform: translate(-50%,-50%);
-    top: 93%;
-    left: 50%;
+    transform: translateX(-50%); /* Ajustez la position horizontale */
+    left: 50%; /* Centrez horizontalement le bouton */
+    bottom: 1%; /* Ajustez ce pourcentage selon vos préférences */
     border: none;
-
+    height: auto; /* Permet au rectangle de s'ajuster en fonction de son contenu */
+    max-height: 400px; /* Vous pouvez définir une hauteur maximale si vous ne voulez pas qu'il devienne trop grand */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si le contenu dépasse la hauteur maximale */
 }
+
 
 .notification{
 
