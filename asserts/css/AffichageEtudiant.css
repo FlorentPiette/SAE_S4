@@ -1,0 +1,17 @@
+
+#etudiants-container {
+    list-style: none;
+    padding: 0;
+}
+
+#etudiants-container li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 0;
+    padding: 5px;
+}
+
+#etudiants-container li strong {
+    font-weight: bold;
+}
+

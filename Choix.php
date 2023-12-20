@@ -28,7 +28,7 @@
         <div class="rec-administration">
             <form class="formulaireAdmin"  method="post">
 
-                <bu0tton type="button" onclick="window.location.href = 'View/ViewConnexion.html'" name="choixAdmin" class="btnAdmin"> Admin </bu0tton>
+                <button type="button" onclick="window.location.href = 'View/ViewConnexion.html'" name="choixAdmin" class="btnAdmin"> Admin </button>
             </form>
         </div>
 

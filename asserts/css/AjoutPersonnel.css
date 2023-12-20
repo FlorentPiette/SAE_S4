@@ -1,0 +1,50 @@
+/* Ajustements pour la pop-up d'ajout du personnel */
+#popUpPerso .popup-content {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+/* Ajustements pour le formulaire d'ajout du personnel */
+#popUpPerso form {
+    width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    text-align: center;
+    overflow-y: auto;
+}
+
+/* Style pour les étiquettes de champ */
+#popUpPerso label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Style des champs de saisie */
+#popUpPerso .input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Supprimer les puces des listes à puces dans la pop-up d'ajout du personnel */
+#popUpPerso ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Style pour le bouton de validation */
+#popUpPerso #ajoutPersonnel {
+    background-color: #007BFF;
+    color: white;
+    padding: 12px 20px; /* Ajustez la taille du bouton */
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}

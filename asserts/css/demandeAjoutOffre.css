@@ -1,24 +1,36 @@
-/* Style de base pour le formulaire */
-body {
-    font-family: Arial, sans-serif;
+/* Style pour la pop-up */
+.popup-content {
+    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
+    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
 }
 
+/* Ajustements pour le formulaire dans la pop-up */
 #formulaire {
-    width: 400px;
-    margin: 0 auto;
+    width: 90%;
+    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+    text-align: center;
+    overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
 }
 
 /* Style pour les étiquettes de champ */
 p {
     font-weight: bold;
+    margin-top: 10px; /* Ajoutez une marge supérieure pour séparer les étiquettes */
 }
 
 /* Style des champs de saisie */
 input[type="text"],
-textarea {
-    width: 100%;
-    padding: 5px;
+textarea,
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
     margin-bottom: 10px;
+    box-sizing: border-box;
 }
 
 /* Style pour la zone de texte "Mission" */
@@ -34,35 +46,20 @@ input[type="checkbox"] {
 /* Style pour le bouton d'enregistrement */
 #enregistreroffre {
     background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
+    color: #fff; /* Ajoutez une couleur de texte pour une meilleure lisibilité */
     border: none;
+    padding: 12px 20px;
+    font-size: 16px;
     cursor: pointer;
 }
 
-/* Style pour le message d'erreur */
-#message {
-    color: red;
-}
-
-/* Style pour le champ "Entreprise" (peut être personnalisé en fonction de vos besoins) */
-#entreprise {
-    width: 100%;
-    padding: 5px;
-    margin-bottom: 10px;
-}
-
-/* Style pour le bouton d'enregistrement */
-#enregistreroffre {
-    background-color: #007BFF;
-    color: white;
-    padding: 10px 20px;
+/* Style pour le bouton de création d'une entreprise */
+#redirigerVersAjoutEntreprise {
+    background-color: #28a745;
+    color: #fff;
     border: none;
+    padding: 10px;
+    font-size: 14px;
     cursor: pointer;
-}
-
-/* Style pour le bouton d'enregistrement lorsqu'il est désactivé */
-#enregistreroffre:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    margin-top: 10px;
 }

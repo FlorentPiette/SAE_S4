@@ -1,4 +1,7 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+
+<?php
+//include '../Controller/ControllerVerificationDroit.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -31,7 +34,21 @@
     <p id="message" class="error-message"></p>
 
     <p>Entreprise :</p>
-    <label for="entreprise"></label><select name="entreprise" id="entreprise"></select><br>
+    <label for="entreprise"></label><select name="entreprise" id="entreprise">
+        <?php
+        include_once '../Model/ConnexionBDD.php';
+        $conn = Conn::getInstance();
+        $sql = "SELECT identreprise, nom FROM entreprise";
+        $result = $conn->query($sql);
+        // Boucler à travers les résultats de la requête pour afficher les entreprises dans la liste déroulante
+        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+            echo "<option value='" . $row['identreprise'] . "'>" . $row['nom'] . "</option>";
+        }
+        ?>
+    </select><br>
+
+
+    <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
 
     <p>Autre(s) fichier(s) :</p>
     <input type="file" name="fichier" id="fichier"><br>
@@ -49,6 +66,7 @@
 
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
 </form>
+
 
 <script src="../asserts/js/AdminEntreprise.js"></script>
 </body>

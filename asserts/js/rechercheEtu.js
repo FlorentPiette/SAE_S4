@@ -4,59 +4,66 @@
  * @return void
  */
 function rechercherEtudiants() {
+    var userFormation = "BUT Info";
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
     var email = document.getElementById('email').value;
     var ville = document.getElementById('ville').value;
     var adresse = document.getElementById('adresse').value;
-    var codepostal = document.getElementById('codepostal').value;
+    var codePostal = document.getElementById('codePostal').value;
     var formation = document.getElementById('formation').value;
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-    if (document.getElementById("mobileCheckbox").checked){
-        var mobile = document.getElementById("mobile").checked;
-        if (mobile) {
+
+    var mobile = "";
+    var actif = "";
+
+    if (document.getElementById("autresCheckbox").checked) {
+        email = document.getElementById('email').value;
+        adresse = document.getElementById("adresse").value;
+        ville = document.getElementById("ville").value;
+        typeEntreprise = document.getElementById("typeEntreprise").value;
+        typeMission = document.getElementById("typeMission").value;
+        mobile = document.getElementById("mobileSelect").value;
+        if (mobile === "oui"){
             mobile = true;
-        } else {
+        }
+        else if (mobile === "non"){
             mobile = false;
         }
-    }
-    else {
-        var mobile = "";
-    }
-
-    if(document.getElementById("actifCheckbox").checked){
-        var actif = document.getElementById("actif").checked;
-        if (actif) {
+        else{
+            mobile = "";
+        }
+        actif = document.getElementById("actifSelect").value;
+        if (actif === "oui"){
             actif = true;
-        } else {
+        }
+        else if (actif === "non"){
             actif = false;
         }
-    }
-    else{
-        var actif = "";
+        else{
+            actif = "";
+        }
     }
 
-    // ... (ajoutez d'autres variables pour les options que vous souhaitez inclure) ...
 
-    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?nom=' +
+    var apiUrl = '../Controller/ControllerRechercheEtudiant.php?' +
+        "&userFormation=" + userFormation +
         '&nom=' + nom +
         '&prenom=' + prenom +
-        '&ine=' + ine
+        '&ine=' + ine +
         '&email=' + email +
         '&ville=' + ville +
         '&adresse=' + adresse +
-        '&codepostal=' + codepostal +
+        '&codePostal=' + (codePostal !== '' ? parseInt(codePostal) : '')  +
         '&formation=' + formation +
         '&typeEntreprise=' + typeEntreprise +
         '&typeMission=' + typeMission +
         '&anneeEtude=' + (anneeEtude !== '' ? parseInt(anneeEtude) : '') +
         '&mobile=' + mobile +
         '&actif=' + actif;
-
-    // ... (ajoutez d'autres paramètres à apiUrl pour les options que vous souhaitez inclure) ...
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -76,8 +83,6 @@ function rechercherEtudiants() {
                             var cell1 = newRow.insertCell(0);
                             var cell2 = newRow.insertCell(1);
                             var cell3 = newRow.insertCell(2);
-
-                            // ... (ajoutez d'autres cellules ici) ...
 
                             cell1.innerHTML = etudiant.nom || '';
                             cell2.innerHTML = etudiant.prenom || '';
@@ -149,23 +154,6 @@ function afficherChamps() {
     } else {
         document.getElementById("ineDiv").style.display = "none";
     }
-    if (document.getElementById("emailCheckbox").checked) {
-        document.getElementById("emailDiv").style.display = "block";
-    } else {
-        document.getElementById("emailDiv").style.display = "none";
-    }
-
-    if (document.getElementById("villeCheckbox").checked) {
-        document.getElementById("villeDiv").style.display = "block";
-    } else {
-        document.getElementById("villeDiv").style.display = "none";
-    }
-
-    if (document.getElementById("adresseCheckbox").checked) {
-        document.getElementById("adresseDiv").style.display = "block";
-    } else {
-        document.getElementById("adresseDiv").style.display = "none";
-    }
 
     if (document.getElementById("codepostalCheckbox").checked) {
         document.getElementById("codepostalDiv").style.display = "block";
@@ -185,48 +173,36 @@ function afficherChamps() {
         document.getElementById("anneeEtudeDiv").style.display = "none";
     }
 
-    if (document.getElementById("typeEntrepriseCheckbox").checked) {
+    if (document.getElementById("autresCheckbox").checked) {
+        document.getElementById("autresDiv").style.display = "block";
+        document.getElementById("emailDiv").style.display = "block";
+        document.getElementById("adresseDiv").style.display = "block";
+        document.getElementById("villeDiv").style.display = "block";
         document.getElementById("typeEntrepriseDiv").style.display = "block";
-    } else {
-        document.getElementById("typeEntrepriseDiv").style.display = "none";
-    }
-
-    if (document.getElementById("typeMissionCheckbox").checked) {
         document.getElementById("typeMissionDiv").style.display = "block";
+        document.getElementById("mobileSelect").style.display = "block";
+        document.getElementById("actifSelect").style.display = "block";
     } else {
+        document.getElementById("autresDiv").style.display = "none";
+        document.getElementById("emailDiv").style.display = "none";
+        document.getElementById("adresseDiv").style.display = "none";
+        document.getElementById("villeDiv").style.display = "none";
+        document.getElementById("typeEntrepriseDiv").style.display = "none";
         document.getElementById("typeMissionDiv").style.display = "none";
+        document.getElementById("mobileSelect").style.display = "none";
+        document.getElementById("actifSelect").style.display = "none";
     }
-
-    if (document.getElementById("mobileCheckbox").checked) {
-        document.getElementById("mobileDiv").style.display = "block";
-    } else {
-        document.getElementById("mobileDiv").style.display = "none";
-    }
-
-    if (document.getElementById("actifCheckbox").checked) {
-        document.getElementById("actifDiv").style.display = "block";
-    } else {
-        document.getElementById("actifDiv").style.display = "none";
-    }
-
 }
 
 // Écouteurs d'événements pour les cases à cocher
 document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("prenomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("ineCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("emailCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("adresseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("formationCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("anneeEtudeCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("typeEntrepriseCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("typeMissionCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("mobileCheckbox").addEventListener("change", afficherChamps);
-document.getElementById("actifCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("autresCheckbox").addEventListener("change", afficherChamps);
 
-// ... (ajoutez d'autres écouteurs d'événements pour les options que vous souhaitez inclure) ...
 
 afficherChamps();
 
@@ -249,11 +225,7 @@ function obtenirTousLesEtudiants(ine) {
             if (xhrTousLesEtudiants.status === 200) {
                 try {
                     var response = JSON.parse(xhrTousLesEtudiants.responseText);
-
-                    // Utiliser les données pour afficher toutes les informations de l'étudiant
                     console.log("Informations de l'étudiant:", response);
-
-                    // Vous pouvez utiliser ces données pour afficher les informations de l'étudiant où vous en avez besoin dans votre application
                 } catch (e) {
                     console.error("Erreur d'analyse JSON (Obtenir tous les étudiants) : " + e);
                 }
@@ -265,9 +237,6 @@ function obtenirTousLesEtudiants(ine) {
 
     xhrTousLesEtudiants.send();
 }
-
-
-
 
 function redirectModifierProfil() {
     var urlParams = new URLSearchParams(window.location.search);
@@ -283,7 +252,6 @@ function redirectModifierProfil() {
  * @param {Object} etudiant - Objet contenant les informations de l'étudiant
  * @return void
  */
-// Ajoutez ce code à votre fichier JavaScript (rechercheEtu.js)
 
 function ouvrirMenuBurger(etudiant) {
     // Afficher le menu burger
@@ -301,10 +269,30 @@ function ouvrirMenuBurger(etudiant) {
     document.getElementById('infoAnnee').innerText = 'Année d\'étude: ' + (etudiant.anneeetude || '');
     document.getElementById('infoFormation').innerText = 'Formation: ' + (etudiant.formation || '');
     document.getElementById('infoEmail').innerText = 'Email: ' + (etudiant.email || '');
-    document.getElementById('infoActif').innerText = 'Actif: ' + (etudiant.actif || '');
     document.getElementById('infoTypeEntreprise').innerText = 'Type d\'entreprise: ' + (etudiant.typeentreprise || '');
     document.getElementById('infoTypeMission').innerText = 'Type de Mission: ' + (etudiant.typemission || '');
-    document.getElementById('infoMobile').innerText = 'Mobile: ' + (etudiant.mobile || '');
+
+    var actifValue = etudiant.actif;
+    var infoActifElement = document.getElementById('infoActif');
+
+    if (actifValue === true) {
+        infoActifElement.innerText = 'Actif: Oui';
+    } else if (actifValue === false) {
+        infoActifElement.innerText = 'Actif: Non';
+    } else {
+        infoActifElement.innerText = 'Actif: (vide)';
+    }
+
+    var mobileValue = etudiant.mobile;
+    var infoMobileElement = document.getElementById('infoMobile');
+
+    if (mobileValue === true) {
+        infoMobileElement.innerText = 'Mobile: Oui';
+    } else if (mobileValue === false) {
+        infoMobileElement.innerText = 'Mobile: Non';
+    } else {
+        infoMobileElement.innerText = 'Mobile: (vide)';
+    }
 }
 
 

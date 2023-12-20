@@ -1,0 +1,15 @@
+#entreprises-container {
+    list-style: none;
+    padding: 0;
+}
+
+#entreprises-container li {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+#entreprises-container li strong {
+    font-weight: bold;
+}

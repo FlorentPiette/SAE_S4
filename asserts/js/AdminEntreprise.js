@@ -3,10 +3,45 @@ function afficherEntreprises() {
     document.getElementById("donneesOffre").style.display = "none";
 }
 
-function afficherOffres() {
+function afficherOffres(page) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+
+            // Remplacez le contenu de l'élément donneesOffre par les nouvelles données.
+            document.getElementById("donneesOffre").innerHTML = response.offres;
+
+            // Gérez la pagination
+            const paginationContainer = document.getElementById('pagination-container');
+            paginationContainer.innerHTML = ''; // Effacez les anciens liens de pagination
+
+            for (let i = 1; i <= response.totalPages; i++) {
+                const link = document.createElement('a');
+                link.href = '#';
+                link.textContent = i;
+                link.onclick = function () {
+                    afficherOffres(i);
+                };
+
+                if (i === page) {
+                    link.classList.add('active');
+                }
+
+                paginationContainer.appendChild(link);
+            }
+
+        }
+    };
+
+    xhr.open("GET", "../Controller/ControllerAfficherOffres.php?page=" + page, true);
+    xhr.send();
+
     document.getElementById("donneesEntreprise").style.display = "none";
     document.getElementById("donneesOffre").style.display = "block";
 }
+
+
 
 var formulaire = document.getElementById("formulaire");
 var message = document.getElementById("message");
@@ -18,6 +53,7 @@ formulaire.addEventListener("submit", function (event) {
     var domaine = document.getElementById("domaine").value;
     var mission = document.getElementById("mission").value;
     var nbetudiant = document.getElementById("nbetudiant").value;
+    var parcours = document.getElementById("parcours").value;
 
     if (!brouillon.checked) { // Validez uniquement si la case "Brouillon" n'est pas cochée
         if (isNaN(nbetudiant)) {
@@ -25,7 +61,7 @@ formulaire.addEventListener("submit", function (event) {
             message.innerText = "Erreur, le nombre d'étudiant doit être un nombre valide.";
         }
 
-        if (offre === "" || domaine === "" || mission === "" || nbetudiant === "") {
+        if (offre === "" || domaine === "" || mission === "" || nbetudiant === "" || parcours ==="") {
             event.preventDefault(); // Empêche l'envoi du formulaire
             message.innerText = "Erreur, veuillez remplir tous les champs de saisie.";
         }
@@ -126,3 +162,65 @@ function afficherPopup() {
         popup.style.display = "none";
     }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
 }
+
+    document.getElementById('redirigerVersAjoutEntreprise').addEventListener('click', function() {
+    window.location.href = '../View/ViewAjoutEntreprise.php';
+});
+
+
+
+function afficherPopup() {
+    var popup = document.getElementById("popup");
+    popup.style.display = "block";
+
+    setTimeout(function () {
+        popup.style.display = "none";
+    }, 3000); // La popup disparaîtra automatiquement après 3 secondes (3000 millisecondes)
+
+}
+
+// Remplacez le script JavaScript existant par celui-ci
+
+
+
+
+
+
+// Ajouter cet écouteur d'événements pour gérer les clics de navigation entre les pages
+
+
+function adjustRectangleHeight() {
+    const offreList = document.getElementById('donneesOffre');
+    const entrepriseList = document.getElementById('donneesEntreprise');
+    const dynamicRectangle = document.querySelector('.rectangle-mid');
+
+    const maxListHeight = Math.max(offreList.clientHeight, entrepriseList.clientHeight);
+    const margin = 20;
+
+    dynamicRectangle.style.height = maxListHeight + margin + 'px';
+
+    const elementsToMove = document.getElementsByClassName('move-down');
+    for (const element of elementsToMove) {
+        element.style.transform = 'translateY(' + (maxListHeight + margin) + 'px)';
+    }
+}
+
+adjustRectangleHeight();
+
+function updateRectangleHeight() {
+    adjustRectangleHeight();
+}
+
+function limiterElements(elementSelector) {
+    const elements = document.querySelectorAll(elementSelector);
+    for (let i = 3; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+    }
+}
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    adjustRectangleHeight();
+});

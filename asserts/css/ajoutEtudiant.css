@@ -1,50 +1,54 @@
-/* Style de base pour le formulaire */
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+/* Style pour la pop-up */
+.popup-content {
+    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
+    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
 }
 
-#formulaire {
-    width: 300px; /* Réduire la largeur du formulaire */
-    padding: 20px; /* Ajouter un peu d'espace intérieur */
-    border: 1px solid #ccc; /* Ajouter une bordure */
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Ajouter une ombre */
-    background-color: #f9f9f9; /* Ajouter une couleur de fond */
-    text-align: center; /* Centrer le texte */
+/* Ajustements pour le formulaire dans la pop-up */
+#formulaireAjoutEtudiant {
+    width: 40%;
+    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
+    margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    text-align: center;
+    overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
 }
 
 /* Style pour les étiquettes de champ */
 label {
     font-weight: bold;
-    display: block; /* Afficher les étiquettes sur une nouvelle ligne */
-    margin-bottom: 5px; /* Ajouter un peu d'espace entre les étiquettes */
+    display: block;
+    margin-bottom: 10px; /* Augmentez l'espace entre les étiquettes */
 }
 
 /* Style des champs de saisie */
 .input {
-    width: 400px;
-    padding: 5px;
+    width: calc(100% - 20px);
+    padding: 10px;
     margin-bottom: 10px;
-    border: 1px solid #ccc; /* Ajouter une bordure aux champs */
-    border-radius: 5px; /* Ajouter des coins arrondis */
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 /* Style pour le bouton d'enregistrement */
 #ajoutEtudiant {
     background-color: #007BFF;
     color: white;
-    padding: 10px 20px;
+    padding: 12px 20px; /* Ajustez la taille du bouton */
     border: none;
     cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
 }
 
 /* Style pour le message d'erreur */
 #message {
     color: red;
+    margin-top: 10px; /* Ajoutez un peu d'espace au-dessus du message d'erreur */
 }
 
 /* Supprimer les puces des listes à puces */
@@ -53,7 +57,9 @@ ul {
     padding: 0;
 }
 
-#formulaireAjoutEtudiant {
-    position: absolute;
-    top: 10px;
+.popup-content ul{
+    background-color: #f9f9f9;
+    padding: 30px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
 }
