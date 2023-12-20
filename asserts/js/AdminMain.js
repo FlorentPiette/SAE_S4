@@ -123,7 +123,7 @@ function loadOffers() {
 // Fonction pour charger les entreprises via AJAX
 function loadCompanies() {
     $.ajax({
-        url: '../Model/ModelAfficherTousEntreprise.php',
+        url: '../Model/ModelAfficherEntrepriseMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -167,6 +167,11 @@ function redirectWithAjax(url) {
         var urlOffres = 'ViewAfficherPlusEtu.html';
         redirectWithAjax(urlOffres);
     });
+
+    document.getElementById('afficherEntreprises').addEventListener('click', function () {
+        var urlOffres = 'ViewAfficherPlusEntreprise.html';
+        redirectWithAjax(urlOffres);
+        });
 });
 
 

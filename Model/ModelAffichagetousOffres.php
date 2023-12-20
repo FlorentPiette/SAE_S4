@@ -30,6 +30,7 @@ foreach ($resultat2 as $res2):
                 Domaine : <?php echo $res2['domaine']; ?><br>
                 Mission : <?php echo $res2['mission']; ?><br>
                 Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
+                Parcours : <?php echo $res2['parcours']; ?><br>
                 <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
                 <input type="submit" name="BtAjoutEtudiant" value="Ajouter un étudiant à cette offre">
                 <label> Les étudiants qui ont déjà postulés :</label><br>

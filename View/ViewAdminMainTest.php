@@ -163,6 +163,21 @@
             <p>Autre(s) fichier(s) :</p>
             <input type="file" name="fichier" id="fichier"><br>
             <br>
+            <p>
+                Parcours :
+            </p>
+            <label for="parcours"></label>
+            <select name="Parcours" id="parcours">
+                <option value="GEII">GEII</option>
+                <option value="GIM">GIM</option>
+                <option value="GMP">GMP</option>
+                <option value="GEA">GEA</option>
+                <option value="TCV">TCV</option>
+                <option value="QLIQ">QLIQ</option>
+                <option value="TCc">TCc</option>
+                <option value="INFO">INFO</option>
+                <option value="Mph">Mph</option>
+            </select><br>
 
             <label for="brouillon"></label><input type="checkbox" name="Brouillon" id="brouillon">
             <label>
@@ -224,7 +239,6 @@
                             <option value="rp">Responsable pédagogique</option>
                             <option value="cd">Chargés de développement</option>
                             <option value="rs">Responsable du service</option>
-                            <!-- Ajoutez autant d'options que nécessaire -->
                         </select>
 
                     </div>
