@@ -31,23 +31,22 @@ function rechercherOffres() {
                 console.log("Réponse du serveur : " + xhr.responseText);
                 try {
                     var resultats = JSON.parse(xhr.responseText);
-
+                    var resultatsHTML = '';
                     if (resultats.length > 0) {
-                        var resultatsHTML = '<form id="ajoutEtudiantForm" action="../Controller/ControllerAjoutEtudiantOffre.php" method="post"><ul>';
 
-                        resultats.forEach(function (offre) {
+                        resultats.forEach(function (offre, index) {
+                            resultatsHTML += '<form  method="post" action="../Controller/ControllerAjoutEtudiantOffre.php?nomOffre=' + encodeURI(offre.nom) + '"> <ul>';
+
                             var offreHTML = '<li class="offre">';
                             offreHTML += 'Nom : ' + (offre.nom || '') + '<br>';
                             offreHTML += 'Domaine : ' + (offre.domaine || '') + '<br>';
                             offreHTML += 'Missions : ' + (offre.mission || '') + '<br>';
                             offreHTML += 'Nombre d\'étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
 
-                            var nomOffre = offre.nom;
 
-                            offreHTML += '<input type="hidden" name="selectedOffer" id="selectedOffer" value="' + nomOffre + '">'
-                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre" onclick="ajouterEtudiant(\'' + nomOffre + '\')">' + '<br>';
 
-                            offreHTML += '<input type="hidden" name="nomOffre" value="' + nomOffre + '">';
+                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre (' + offre.nom + ')" >' + '<br>';
+
 
                             if (offre.offreEtudiants && offre.offreEtudiants.length > 0) {
                                 offreHTML += '<label> Les étudiants qui ont déjà postulés :</label><br>';
@@ -60,10 +59,17 @@ function rechercherOffres() {
 
                             offreHTML += '</li>';
 
+
+
                             resultatsHTML += offreHTML;
+                            index++;
+                            resultatsHTML += '</ul></form>';
+
                         });
 
-                        resultatsHTML += '</ul></form>';
+
+
+
 
                         document.getElementById('resultatsOffre').innerHTML = resultatsHTML;
 
@@ -89,9 +95,9 @@ function rechercherOffres() {
 
 }
 
-function ajouterEtudiant(nomOffre) {
-    document.getElementById('selectedOffer').value = nomOffre;
-}
+
+
+
 
 
 /**
@@ -133,3 +139,4 @@ document.getElementById("missionCheckbox").addEventListener("change", afficherCh
 document.getElementById("nbEtudiantCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();
+

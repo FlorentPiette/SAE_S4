@@ -5,6 +5,13 @@ session_start();
 include_once '../Model/ConnexionBDD.php';
 
 $conn = Conn::getInstance();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+if (isset($_POST['BoutonRetour'])) {
+    header('Location: ../View/ViewAdminEntreprise.php');
+    exit();
+}
 
 // Initialize la variable de session si elle n'existe pas
 if (!isset($_SESSION['selectedStudents'])) {
@@ -12,7 +19,14 @@ if (!isset($_SESSION['selectedStudents'])) {
 
 }
 
-$nomOffre = $_POST['selectedOffer'];
+$nomOffre = isset($_GET['nomOffre']) ? $_GET['nomOffre'] : null;
+
+if ($nomOffre === null) {
+    echo "Erreur : Nom de l'offre introuvable.";
+    exit;
+}
+
+$_SESSION['selectedOffer'] = $nomOffre;
 
 // Afficher la liste des étudiants
 $sqlTousEtudiants = $conn->prepare('SELECT * FROM Etudiant');
@@ -24,7 +38,7 @@ if ($sqlTousEtudiants->execute()) {
         <head>
             <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
         </head>
-        <form action="" method="post"><form id="rechercheForm">
+        <form id="rechercheForm">
             <label for="nomCheckbox">
                 <input type="checkbox" id="nomCheckbox"> Nom
             </label>
@@ -108,10 +122,11 @@ if ($sqlTousEtudiants->execute()) {
 
         <script src="../asserts/js/rechercheEtuOffre.js"></script>
 
-        <form action="../Controller/ControllerAjoutEtudiantOffre.php" method="post">
+        <form action="../Controller/ControllerAjoutEtudiantOffre.php?nomOffre=<?php echo $nomOffre; ?>" method="post">
             <div class="result" id="result"> </div>
             <input type="submit" name="buttonValider" value="Valider">
             <input type="submit" name="BoutonRetour" value="Retour aux offres">
+            <input type="hidden" name="selectedOffer" value="<?php echo $nomOffre; ?>">
             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
         </form>
         <?php
@@ -123,9 +138,6 @@ if ($sqlTousEtudiants->execute()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
-    // Votre logique pour le bouton Valider
-    echo 'Le résumé de l\'élève ou des élèves choisis :' . "<br>";
-
     if (isset($_POST['selectedStudents'])) {
         foreach ($_POST['selectedStudents'] as $selectedStudentIne) {
             $sqlEtudiant = $conn->prepare('SELECT idetudiant FROM Etudiant WHERE ine = :ine');
@@ -154,11 +166,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
                     $sqlRecherceID->bindParam(':nom',$nomOffre);
                     if ($sqlRecherceID->execute()) {
                         $resultatSelect = $sqlRecherceID->fetch(PDO::FETCH_ASSOC);
-
                         if (isset($resultatSelect['idoffre'])) {
                             $idOffre = $resultatSelect['idoffre'];
                         } else {
-                            echo "Aucun résultat trouvé pour 'L idoffre";
+                            echo "Aucun résultat trouvé pour 'L idoffre + $resultatSelect";
                         }
                     } else {
                         echo "Erreur lors de l'exécution de la requête SQL pour rechercher l'ID de l'offre : " . $sqlRecherceID->errorInfo()[2];
@@ -166,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
 
 
                     // Ajouter le nom et prénom de l'étudiant à la variable de session
+                    echo "<br>" . 'Le résumé de l\'élève ou des élèves choisis :' . "<br>";
                     $_SESSION['selectedStudents'][] = $etudiant['nom'] . ' ' . $etudiant['prenom'];
                     echo "-" . $etudiant['nom'] . ' ' . $etudiant['prenom'] . "<br>";
                     $sqlInsert = $conn->prepare('INSERT INTO Postule (idoffre,idetudiant) VALUES (:idoffre, :idetudiant)');
@@ -185,8 +197,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
         echo 'Aucun étudiant sélectionné.';
     }
 }
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['BoutonRetour'])) {
-    header('Location: ../View/ViewAdminEntreprise.php');
-    exit();
-}
+?>

@@ -1,5 +1,5 @@
 <?php
-include '../Controller/ControllerVerificationDroit.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -93,6 +93,45 @@ include '../Controller/ControllerVerificationDroit.php';
         </form>
 
         <ul id="resultatsOffre" class="result">
+        </ul>
+
+        <ul id="donneesEntreprise" class="affichEntreprise">
+            <form id="rechercheEntreprise">
+                <label for="nomEntrepriseCheckbox">
+                    <input type="checkbox" id="nomEntrepriseCheckbox"> Nom
+                </label>
+                <label for="villeCheckbox">
+                    <input type="checkbox" id="villeCheckbox"> Ville
+                </label>
+                <label for="codepostalCheckbox">
+                    <input type="checkbox" id="codepostalCheckbox"> Code Postal
+                </label>
+                <label for="secteurActiviteCheckbox">
+                    <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
+                </label>
+
+
+
+                <div id="nomEntrepriseDiv" style="display: none">
+                    <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
+                </div>
+                <div id="villeDiv" style="display: none">
+                    <input type="text" name="ville" id="ville" placeholder="Ville">
+                </div>
+                <div id="codepostalDiv" style="display: none">
+                    <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
+                </div>
+                <div id="secteurActiviteDiv" style="display: none">
+                    <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                </div>
+
+                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()">
+            </form>
+
+            <ul id="resultatsEntreprise" class="result">
+            </ul>
+
+            <script src="../asserts/js/rechercherEntreprise.js"></script>
         </ul>
 
     </div>
