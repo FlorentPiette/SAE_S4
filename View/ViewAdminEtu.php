@@ -52,6 +52,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <p><span id="infoFormation"></span></p>
         <p><span id="infoEmail"></span></p>
         <p><span id="infoActif"></span></p>
+
         <p><span id="infoTypeEntreprise"></span></p>
         <p><span id="infoTypeMission"></span></p>
         <p><span id="infoMobile"></span></p>

@@ -68,6 +68,14 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
     if ($req->execute()) {
         // Récupérer les résultats
         $resultats = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultats as &$offre) {
+            $sqlEtudiants = "SELECT nom, prenom FROM postule join Etudiant using(idetudiant) WHERE idoffre = :idOffre";
+            $reqEtudiants = $conn->prepare($sqlEtudiants);
+            $reqEtudiants->bindParam(':idOffre', $offre['idoffre'], PDO::PARAM_INT);
+            $reqEtudiants->execute();
+            $etudiants = $reqEtudiants->fetchAll(PDO::FETCH_ASSOC);
+            $offre['offreEtudiants'] = $etudiants;
+        }
 
         // Renvoyer les résultats au format JSON
         header('Content-Type: application/json');

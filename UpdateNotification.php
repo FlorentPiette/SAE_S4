@@ -35,6 +35,3 @@ $idetudiant = $_POST['idetudiant'];
 // Si aucun POST n'est reçu ou si les données sont incorrectes, renvoyez une réponse d'erreur
 http_response_code(400);
 echo json_encode( $idetudiant  );
-
-
-

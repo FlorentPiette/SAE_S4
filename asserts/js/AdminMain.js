@@ -139,6 +139,8 @@ function loadCompanies() {
     });
 }
 
+
+
 function redirectWithAjax(url) {
     $.ajax({
         url: url,
@@ -172,6 +174,11 @@ function redirectWithAjax(url) {
         var urlOffres = 'ViewAfficherPlusEntreprise.html';
         redirectWithAjax(urlOffres);
         });
+
+    document.getElementById('redirigerVersAjoutEntreprise').addEventListener('click', function () {
+        var urlOffres = 'ViewAjoutEntreprise.php';
+        redirectWithAjax(urlOffres);
+    });
 });
 
 

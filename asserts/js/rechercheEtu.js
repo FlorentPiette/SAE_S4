@@ -4,7 +4,6 @@
  * @return void
  */
 function rechercherEtudiants() {
-    var userFormation = "BUT Info";
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
@@ -50,7 +49,6 @@ function rechercherEtudiants() {
 
 
     var apiUrl = '../Controller/ControllerRechercheEtudiant.php?' +
-        "&userFormation=" + userFormation +
         '&nom=' + nom +
         '&prenom=' + prenom +
         '&ine=' + ine +
@@ -301,4 +299,3 @@ function fermerMenuBurger() {
     var menuBurger = document.getElementById('menuBurger');
     menuBurger.style.display = 'none';
 }
-

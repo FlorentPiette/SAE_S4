@@ -1,5 +1,5 @@
 <?php
-include '../Controller/ControllerVerificationDroit.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -9,6 +9,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
     <script src="../asserts/js/AdminEntreprise.js"></script>
     <script src="../asserts/js/rechercheOffre.js"></script>
+    <script src="../asserts/js/rechercherEntreprise.js"></script>
 </head>
 <body class="body">
 
@@ -61,6 +62,7 @@ include '../Controller/ControllerVerificationDroit.php';
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
         </form>
 
+        <ul id="donneesOffre" class="affichOffre">
         <form id="rechercheOffre">
             <label for="nomCheckbox">
                 <input type="checkbox" id="nomCheckbox"> Nom
@@ -93,6 +95,9 @@ include '../Controller/ControllerVerificationDroit.php';
         </form>
 
         <ul id="resultatsOffre" class="result">
+        </ul>
+
+        <script src="../asserts/js/rechercheOffre.js"></script>
         </ul>
 
         <ul id="donneesEntreprise" class="affichEntreprise">

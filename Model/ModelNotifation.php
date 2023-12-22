@@ -1,7 +1,15 @@
 <?php
-
-function semaine($conn){
-    $req = "insert into notfication ( idetudiant, date) select idetudiant, current_timestamp from postule where current_timestamp >= postule.date + integer '7';";
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+function semaineinsert($conn){
+    $req = "insert into notification ( idetudiant, date) select idetudiant, current_timestamp from postule where current_timestamp >= postule.date + integer '7' except select idetudiant,current_timestamp from notification;";
+    $req2 = $conn->prepare($req);
+    $req2->execute();
+    $req2->fetchAll(PDO::FETCH_ASSOC);
+    return $req2;
+}
+function sdf($conn){
+    $req = "insert into notification ( idetudiant, date) select idetudiant, current_timestamp from etudiant except select idetudiant,current_timestamp from postule except select  idetudiant,current_timestamp from notification;";
     $req2 = $conn->prepare($req);
     $req2->execute();
     $req2->fetchAll(PDO::FETCH_ASSOC);
@@ -24,5 +32,12 @@ function nbnotif($conn){
 
 
     return $result['nb'];
+}
+
+function semaine($conn, $idnotif, $idetudiant, $lu)
+{
+    $req = "UPDATE notification SET lu = ? WHERE idnotif = ? AND idetudiant = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($lu,$idnotif, $idetudiant ));
 }
 ?>

@@ -4,11 +4,17 @@
     box-sizing: border-box;
 }
 
+
+form{
+    display: inline-block;
+}
+
 /* Style pour le conteneur d'offres */
 .offres-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     list-style: none;
     padding: 0;
 }
@@ -47,3 +53,4 @@
     margin-top: 10px;
     display: block;
 }
+

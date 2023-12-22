@@ -158,7 +158,7 @@
             </select><br>
 
 
-            <button type="button" id="redirigerVersAjoutEntreprise">Création d'une entreprise</button>
+            <button type="button" id="redirigerVersAjoutEntreprise" onclick="redirectEntreprise()">Création d'une entreprise</button>
 
             <p>Autre(s) fichier(s) :</p>
             <input type="file" name="fichier" id="fichier"><br>
@@ -191,7 +191,6 @@
 
             <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
         </form>
-        <script src="../asserts/js/AdminEntreprise.js"></script>
 
         <span class="close" onclick="closePopup2()">&times;</span>
     </div>
