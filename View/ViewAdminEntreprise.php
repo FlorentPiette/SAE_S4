@@ -13,43 +13,49 @@
 </head>
 <body class="body">
 
+
 <header class="header">
+    <div class="logo-container">
+        <img src="../asserts/img/logo.png" class="logo">
+    </div>
 
     <div class="menu-container">
-        <div class="menu-header">
-            <nav>
-                <form  method="post" action="../Controller/ControllerBtnDeco.php">
-                    <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil"class="btnCreation"> Acceuil </button></li>
-                        <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
-                        <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
-                    </ul>
-                </form>
-            </nav>
-        </div>
-
-        <div class="header-content">
-            <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
+        <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
-                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
+                <ul class="vertical-menu">
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                    </li>
+                    <li id="account-photo">
+                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <div id="account-dropdown">
+                            <button type="submit" name="compte" class="">Mon compte</button>
+                            <button type="submit" name="deco" class="">Se déconnecter</button>
+
+
+                        </div>
+                    </li>
+                    <li>
+                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                    </li>
+                </ul>
             </form>
-        </div>
+        </nav>
     </div>
+
 </header>
 
 <div class="body-container">
 
-    <div class="rectangle-haut">
-        <div class="all-text">
-            <h3 class="nbrEtu">Nombre d'étudiants</h3>
-            <h3 class="nbrEnt">Nombre d'entreprises</h3>
-            <h3 class="nbrOff">Nombre d'offres</h3>
-            <h3 class="nbrPers">Nombre de personnel</h3>
-        </div>
-    </div>
 
     <div class="rectangle-mid">
         <form action="" method="post">
@@ -91,7 +97,7 @@
             </div>
 
             <input type="hidden" name="selectedOffer" id="selectedOffer" value="">
-            <input type="button" value="Rechercher une offre" onclick="rechercherOffres()">
+            <input type="button" value="Rechercher une offre" onclick="rechercherOffres()" class="rechercheOffre">
         </form>
 
         <ul id="resultatsOffre" class="result">
@@ -130,7 +136,7 @@
                     <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
                 </div>
 
-                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()">
+                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()" class="rechercheEntreprise">
             </form>
 
             <ul id="resultatsEntreprise" class="result">
@@ -140,10 +146,6 @@
         </ul>
 
     </div>
-</div>
-
-<div id="popup" class="popup">
-    L'offre a été ajoutée avec succès !
 </div>
 
 <script>
