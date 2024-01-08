@@ -7,33 +7,72 @@ include '../Controller/ControllerVerificationDroit.php';
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
+
+
 </head>
 <body class="body">
 
 <header class="header">
-    <div class="menu-container">
-        <div class="menu-header">
-            <nav>
-                <form  method="post" action="../Controller/ControllerBtnDeco.php">
-                    <ul class="vertical-menu">
-                        <li><button type="button" onclick="window.location.href ='ViewAdminMain.html'" name="accueil"class="btnCreation"> Acceuil </button></li>
-                        <li><button type="button"  onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant"  class="btnCreation"> Etudiant </button></li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" class="btnCreation"> Entreprise </button> </li>
-                        <li><button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation"  class="btnCreation"> Administration </button> </li>
-                        <li> <button type="submit" name="deco" class="btnCreation"> Déconnexion </button> </li>
-                    </ul>
-                </form>
-            </nav>
-        </div>
-
-        <div class="header-content">
-            <h1 class="title">Gestionnaire des apprentis</h1>
-            <img src="../asserts/img/logo.png" class="logo">
-            <form method="post" action="../Controller/ControllerBtnDeco.php">
-                <input class="btnDeco" value="Déconnexion" type="submit" name="btnDeco">
-            </form>
-        </div>
+    <div class="logo-container">
+        <img src="../asserts/img/logo.png" class="logo">
     </div>
+
+    <div class="menu-container">
+        <nav>
+            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                <ul class="vertical-menu">
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                    </li>
+                    <li id="account-photo">
+                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <div id="account-dropdown">
+                            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                                <input class="" name="compte" type="submit" value="Mon compte">
+                                <input class="" name="deco" type="submit" value="Se déconnecter">
+
+                            </form>
+
+                        </div>
+                    </li>
+                    <li>
+                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                    </li>
+                </ul>
+            </form>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var photo = document.getElementById("photo");
+            var dropdown = document.getElementById("account-dropdown");
+
+            photo.addEventListener("click", function (event) {
+                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
+                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+            });
+
+            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
+            document.addEventListener("click", function (event) {
+                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
+                    dropdown.style.display = "none";
+                }
+            });
+        });
+
+
+    </script>
+
 </header>
 
 <div id="menuBurger" class="menu-burger">
@@ -64,14 +103,6 @@ include '../Controller/ControllerVerificationDroit.php';
 </div>
 
 <div class="body-container">
-    <div class="rectangle-haut">
-        <div class="all-text">
-            <h3 class="nbrEtu">Nombre d'étudiants</h3>
-            <h3 class="nbrEnt">Nombre d'entreprises</h3>
-            <h3 class="nbrOff">Nombre d'offres</h3>
-            <h3 class="nbrPers">Nombre de personnels</h3>
-        </div>
-    </div>
 
     <div class="rectangle-mid">
         <form method="post">
