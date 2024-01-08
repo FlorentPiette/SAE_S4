@@ -15,8 +15,7 @@ function rechercherEtudiants() {
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-
-    var mobile = "";
+    var mobile = document.getElementById("mobileSelect").value;
     var actif = "";
 
     if (document.getElementById("autresCheckbox").checked) {
@@ -26,14 +25,8 @@ function rechercherEtudiants() {
         typeEntreprise = document.getElementById("typeEntreprise").value;
         typeMission = document.getElementById("typeMission").value;
         mobile = document.getElementById("mobileSelect").value;
-        if (mobile === "oui"){
-            mobile = true;
-        }
-        else if (mobile === "non"){
-            mobile = false;
-        }
-        else{
-            mobile = "";
+        if (mobile === "peuimporte"){
+            mobile = 0;
         }
         actif = document.getElementById("actifSelect").value;
         if (actif === "oui"){
@@ -68,7 +61,13 @@ function rechercherEtudiants() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+                console.log(xhr.responseText); // Ajoutez cette ligne
                 try {
+                    var isJson = xhr.getResponseHeader('content-type')?.includes('application/json');
+                    if (!isJson) {
+                        console.error("La réponse n'est pas au format JSON.");
+                        return;
+                    }
                     var resultats = JSON.parse(xhr.responseText);
 
                     if (resultats.length > 0) {
@@ -269,6 +268,11 @@ function ouvrirMenuBurger(etudiant) {
     document.getElementById('infoEmail').innerText = 'Email: ' + (etudiant.email || '');
     document.getElementById('infoTypeEntreprise').innerText = 'Type d\'entreprise: ' + (etudiant.typeentreprise || '');
     document.getElementById('infoTypeMission').innerText = 'Type de Mission: ' + (etudiant.typemission || '');
+    if (etudiant.mobile === 99999) {
+        document.getElementById('infoMobile').innerText = 'Mobilité: Internationale';
+    } else {
+        document.getElementById('infoMobile').innerText = 'Mobilité: ' + (etudiant.mobile || '') + 'km';
+    }
 
     var actifValue = etudiant.actif;
     var infoActifElement = document.getElementById('infoActif');
@@ -281,16 +285,7 @@ function ouvrirMenuBurger(etudiant) {
         infoActifElement.innerText = 'Actif: (vide)';
     }
 
-    var mobileValue = etudiant.mobile;
-    var infoMobileElement = document.getElementById('infoMobile');
 
-    if (mobileValue === true) {
-        infoMobileElement.innerText = 'Mobile: Oui';
-    } else if (mobileValue === false) {
-        infoMobileElement.innerText = 'Mobile: Non';
-    } else {
-        infoMobileElement.innerText = 'Mobile: (vide)';
-    }
 }
 
 

@@ -141,10 +141,15 @@ include '../Controller/ControllerVerificationDroit.php';
                     Mobile:
                     <select id="mobileSelect">
                         <option value="peuimporte">Peu importe</option>
-                        <option value="oui">Oui</option>
-                        <option value="non">Non</option>
+                        <option value="10">10km</option>
+                        <option value="50">50km</option>
+                        <option value="100">100km</option>
+                        <option value="500">500km</option>
+                        <option value="1000">1000km</option>
+                        <option value="99999">International</option>
                     </select>
                 </label>
+
                 <label for="actifSelect">
                     Actif:
                     <select id="actifSelect">
