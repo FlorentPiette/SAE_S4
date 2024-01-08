@@ -3,11 +3,77 @@
 <html>
 <head>
     <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
+
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
     <script src="../asserts/js/modifProfil.js"></script>
 </head>
 
 <body>
+<header class="header">
+    <div class="logo-container">
+        <img src="../asserts/img/logo.png" class="logo">
+    </div>
+
+    <div class="menu-container">
+        <nav>
+            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                <ul class="vertical-menu">
+                    <li>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                    </li>
+                    <li id="account-photo">
+                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <div id="account-dropdown">
+                            <button type="submit" name="compte" class="">Mon compte</button>
+                            <button type="submit" name="deco" class="">Se déconnecter</button>
+
+
+                        </div>
+                    </li>
+                    <li>
+                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                    </li>
+                </ul>
+            </form>
+        </nav>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var photo = document.getElementById("photo");
+            var dropdown = document.getElementById("account-dropdown");
+
+            photo.addEventListener("click", function (event) {
+                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
+                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+            });
+
+            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
+            document.addEventListener("click", function (event) {
+                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
+                    dropdown.style.display = "none";
+                }
+            });
+        });
+
+
+    </script>
+
+</header>
+
+
 <div class="content">
+
+
 <h1><?= $etu['nom'] ?> <?= $etu['prenom'] ?></h1>
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Nom : </label>

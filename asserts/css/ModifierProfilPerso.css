@@ -24,6 +24,7 @@ input[type="email"] {
 }
 
 .content {
+    display: flex; /* Utilisation de flexbox pour aligner les enfants en ligne */
     color: white;
     padding: 20px;
     box-sizing: border-box;
@@ -180,6 +181,10 @@ input[type="email"] {
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
+}
+
+.content {
+    display: flex;
 }
 
 .photo {
