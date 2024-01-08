@@ -69,6 +69,9 @@ create table etudiant
         constraint etudiant_photo_check
             check ((photo)::text ~ '.(png|jpeg|jpg)$'::text),
     ine             text       not null,
+    typeentreprise  text,
+    typemission     text,
+    mobile          integer,
     actif           boolean,
     codemail        varchar
 );
