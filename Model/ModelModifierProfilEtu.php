@@ -195,19 +195,14 @@ function selectEtudiant($conn, $id){
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param int $id sert à rechercher l'étudiant ayant cet id
- * @param boolean $mobile sert à modifier le status mobile de l'étudiant
+ * @param int $mobile sert à modifier le status mobile de l'étudiant
  *
  * @return void
  */
 function updateMobile($conn, $mobile, $id){
-    if($mobile == true){
-        $req = "UPDATE etudiant SET mobile = TRUE WHERE ine = ?";
-    }
-    else{
-        $req = "UPDATE etudiant SET mobile = FALSE WHERE ine = ?";
-    }
+    $req = "UPDATE etudiant SET mobile = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
-    $req2->execute(array($id));
+    $req2->execute(array($mobile, $id));
 }
 
 /**

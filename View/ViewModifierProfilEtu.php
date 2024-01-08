@@ -3,7 +3,6 @@
 <html>
 <head>
     <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
     <script src="../asserts/js/modifProfil.js"></script>
 </head>
 
@@ -77,8 +76,17 @@
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
-    <label> Mobile : </label>
-    <input type="checkbox" name="mobile" id="mobile" value="mobile" <?php if ($etu['mobile']) echo 'checked'; ?>>
+        <label for="mobile">
+            Mobile:
+            <select name="mobile" id="mobile">
+                <option value="10" <?php if ($etu['mobile'] == 10) echo 'selected'; ?>>10km</option>
+                <option value="50" <?php if ($etu['mobile'] == 50) echo 'selected'; ?>>50km</option>
+                <option value="100" <?php if ($etu['mobile'] == 100) echo 'selected'; ?>>100km</option>
+                <option value="500" <?php if ($etu['mobile'] == 500) echo 'selected'; ?>>500km</option>
+                <option value="1000" <?php if ($etu['mobile'] == 1000) echo 'selected'; ?>>1000km</option>
+                <option value="99999" <?php if ($etu['mobile'] == 99999) echo 'selected'; ?>>International</option>
+            </select>
+        </label>
     <input type="submit" name="modifier_mobile" value="Modifier">
 </form>
 
