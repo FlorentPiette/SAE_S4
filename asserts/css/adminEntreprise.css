@@ -103,15 +103,21 @@
     z-index: 999;
 }
 
-#account-dropdown button {
+#account-dropdown input {
     display: block;
     padding: 10px;
     text-decoration: none;
-    color: white;
-    background-color: rgba(0, 140, 173, 0.75);
+    color: white; /* Blanc */
+    background-color: rgba(0, 140, 173, 0.75); /* Couleur avec transparence à 75% */
     border: none;
     border-radius: 30px;
     margin: 10px;
+
+}
+
+
+#account-dropdown input:hover {
+    background-color: rgb(128, 128, 128); /* Bleu foncé au survol */
 }
 
 #account-dropdown button:hover {

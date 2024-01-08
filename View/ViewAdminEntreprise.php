@@ -24,7 +24,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -35,22 +35,46 @@
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
                     </li>
-                    <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
-                        <div id="account-dropdown">
-                            <button type="submit" name="compte" class="">Mon compte</button>
-                            <button type="submit" name="deco" class="">Se déconnecter</button>
 
+                    <li id="account-photo">
+                        <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <div id="account-dropdown">
+                            <form method="post" action="../../Controller/ControllerBtnDeco.php">
+                                <input class="" name="compte" type="submit" value="Mon compte">
+                                <input class="" name="deco" type="submit" value="Se déconnecter">
+
+                            </form>
 
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <a><img src="../../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
                     </li>
                 </ul>
             </form>
         </nav>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var photo = document.getElementById("photo");
+            var dropdown = document.getElementById("account-dropdown");
+
+            photo.addEventListener("click", function (event) {
+                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
+                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+            });
+
+            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
+            document.addEventListener("click", function (event) {
+                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
+                    dropdown.style.display = "none";
+                }
+            });
+        });
+
+
+    </script>
 
 </header>
 
