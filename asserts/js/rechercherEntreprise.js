@@ -68,25 +68,25 @@ function rechercherEntreprises() {
  */
 function afficherChamps() {
     if (document.getElementById("nomEntrepriseCheckbox").checked) {
-        document.getElementById("nomEntrepriseDiv").style.display = "block";
+        document.getElementById("nomEntrepriseDiv").style.display = "inline-block";
     } else {
         document.getElementById("nomEntrepriseDiv").style.display = "none";
     }
 
     if (document.getElementById("villeCheckbox").checked) {
-        document.getElementById("villeDiv").style.display = "block";
+        document.getElementById("villeDiv").style.display = "inline-block";
     } else {
         document.getElementById("villeDiv").style.display = "none";
     }
 
     if (document.getElementById("codepostalCheckbox").checked) {
-        document.getElementById("codepostalDiv").style.display = "block";
+        document.getElementById("codepostalDiv").style.display = "inline-block";
     } else {
         document.getElementById("codepostalDiv").style.display = "none";
     }
 
     if (document.getElementById("secteurActiviteCheckbox").checked) {
-        document.getElementById("secteurActiviteDiv").style.display = "block";
+        document.getElementById("secteurActiviteDiv").style.display = "inline-block";
     } else {
         document.getElementById("secteurActiviteDiv").style.display = "none";
     }

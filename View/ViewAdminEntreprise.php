@@ -83,6 +83,7 @@
                 <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
             </label>
 
+            <br>
             <div id="nomDiv" style="display: none">
                 <input type="text" name="nom" id="nom" placeholder="Nom">
             </div>
@@ -122,6 +123,7 @@
                 </label>
 
 
+                <br>
 
                 <div id="nomEntrepriseDiv" style="display: none">
                     <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">

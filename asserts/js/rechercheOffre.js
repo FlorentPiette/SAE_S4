@@ -45,7 +45,7 @@ function rechercherOffres() {
 
 
 
-                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre" >' + '<br>';
+                            offreHTML += '<input type="submit" value="Ajouter un étudiant à cette offre" class="ajoutEtu">' + '<br>';
 
 
                             if (offre.offreEtudiants && offre.offreEtudiants.length > 0) {
@@ -109,25 +109,25 @@ function rechercherOffres() {
  */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
-        document.getElementById("nomDiv").style.display = "block";
+        document.getElementById("nomDiv").style.display = "inline-block";
     } else {
         document.getElementById("nomDiv").style.display = "none";
     }
 
     if (document.getElementById("domaineCheckbox").checked) {
-        document.getElementById("domaineDiv").style.display = "block";
+        document.getElementById("domaineDiv").style.display = "inline-block";
     } else {
         document.getElementById("domaineDiv").style.display = "none";
     }
 
     if (document.getElementById("missionCheckbox").checked) {
-        document.getElementById("missionDiv").style.display = "block";
+        document.getElementById("missionDiv").style.display = "inline-block";
     } else {
         document.getElementById("missionDiv").style.display = "none";
     }
 
     if (document.getElementById("nbEtudiantCheckbox").checked) {
-        document.getElementById("nbEtudiantDiv").style.display = "block";
+        document.getElementById("nbEtudiantDiv").style.display = "inline-block";
     } else {
         document.getElementById("nbEtudiantDiv").style.display = "none";
     }
