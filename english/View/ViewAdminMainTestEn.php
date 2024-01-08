@@ -7,7 +7,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="/../asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/demandeAjoutOffre.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/AffichageEtudiant.css">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="../../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/AffichageEntreprise.css">
 
-    <script src="../asserts/js/AdminMain.js"></script>
+    <script src="../../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
@@ -48,7 +48,7 @@
     <div class="popup-content" id="formulaireAjoutEtudiant">
 
 
-        <form action="../Controller/ControllerAjoutEtudiant.php" method="post" >
+        <form action="../../Controller/ControllerAjoutEtudiant.php" method="post" >
             <ul>
                 <li>
                     <label for="nom">Name:</label>
@@ -119,7 +119,7 @@
 <div id="popUpOffre" class="popupEtu">
     <div class="popup-content">
 
-        <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
+        <form action="../../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
 
             <p>
                 Offer name :
@@ -146,7 +146,7 @@
             <p>Company :</p>
             <label for="entreprise"></label><select name="entreprise" id="entreprise">
                 <?php
-                include_once '../Model/ConnexionBDD.php';
+                include_once '../../Model/ConnexionBDD.php';
                 $conn = Conn::getInstance();
                 $sql = "SELECT identreprise, nom FROM entreprise";
                 $result = $conn->query($sql);
@@ -199,7 +199,7 @@
 <div id="popUpPerso" class="popupEtu">
     <div class="popup-content">
 
-        <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
+        <form action="../../Controller/ControllerAjoutAdministration.php" method="POST">
             <ul>
                 <li>
                     <label for="nom">Name:</label>
@@ -256,29 +256,29 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../../asserts/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
         <nav>
-            <form method="post" action="../Controller/ControllerBtnDeco.php">
+            <form method="post" action="../../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">Homepage</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation">Student</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation">Company</button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
                     </li>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
-                            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                            <form method="post" action="../../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
 
@@ -287,7 +287,7 @@
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <a><img src="../../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
                     </li>
                 </ul>
             </form>
@@ -323,7 +323,7 @@
 
     <div class="rectangle-haut">
         <div class="image-box">
-            <img class="banniere" src="../asserts/img/banniere.png" alt="Bannière">
+            <img class="banniere" src="../../asserts/img/banniere.png" alt="Bannière">
         </div>
         <div class="all-text">
             <div class="rectangle-info">
@@ -357,19 +357,19 @@
         <div class="rectangle">
 
             <h3 class="titreAjout">Add student</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjEtu">
+            <input class="AjRapide" type="button" value="Add" id="AjEtu">
 
         </div>
         <div class="rectangle">
 
             <h3 class="titreAjout">Add offer</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjOffre">
+            <input class="AjRapide" type="button" value="Add" id="AjOffre">
 
         </div>
         <div class="rectangle">
 
             <h3 class="titreAjout">Add personnel</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjPerso">
+            <input class="AjRapide" type="button" value="Add" id="AjPerso">
 
         </div>
 
@@ -381,17 +381,17 @@
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Student</h3>
                 <div class="inner-rectangle" id="etudiants-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherEtudiants">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherEtudiants">
             </div>
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Offer</h3>
                 <div class="inner-rectangle" id="offres-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherOffres">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherOffres">
             </div>
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Company</h3>
                 <div class="inner-rectangle" id="entreprises-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherEntreprises">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherEntreprises">
             </div>
         </div>
     </div>
