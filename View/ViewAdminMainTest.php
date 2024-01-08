@@ -98,6 +98,19 @@
                     <input type="text" id="entreprise" name="entreprise" class="input" />
                 </li>
                 <li>
+                    <label for="mobile">
+                        Mobile:
+                        <select name="mobile" id="mobile">
+                            <option value="10">10km</option>
+                            <option value="50">50km</option>
+                            <option value="100">100km</option>
+                            <option value="500">500km</option>
+                            <option value="1000">1000km</option>
+                            <option value="99999">International</option>
+                        </select>
+                    </label>
+                </li>
+                <li>
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" class="input" />
                 </li>

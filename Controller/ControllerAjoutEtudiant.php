@@ -25,12 +25,8 @@ if(isset($_POST["ajoutEtudiant"])) {
     $mdp = $_POST['mdp'];
     $entreprise = $_POST['entreprise'];
     $mission = $_POST['mission'];
-    if (isset($_POST['mobile'])) {
-        $mobile = true;
-    }
-    else {
-        $mobile = false;
-    }
+    $mobile = $_POST['mobile'];
+
 
     $confirmation = code();
     setcookie("Mail_Etudiant", $email, time() + 3600, "/");
