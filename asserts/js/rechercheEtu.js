@@ -25,9 +25,6 @@ function rechercherEtudiants() {
         typeEntreprise = document.getElementById("typeEntreprise").value;
         typeMission = document.getElementById("typeMission").value;
         mobile = document.getElementById("mobileSelect").value;
-        if (mobile === "peuimporte"){
-            mobile = 0;
-        }
         actif = document.getElementById("actifSelect").value;
         if (actif === "oui"){
             actif = true;

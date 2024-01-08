@@ -140,7 +140,7 @@ include '../Controller/ControllerVerificationDroit.php';
                 <label for="mobileSelect">
                     Mobile:
                     <select id="mobileSelect">
-                        <option value="peuimporte">Peu importe</option>
+                        <option value="0">Peu importe</option>
                         <option value="10">10km</option>
                         <option value="50">50km</option>
                         <option value="100">100km</option>
