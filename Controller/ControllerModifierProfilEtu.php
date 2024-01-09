@@ -74,12 +74,7 @@ if (isset($_POST['modifier_typemission'])){
 }
 
 if (isset($_POST['modifier_mobile'])){
-    if (isset($_POST['mobile'])){
-        $mobile = true;
-    }
-    else{
-        $mobile = false;
-    }
+    $mobile = $_POST['mobile'];
     updateMobile($conn, $mobile, $id);
     header("Location: ControllerModifierProfilEtu.php?ine=$id");
 }
