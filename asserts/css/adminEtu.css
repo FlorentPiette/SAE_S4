@@ -1,7 +1,7 @@
 .body {
     font-family: Arial;
     overflow: scroll;
-    background-color: #ffffff;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
     margin: 0;
     min-height: 100vh;
     display: flex;
@@ -10,15 +10,13 @@
 
 .body-container {
     flex: 1;
-    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
-}
+    }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 30px;
-    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
     border-bottom: solid white 2px;
 }
 
@@ -376,11 +374,11 @@ ul {
 
 /* Style général du pied de page */
 .footer {
+    margin-top: 20%;
     background-color: rgba(0, 110, 135, 0.9);
     color: #fff;
     padding: 20px 0;
     text-align: center;
-    margin-top: auto;
 }
 
 /* Style du contenu du pied de page */

@@ -8,6 +8,8 @@
 
 function rechercherEntreprises() {
 
+    document.getElementById("footer").style.display = "none";
+
     //Ces variables récuperent les éléments de recherche
 
     var nom = document.getElementById('nomEntreprise').value;
