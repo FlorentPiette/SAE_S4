@@ -264,16 +264,16 @@
             <form method="post" action="../../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">Homepage</button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTestEn.php'" name="accueil" value="Accueil" class="btnCreation">Homepage</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation">Student</button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtuEn.php'" name="etudiant" value="Etudiant" class="btnCreation">Student</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation">Company</button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntrepriseEn.php'" name="entreprise" value="Entreprise" class="btnCreation">Company</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminAdministrationEn.php'" name="adminitrsation" class="btnCreation">Administration</button>
                     </li>
                     <li id="account-photo">
                         <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
