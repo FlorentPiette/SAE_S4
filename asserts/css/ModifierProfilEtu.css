@@ -24,12 +24,14 @@ input[type="email"] {
 }
 
 .content {
+    display: block;
     color: white;
     padding: 20px;
     box-sizing: border-box;
     margin: 0;
     position: relative;
     border-top: solid white 2px;
+    justify-content: center;
 }
 
 .editable {

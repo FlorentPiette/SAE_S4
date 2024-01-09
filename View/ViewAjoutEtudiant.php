@@ -57,8 +57,15 @@
             <input type="text" id="mission" name="mission" class="input">
         </li>
         <li>
-            <label for="mobile">Etudiant mobile:</label>
-            <input type="checkbox" id="mobile" name="mobile" class="input">
+            <label for="mobile">Mobilité de l'étudiant:</label>
+                <select name="mobile" id="mobile" id="mobile" name="mobile" class="input">
+                    <option value="10">10km</option>
+                    <option value="50">50km</option>
+                    <option value="100">100km</option>
+                    <option value="500">500km</option>
+                    <option value="1000">1000km</option>
+                    <option value="99999">International</option>
+                </select>
         </li>
         <li>
             <label for="email">Email:</label>

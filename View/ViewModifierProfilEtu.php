@@ -78,67 +78,89 @@
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Nom : </label>
     <input type="text" name="nouveau_nom" value="<?= $etu['nom'] ?>">
-    <input type="submit" name="modifier_nom" value="Modifier"">
+        <button type="submit" name="modifier_nom" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Prénom : </label>
     <input type="text" name="nouveau_prenom" value="<?= $etu['prenom'] ?>">
-    <input type="submit" name="modifier_prenom" value="Modifier">
+        <button type="submit" name="modifier_prenom" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Date de naissance : </label>
     <input type="date" name="modifier_date" value="<?= $etu['datedenaissance'] ?>">
-    <input type="submit" name="modifier_date" value="Modifier">
+        <button type="submit" name="modifier_date" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Adresse : </label>
     <input type="text" name="nouvelle_adresse" value="<?= $etu['adresse'] ?>">
-    <input type="submit" name="modifier_adresse" value="Modifier">
+        <button type="submit" name="modifier_adresse" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Ville : </label>
     <input type="text" name="nouvelle_ville" value="<?= $etu['ville'] ?>">
-    <input type="submit" name="modifier_ville" value="Modifier">
+        <button type="submit" name="modifier_ville" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Code postal : </label>
     <input type="number" name="nouveau_cp" value="<?= $etu['codepostal'] ?>">
-    <input type="submit" name="modifier_cp" value="Modifier">
+        <button type="submit" name="modifier_cp" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Année d'étude : </label>
     <input type="number" name="nouvelle_anneeEtude" value="<?= $etu['anneeetude'] ?>">
-    <input type="submit" name="modifier_anneeEtude" value="Modifier">
+        <button type="submit" name="modifier_anneeEtude" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Formation : </label>
     <input type="text" name="nouvelle_formation" value="<?= $etu['formation'] ?>">
-    <input type="submit" name="modifier_formation" value="Modifier">
+        <button type="submit" name="modifier_formation" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Email : </label>
     <input type="email" name="nouvel_email" value="<?= $etu['email'] ?>">
-    <input type="submit" name="modifier_email" value="Modifier">
+        <button type="submit" name="modifier_email" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Type d'entreprises recherchées : </label>
     <input type="text" name="nouveau_typeentreprise" value="<?= $etu['typeentreprise'] ?>">
-    <input type="submit" name="modifier_typeentreprise" value="Modifier">
+        <button type="submit" name="modifier_typeentreprise" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Type de missions recherchées : </label>
     <input type="text" name="nouveau_typemission" value="<?= $etu['typemission'] ?>">
-    <input type="submit" name="modifier_typemission" value="Modifier">
+        <button type="submit" name="modifier_typemission" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -153,13 +175,17 @@
                 <option value="99999" <?php if ($etu['mobile'] == 99999) echo 'selected'; ?>>International</option>
             </select>
         </label>
-    <input type="submit" name="modifier_mobile" value="Modifier">
+        <button type="submit" name="modifier_mobile" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 
     <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
     <label> Actif : </label>
     <input type="checkbox" name="actif" id="actif" value="actif" <?php if ($etu['actif']) echo 'checked'; ?>>
-    <input type="submit" name="setActif" value="Modifier">
+        <button type="submit" name="setActif" value="Modifier" class="transparent-button">
+            <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+        </button>
 </form>
 </div>
 </body>
