@@ -16,13 +16,19 @@ function rechercherEntreprises() {
     var ville = document.getElementById('ville').value;
     var codepostal = document.getElementById("codepostal").value;
     var secteurActivite = document.getElementById('secteurActivite').value;
+    var adresse = document.getElementById('adresse').value;
+    var email = document.getElementById("email").value;
+    var numtel = document.getElementById('numtel').value;
 
     console.log("reussis");
     var apiUrl = '../Controller/ControllerRechercherEntreprise.php?' +
         'nom=' + nom +
         '&ville=' + ville +
         '&codepostal=' + codepostal +
-        '&secteurActivite=' + secteurActivite;
+        '&secteurActivite=' + secteurActivite +
+        '&adresse=' + adresse +
+        '&email=' + email +
+        '&numtel=' + numtel;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -40,7 +46,10 @@ function rechercherEntreprises() {
                             resultatsHTML += 'Nom : ' + (entreprise.nom || '') + '<br>';
                             resultatsHTML += 'Ville : ' + (entreprise.ville || '') + '<br>';
                             resultatsHTML += 'Code Postal : ' + (entreprise.codepostal || '') + '<br>';
+                            resultatsHTML += 'Adresse : ' + (entreprise.adresse || '') + '<br>';
                             resultatsHTML += 'Secteur d activité : ' + (entreprise.secteuractivite || '') + '<br>';
+                            resultatsHTML += 'Numéro de téléphone : ' + (entreprise.numtel || '') + '<br>';
+                            resultatsHTML += 'Adresse email : ' + (entreprise.email || '') + '<br>';
                             resultatsHTML += '</li>';
                         });
                         resultatsHTML += '</ul>';
@@ -92,11 +101,32 @@ function afficherChamps() {
     } else {
         document.getElementById("secteurActiviteDiv").style.display = "none";
     }
+
+    if (document.getElementById("adresseCheckbox").checked) {
+        document.getElementById("adresseDiv").style.display = "inline-block";
+    } else {
+        document.getElementById("adresseDiv").style.display = "none";
+    }
+
+    if (document.getElementById("emailCheckbox").checked) {
+        document.getElementById("emailDiv").style.display = "inline-block";
+    } else {
+        document.getElementById("emailDiv").style.display = "none";
+    }
+
+    if (document.getElementById("numtelCheckbox").checked) {
+        document.getElementById("numtelDiv").style.display = "inline-block";
+    } else {
+        document.getElementById("numtelDiv").style.display = "none";
+    }
 }
 
 document.getElementById("nomEntrepriseCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("villeCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("codepostalCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("secteurActiviteCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("adresseCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("emailCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("numtelCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();

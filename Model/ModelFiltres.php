@@ -107,7 +107,7 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
  *
  * @return void
  */
-function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
+function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite, $adresse, $email, $numtel)
 {
     $sql = "SELECT * FROM Entreprise WHERE 1=1";
 
@@ -127,6 +127,18 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
         $sql .= " AND secteurActivite ILIKE :secteurActivite";
     }
 
+    if (!empty($adresse)) {
+        $sql .= " AND adresse ILIKE :adresse";
+    }
+
+    if (!empty($email)) {
+        $sql .= " AND email ILIKE :email";
+    }
+
+    if (!empty($numtel)) {
+        $sql .= " AND numtel ILIKE :numtel";
+    }
+
     $req = $conn->prepare($sql);
 
     if (!empty($nom)) {
@@ -143,6 +155,18 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
 
     if (!empty($secteurActivite)) {
         $req->bindValue(':secteurActivite', "%$secteurActivite%", PDO::PARAM_STR);
+    }
+
+    if (!empty($adresse)) {
+        $req->bindValue(':adresse', "%$adresse%", PDO::PARAM_STR);
+    }
+
+    if (!empty($email)) {
+        $req->bindValue(':email', "%$email%", PDO::PARAM_STR);
+    }
+
+    if (!empty($numtel)) {
+        $req->bindValue(':numtel', "%$numtel%", PDO::PARAM_STR);
     }
 
     if ($req->execute()) {

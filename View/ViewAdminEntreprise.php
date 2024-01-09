@@ -148,8 +148,17 @@
                 <label for="codepostalCheckbox">
                     <input type="checkbox" id="codepostalCheckbox"> Code Postal
                 </label>
+                <label for="adresseCheckbox">
+                    <input type="checkbox" id="adresseCheckbox"> Adresse
+                </label>
                 <label for="secteurActiviteCheckbox">
                     <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
+                </label>
+                <label for="emailCheckbox">
+                    <input type="checkbox" id="emailCheckbox"> Adresse email
+                </label>
+                <label for="numtelCheckbox">
+                    <input type="checkbox" id="numtelCheckbox"> Numéro de téléphone
                 </label>
 
 
@@ -164,8 +173,17 @@
                 <div id="codepostalDiv" style="display: none">
                     <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
                 </div>
+                <div id="adresseDiv" style="display: none">
+                    <input type="text" name="adresse" id="adresse" placeholder="Adresse">
+                </div>
                 <div id="secteurActiviteDiv" style="display: none">
                     <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                </div>
+                <div id="emailDiv" style="display: none">
+                    <input type="email" name="email" id="email" placeholder="Adresse email">
+                </div>
+                <div id="numtelDiv" style="display: none">
+                    <input type="text" name="numtel" id="numtel" placeholder="Numéro de téléphone">
                 </div>
 
                 <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()" class="rechercheEntreprise">
