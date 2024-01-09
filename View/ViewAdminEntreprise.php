@@ -106,6 +106,9 @@
             <label for="nbEtudiantCheckbox">
                 <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
             </label>
+            <label for="parcoursCheckbox">
+                <input type="checkbox" id="parcoursCheckbox"> Parcours
+            </label>
 
             <br>
             <div id="nomDiv" style="display: none">
@@ -119,6 +122,9 @@
             </div>
             <div id="nbEtudiantDiv" style="display: none">
                 <input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
+            </div>
+            <div id="parcoursDiv" style="display: none">
+                <input type="text" name="parcours" id="parcours" placeholder="Parcours">
             </div>
 
             <input type="hidden" name="selectedOffer" id="selectedOffer" value="">

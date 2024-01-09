@@ -72,8 +72,8 @@
             <input type="email" id="email" name="email" class="input">
         </li>
         <li>
-            <label for="mdp">Mot de passe:</label>
-            <input type="password" id="mdp" name="mdp" class="input">
+            <label for="cv">CV de l'étudiant:</label>
+            <input type="file" name="cv" id="cv" class="input">
         </li>
     </ul>
 

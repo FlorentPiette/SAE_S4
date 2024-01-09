@@ -27,7 +27,7 @@ foreach ($resultat2 as $res2):
     $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
 */
 
-function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
+function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
 {
     $sql = "SELECT * FROM Offre WHERE 1=1";
 
@@ -47,6 +47,10 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
         $sql .= " AND nbetudiant = :nbetudiant";
     }
 
+    if (!empty($parcours)) {
+        $sql .= " AND parcours ILIKE :parcours";
+    }
+
     $req = $conn->prepare($sql);
 
     if (!empty($nom)) {
@@ -63,6 +67,10 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
 
     if (!empty($nbetudiant)) {
         $req->bindValue(':nbetudiant', $nbetudiant, PDO::PARAM_INT);
+    }
+
+    if (!empty($parcours)) {
+        $req->bindValue(':parcours', "%$parcours%", PDO::PARAM_STR);
     }
 
     if ($req->execute()) {

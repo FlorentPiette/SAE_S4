@@ -5,25 +5,30 @@ function chargerDonnees(role) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var rolesData = JSON.parse(xhr.responseText);
+                try {
+                    var rolesData = JSON.parse(xhr.responseText);
 
-                var tableBody = document.querySelector('#dataTable tbody');
-                tableBody.innerHTML = '';
+                    var tableBody = document.querySelector('#dataTable tbody');
+                    tableBody.innerHTML = '';
 
-                rolesData.forEach(function (role) {
-                    var row = tableBody.insertRow();
-                    var nomCell = row.insertCell(0);
-                    var prenomCell = row.insertCell(1);
-                    var formationCell = row.insertCell(2);
-                    var roleCell = row.insertCell(3);
-                    var emailCell = row.insertCell(4);
+                    rolesData.forEach(function (role) {
+                        var row = tableBody.insertRow();
+                        var nomCell = row.insertCell(0);
+                        var prenomCell = row.insertCell(1);
+                        var formationCell = row.insertCell(2);
+                        var roleCell = row.insertCell(3);
+                        var emailCell = row.insertCell(4);
 
-                    nomCell.textContent = role.nom;
-                    prenomCell.textContent = role.prenom;
-                    formationCell.textContent = role.formation;
-                    roleCell.textContent = role.role;
-                    emailCell.textContent = role.email;
-                });
+                        nomCell.textContent = role.nom;
+                        prenomCell.textContent = role.prenom;
+                        formationCell.textContent = role.formation;
+                        roleCell.textContent = role.role;
+                        emailCell.textContent = role.email;
+                    });
+                } catch (error) {
+                    console.error("Erreur lors de la conversion JSON :", error);
+                    console.log("Réponse du serveur :", xhr.responseText);
+                }
             } else {
                 console.error("Erreur de la requête : " + xhr.status);
             }
@@ -53,7 +58,6 @@ document.getElementById('rp').addEventListener('click', function (e) {
     e.preventDefault();
     chargerDonnees('rp');
 });
-
 
 document.addEventListener('DOMContentLoaded', function () {
     var accountPhoto = document.getElementById("account-photo");

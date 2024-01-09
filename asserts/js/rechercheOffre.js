@@ -16,6 +16,7 @@ function rechercherOffres() {
     var domaine = document.getElementById('domaine').value;
     var mission = document.getElementById("mission").value;
     var nbEtudiant = document.getElementById('nbEtudiant').value;
+    var parcours = document.getElementById('parcours').value;
 
     console.log("reussis");
 
@@ -23,7 +24,8 @@ function rechercherOffres() {
         'nom=' + nom +
         '&domaine=' + domaine +
         '&mission=' + mission +
-        '&nbEtudiant=' + (nbEtudiant !== '' ? parseInt(nbEtudiant) : '');
+        '&nbEtudiant=' + (nbEtudiant !== '' ? parseInt(nbEtudiant) : '') +
+        '&parcours=' + parcours;
 
     var xhr = new XMLHttpRequest();
     xhr.open('GET', apiUrl, true);
@@ -45,6 +47,7 @@ function rechercherOffres() {
                             offreHTML += 'Domaine : ' + (offre.domaine || '') + '<br>';
                             offreHTML += 'Missions : ' + (offre.mission || '') + '<br>';
                             offreHTML += 'Nombre d\'étudiants recherchés : ' + (offre.nbetudiant || '') + '<br>';
+                            offreHTML += 'Parcours : ' + (offre.parcours || '') + '<br>';
 
 
 
@@ -134,11 +137,18 @@ function afficherChamps() {
     } else {
         document.getElementById("nbEtudiantDiv").style.display = "none";
     }
+
+    if (document.getElementById("parcoursCheckbox").checked) {
+        document.getElementById("parcoursDiv").style.display = "inline-block";
+    } else {
+        document.getElementById("parcoursDiv").style.display = "none";
+    }
 }
 
 document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("domaineCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("missionCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("nbEtudiantCheckbox").addEventListener("change", afficherChamps);
+document.getElementById("parcoursCheckbox").addEventListener("change", afficherChamps);
 
 afficherChamps();
