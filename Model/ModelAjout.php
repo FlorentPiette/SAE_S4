@@ -85,12 +85,12 @@ function voirFichier($conn, $offreId): void
  *
  * @return void
  */
-function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $motDePasse, String $iNE, string $entreprise, String $mission, int $mobile, $CodeMail): void
+function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $iNE, string $entreprise, String $mission, int $mobile, $CodeMail): void
 {
-    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, MotDePasse, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
-            VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :motDePasse, :ine, :entreprise, :mission, :mobile, True, :CodeConfirmation)";
+    $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
+            VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :ine, :entreprise, :mission, :mobile, True, :CodeConfirmation)";
     $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $motDePasse, $iNE, $entreprise, $mission, $mobile, $CodeMail));
+    $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $iNE, $entreprise, $mission, $mobile, $CodeMail));
 }
 
 /**
