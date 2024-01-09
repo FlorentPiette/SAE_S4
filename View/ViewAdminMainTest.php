@@ -409,7 +409,7 @@
         </div>
     </div>
 
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="footer-content">
             <div class="footer-section about">
                 <h2>À propos de nous</h2>
@@ -425,10 +425,10 @@
             <div class="footer-section links">
                 <h2>Liens rapides</h2>
                 <ul>
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Etudiants</a></li>
-                    <li><a href="#">Entreprises</a></li>
-                    <li><a href="#">Administration</a></li>
+                    <li><a href="ViewAdminMainTest.php">Accueil</a></li>
+                    <li><a href="ViewAdminEtu.php">Etudiants</a></li>
+                    <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                    <li><a href="ViewAdminAdministration.php">Administration</a></li>
                 </ul>
             </div>
         </div>

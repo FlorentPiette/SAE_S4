@@ -18,7 +18,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -132,5 +132,33 @@
 
 <script src="../asserts/js/AdminAdminitration.js"></script>
 
+<footer class="footer" id="footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>À propos de nous</h2>
+            <p>Le Gestionnaire des Apprentis est une plateforme dédiée à la gestion des étudiants, des offres et des entreprises pour les programmes d'apprentissage.</p>
+        </div>
+
+        <div class="footer-section contact">
+            <h2>Contactez-nous</h2>
+            <p>Email : communication@uphf.fr</p>
+            <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
+        </div>
+
+        <div class="footer-section links">
+            <h2>Liens rapides</h2>
+            <ul>
+                <li><a href="ViewAdminMainTest.php">Accueil</a></li>
+                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
+                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewAdminAdministration.php">Administration</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2023 Gestionnaire des Apprentis | Tous droits réservés</p>
+    </div>
+</footer>
 </body>
 </html>
