@@ -7,6 +7,11 @@
 #entreprises-container {
     list-style: none;
     padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 #entreprises-container li {
@@ -26,4 +31,43 @@
 
 #entreprises-container li strong {
     font-weight: bold;
+}
+
+
+
+
+#btnRechercherEntreprise, #btnRetour{
+    width: fit-content;
+    margin-top: 1%;
+    margin-left: 2%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+}
+
+#btnRechercherEntreprise:hover , #btnRetour:hover{
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+#btnRetour{
+    margin-left: 6%;
 }

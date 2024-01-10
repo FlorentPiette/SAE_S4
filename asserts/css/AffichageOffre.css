@@ -57,3 +57,39 @@ form{
     margin-bottom: 2%;
     padding: 0;
 }
+
+#btnRechercherOffre, #btnRetour{
+    width: fit-content;
+    margin-top: 1%;
+    margin-left: 2%;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+}
+
+#btnRechercherOffre:hover , #btnRetour:hover{
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+#btnRetour{
+    margin-left: 6%;
+}

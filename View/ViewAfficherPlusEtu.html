@@ -3,7 +3,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
@@ -81,8 +81,10 @@
 
 </header>
 
-
-<h3 >Voici tous les étudiants</h3>
+<div class="boutons">
+    <input type="button" onclick="location.href='ViewAdminMainTest.php';" value="Retour" id="btnRetour">
+    <input type="button" onclick="location.href='ViewAdminEtu.php';" value="Rechercher des étudiants" id="btnRechercherEtu">
+</div>
 <div  id="etudiants-container" class="etudiants-container"></div>
 </body>
 <footer class="footer">
