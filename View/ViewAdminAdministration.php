@@ -84,7 +84,7 @@
 
 
 
-        <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont trié par leur
+        <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont triés par leur
             statut dans l’université.
         </p>
 
@@ -96,13 +96,13 @@
                 <button type="button" onclick="window.location.href ='ViewAjoutAdministration.php'" name="btnAjoutAdministration" class="ajoutAdministration" > Ajouter Administration </button>
 
             </form>
-            <p class="description2">Vous trouverez ici l’ensemble des comptes du personnel avec leurs rôles, leurs permissions, leurs adresse mails etc... </p>
+            <p class="description2">Vous trouverez ici l’ensemble des comptes du personnel avec leurs rôles, leurs permissions, leurs adresses mail etc... </p>
 
             <div class="button-filtre">
 
                 <button class="compteTous" id="tous">Tous (X)</button>
                 <button class="nbSecretaire" id="secretaire">Secrétaire</button>
-                <button class="nbCD" id="cd">Chargés de développement</button>
+                <button class="nbCD" id="cd">Chargé de développement</button>
                 <button class="nbRP" id="rp">Responsable pédagogique</button>
 
             </div>
