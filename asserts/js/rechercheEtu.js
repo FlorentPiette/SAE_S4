@@ -93,6 +93,8 @@ function rechercherEtudiants() {
                             btnVoirProfil.style.border = "none";
                             btnVoirProfil.style.fontWeight = "bold";
                             btnVoirProfil.style.fontSize = "16px";
+                            btnVoirProfil.style.margin = "10%";
+                            btnVoirProfil.style.marginLeft = "25%";
                             btnVoirProfil.innerHTML = 'Voir Profil';
                             btnVoirProfil.addEventListener('click', function () {
                                 // Lorsque le bouton "Voir Profil" est cliqué,
