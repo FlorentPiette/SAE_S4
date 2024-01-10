@@ -45,7 +45,7 @@ function role($user) {
             header('Location: RsMain.php');
             exit;
         case 'Administrateur':
-            header('Location: ../View/ViewAdminAdministration.php'); // Utilisation d'une URL absolue
+            header('Location: ../View/ViewAdminMainTest.php'); // Utilisation d'une URL absolue
             exit;
         // Ajoutez d'autres cas selon les rôles et les pages correspondantes
         default:

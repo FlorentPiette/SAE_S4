@@ -161,17 +161,17 @@ function redirectWithAjax(url) {
     document.addEventListener("DOMContentLoaded", function () {
     // Ajoutez un écouteur d'événements au bouton "Afficher Plus" des offres
     document.getElementById('afficherOffres').addEventListener('click', function () {
-        var urlOffres = 'ViewAfficherPlusOffre.html';
+        var urlOffres = 'ViewAfficherPlusOffre.php';
         redirectWithAjax(urlOffres);
     });
 
     document.getElementById('afficherEtudiants').addEventListener('click', function () {
-        var urlOffres = 'ViewAfficherPlusEtu.html';
+        var urlOffres = 'ViewAfficherPlusEtu.php';
         redirectWithAjax(urlOffres);
     });
 
     document.getElementById('afficherEntreprises').addEventListener('click', function () {
-        var urlOffres = 'ViewAfficherPlusEntreprise.html';
+        var urlOffres = 'ViewAfficherPlusEntreprise.php';
         redirectWithAjax(urlOffres);
         });
 

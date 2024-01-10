@@ -1,17 +1,16 @@
 <?php
-//include "../Controller/ControllerVerificationDroit.php"
+include "../Controller/ControllerVerificationDroit.php"
 ?>
 
 <!DOCTYPE html>
-<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
-    <script src="../asserts/js/TousEtu.js"></script>
+    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
+    <script src="../asserts/js/Offres.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 
 
 </head>
@@ -81,11 +80,12 @@
 
 </header>
 
+
 <div class="boutons">
     <input type="button" onclick="location.href='ViewAdminMainTest.php';" value="Retour" id="btnRetour">
-    <input type="button" onclick="location.href='ViewAdminEtu.php';" value="Rechercher des étudiants" id="btnRechercherEtu">
+    <input type="button" onclick="location.href='ViewAdminEntreprise.php';" value="Rechercher des offres" id="btnRechercherOffre">
 </div>
-<div  id="etudiants-container" class="etudiants-container"></div>
+<div  id="offres-container" style=""></div>
 </body>
 <footer class="footer">
     <div class="footer-content">

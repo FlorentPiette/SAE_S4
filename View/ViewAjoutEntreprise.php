@@ -1,5 +1,6 @@
 <?php
-//include '../Controller/ControllerVerificationDroit.php'; ?>
+include '../Controller/ControllerVerificationDroit.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
