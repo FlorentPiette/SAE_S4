@@ -106,7 +106,7 @@
 
     <div class="rectangle-mid">
         <form method="post">
-            <button name="btnAjoutEtu" onclick="window.location.href ='ViewAjoutEtudiant.php'" class="btnAjoutEtu" type="button" >Add</button>
+            <button name="btnAjoutEtu" onclick="window.location.href='ViewAjoutEtudiant.php'" class="btnAjoutEtu" type="button" >Add</button>
         </form>
 
         <form id="rechercheForm">
@@ -157,7 +157,7 @@
                     <input type="text" name="email" id="email" placeholder="Email Address">
                 </label>
                 <label for="adresse">
-                    <input type="text" name="adresse" id="adresse" placeholder="Adress">
+                    <input type="text" name="adresse" id="adresse" placeholder="Address">
                 </label>
                 <label for="ville">
                     <input type="text" name="ville" id="ville" placeholder="City">

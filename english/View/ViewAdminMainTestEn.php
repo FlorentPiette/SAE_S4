@@ -102,6 +102,19 @@
                     <input type="email" id="email" name="email" class="input" />
                 </li>
                 <li>
+                    <label for="mobile">
+                        Mobility:
+                        <select name="mobile" id="mobile">
+                            <option value="10">10km</option>
+                            <option value="50">50km</option>
+                            <option value="100">100km</option>
+                            <option value="500">500km</option>
+                            <option value="1000">1000km</option>
+                            <option value="99999">International</option>
+                        </select>
+                    </label>
+                </li>
+                <li>
                     <label for="mdp">Password:</label>
                     <input type="password" id="mdp" name="mdp" class="input"/>
                 </li>
@@ -189,7 +202,7 @@
                 Do you want the offer to be visible ?
             </label><br>
 
-            <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
+            <input type="submit" value="Save offer" id="enregistreroffre" name="EnregistrerOffre"><br>
         </form>
 
         <span class="close" onclick="closePopup2()">&times;</span>
@@ -213,11 +226,15 @@
                     <div class="formation-rectangle">
 
                         <select id="formation-select" name="formation">
-                            <option value="informatique">BUT informatique</option>
-                            <option value="marketing">Responsable pédagogique</option>
-                            <option value="finance">Chargés de développement</option>
-                            <option value="finance">Responsable du service</option>
-                            <!-- Ajoutez autant d'options que nécessaire -->
+                            <option value="GEII">GEII</option>
+                            <option value="GIM">GIM</option>
+                            <option value="GMP">GMP</option>
+                            <option value="GEA">GEA</option>
+                            <option value="TCV">TCV</option>
+                            <option value="QLIQ">QLIQ</option>
+                            <option value="TCc">TCc</option>
+                            <option value="INFO">INFO</option>
+                            <option value="Mph">Mph</option>
                         </select>
 
                     </div>
@@ -235,9 +252,10 @@
 
                         <select id="role-select" name="role">
                             <option value="admin">Administration</option>
-                            <option value="rp">Responsable pédagogique</option>
-                            <option value="cd">Chargés de développement</option>
-                            <option value="rs">Responsable du service</option>
+                            <option value="rp">Head teacher</option>
+                            <option value="cd">Development managers</option>
+                            <option value="rs">Service responsable</option>
+                            <option value="secretaire">Secretary</option>
                         </select>
 
                     </div>
@@ -368,7 +386,7 @@
         </div>
         <div class="rectangle">
 
-            <h3 class="titreAjout">Add personnel</h3>
+            <h3 class="titreAjout">Add staff</h3>
             <input class="AjRapide" type="button" value="Add" id="AjPerso">
 
         </div>
@@ -376,7 +394,7 @@
     </section>
 
     <div class="main-rectangle">
-        <div class="ajouter-recent">Add recent</div>
+        <div class="ajouter-recent">Recently added</div>
         <div class="other-rectangles">
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Student</h3>
