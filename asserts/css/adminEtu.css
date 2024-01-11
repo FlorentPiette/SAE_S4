@@ -10,7 +10,7 @@
 
 .body-container {
     flex: 1;
-    }
+}
 
 .header {
     display: flex;
@@ -224,6 +224,11 @@ ul {
     padding: 20px;
 }
 
+.menu-content h2{
+
+    text-align: center;
+
+}
 .menu-burger {
     display: none;
     position: fixed;
@@ -251,6 +256,41 @@ ul {
     color: #007bff;
 }
 
+.modifProfil {
+    display: block;
+    margin: 0 auto; /* Centre horizontalement */
+    text-align: center; /* Centre le texte à l'intérieur du bouton */
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.modifProfil:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+
+.separator-line {
+    border-top: 1px solid #a1a1a1; /* Couleur grise */
+    width: 90%; /* Prend toute la largeur */
+    margin-top: 10px; /* Ajustez la marge supérieure selon vos préférences */
+    margin-bottom: 10px; /* Ajustez la marge inférieure selon vos préférences */
+}
+
+
 .close-btn {
     position: absolute;
     top: 0;
@@ -259,6 +299,13 @@ ul {
     margin-right: 20px;
     font-size: 30px;
     cursor: pointer;
+}
+
+.test{
+
+    font-size: 20px;
+    margin-left: 50px;
+
 }
 
 .menu-content {

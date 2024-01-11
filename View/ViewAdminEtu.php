@@ -17,6 +17,8 @@ include '../Controller/ControllerVerificationDroit.php';
         <img src="../asserts/img/logo.png" class="logo">
     </div>
 
+    <script src="../asserts/js/testJS.js"></script>
+
     <div class="menu-container">
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
@@ -80,29 +82,33 @@ include '../Controller/ControllerVerificationDroit.php';
 
     <div class="menu-content">
         <h2>Informations de l'étudiant</h2>
-        <p><span id="infoNom"></span></p>
-        <p><span id="infoPrenom"></span></p>
-        <p><span id="infoIne"></span></p>
-        <p><span id="infoDate"></span></p>
-        <p><span id="infoAdresse"></span></p>
-        <p><span id="infoVille"></span></p>
-        <p><span id="infoCP"></span></p>
-        <p><span id="infoAnnee"></span></p>
-        <p><span id="infoFormation"></span></p>
-        <p><span id="infoEmail"></span></p>
-        <p><span id="infoActif"></span></p>
+        <hr class="separator-line">
 
-        <p><span id="infoTypeEntreprise"></span></p>
-        <p><span id="infoTypeMission"></span></p>
-        <p><span id="infoMobile"></span></p>
+        <p class="test"><span id="infoNom"></span></p>
+        <p class="test"><span id="infoPrenom"></span></p>
+        <p class="test"><span id="infoIne"></span></p>
+        <p class="test"><span id="infoDate"></span></p>
+        <p class="test"><span id="infoAdresse"></span></p>
+        <p class="test"><span id="infoVille"></span></p>
+        <p class="test"><span id="infoCP"></span></p>
+        <p class="test"><span id="infoAnnee"></span></p>
+        <p class="test"><span id="infoFormation"></span></p>
+        <p class="test"><span id="infoEmail"></span></p>
+        <p class="test"><span id="infoActif"></span></p>
 
+        <p class="test"><span id="infoTypeEntreprise"></span></p>
+        <p class="test"><span id="infoTypeMission"></span></p>
+        <p class="test"><span id="infoMobile"></span></p>
+
+        <hr class="separator-line">
 
         <script src="../asserts/js/rechercheEtu.js"></script>
-        <button onclick="redirectModifierProfil()">Modifier le profil</button>
+        <button onclick="redirectModifierProfil()" class="modifProfil">Modifier le profil</button>
     </div>
 </div>
 
 <div class="body-container">
+
 
     <div class="rectangle-mid">
         <form method="post">

@@ -258,34 +258,62 @@ function ouvrirMenuBurger(etudiant) {
     menuBurger.style.display = 'block';
 
     // Afficher les informations spécifiques de l'étudiant
-    document.getElementById('infoNom').innerText = 'Nom: ' + (etudiant.nom || '');
-    document.getElementById('infoPrenom').innerText = 'Prénom: ' + (etudiant.prenom || '');
-    document.getElementById('infoIne').innerText = 'INE: ' + (etudiant.ine || '');
-    document.getElementById('infoDate').innerText = 'Date de naissance: ' + (etudiant.datedenaissance || '');
-    document.getElementById('infoAdresse').innerText = 'Adresse: ' + (etudiant.adresse || '');
-    document.getElementById('infoVille').innerText = 'Ville: ' + (etudiant.ville || '');
-    document.getElementById('infoCP').innerText = 'Code Postal: ' + (etudiant.codepostal || '');
-    document.getElementById('infoAnnee').innerText = 'Année d\'étude: ' + (etudiant.anneeetude || '');
-    document.getElementById('infoFormation').innerText = 'Formation: ' + (etudiant.formation || '');
-    document.getElementById('infoEmail').innerText = 'Email: ' + (etudiant.email || '');
-    document.getElementById('infoTypeEntreprise').innerText = 'Type d\'entreprise: ' + (etudiant.typeentreprise || '');
-    document.getElementById('infoTypeMission').innerText = 'Type de Mission: ' + (etudiant.typemission || '');
+    var nomInfo = document.getElementById('infoNom');
+    nomInfo.innerHTML = '<strong style="color: #0f9bb4;">Nom:</strong> ' + (etudiant.nom || '');
+
+    var prenomInfo = document.getElementById('infoPrenom');
+    prenomInfo.innerHTML = '<strong style="color: #0f9bb4;">Prénom:</strong> ' + (etudiant.prenom || '');
+
+    var ineInfo = document.getElementById('infoIne');
+    ineInfo.innerHTML = '<strong style="color: #0f9bb4;">INE:</strong> ' + (etudiant.ine || '');
+
+    var dateInfo = document.getElementById('infoDate');
+    dateInfo.innerHTML = '<strong style="color: #0f9bb4;">Date de naissance:</strong> ' + (etudiant.datedenaissance || '');
+
+    var adresseInfo = document.getElementById('infoAdresse');
+    adresseInfo.innerHTML = '<strong style="color: #0f9bb4;">Adresse:</strong> ' + (etudiant.adresse || '');
+
+    var villeInfo = document.getElementById('infoVille');
+    villeInfo.innerHTML = '<strong style="color: #0f9bb4;">Ville:</strong> ' + (etudiant.ville || '');
+
+    var cpInfo = document.getElementById('infoCP');
+    cpInfo.innerHTML = '<strong style="color: #0f9bb4;">Code Postal:</strong> ' + (etudiant.codepostal || '');
+
+    var anneeInfo = document.getElementById('infoAnnee');
+    anneeInfo.innerHTML = '<strong style="color: #0f9bb4;">Année d\'étude:</strong> ' + (etudiant.anneeetude || '');
+
+    var formationInfo = document.getElementById('infoFormation');
+    formationInfo.innerHTML = '<strong style="color: #0f9bb4;">Formation:</strong> ' + (etudiant.formation || '');
+
+    var emailInfo = document.getElementById('infoEmail');
+    emailInfo.innerHTML = '<strong style="color: #0f9bb4;">Email:</strong> ' + (etudiant.email || '');
+
+    var typeEntrepriseInfo = document.getElementById('infoTypeEntreprise');
+    typeEntrepriseInfo.innerHTML = '<strong style="color: #0f9bb4;">Type d\'entreprise:</strong> ' + (etudiant.typeentreprise || '');
+
+    var typeMissionInfo = document.getElementById('infoTypeMission');
+    typeMissionInfo.innerHTML = '<strong style="color: #0f9bb4;">Type de Mission:</strong> ' + (etudiant.typemission || '');
+
+// Modifier le style de l'élément 'infoMobile' uniquement
+    var mobileInfo = document.getElementById('infoMobile');
     if (etudiant.mobile === 99999) {
-        document.getElementById('infoMobile').innerText = 'Mobilité: Internationale';
+        mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> Internationale';
     } else {
-        document.getElementById('infoMobile').innerText = 'Mobilité: ' + (etudiant.mobile || '') + 'km';
+        mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> ' + (etudiant.mobile || '') + 'km';
+        // Appliquer le style spécifique pour le texte en gras
     }
 
     var actifValue = etudiant.actif;
     var infoActifElement = document.getElementById('infoActif');
 
     if (actifValue === true) {
-        infoActifElement.innerText = 'Actif: Oui';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> Oui';
     } else if (actifValue === false) {
-        infoActifElement.innerText = 'Actif: Non';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> Non';
     } else {
-        infoActifElement.innerText = 'Actif: (vide)';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> (vide)';
     }
+
 
 
 }
