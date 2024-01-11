@@ -224,3 +224,6 @@ function limiterElements(elementSelector) {
 document.addEventListener('DOMContentLoaded', function () {
     adjustRectangleHeight();
 });
+
+
+

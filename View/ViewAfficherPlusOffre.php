@@ -1,5 +1,5 @@
 <?php
-//include "../Controller/ControllerVerificationDroit.php"
+include "../Controller/ControllerVerificationDroit.php"
 ?>
 
 <!DOCTYPE html>
@@ -7,11 +7,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
-    <script src="../asserts/js/TousEntreprise.js"></script>
+    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
+    <script src="../asserts/js/Offres.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
 
 
 </head>
@@ -82,8 +81,11 @@
 </header>
 
 
-<h3 >Voici toutes les entreprises </h3>
-<div  id="entreprises-container"></div>
+<div class="boutons">
+    <input type="button" onclick="location.href='ViewAdminMainTest.php';" value="Retour" id="btnRetour">
+    <input type="button" onclick="location.href='ViewAdminEntreprise.php';" value="Rechercher des offres" id="btnRechercherOffre">
+</div>
+<div  id="offres-container" style=""></div>
 </body>
 <footer class="footer">
     <div class="footer-content">

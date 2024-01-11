@@ -24,13 +24,13 @@ include '../Controller/ControllerVerificationDroit.php';
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewSecMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
@@ -229,9 +229,9 @@ include '../Controller/ControllerVerificationDroit.php';
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><a href="ViewCdMain.php">Accueil</a></li>
-                <li><a href="ViewCdEtu.php">Etudiants</a></li>
-                <li><a href="ViewCdEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewSecMain.php">Accueil</a></li>
+                <li><a href="ViewSecEtu.php">Etudiants</a></li>
+                <li><a href="ViewSecEntreprise.php">Entreprises</a></li>
             </ul>
         </div>
     </div>

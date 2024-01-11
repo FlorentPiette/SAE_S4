@@ -4,7 +4,9 @@
  * @return void
  */
 function rechercherEtudiants() {
-    var userFormation = "BUT Info";
+
+    document.getElementById("footer").style.display = "none";
+
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var ine = document.getElementById('ine').value;
@@ -16,8 +18,7 @@ function rechercherEtudiants() {
     var anneeEtude = document.getElementById('anneeEtude').value;
     var typeEntreprise = document.getElementById("typeEntreprise").value;
     var typeMission = document.getElementById("typeMission").value;
-
-    var mobile = "";
+    var mobile = document.getElementById("mobileSelect").value;
     var actif = "";
 
     if (document.getElementById("autresCheckbox").checked) {
@@ -27,15 +28,6 @@ function rechercherEtudiants() {
         typeEntreprise = document.getElementById("typeEntreprise").value;
         typeMission = document.getElementById("typeMission").value;
         mobile = document.getElementById("mobileSelect").value;
-        if (mobile === "oui"){
-            mobile = true;
-        }
-        else if (mobile === "non"){
-            mobile = false;
-        }
-        else{
-            mobile = "";
-        }
         actif = document.getElementById("actifSelect").value;
         if (actif === "oui"){
             actif = true;
@@ -50,7 +42,6 @@ function rechercherEtudiants() {
 
 
     var apiUrl = '../Controller/ControllerRechercheEtudiant.php?' +
-        "&userFormation=" + userFormation +
         '&nom=' + nom +
         '&prenom=' + prenom +
         '&ine=' + ine +
@@ -70,7 +61,13 @@ function rechercherEtudiants() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+                console.log(xhr.responseText); // Ajoutez cette ligne
                 try {
+                    var isJson = xhr.getResponseHeader('content-type')?.includes('application/json');
+                    if (!isJson) {
+                        console.error("La réponse n'est pas au format JSON.");
+                        return;
+                    }
                     var resultats = JSON.parse(xhr.responseText);
 
                     if (resultats.length > 0) {
@@ -96,6 +93,8 @@ function rechercherEtudiants() {
                             btnVoirProfil.style.border = "none";
                             btnVoirProfil.style.fontWeight = "bold";
                             btnVoirProfil.style.fontSize = "16px";
+                            btnVoirProfil.style.margin = "10%";
+                            btnVoirProfil.style.marginLeft = "25%";
                             btnVoirProfil.innerHTML = 'Voir Profil';
                             btnVoirProfil.addEventListener('click', function () {
                                 // Lorsque le bouton "Voir Profil" est cliqué,
@@ -259,40 +258,64 @@ function ouvrirMenuBurger(etudiant) {
     menuBurger.style.display = 'block';
 
     // Afficher les informations spécifiques de l'étudiant
-    document.getElementById('infoNom').innerText = 'Nom: ' + (etudiant.nom || '');
-    document.getElementById('infoPrenom').innerText = 'Prénom: ' + (etudiant.prenom || '');
-    document.getElementById('infoIne').innerText = 'INE: ' + (etudiant.ine || '');
-    document.getElementById('infoDate').innerText = 'Date de naissance: ' + (etudiant.datedenaissance || '');
-    document.getElementById('infoAdresse').innerText = 'Adresse: ' + (etudiant.adresse || '');
-    document.getElementById('infoVille').innerText = 'Ville: ' + (etudiant.ville || '');
-    document.getElementById('infoCP').innerText = 'Code Postal: ' + (etudiant.codepostal || '');
-    document.getElementById('infoAnnee').innerText = 'Année d\'étude: ' + (etudiant.anneeetude || '');
-    document.getElementById('infoFormation').innerText = 'Formation: ' + (etudiant.formation || '');
-    document.getElementById('infoEmail').innerText = 'Email: ' + (etudiant.email || '');
-    document.getElementById('infoTypeEntreprise').innerText = 'Type d\'entreprise: ' + (etudiant.typeentreprise || '');
-    document.getElementById('infoTypeMission').innerText = 'Type de Mission: ' + (etudiant.typemission || '');
+    var nomInfo = document.getElementById('infoNom');
+    nomInfo.innerHTML = '<strong style="color: #0f9bb4;">Nom:</strong> ' + (etudiant.nom || '');
+
+    var prenomInfo = document.getElementById('infoPrenom');
+    prenomInfo.innerHTML = '<strong style="color: #0f9bb4;">Prénom:</strong> ' + (etudiant.prenom || '');
+
+    var ineInfo = document.getElementById('infoIne');
+    ineInfo.innerHTML = '<strong style="color: #0f9bb4;">INE:</strong> ' + (etudiant.ine || '');
+
+    var dateInfo = document.getElementById('infoDate');
+    dateInfo.innerHTML = '<strong style="color: #0f9bb4;">Date de naissance:</strong> ' + (etudiant.datedenaissance || '');
+
+    var adresseInfo = document.getElementById('infoAdresse');
+    adresseInfo.innerHTML = '<strong style="color: #0f9bb4;">Adresse:</strong> ' + (etudiant.adresse || '');
+
+    var villeInfo = document.getElementById('infoVille');
+    villeInfo.innerHTML = '<strong style="color: #0f9bb4;">Ville:</strong> ' + (etudiant.ville || '');
+
+    var cpInfo = document.getElementById('infoCP');
+    cpInfo.innerHTML = '<strong style="color: #0f9bb4;">Code Postal:</strong> ' + (etudiant.codepostal || '');
+
+    var anneeInfo = document.getElementById('infoAnnee');
+    anneeInfo.innerHTML = '<strong style="color: #0f9bb4;">Année d\'étude:</strong> ' + (etudiant.anneeetude || '');
+
+    var formationInfo = document.getElementById('infoFormation');
+    formationInfo.innerHTML = '<strong style="color: #0f9bb4;">Formation:</strong> ' + (etudiant.formation || '');
+
+    var emailInfo = document.getElementById('infoEmail');
+    emailInfo.innerHTML = '<strong style="color: #0f9bb4;">Email:</strong> ' + (etudiant.email || '');
+
+    var typeEntrepriseInfo = document.getElementById('infoTypeEntreprise');
+    typeEntrepriseInfo.innerHTML = '<strong style="color: #0f9bb4;">Type d\'entreprise:</strong> ' + (etudiant.typeentreprise || '');
+
+    var typeMissionInfo = document.getElementById('infoTypeMission');
+    typeMissionInfo.innerHTML = '<strong style="color: #0f9bb4;">Type de Mission:</strong> ' + (etudiant.typemission || '');
+
+// Modifier le style de l'élément 'infoMobile' uniquement
+    var mobileInfo = document.getElementById('infoMobile');
+    if (etudiant.mobile === 99999) {
+        mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> Internationale';
+    } else {
+        mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> ' + (etudiant.mobile || '') + 'km';
+        // Appliquer le style spécifique pour le texte en gras
+    }
 
     var actifValue = etudiant.actif;
     var infoActifElement = document.getElementById('infoActif');
 
     if (actifValue === true) {
-        infoActifElement.innerText = 'Actif: Oui';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> Oui';
     } else if (actifValue === false) {
-        infoActifElement.innerText = 'Actif: Non';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> Non';
     } else {
-        infoActifElement.innerText = 'Actif: (vide)';
+        infoActifElement.innerHTML = '<strong style="color: #0f9bb4;">Actif:</strong> (vide)';
     }
 
-    var mobileValue = etudiant.mobile;
-    var infoMobileElement = document.getElementById('infoMobile');
 
-    if (mobileValue === true) {
-        infoMobileElement.innerText = 'Mobile: Oui';
-    } else if (mobileValue === false) {
-        infoMobileElement.innerText = 'Mobile: Non';
-    } else {
-        infoMobileElement.innerText = 'Mobile: (vide)';
-    }
+
 }
 
 
@@ -301,4 +324,3 @@ function fermerMenuBurger() {
     var menuBurger = document.getElementById('menuBurger');
     menuBurger.style.display = 'none';
 }
-

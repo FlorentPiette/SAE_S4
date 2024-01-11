@@ -69,8 +69,9 @@ function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formatio
         $sql .= " AND typemission ILIKE :typeMission";
     }
 
-    if (!empty($mobile)) {
-        $sql .= " AND mobile = :mobile";
+
+    if (!empty($mobile) and $mobile) {
+        $sql .= " AND mobile >= :mobile";
     }
 
     if (!empty($actif)) {
@@ -133,7 +134,7 @@ function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formatio
     }
 
     if (!empty($mobile)) {
-        $stmt->bindValue(':mobile', $mobile, PDO::PARAM_BOOL);
+        $stmt->bindValue(':mobile', $mobile, PDO::PARAM_INT);
     }
 
     if (!empty($actif)) {

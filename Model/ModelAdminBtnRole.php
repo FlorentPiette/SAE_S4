@@ -13,10 +13,10 @@ function getAdminDataByRoleAndReturnJSON(String $role) : false|string
         $conn = Conn::getInstance();
 
         if ($role === 'tous') { // Vérifie s'il s'agit d'une demande pour "Tous"
-            $sql = "SELECT nom, prenom, formation, role, email FROM adminitrsation";
+            $sql = "SELECT nom, prenom, formation, role, email FROM administration";
             $stmt = $conn->query($sql);
         } else { // Sinon, récupère les données des rôles en fonction du rôle spécifié
-            $sql = "SELECT nom, prenom, formation, role, email FROM adminitrsation WHERE role = ?";
+            $sql = "SELECT nom, prenom, formation, role, email FROM administration WHERE role = ?";
             $stmt = $conn->prepare($sql);
             $stmt->execute([$role]);
         }

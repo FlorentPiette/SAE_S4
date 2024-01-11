@@ -1,9 +1,11 @@
+<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 
     <title>Profil - <?= $perso['nom'] ?> <?= $perso['prenom'] ?></title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilPerso.css">
     <script src="../asserts/js/modifProfil.js"></script>
 </head>
 

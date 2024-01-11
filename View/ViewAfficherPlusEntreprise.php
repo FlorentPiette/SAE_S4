@@ -1,5 +1,5 @@
 <?php
-//include "../Controller/ControllerVerificationDroit.php"
+include "../Controller/ControllerVerificationDroit.php"
 ?>
 
 <!DOCTYPE html>
@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <title>Admin</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
-    <script src="../asserts/js/TousEtu.js"></script>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+    <script src="../asserts/js/TousEntreprise.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 
@@ -82,8 +82,11 @@
 </header>
 
 
-<h3 >Voici tous les étudiants</h3>
-<div  id="etudiants-container" class="etudiants-container"></div>
+<div class="boutons">
+    <input type="button" onclick="location.href='ViewAdminMainTest.php';" value="Retour" id="btnRetour">
+    <input type="button" onclick="location.href='ViewAdminEntreprise.php';" value="Rechercher des entreprises" id="btnRechercherEntreprise">
+</div>
+<div  id="entreprises-container"></div>
 </body>
 <footer class="footer">
     <div class="footer-content">

@@ -1,45 +1,47 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php
+
+?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
-    <script src="../asserts/js/AdminEntreprise.js"></script>
-    <script src="../asserts/js/rechercheOffre.js"></script>
-    <script src="../asserts/js/rechercherEntreprise.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/adminEntreprise.css">
+    <script src="../../asserts/js/AdminEntreprise.js"></script>
+    <script src="../../asserts/js/rechercheOffre.js"></script>
+    <script src="../../asserts/js/rechercherEntreprise.js"></script>
 </head>
 <body class="body">
 
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../../asserts/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
         <nav>
-            <form method="post" action="../Controller/ControllerBtnDeco.php">
+            <form method="post" action="../../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTestEn.php'" name="accueil" value="Accueil" class="btnCreation">Homepage</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtuEn.php'" name="etudiant" value="Etudiant" class="btnCreation">Student</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntrepriseEn.php'" name="entreprise" value="Entreprise" class="btnCreation">Company</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminAdministrationEn.php'" name="adminitrsation" class="btnCreation">Administration</button>
                     </li>
 
                     <li id="account-photo">
                         <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../../Controller/ControllerBtnDeco.php">
-                                <input class="" name="compte" type="submit" value="Mon compte">
-                                <input class="" name="deco" type="submit" value="Se déconnecter">
+                                <input class="" name="compte" type="submit" value="My account">
+                                <input class="" name="deco" type="submit" value="Disconnect">
 
                             </form>
 
@@ -81,28 +83,28 @@
 
     <div class="rectangle-mid">
         <form action="" method="post">
-            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
-            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
+            <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Add a company</button>
+            <button name="btnAjoutOffre" onclick="window.location.href ='ViewDemandeAjoutOffre.php'" class="btnAjoutOffre" type="button">Add an offer</button>
         </form>
 
         <form method="post" action="">
-            <input type="button" value="Afficher les Offres" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
-            <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
+            <input type="button" value="Show offers" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
+            <input type="button" value="Show companies" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
         </form>
 
         <ul id="donneesOffre" class="affichOffre">
         <form id="rechercheOffre">
             <label for="nomCheckbox">
-                <input type="checkbox" id="nomCheckbox"> Nom
+                <input type="checkbox" id="nomCheckbox"> Name
             </label>
             <label for="domaineCheckbox">
-                <input type="checkbox" id="domaineCheckbox"> Domaine
+                <input type="checkbox" id="domaineCheckbox"> Domain
             </label>
             <label for="missionCheckbox">
                 <input type="checkbox" id="missionCheckbox"> Missions
             </label>
             <label for="nbEtudiantCheckbox">
-                <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                <input type="checkbox" id="nbEtudiantCheckbox"> Number of students searched
             </label>
             <label for="parcoursCheckbox">
                 <input type="checkbox" id="parcoursCheckbox"> Parcours
@@ -126,71 +128,71 @@
             </div>
 
             <input type="hidden" name="selectedOffer" id="selectedOffer" value="">
-            <input type="button" value="Rechercher une offre" onclick="rechercherOffres()" class="rechercheOffre">
+            <input type="button" value="Search offer" onclick="rechercherOffres()" class="rechercheOffre">
         </form>
 
         <ul id="resultatsOffre" class="result">
         </ul>
 
-        <script src="../asserts/js/rechercheOffre.js"></script>
+        <script src="../../asserts/js/rechercheOffre.js"></script>
         </ul>
 
         <ul id="donneesEntreprise" class="affichEntreprise">
             <form id="rechercheEntreprise">
                 <label for="nomEntrepriseCheckbox">
-                    <input type="checkbox" id="nomEntrepriseCheckbox"> Nom
+                    <input type="checkbox" id="nomEntrepriseCheckbox"> Name
                 </label>
                 <label for="villeCheckbox">
-                    <input type="checkbox" id="villeCheckbox"> Ville
+                    <input type="checkbox" id="villeCheckbox"> City
                 </label>
                 <label for="codepostalCheckbox">
-                    <input type="checkbox" id="codepostalCheckbox"> Code Postal
+                    <input type="checkbox" id="codepostalCheckbox"> Postal Code
                 </label>
                 <label for="adresseCheckbox">
-                    <input type="checkbox" id="adresseCheckbox"> Adresse
+                    <input type="checkbox" id="adresseCheckbox"> Address
                 </label>
                 <label for="secteurActiviteCheckbox">
-                    <input type="checkbox" id="secteurActiviteCheckbox"> Secteur d'activité
+                    <input type="checkbox" id="secteurActiviteCheckbox"> Activity sector
                 </label>
                 <label for="emailCheckbox">
-                    <input type="checkbox" id="emailCheckbox"> Adresse email
+                    <input type="checkbox" id="emailCheckbox"> Email address
                 </label>
                 <label for="numtelCheckbox">
-                    <input type="checkbox" id="numtelCheckbox"> Numéro de téléphone
+                    <input type="checkbox" id="numtelCheckbox"> Phone number
                 </label>
 
 
                 <br>
 
                 <div id="nomEntrepriseDiv" style="display: none">
-                    <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Nom">
+                    <input type="text" name="nomEntreprise" id="nomEntreprise" placeholder="Name">
                 </div>
                 <div id="villeDiv" style="display: none">
-                    <input type="text" name="ville" id="ville" placeholder="Ville">
+                    <input type="text" name="ville" id="ville" placeholder="City">
                 </div>
                 <div id="codepostalDiv" style="display: none">
-                    <input type="text" name="codepostal" id="codepostal" placeholder="Code Postal">
+                    <input type="text" name="codepostal" id="codepostal" placeholder="Postal Code">
                 </div>
                 <div id="adresseDiv" style="display: none">
-                    <input type="text" name="adresse" id="adresse" placeholder="Adresse">
+                    <input type="text" name="adresse" id="adresse" placeholder="Address">
                 </div>
                 <div id="secteurActiviteDiv" style="display: none">
-                    <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Secteur d'activité">
+                    <input type="text" name="secteurActivite" id="secteurActivite" placeholder="Activity sector">
                 </div>
                 <div id="emailDiv" style="display: none">
-                    <input type="email" name="email" id="email" placeholder="Adresse email">
+                    <input type="email" name="email" id="email" placeholder="Email address">
                 </div>
                 <div id="numtelDiv" style="display: none">
-                    <input type="text" name="numtel" id="numtel" placeholder="Numéro de téléphone">
+                    <input type="text" name="numtel" id="numtel" placeholder="Phone number">
                 </div>
 
-                <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()" class="rechercheEntreprise">
+                <input type="button" value="Search a company" onclick="rechercherEntreprises()" class="rechercheEntreprise">
             </form>
 
             <ul id="resultatsEntreprise" class="result">
             </ul>
 
-            <script src="../asserts/js/rechercherEntreprise.js"></script>
+            <script src="../../asserts/js/rechercherEntreprise.js"></script>
         </ul>
 
     </div>
@@ -213,29 +215,29 @@
 <footer class="footer" id="footer">
     <div class="footer-content">
         <div class="footer-section about">
-            <h2>À propos de nous</h2>
-            <p>Le Gestionnaire des Apprentis est une plateforme dédiée à la gestion des étudiants, des offres et des entreprises pour les programmes d'apprentissage.</p>
+            <h2>About us</h2>
+            <p>The Apprentice Manager is a platform dedicated to the management of students, offers, and companies for apprentice programs.</p>
         </div>
 
         <div class="footer-section contact">
-            <h2>Contactez-nous</h2>
+            <h2>Contact us</h2>
             <p>Email : communication@uphf.fr</p>
             <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
         </div>
 
         <div class="footer-section links">
-            <h2>Liens rapides</h2>
+            <h2>Quick links</h2>
             <ul>
-                <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
-                <li><a href="ViewAdminAdministration.php">Administration</a></li>
+                <li><a href="../../View/ViewAdminMainTest.php">Homepage</a></li>
+                <li><a href="../../View/ViewAdminEtu.php">Students</a></li>
+                <li><a href="../../View/ViewAdminEntreprise.php">Companies</a></li>
+                <li><a href="../../View/ViewAdminAdministration.php">Administration</a></li>
             </ul>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>&copy; 2023 Gestionnaire des Apprentis | Tous droits réservés</p>
+        <p>&copy; 2023 Apprentice Manager | All rights reserved</p>
     </div>
 </footer>
 </body>

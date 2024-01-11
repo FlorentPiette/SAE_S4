@@ -1,4 +1,3 @@
-// Fonction pour charger les données en fonction du rôle
 function chargerDonnees(role) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../Controller/ControllerAdminBtnRole.php', true);
@@ -6,49 +5,40 @@ function chargerDonnees(role) {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                var rolesData = JSON.parse(xhr.responseText); // Récupérez les données JSON
+                try {
+                    var rolesData = JSON.parse(xhr.responseText);
 
-                // Sélectionnez le corps du tableau dans la vue
-                var tableBody = document.querySelector('#dataTable tbody');
-                tableBody.innerHTML = ''; // Réinitialisez le contenu du tableau
+                    var tableBody = document.querySelector('#dataTable tbody');
+                    tableBody.innerHTML = '';
 
-                rolesData.forEach(function (role) {
-                    var row = tableBody.insertRow();
-                    var nomCell = row.insertCell(0);
-                    var prenomCell = row.insertCell(1);
-                    var formationCell = row.insertCell(2);
-                    var roleCell = row.insertCell(3);
-                    var emailCell = row.insertCell(4);
-                    var accessCell = row.insertCell(5);
+                    rolesData.forEach(function (role) {
+                        var row = tableBody.insertRow();
+                        var nomCell = row.insertCell(0);
+                        var prenomCell = row.insertCell(1);
+                        var formationCell = row.insertCell(2);
+                        var roleCell = row.insertCell(3);
+                        var emailCell = row.insertCell(4);
 
-                    nomCell.textContent = role.nom;
-                    prenomCell.textContent = role.prenom;
-                    formationCell.textContent = role.formation;
-                    roleCell.textContent = role.role;
-                    emailCell.textContent = role.email;
-
-                    // Ajoutez un bouton "Accéder au compte" avec un lien vers la page du compte de l'utilisateur
-                    var accessButton = document.createElement('button');
-                    accessButton.textContent = 'Accéder au compte';
-                    accessButton.addEventListener('click', function () {
-                        // Vous pouvez ajouter ici le code pour rediriger l'utilisateur vers le compte
-                        // Cela dépendra de la structure de vos URL
+                        nomCell.textContent = role.nom;
+                        prenomCell.textContent = role.prenom;
+                        formationCell.textContent = role.formation;
+                        roleCell.textContent = role.role;
+                        emailCell.textContent = role.email;
                     });
-                    accessCell.appendChild(accessButton);
-                });
+                } catch (error) {
+                    console.error("Erreur lors de la conversion JSON :", error);
+                    console.log("Réponse du serveur :", xhr.responseText);
+                }
             } else {
                 console.error("Erreur de la requête : " + xhr.status);
             }
         }
     };
 
-    // Préparez les données pour la requête POST
     var data = "role=" + role;
-
     xhr.send(data);
 }
 
-// Écoutez les clics sur les boutons
 document.getElementById('tous').addEventListener('click', function (e) {
     e.preventDefault();
     chargerDonnees('tous');
@@ -67,4 +57,19 @@ document.getElementById('cd').addEventListener('click', function (e) {
 document.getElementById('rp').addEventListener('click', function (e) {
     e.preventDefault();
     chargerDonnees('rp');
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    var accountPhoto = document.getElementById("account-photo");
+    var accountDropdown = document.getElementById("account-dropdown");
+
+    // Afficher le menu lors du survol de l'image utilisateur
+    accountPhoto.addEventListener("mouseover", function () {
+        accountDropdown.style.display = "block";
+    });
+
+    // Masquer le menu lorsque le curseur quitte la zone de l'image utilisateur
+    accountPhoto.addEventListener("mouseout", function () {
+        accountDropdown.style.display = "none";
+    });
 });

@@ -22,15 +22,10 @@ if(isset($_POST["ajoutEtudiant"])) {
     $anneeEtude = $_POST['anneeEtude'];
     $formation = $_POST['formation'];
     $email = $_POST['email'];
-    $mdp = $_POST['mdp'];
     $entreprise = $_POST['entreprise'];
     $mission = $_POST['mission'];
-    if (isset($_POST['mobile'])) {
-        $mobile = true;
-    }
-    else {
-        $mobile = false;
-    }
+    $mobile = $_POST['mobile'];
+
 
     $confirmation = code();
     setcookie("Mail_Etudiant", $email, time() + 3600, "/");
@@ -38,7 +33,7 @@ if(isset($_POST["ajoutEtudiant"])) {
     $reqmail = selectEtuWhereEmail($db, $email);
 
     if ($reqmail == null) {
-        ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $mdp, $ine, $entreprise, $mission, $mobile, $confirmation);
+        ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $ine, $entreprise, $mission, $mobile, $confirmation);
         $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
         {
@@ -50,5 +45,5 @@ if(isset($_POST["ajoutEtudiant"])) {
         $erreur = "Adresse mail déjà utilisée !";
     }
 
-
+    header('Location: ../View/ViewAdminEtu.php');
 }

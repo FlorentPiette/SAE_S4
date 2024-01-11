@@ -1,261 +1,268 @@
 /* Styles CSS pour le menu vertical sans sous-menus */
-
-.body{
-
+.body {
     font-family: Arial;
     overflow: scroll;
-    background-color: #EBF4FB;
+    background-color: #ffffff;
+    margin: 0;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+}
 
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+}
+
+.logo-container {
+    order: 1;
 }
 
 .menu-container {
-    display: flex;
+    order: 2;
     position: relative;
 }
 
-.menu-header {
-    width: 250px; /* Largeur du menu vertical */
-    color: black;
-    position: fixed; /* Menu fixé à gauche */
-    height: 100%; /* Hauteur à 100% de la fenêtre */
-    top: 150px; /* Ajustez cette valeur pour abaisser le menu */
+.menu-container nav {
+    display: flex;
 }
 
 .vertical-menu {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 .vertical-menu li {
-    padding: 30px;
-    text-align: center;
+    margin-right: 20px;
 }
 
-.btnCreation{
+#account-photo {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
 
+#account-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: rgba(0, 140, 173, 0.75);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 999;
+}
+
+#account-dropdown button {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 140, 173, 0.75);
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+#account-dropdown button:hover {
+    background-color: rgb(128, 128, 128);
+}
+
+#account-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.btnCreation {
     text-decoration: none;
     color: inherit;
     background-color: transparent;
     border: none;
     font-size: 16px;
-
-}
-
-/* Styles pour le contenu principal à droite (titre et logo) */
-.header-content {
-    flex: 1;
-    padding: 20px; /* Espacement entre le menu et le contenu principal */
-    margin-left: 250px; /* Marge à gauche pour ne pas être caché par le menu */
-    box-sizing: border-box; /* Inclusion de la marge dans la largeur */
-}
-
-.title {
-    text-align: center;
 }
 
 .logo {
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    width: 170px;
-    height: 90px;
-    bottom: 20px;
-    left: 80px;
+    max-width: 100%;
+    height: auto;
+    max-height: 70px;
 }
 
-.rectangle-haut{
+.notification {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
 
-    width: 900px;
-    height: 80px;
+.utilisateur {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.titlePrinci {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+}
+
+.body-container {
+    position: relative;
+    text-align: center;
+}
+
+.rectangle-haut,
+.rectangle-mid,
+.rectangle-bas {
+    width: 80%;
+    max-width: 900px;
+    margin: 20px auto;
     background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 30%;
-    left: 55%;
-    z-index: 0;
+    border-radius: 15px;
 }
 
-.nbrEtu{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 20%;
-
-}
-
-.nbrEnt{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 40%;
-
-}
-
-.nbrOff{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 60%;
-
-}
-
-.nbrPers{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 80%;
-
-}
-
-.rectangle-mid{
-
-    height: 300px;
-    width: 900px;
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 70%;
-    left: 55%;
-
-}
-
-.rectangle-gauche{
-
+.rectangle-haut {
     height: 80px;
-    width: 250px;
-    background-color: #EBF4FB;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
+}
+
+.rectangle-mid {
+    margin-top: 50px;
+    position: relative;
+    top: -40px; /* Ajustez la valeur selon vos besoins */
+    z-index: 1;
+}
+
+.rectangle-bas {
+    margin-top: 10px;
+}
+
+.all-text2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.rectangleNbr {
+    width: 150px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #0f9bb4;
+    position: relative;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+
+
+.nbrEtu,
+.nbrEnt,
+.nbrOff,
+.nbrPers {
+    transform: translate(-50%, -50%);
+    font-size: small;
     position: absolute;
-    left: 25px;
-
+    z-index: 2;
+    text-align: center;
+    width: 100%;
 }
 
-.titre{
+.nbrEtu { left: 10%; }
+.nbrEnt { left: 30%; }
+.nbrOff { left: 50%; }
+.nbrPers { left: 70%; }
 
-    padding-left: 50px;
-
-}
-
-.description{
-
-    padding-left: 50px;
-
-}
-
-.nbrCompte{
-
-    font-size: 12px;
-    transform: translate(-50%,-50%);
+.rectangleNbr h3 {
+    transform: translate(-50%, -50%);
+    font-size: small;
     position: absolute;
+    top: 5%; /* Ajustez la valeur selon vos besoins */
     left: 50%;
+    color: white;
 }
 
-.role{
 
-    font-size: 12px;
-    position: absolute;
-    top: 30%;
-    left: 20%;
-
-}
-
-.rectangle-milieu{
-
-    height: 80px;
-    width: 250px;
-    background-color: #EBF4FB;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    left: 325px;
-
-}
-
-.rectangle-droit{
-
-    height: 80px;
-    width: 250px;
-    background-color: #EBF4FB;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    left: 625px;
-
-}
-
-.roleSpe{
-
-    font-size: 12px;
-    position: absolute;
-    top: 30%;
-    left: 38%;
-
-}
-
-.rectangle-bas{
-
-    height: 300px;
-    width: 900px;
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    top: 125%;
-    left: 55%;
-    margin-top: 30px;
-
-}
-
-.titre2{
-
+.titre {
     padding-left: 50px;
-
+    color: black; /* Couleur principale */
+    font-weight: bold;
 }
 
-.description2{
-
+.description {
     padding-left: 50px;
+    color: black; /* Texte en noir */
+}
 
+.button-filtre button {
+    text-decoration: none;
+    background-color: #0f9bb4;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    display: inline; /* Aligne les éléments en ligne */
+    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
+}
+
+.button-filtre button:hover {
+    text-decoration: none;
+    background-color: #0f9bb4;
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    color: black;
+    font-weight: bold;
+    display: inline; /* Aligne les éléments en ligne */
+    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
+    box-shadow: 0 0 10px #333333;
+}
+
+.ajoutAdministration {
+    text-decoration: none;
+    background-color: #0f9bb4;
+    border: none;
+    border-radius: 30px;
+    padding: 10px; /* Ajustez la valeur selon vos besoins */
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Aligner le texte à gauche */
+    justify-content: center;
+    margin-left: 15px !important; /* Ajout de !important */
+    align-self: flex-start; /* Aligner le bouton à gauche */
+}
+
+.ajoutAdministration:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px; /* Ajustez la valeur selon vos besoins */
+    font-weight: bold;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #333333;
 }
 
 
-.button-filtre{
 
-
-
-}
-
-/* Styles pour le tableau de données */
+/* Styles pour le tableau */
 #dataTable {
-    width: 100% ;
-    border-collapse: collapse ;
-    margin-top: 50px ;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-
-#dataTable th, #dataTable td {
+#dataTable th,
+#dataTable td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -265,88 +272,59 @@
     background-color: #f2f2f2;
 }
 
-/* Ajout d'un espace entre le tableau et les autres éléments */
-#chargeDeDevData {
-    margin-top: 80px;
+
+
+/* Style général du pied de page */
+.footer {
+    background-color: rgba(0, 110, 135, 0.9);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: static;
+    bottom: 0;
 }
 
-/* Styles pour les boutons de filtrage */
-
-
-.ajoutAdministration {
-    text-decoration: none;
-    background-color: #EBF4FB;
-    border: none;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    position: relative;
-    transform: translate(-50%, -50%);
-    left: 14%;
-    top: 10px;
+/* Style du contenu du pied de page */
+.footer-content {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.ajoutAdministration:hover {
+/* Style des sections du pied de page */
+.footer-section {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Souligner les grands titres */
+.footer-section h2 {
+    text-decoration: underline;
+}
+
+/* Style des liens dans la section Liens */
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
+    margin-bottom: 10px;
+}
+
+.links a {
+    color: #fff;
     text-decoration: none;
-    background-color: #EBF4FB;
-    border: none;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    position: relative;
-    transform: translate(-50%, -50%);
-    left: 14%;
-    top: 10px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 10px 10px 5px #E2E2E2;
 }
 
-.compteTous,
-.nbSecretaire,
-.nbCD,
-.nbRP {
-    text-decoration: none;
-    background-color: #EBF4FB;
-    border: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    display: inline; /* Aligne les éléments en ligne */
-    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
+/* Style du bas du pied de page */
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #004080; /* Bleu légèrement plus clair pour la bordure supérieure */
 }
 
-.compteTous:hover,
-.nbSecretaire:hover,
-.nbCD:hover,
-.nbRP:hover {
-    text-decoration: none;
-    background-color: #EBF4FB;
-    border: none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding: 10px;
-    color: black;
-    font-weight: bold;
-    display: inline; /* Aligne les éléments en ligne */
-    margin-left: 70px; /* Décale tous les boutons de 10 pixels du bord gauche */
-    box-shadow: 10px 10px 5px #E2E2E2;
+/* Style du texte du bas du pied de page */
+.footer-bottom p {
+    margin: 0;
 }
-
-

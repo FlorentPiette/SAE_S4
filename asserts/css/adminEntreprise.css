@@ -2,30 +2,49 @@
 .body {
     font-family: Arial;
     overflow: scroll;
-    background-color: #EBF4FB;
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+    border-bottom: solid white 2px;
+}
+
+.body-container {
+    flex-grow: 1;
+    position: relative;
+    margin-bottom: 20%;
+}
+
+.logo-container {
+    order: 1;
 }
 
 .menu-container {
-    display: flex;
+    order: 2;
     position: relative;
 }
 
-.menu-header {
-    width: 250px;
-    color: black;
-    position: fixed;
-    height: 100%;
-    top: 150px;
+.menu-container nav {
+    display: flex;
 }
 
 .vertical-menu {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 .vertical-menu li {
-    padding: 30px;
-    text-align: center;
+    margin-right: 20px;
 }
 
 .btnCreation {
@@ -36,141 +55,339 @@
     font-size: 16px;
 }
 
-/* Styles pour le contenu principal à droite (titre et logo) */
-.header-content {
-    flex: 1;
-    padding: 20px;
-    margin-left: 250px;
-    box-sizing: border-box;
-}
-
-.title {
-    text-align: center;
-}
-
 .logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 70px;
+}
+
+.notification {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+.utilisateur {
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    margin-left: 15px;
+}
+
+.footer {
+    height: 250px;
+    background-color: rgba(0, 110, 135, 0.9);
+}
+
+@media only screen and (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .rectangle-gauche,
+    .rectangle-milieu,
+    .rectangle-droit {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+#account-photo {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+}
+
+#account-dropdown {
+    display: none;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    background-color: rgba(0, 140, 173, 0.75);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    padding: 15px;
+    z-index: 999;
+}
+
+#account-dropdown input {
     display: block;
-    margin: 0 auto;
-    position: absolute;
-    width: 170px;
-    height: 90px;
-    bottom: 20px;
-    left: 80px;
-}
-
-/* Rectangle du haut */
-.rectangle-haut {
-    width: 900px;
-    height: 80px;
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 30%;
-    left: 55%;
-    z-index: 0;
     padding: 10px;
-    text-align: center;
+    text-decoration: none;
+    color: white; /* Blanc */
+    background-color: rgba(0, 140, 173, 0.75); /* Couleur avec transparence à 75% */
+    border: none;
+    border-radius: 30px;
+    margin: 10px;
+
 }
 
-.nbrEtu {
-    transform: translate(-50%, -50%);
-    font-size: small;
-    position: absolute;
-    left: 20%;
+
+#account-dropdown input:hover {
+    background-color: rgb(128, 128, 128); /* Bleu foncé au survol */
 }
 
-.nbrEnt {
-    transform: translate(-50%, -50%);
-    font-size: small;
-    position: absolute;
-    left: 40%;
+#account-dropdown button:hover {
+    background-color: rgb(128, 128, 128);
 }
 
-.nbrOff {
-    transform: translate(-50%, -50%);
-    font-size: small;
-    position: absolute;
-    left: 60%;
+#account-dropdown img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
 
-.nbrPers {
-    transform: translate(-50%, -50%);
-    font-size: small;
-    position: absolute;
-    left: 80%;
-}
 
-/* Rectangle du milieu (pour les offres et entreprises) */
+
 .rectangle-mid {
     width: 880px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 15px;
     position: absolute;
-    top: calc(40% + 30px);
+    top: calc(20% + 30px);
     left: 835px;
     margin-left: -450px;
+    margin-bottom: 10%;
     padding: 20px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
 
+.btnAjoutEntreprise {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+}
+
+.btnAjoutEntreprise:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+.btnAjoutOffre {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 5px;
+}
+
+.btnAjoutOffre:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+.btnAfficherOffre {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 5px;
+}
+
+.btnAfficherOffre:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+.btnAfficherEntreprise {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 5px;
+}
+
+.btnAfficherEntreprise:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
+
+.rechercheOffre, .rechercheEntreprise {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 5px;
+    display: flex;
+}
+
+.rechercheOffre:hover, .rechercheEntreprise:hover {
+    text-decoration: none;
+    color: black;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    box-shadow: 0 0 10px #333333;
+}
 
 .offre, .entreprise {
-    background-color: #EBF4FB;
+    background-color: rgba(0, 163, 227, 0.19);
     padding: 20px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 5px rgba(0, 150, 186, 0.51);
     list-style-type: none;
-}
-
-
-.popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    font-size: 18px;
-}
-
-.pagination {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.pagination button {
-    padding: 5px 10px;
-    margin: 5px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-.pagination button:hover {
-    background-color: #0056b3;
-}
-
-#donneesEntreprise {
-    display: none;
 }
 
 ul {
     padding: 0;
     margin: 0;
+    margin-bottom: 2%;
+    margin-top: 2%;
 }
 
-#rechercheEntreprise, #rechercheOffre {
-    margin-top: 10px;
+.affichEntreprise {
+    display: none;
+}
+
+.ajoutEtu {
+    text-decoration: none;
+    color: white;
+    border: none;
+    background-color: #0f9bb4;
+    padding: 10px;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    transition: box-shadow 0.3s ease;
+    margin-top: 5px;
+}
+
+
+/* Style général du pied de page */
+.footer {
+    background-color: rgba(0, 110, 135, 0.9);
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    position: static;
+    bottom: 0;
+}
+
+/* Style du contenu du pied de page */
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+/* Style des sections du pied de page */
+.footer-section {
+    flex: 1;
+    margin: 10px;
+}
+
+/* Souligner les grands titres */
+.footer-section h2 {
+    text-decoration: underline;
+}
+
+/* Style des liens dans la section Liens */
+.links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.links li {
     margin-bottom: 10px;
+}
+
+.links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Style du bas du pied de page */
+.footer-bottom {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #004080; /* Bleu légèrement plus clair pour la bordure supérieure */
+}
+
+/* Style du texte du bas du pied de page */
+.footer-bottom p {
+    margin: 0;
 }

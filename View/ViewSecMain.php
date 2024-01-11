@@ -282,16 +282,13 @@ include "../Controller/ControllerVerificationDroit.php"
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewSecMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
-                    </li>
-                    <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
@@ -430,10 +427,9 @@ include "../Controller/ControllerVerificationDroit.php"
             <div class="footer-section links">
                 <h2>Liens rapides</h2>
                 <ul>
-                    <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                    <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                    <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
-                    <li><a href="ViewAdminAdministration.php">Administration</a></li>
+                    <li><a href="ViewSecMain.php">Accueil</a></li>
+                    <li><a href="ViewSecEtu.php">Etudiants</a></li>
+                    <li><a href="ViewSecEntreprise.php">Entreprises</a></li>
                 </ul>
             </div>
         </div>

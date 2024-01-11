@@ -20,11 +20,15 @@
             <div class="formation-rectangle">
 
                 <label for="formation-select"></label><select id="formation-select" name="formation">
-                    <option value="informatique">BUT informatique</option>
-                    <option value="marketing">Responsable pédagogique</option>
-                    <option value="finance">Chargés de développement</option>
-                    <option value="finance">Responsable du service</option>
-                    <!-- Ajoutez autant d'options que nécessaire -->
+                    <option value="GEII">GEII</option>
+                    <option value="GIM">GIM</option>
+                    <option value="GMP">GMP</option>
+                    <option value="GEA">GEA</option>
+                    <option value="TCV">TCV</option>
+                    <option value="QLIQ">QLIQ</option>
+                    <option value="TCc">TCc</option>
+                    <option value="INFO">INFO</option>
+                    <option value="Mph">Mph</option>
                 </select>
 
             </div>
@@ -45,7 +49,7 @@
                     <option value="rp">Responsable pédagogique</option>
                     <option value="cd">Chargés de développement</option>
                     <option value="rs">Responsable du service</option>
-                    <!-- Ajoutez autant d'options que nécessaire -->
+                    <option value="secretaire">Secrétaire</option>
                 </select>
 
             </div>

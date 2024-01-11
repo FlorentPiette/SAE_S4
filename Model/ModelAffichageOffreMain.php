@@ -1,21 +1,40 @@
 <?php
-            include '../Model/ConnexionBDD.php';
-            $db = Conn::getInstance();
+include '../Model/ConnexionBDD.php';
+$db = Conn::getInstance();
 
+$sql2 = "SELECT * FROM Offre";
+if (isset($_SESSION['formation'])) {
+    $userFormation = $_SESSION['formation'];
+    $sql2 .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END, idoffre DESC";
+} else {
+    $sql2 .= " ORDER BY idoffre DESC";
+}
+$sql2 .= " LIMIT 2";
 
-            $sql2 = "SELECT * FROM Offre ORDER BY idoffre DESC LIMIT 2";
-            $req = $db->prepare($sql2);
-            $req->execute();
-            $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
+$req = $db->prepare($sql2);
+if (!empty($userFormation)) {
+    $req->bindValue(':userFormation', "%$userFormation%", PDO::PARAM_STR);
+}
+$req->execute();
+$resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
 
-            $count = 0;
-            foreach ($resultat2 as $res2):
-                $nomOffre = $res2['nom'];
-                $selectIDoffre = $db->prepare('SELECT idOffre FROM Offre WHERE nom = :nom');
-                $selectIDoffre->bindParam(':nom', $nomOffre);
-                $selectIDoffre->execute();
-                $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
-                $idOffre = $resultatID['idoffre'];
+$count = 0;
+foreach ($resultat2 as $res2):
+    $nomOffre = $res2['nom'];
+
+    $SQL = 'SELECT idOffre FROM Offre WHERE nom = :nom';
+    if (isset($_SESSION['formation'])) {
+        $SQL .= ' ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END';
+    }
+
+    $selectIDoffre = $db->prepare($SQL);
+    $selectIDoffre->bindParam(':nom', $nomOffre);
+    if (!empty($userFormation)) {
+        $selectIDoffre->bindValue(':userFormation', "%$userFormation%", PDO::PARAM_STR);
+    }
+    $selectIDoffre->execute();
+    $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
+    $idOffre = $resultatID['idoffre'];
 
                 $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule join etudiant e on e.idetudiant = postule.idetudiant WHERE idoffre = :idoffre');
                 $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);

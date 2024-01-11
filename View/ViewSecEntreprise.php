@@ -22,16 +22,13 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewSecMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
-                    </li>
-                    <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                        <button type="button" onclick="window.location.href ='ViewSecEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
 
                     <li id="account-photo">
@@ -91,48 +88,48 @@
         </form>
 
         <ul id="donneesOffre" class="affichOffre">
-        <form id="rechercheOffre">
-            <label for="nomCheckbox">
-                <input type="checkbox" id="nomCheckbox"> Nom
-            </label>
-            <label for="domaineCheckbox">
-                <input type="checkbox" id="domaineCheckbox"> Domaine
-            </label>
-            <label for="missionCheckbox">
-                <input type="checkbox" id="missionCheckbox"> Missions
-            </label>
-            <label for="nbEtudiantCheckbox">
-                <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
-            </label>
-            <label for="parcoursCheckbox">
-                <input type="checkbox" id="parcoursCheckbox"> Parcours
-            </label>
+            <form id="rechercheOffre">
+                <label for="nomCheckbox">
+                    <input type="checkbox" id="nomCheckbox"> Nom
+                </label>
+                <label for="domaineCheckbox">
+                    <input type="checkbox" id="domaineCheckbox"> Domaine
+                </label>
+                <label for="missionCheckbox">
+                    <input type="checkbox" id="missionCheckbox"> Missions
+                </label>
+                <label for="nbEtudiantCheckbox">
+                    <input type="checkbox" id="nbEtudiantCheckbox"> Nombre d'étudiants recherché
+                </label>
+                <label for="parcoursCheckbox">
+                    <input type="checkbox" id="parcoursCheckbox"> Parcours
+                </label>
 
-            <br>
-            <div id="nomDiv" style="display: none">
-                <input type="text" name="nom" id="nom" placeholder="Nom">
-            </div>
-            <div id="domaineDiv" style="display: none">
-                <input type="text" name="domaine" id="domaine" placeholder="Domaine">
-            </div>
-            <div id="missionDiv" style="display: none">
-                <input type="text" name="mission" id="mission" placeholder="Missions">
-            </div>
-            <div id="nbEtudiantDiv" style="display: none">
-                <input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
-            </div>
-            <div id="parcoursDiv" style="display: none">
-                <input type="text" name="parcours" id="parcours" placeholder="Parcours">
-            </div>
+                <br>
+                <div id="nomDiv" style="display: none">
+                    <input type="text" name="nom" id="nom" placeholder="Nom">
+                </div>
+                <div id="domaineDiv" style="display: none">
+                    <input type="text" name="domaine" id="domaine" placeholder="Domaine">
+                </div>
+                <div id="missionDiv" style="display: none">
+                    <input type="text" name="mission" id="mission" placeholder="Missions">
+                </div>
+                <div id="nbEtudiantDiv" style="display: none">
+                    <input type="number" name="nbEtudiant" id="nbEtudiant" placeholder="Nombre d'étudiants">
+                </div>
+                <div id="parcoursDiv" style="display: none">
+                    <input type="text" name="parcours" id="parcours" placeholder="Parcours">
+                </div>
 
-            <input type="hidden" name="selectedOffer" id="selectedOffer" value="">
-            <input type="button" value="Rechercher une offre" onclick="rechercherOffres()" class="rechercheOffre">
-        </form>
+                <input type="hidden" name="selectedOffer" id="selectedOffer" value="">
+                <input type="button" value="Rechercher une offre" onclick="rechercherOffres()" class="rechercheOffre">
+            </form>
 
-        <ul id="resultatsOffre" class="result">
-        </ul>
+            <ul id="resultatsOffre" class="result">
+            </ul>
 
-        <script src="../asserts/js/rechercheOffre.js"></script>
+            <script src="../asserts/js/rechercheOffre.js"></script>
         </ul>
 
         <ul id="donneesEntreprise" class="affichEntreprise">
@@ -226,10 +223,9 @@
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
-                <li><a href="ViewAdminAdministration.php">Administration</a></li>
+                <li><a href="ViewSecMain.php">Accueil</a></li>
+                <li><a href="ViewSecEtu.php">Etudiants</a></li>
+                <li><a href="ViewSecEntreprise.php">Entreprises</a></li>
             </ul>
         </div>
     </div>

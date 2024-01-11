@@ -27,7 +27,7 @@ foreach ($resultat2 as $res2):
     $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
 */
 
-function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
+function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
 {
     $sql = "SELECT * FROM Offre WHERE 1=1";
 
@@ -45,6 +45,10 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
 
     if (!empty($nbetudiant)) {
         $sql .= " AND nbetudiant = :nbetudiant";
+    }
+
+    if (!empty($parcours)) {
+        $sql .= " AND parcours ILIKE :parcours";
     }
 
     $req = $conn->prepare($sql);
@@ -65,9 +69,21 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
         $req->bindValue(':nbetudiant', $nbetudiant, PDO::PARAM_INT);
     }
 
+    if (!empty($parcours)) {
+        $req->bindValue(':parcours', "%$parcours%", PDO::PARAM_STR);
+    }
+
     if ($req->execute()) {
         // Récupérer les résultats
         $resultats = $req->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($resultats as &$offre) {
+            $sqlEtudiants = "SELECT nom, prenom FROM postule join Etudiant using(idetudiant) WHERE idoffre = :idOffre";
+            $reqEtudiants = $conn->prepare($sqlEtudiants);
+            $reqEtudiants->bindParam(':idOffre', $offre['idoffre'], PDO::PARAM_INT);
+            $reqEtudiants->execute();
+            $etudiants = $reqEtudiants->fetchAll(PDO::FETCH_ASSOC);
+            $offre['offreEtudiants'] = $etudiants;
+        }
 
         // Renvoyer les résultats au format JSON
         header('Content-Type: application/json');
@@ -91,7 +107,7 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant)
  *
  * @return void
  */
-function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
+function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite, $adresse, $email, $numtel)
 {
     $sql = "SELECT * FROM Entreprise WHERE 1=1";
 
@@ -111,6 +127,18 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
         $sql .= " AND secteurActivite ILIKE :secteurActivite";
     }
 
+    if (!empty($adresse)) {
+        $sql .= " AND adresse ILIKE :adresse";
+    }
+
+    if (!empty($email)) {
+        $sql .= " AND email ILIKE :email";
+    }
+
+    if (!empty($numtel)) {
+        $sql .= " AND numtel ILIKE :numtel";
+    }
+
     $req = $conn->prepare($sql);
 
     if (!empty($nom)) {
@@ -127,6 +155,18 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite)
 
     if (!empty($secteurActivite)) {
         $req->bindValue(':secteurActivite', "%$secteurActivite%", PDO::PARAM_STR);
+    }
+
+    if (!empty($adresse)) {
+        $req->bindValue(':adresse', "%$adresse%", PDO::PARAM_STR);
+    }
+
+    if (!empty($email)) {
+        $req->bindValue(':email', "%$email%", PDO::PARAM_STR);
+    }
+
+    if (!empty($numtel)) {
+        $req->bindValue(':numtel', "%$numtel%", PDO::PARAM_STR);
     }
 
     if ($req->execute()) {

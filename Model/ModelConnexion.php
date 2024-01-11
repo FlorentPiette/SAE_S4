@@ -37,17 +37,16 @@ function role($user) {
     switch ($user['role']) {
         case 'cd':
             header('Location: ../View/ViewCdMain.php');
-            exit; // Ajoutez exit pour arrêter l'exécution après la redirection
-        case 'rp':
-            header('Location: RpMain.php');
             exit;
-        case 'rs':
-            header('Location: RsMain.php');
+        case 'rp':
+            header('Location: ../View/ViewRPMain.php');
+            exit;
+        case 'secretaire':
+            header('Location: ../View/ViewSecMain.php');
             exit;
         case 'Administrateur':
-            header('Location: ../View/ViewAdminAdministration.php'); // Utilisation d'une URL absolue
+            header('Location: ../View/ViewAdminMainTest.php');
             exit;
-        // Ajoutez d'autres cas selon les rôles et les pages correspondantes
         default:
             echo $user['role'];
     }
