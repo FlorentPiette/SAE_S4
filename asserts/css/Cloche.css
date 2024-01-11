@@ -2,18 +2,38 @@
 .notification {
     position: relative;
     display: inline-block;
-    margin: 20px;
+    top: -25px
+
 }
 
-.millieu {
-    text-align: center; /* Centre les éléments enfants horizontalement */
-}
+
 
 .millieu button {
     /* Vos styles pour les boutons ici */
     display: inline-block;
     margin:  60px; /* Espacement entre les boutons */
 }
+.millieu {
+    display: flex;
+    justify-content: space-around; /* Aligne les éléments à distance égale */
+    margin-top: 20px; /* Espacement depuis le haut */
+}
+
+.millieu button {
+
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #FFF;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.millieu button:hover {
+    background-color: #0056b3;
+}
+
 
 
 .icon-bell {
@@ -26,6 +46,7 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
+
 }
 .badge {
     position: absolute;
@@ -82,6 +103,24 @@
     font-size: 16px;
 
 }
+#validationButton {
+    padding: 10px 20px;
+    background-color: #6cb2eb; /* Bleu clair */
+    color: #FFF;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease; /* Transition pour effet au survol */
+    display: block; /* Pour occuper la largeur disponible */
+    margin: 0 auto; /* Centre horizontalement */
+    margin-top: 50px;
+}
+
+
+#validationButton:hover {
+    background-color: #4a9ad8; /* Bleu légèrement plus foncé au survol */
+}
 
 /* Styles pour le contenu principal à droite (titre et logo) */
 .header-content {
@@ -114,48 +153,10 @@
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
     position: absolute;
-    transform: translate(-50%, -50%);
     top: 30%;
-    left: 55%;
     z-index: 0;
     padding: 10px;
     text-align: center;
-}
-
-.nbrEtu{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 20%;
-
-}
-
-.nbrEnt{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 40%;
-
-}
-
-.nbrOff{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 60%;
-
-}
-
-.nbrPers{
-
-    transform: translate(-50%,-50%);
-    font-size: small;
-    position: absolute;
-    left: 80%;
-
 }
 
 .rectangle-mid {
@@ -228,9 +229,9 @@ ul {
     height: 100%;
     background-color: #fff;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-    z-index: 1;
     overflow: scroll;
-    transition: 0.5s;
+    transition: 1s;
+    z-index: 3;
 }
 /* Style pour les sections de notifications */
 #hlu,
@@ -248,15 +249,44 @@ ul {
 }
 
 /* Style pour masquer initialement les sections */
-#readNotificationList,
+#readNotificationList{
+    display: none ;
+}
 #hlu {
     display: none;
+    text-align: center;
+
+}
+.notification-unread,
+.notification-read {
+    /* Vos styles pour chaque notification */
+    background-color: #fff; /* Couleur de fond pour les notifications non lues */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    list-style-type: none;
+    display: flex;
+    flex-direction: column; /* Organiser les éléments en colonne */
 }
 
-#unreadNotificationList,
+.notification-unread p,
+.notification-read p {
+    display: block;
+    margin: 5px 0;
+}
+
 #hnonlu {
     display: block;
+    text-align: center;
 }
+
+#unreadNotificationList {
+    display: block;
+
+}
+
 
 #showUnreadButton,
 #showReadButton {

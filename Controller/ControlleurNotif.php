@@ -8,10 +8,13 @@ include "../Model/ConnexionBDD.php";
 $conn = Conn::getInstance();
 $nbnotif = nbnotif($conn);
 $notif = notif($conn);
+semaineinsert($conn);
+sdf($conn);
 
 $response = [
     'nb' => $nbnotif,
     'notif' => $notif
+
 ];
 
 
