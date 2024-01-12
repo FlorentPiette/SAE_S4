@@ -138,7 +138,7 @@ include '../Controller/ControllerVerificationDroit.php';
                 <input type="checkbox" id="autresCheckbox"> Autres
             </label>
 
-
+            <br>
 
             <div id="nomDiv" style="display: none">
                 <label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom">
