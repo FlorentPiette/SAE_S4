@@ -4,7 +4,7 @@ $db = Conn::getInstance();
 
 
 // Récupérer les données pour la page spécifiée
-$sql2 = "SELECT * FROM Offre ";
+$sql2 = "SELECT * FROM Offre ORDER BY idOffre DESC";
 $req = $db->prepare($sql2);
 $req->execute();
 $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);

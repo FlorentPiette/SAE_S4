@@ -51,6 +51,8 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
         $sql .= " AND parcours ILIKE :parcours";
     }
 
+    $sql .= " ORDER BY idOffre DESC";
+
     $req = $conn->prepare($sql);
 
     if (!empty($nom)) {
@@ -138,6 +140,8 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite, 
     if (!empty($numtel)) {
         $sql .= " AND numtel ILIKE :numtel";
     }
+
+    $sql .= " ORDER BY idEntreprise DESC";
 
     $req = $conn->prepare($sql);
 

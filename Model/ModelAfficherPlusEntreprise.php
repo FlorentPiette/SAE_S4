@@ -1,7 +1,7 @@
 <?php
 include '../Model/ConnexionBDD.php';
 $db = Conn::getInstance();
-$sql = "SELECT nom,email,secteuractivite FROM Entreprise";
+$sql = "SELECT identreprise, nom,email,secteuractivite FROM Entreprise ORDER BY identreprise DESC";
 $req = $db->prepare($sql);
 $req->execute();
 $resultat = $req->fetchAll(PDO::FETCH_ASSOC);
