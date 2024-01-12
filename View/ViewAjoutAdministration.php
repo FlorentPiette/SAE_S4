@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajout Entreprise</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
 </head>
 <body>
 <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
@@ -35,11 +36,11 @@
         </li>
         <li>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
+            <input type="email" id="email" name="email">
         </li>
         <li>
             <label for="mdp">Mot de passe:</label>
-            <input type="text" id="mdp" name="mdp">
+            <input type="password" id="mdp" name="mdp">
         </li>
         <li>
             <div class="role-rectangle">

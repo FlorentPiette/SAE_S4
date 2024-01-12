@@ -1,10 +1,12 @@
-/* Styles CSS pour le menu vertical sans sous-menus */
+/* Styles généraux */
 .body {
     font-family: Arial;
     overflow: scroll;
-    background-color: #ffffff;
-    margin: 0;
     background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header {
@@ -12,7 +14,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
-    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+    border-bottom: solid white 2px;
 }
 
 .logo-container {

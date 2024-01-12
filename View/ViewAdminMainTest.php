@@ -224,7 +224,7 @@ include "../Controller/ControllerVerificationDroit.php"
                 </li>
                 <li>
                     <div class="formation-rectangle">
-
+                        <label for="parcours">Formation :</label>
                         <select id="formation-select" name="formation">
                             <option value="GEII">GEII</option>
                             <option value="GIM">GIM</option>
@@ -249,7 +249,7 @@ include "../Controller/ControllerVerificationDroit.php"
                 </li>
                 <li>
                     <div class="role-rectangle">
-
+                        <label for="role">Role :</label>
                         <select id="role-select" name="role">
                             <option value="admin">Administration</option>
                             <option value="rp">Responsable pédagogique</option>
@@ -282,7 +282,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
