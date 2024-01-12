@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout Entreprise</title>
+    <title>Ajout Personnel</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
 </head>
 <body>

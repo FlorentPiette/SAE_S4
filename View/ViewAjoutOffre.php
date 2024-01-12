@@ -6,7 +6,7 @@ include '../Controller/ControllerVerificationDroit.php'; ?>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout offre</title>
+    <title>Ajout Offre</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
 </head>
 <body>

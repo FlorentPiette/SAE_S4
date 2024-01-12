@@ -6,7 +6,7 @@ include "../Controller/ControllerVerificationDroit.php"
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Offres</title>
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <script src="../asserts/js/Offres.js"></script>
@@ -27,7 +27,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -104,8 +104,8 @@ include "../Controller/ControllerVerificationDroit.php"
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="/View/ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="#">Etudiants</a></li>
-                <li><a href="#">Entreprises</a></li>
+                <li><a href="#">Etudiant</a></li>
+                <li><a href="#">Entreprise</a></li>
                 <li><a href="#">Administration</a></li>
             </ul>
         </div>

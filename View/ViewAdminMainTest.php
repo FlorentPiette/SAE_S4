@@ -6,7 +6,7 @@ include "../Controller/ControllerVerificationDroit.php"
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Accueil</title>
     <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
@@ -431,8 +431,8 @@ include "../Controller/ControllerVerificationDroit.php"
                 <h2>Liens rapides</h2>
                 <ul>
                     <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                    <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                    <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                    <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                    <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                     <li><a href="ViewAdminAdministration.php">Administration</a></li>
                 </ul>
             </div>

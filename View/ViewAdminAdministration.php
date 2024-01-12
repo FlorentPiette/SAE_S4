@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Administration</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminAdministration.css">
 </head>
 <body class="body">
@@ -149,8 +149,8 @@
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>
             </ul>
         </div>

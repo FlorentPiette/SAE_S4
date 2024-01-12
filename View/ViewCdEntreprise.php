@@ -3,7 +3,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>OffreEntreprise</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
     <script src="../asserts/js/AdminEntreprise.js"></script>
     <script src="../asserts/js/rechercheOffre.js"></script>
@@ -22,7 +22,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -224,8 +224,8 @@
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="ViewCdMain.php">Accueil</a></li>
-                <li><a href="ViewCdEtu.php">Etudiants</a></li>
-                <li><a href="ViewCdEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewCdEtu.php">Etudiant</a></li>
+                <li><a href="ViewCdEntreprise.php">Entreprise</a></li>
             </ul>
         </div>
     </div>

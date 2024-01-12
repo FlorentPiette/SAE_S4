@@ -105,50 +105,51 @@ function rechercherEtudiants() {
  */
 function afficherChamps() {
     if (document.getElementById("nomCheckbox").checked) {
-        document.getElementById("nomDiv").style.display = "block";
+        document.getElementById("nomDiv").style.display = "inline-block";
     } else {
         document.getElementById("nomDiv").style.display = "none";
     }
 
     if (document.getElementById("prenomCheckbox").checked) {
-        document.getElementById("prenomDiv").style.display = "block";
+        document.getElementById("prenomDiv").style.display = "inline-block";
     } else {
         document.getElementById("prenomDiv").style.display = "none";
     }
 
     if (document.getElementById("ineCheckbox").checked) {
-        document.getElementById("ineDiv").style.display = "block";
+        document.getElementById("ineDiv").style.display = "inline-block";
     } else {
         document.getElementById("ineDiv").style.display = "none";
     }
 
     if (document.getElementById("codepostalCheckbox").checked) {
-        document.getElementById("codepostalDiv").style.display = "block";
+        document.getElementById("codepostalDiv").style.display = "inline-block";
     } else {
         document.getElementById("codepostalDiv").style.display = "none";
     }
 
     if (document.getElementById("formationCheckbox").checked) {
-        document.getElementById("formationDiv").style.display = "block";
+        document.getElementById("formationDiv").style.display = "inline-block";
     } else {
         document.getElementById("formationDiv").style.display = "none";
     }
 
     if (document.getElementById("anneeEtudeCheckbox").checked) {
-        document.getElementById("anneeEtudeDiv").style.display = "block";
+        document.getElementById("anneeEtudeDiv").style.display = "inline-block";
     } else {
         document.getElementById("anneeEtudeDiv").style.display = "none";
     }
 
     if (document.getElementById("autresCheckbox").checked) {
         document.getElementById("autresDiv").style.display = "block";
-        document.getElementById("emailDiv").style.display = "block";
-        document.getElementById("adresseDiv").style.display = "block";
-        document.getElementById("villeDiv").style.display = "block";
-        document.getElementById("typeEntrepriseDiv").style.display = "block";
-        document.getElementById("typeMissionDiv").style.display = "block";
-        document.getElementById("mobileSelect").style.display = "block";
-        document.getElementById("actifSelect").style.display = "block";
+        document.getElementById("autresDiv").style.marginTop = "10px";
+        document.getElementById("emailDiv").style.display = "inline-block";
+        document.getElementById("adresseDiv").style.display = "inline-block";
+        document.getElementById("villeDiv").style.display = "inline-block";
+        document.getElementById("typeEntrepriseDiv").style.display = "inline-block";
+        document.getElementById("typeMissionDiv").style.display = "inline-block";
+        document.getElementById("mobileSelect").style.display = "inline-block";
+        document.getElementById("actifSelect").style.display = "inline-block";
     } else {
         document.getElementById("autresDiv").style.display = "none";
         document.getElementById("emailDiv").style.display = "none";
@@ -160,7 +161,6 @@ function afficherChamps() {
         document.getElementById("actifSelect").style.display = "none";
     }
 }
-
 // Écouteurs d'événements pour les cases à cocher
 document.getElementById("nomCheckbox").addEventListener("change", afficherChamps);
 document.getElementById("prenomCheckbox").addEventListener("change", afficherChamps);
