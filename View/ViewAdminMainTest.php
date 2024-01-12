@@ -152,7 +152,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <p>
                 Nombre d'étudiants :
             </p>
-            <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant"><br>
+            <label for="nbetudiant"></label><input type="number" name="NbEtudiant" id="nbetudiant"><br>
 
             <p id="message" class="error-message"></p>
 
@@ -241,11 +241,11 @@ include "../Controller/ControllerVerificationDroit.php"
                 </li>
                 <li>
                     <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" />
+                    <input type="email" id="email" name="email" />
                 </li>
                 <li>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="text" id="mdp" name="mdp" />
+                    <input type="password" id="mdp" name="mdp" />
                 </li>
                 <li>
                     <div class="role-rectangle">

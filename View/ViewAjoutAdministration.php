@@ -20,7 +20,7 @@
         <li>
             <div class="formation-rectangle">
 
-                <label for="formation-select"></label><select id="formation-select" name="formation">
+                <label for="formation-select">Formation :</label><select id="formation-select" name="formation">
                     <option value="GEII">GEII</option>
                     <option value="GIM">GIM</option>
                     <option value="GMP">GMP</option>
@@ -45,7 +45,7 @@
         <li>
             <div class="role-rectangle">
 
-                <label for="role-select"></label><select id="role-select" name="role">
+                <label for="role-select">Rôle:</label><select id="role-select" name="role">
                     <option value="admin">Administration</option>
                     <option value="rp">Responsable pédagogique</option>
                     <option value="cd">Chargés de développement</option>

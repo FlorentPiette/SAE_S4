@@ -24,7 +24,7 @@ p {
 }
 
 /* Style des champs de saisie */
-input[type="text"],
+input[type="text"], input[type="number"],
 textarea,
 select {
     width: calc(100% - 20px);
