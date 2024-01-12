@@ -21,7 +21,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -96,7 +96,17 @@
 
             <div>
                 <label class="labelFormation"> Formation : </label>
-                <input type="text" name="nouvelle_formation" value="<?= $perso['formation'] ?>" class="editableFormation">
+                <select name="nouvelle_formation" class="editableFormation">
+                    <option value="GEII" <?= ($perso['formation'] === 'GEII') ? 'selected' : '' ?>>GEII</option>
+                    <option value="GIM" <?= ($perso['formation'] === 'GIM') ? 'selected' : '' ?>>GIM</option>
+                    <option value="GMP" <?= ($perso['formation'] === 'GMP') ? 'selected' : '' ?>>GMP</option>
+                    <option value="GEA" <?= ($perso['formation'] === 'GEA') ? 'selected' : '' ?>>GEA</option>
+                    <option value="TCV" <?= ($perso['formation'] === 'TCV') ? 'selected' : '' ?>>TCV</option>
+                    <option value="QLIQ" <?= ($perso['formation'] === 'QLIQ') ? 'selected' : '' ?>>QLIQ</option>
+                    <option value="TCc" <?= ($perso['formation'] === 'TCc') ? 'selected' : '' ?>>TCc</option>
+                    <option value="INFO" <?= ($perso['formation'] === 'INFO') ? 'selected' : '' ?>>INFO</option>
+                    <option value="Mph" <?= ($perso['formation'] === 'Mph') ? 'selected' : '' ?>>Mph</option>
+                </select>
             </div>
 
             <div>
@@ -106,7 +116,13 @@
 
             <div>
                 <label class="labelRole"> Rôle : </label>
-                <input type="text" name="nouveau_role" value="<?= $perso['role'] ?>" class="editableRole">
+                <select name="nouveau_role" class="editableRole">
+                    <option value="admin" <?= ($perso['role'] === 'Admin') ? 'selected' : '' ?>>Administrateur</option>
+                    <option value="rp" <?= ($perso['role'] === 'rp') ? 'selected' : '' ?>>Responsable pédagogique</option>
+                    <option value="cd" <?= ($perso['role'] === 'cd') ? 'selected' : '' ?>>Chargés de développement</option>
+                    <option value="rs" <?= ($perso['role'] === 'rs') ? 'selected' : '' ?>>Responsable du service</option>
+                    <option value="secretaire" <?= ($perso['role'] === 'sec') ? 'selected' : '' ?>>Secrétaire</option>
+                </select>
             </div>
         </div>
 
