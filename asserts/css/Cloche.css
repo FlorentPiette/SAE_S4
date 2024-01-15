@@ -2,7 +2,6 @@
 .notification {
     position: relative;
     display: inline-block;
-    top: -25px
 
 }
 
@@ -39,7 +38,6 @@
 .icon-bell {
     width: 25px;
     height: 25px;
-    margin-bottom: 10px;
     background-image: url('../img/notification.png');
     background-size: cover;
     display: flex;
@@ -47,9 +45,8 @@
     justify-content: center;
     cursor: pointer;
     position: relative;
-
-
 }
+
 .badge {
     position: absolute;
     top: 0;
@@ -64,48 +61,8 @@
     background-color: red;
 }
 
-.body{
 
-    font-family: Arial;
-    overflow: scroll;
-    background-color: #EBF4FB;
-    height: 100%;
 
-}
-
-.menu-container {
-    display: flex;
-    position: relative;
-    left: 0; /* Ajoutez cette ligne pour positionner le menu à gauche */
-}
-
-.menu-header {
-    width: 250px;
-    color: black;
-    position: fixed;
-    height: 100%;
-    top: 150px;
-    left: 0; /* Modifier cette ligne pour placer le menu à gauche */
-}
-
-.vertical-menu {
-    list-style-type: none;
-    padding: 0;
-}
-
-.vertical-menu li {
-    padding: 30px;
-    text-align: center;
-}
-
-.btnCreation{
-    text-decoration: none;
-    color: inherit;
-    background-color: transparent;
-    border: none;
-    font-size: 16px;
-
-}
 #validationButton {
     padding: 10px 20px;
     background-color: #6cb2eb; /* Bleu clair */
@@ -123,91 +80,6 @@
 
 #validationButton:hover {
     background-color: #4a9ad8; /* Bleu légèrement plus foncé au survol */
-}
-
-/* Styles pour le contenu principal à droite (titre et logo) */
-.header-content {
-    flex: 1;
-    padding: 20px; /* Espacement entre le menu et le contenu principal */
-    margin-left: 250px; /* Marge à gauche pour ne pas être caché par le menu */
-    box-sizing: border-box; /* Inclusion de la marge dans la largeur */
-}
-
-.title {
-    text-align: center;
-}
-
-.logo {
-    display: block;
-    margin: 0 auto;
-    position: absolute;
-    width: 170px;
-    height: 90px;
-    bottom: 20px;
-    left: 80px;
-}
-
-
-
-.rectangle-mid {
-    width: 880px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    position: absolute;
-    top: calc(40% + 30px);
-    left: 835px;
-    margin-left: -450px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-.etu {
-    background-color: #EBF4FB;
-    padding: 20px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
-    list-style-type: none;
-}
-
-
-ul {
-    padding: 0;
-    margin: 0;
-}
-
-#rechercheForm {
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#dataTable {
-    width: 100%;
-    border-spacing: 0;
-    margin: 20px auto;
-}
-
-#dataTable th,
-#dataTable td {
-    border: 1px solid #ddd;
-    padding: 15px;
-    text-align: center;
-}
-
-#dataTable th.colonne {
-    background-color: #EBF4FB;
-    color: black;
-}
-
-#dataTable tbody tr:nth-child(even) {
-    background-color: #f2f2f2;
-}
-
-#dataTable tbody tr:hover {
-    background-color: #ddd;
 }
 
 #burgerMenu {

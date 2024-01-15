@@ -1,7 +1,5 @@
-<?php
-include "../Controller/ControllerVerificationDroit.php";
-include "../Controller/ControllerRechercheNbr.php"
-?>
+<?php include '../Controller/ControllerVerificationDroit.php';
+include "../Controller/ControllerRechercheNbr.php"?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,11 +13,13 @@ include "../Controller/ControllerRechercheNbr.php"
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+    <script src="../asserts/js/script.js"></script>
 
     <script>
         // Écouteur d'événements pour le bouton d'ouverture
@@ -253,7 +253,7 @@ include "../Controller/ControllerRechercheNbr.php"
                     <div class="role-rectangle">
                         <label for="role">Role :</label>
                         <select id="role-select" name="role">
-                            <option value="admin">Administration</option>
+                            <option value="admin">Administrateur</option>
                             <option value="rp">Responsable pédagogique</option>
                             <option value="cd">Chargés de développement</option>
                             <option value="rs">Responsable du service</option>
@@ -309,7 +309,30 @@ include "../Controller/ControllerRechercheNbr.php"
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <div class="notification">
+                            <div class="icon-bell" onclick="toggleNotifications()">
+                                <span class="badge" id="notificationBadge"> </span>
+                            </div>
+                        </div>
+                        <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <div class="millieu">
+                                <button type="button" id="showUnreadButton">Notifications non lues</button>
+                                <button type="button" id="showReadButton">Notifications lues</button>
+                            </div>
+
+                            <div>
+                                <h2 id="hnonlu">Notifications non lues</h2>
+                                <ul id="unreadNotificationList" ></ul>
+
+                            </div>
+                            <div>
+                                <h2 id="hlu">Notifications lues</h2>
+                                <ul id="readNotificationList"></ul>
+                            </div>
+
+                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
+
+                        </div>
                     </li>
                 </ul>
             </form>

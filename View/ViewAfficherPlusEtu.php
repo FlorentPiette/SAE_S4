@@ -13,7 +13,8 @@ include "../Controller/ControllerVerificationDroit.php"
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
-
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
+    <script src="../asserts/js/script.js"></script>
 
 </head>
 <body class="body">
@@ -59,7 +60,30 @@ include "../Controller/ControllerVerificationDroit.php"
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <div class="notification">
+                            <div class="icon-bell" onclick="toggleNotifications()">
+                                <span class="badge" id="notificationBadge"> </span>
+                            </div>
+                        </div>
+                        <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <div class="millieu">
+                                <button type="button" id="showUnreadButton">Notifications non lues</button>
+                                <button type="button" id="showReadButton">Notifications lues</button>
+                            </div>
+
+                            <div>
+                                <h2 id="hnonlu">Notifications non lues</h2>
+                                <ul id="unreadNotificationList" ></ul>
+
+                            </div>
+                            <div>
+                                <h2 id="hlu">Notifications lues</h2>
+                                <ul id="readNotificationList"></ul>
+                            </div>
+
+                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
+
+                        </div>
                     </li>
                 </ul>
             </form>

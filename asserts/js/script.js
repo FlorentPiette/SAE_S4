@@ -76,9 +76,10 @@ function fetchNotifications() {
 
                 const dateInput = document.createElement('input');
                 dateInput.type = 'date';
-                dateInput.id = 'notificationDate'; // Définissez un ID pour cibler cet élément ultérieurement
+                dateInput.id = 'notificationDate';
                 dateInput.value = notification.rappel
-                listItem.appendChild(dateInput); // Ajoutez cet élément à votre notification
+
+                listItem.appendChild(dateInput);
 
 
                 checkbox.type = 'checkbox';
@@ -94,7 +95,7 @@ function fetchNotifications() {
                     params.append('idnotif', notification.idnotif);
                     params.append('idetudiant', notification.idetudiant);
                     params.append('dateSaisie', dateSaisie);
-                    var currentDate = new Date();
+
 
                     if (isChecked && dateSaisie === ''  ) {
                         params.delete('dateSaisie');
