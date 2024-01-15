@@ -7,7 +7,7 @@ include "../Controller/ControllerVerificationDroit.php"
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
@@ -293,13 +293,15 @@ include "../Controller/ControllerVerificationDroit.php"
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
                     </li>
+                    <li>
+                        <a href="../../SAE/english/View/ViewAdminMainTestEn.php"> <img src="../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
+                    </li>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
-
                             </form>
 
                         </div>
@@ -311,27 +313,6 @@ include "../Controller/ControllerVerificationDroit.php"
             </form>
         </nav>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var photo = document.getElementById("photo");
-            var dropdown = document.getElementById("account-dropdown");
-
-            photo.addEventListener("click", function (event) {
-                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
-                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-            });
-
-            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
-            document.addEventListener("click", function (event) {
-                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
-                    dropdown.style.display = "none";
-                }
-            });
-        });
-
-
-    </script>
 
 </header>
 

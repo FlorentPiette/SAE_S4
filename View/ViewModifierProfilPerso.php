@@ -128,7 +128,7 @@
                     <option value="rp" <?= ($perso['role'] === 'rp') ? 'selected' : '' ?>>Responsable pédagogique</option>
                     <option value="cd" <?= ($perso['role'] === 'cd') ? 'selected' : '' ?>>Chargés de développement</option>
                     <option value="rs" <?= ($perso['role'] === 'rs') ? 'selected' : '' ?>>Responsable du service</option>
-                    <option value="secretaire" <?= ($perso['role'] === 'sec') ? 'selected' : '' ?>>Secrétaire</option>
+                    <option value="sec" <?= ($perso['role'] === 'sec') ? 'selected' : '' ?>>Secrétaire</option>
                 </select>
             </div>
         </div>
