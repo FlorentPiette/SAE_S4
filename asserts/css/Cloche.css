@@ -37,15 +37,17 @@
 
 
 .icon-bell {
-    width: 5em;
-    height: 5em;
-    background-image: url(https://images.emojiterra.com/google/noto-emoji/unicode-15/bw/512px/1f514.png); /* Remplacez ceci par votre chemin d'image */
+    width: 25px;
+    height: 25px;
+    margin-bottom: 10px;
+    background-image: url('../img/notification.png');
     background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     position: relative;
+
 
 }
 .badge {
@@ -54,7 +56,7 @@
     right: 0;
     color: white;
     border-radius: 50%;
-    padding: 5px;
+    padding: 2px;
     font-size: 12px;
 }
 
@@ -74,14 +76,16 @@
 .menu-container {
     display: flex;
     position: relative;
+    left: 0; /* Ajoutez cette ligne pour positionner le menu à gauche */
 }
 
 .menu-header {
-    width: 250px; /* Largeur du menu vertical */
+    width: 250px;
     color: black;
-    position: fixed; /* Menu fixé à gauche */
-    height: 100%; /* Hauteur à 100% de la fenêtre */
-    top: 150px; /* Ajustez cette valeur pour abaisser le menu */
+    position: fixed;
+    height: 100%;
+    top: 150px;
+    left: 0; /* Modifier cette ligne pour placer le menu à gauche */
 }
 
 .vertical-menu {
@@ -95,7 +99,6 @@
 }
 
 .btnCreation{
-
     text-decoration: none;
     color: inherit;
     background-color: transparent;
@@ -144,20 +147,7 @@
     left: 80px;
 }
 
-.rectangle-haut {
-    width: 900px;
-    height: 80px;
-    background-color: white;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: absolute;
-    top: 30%;
-    z-index: 0;
-    padding: 10px;
-    text-align: center;
-}
+
 
 .rectangle-mid {
     width: 880px;
@@ -224,7 +214,7 @@ ul {
     display: none;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 40%;
     height: 100%;
     background-color: #fff;

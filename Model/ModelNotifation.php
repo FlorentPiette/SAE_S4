@@ -40,4 +40,11 @@ function semaine($conn, $idnotif, $idetudiant, $lu, $rappel)
     $req2 = $conn->prepare($req);
     $req2->execute(array($lu,$rappel,$idnotif, $idetudiant ));
 }
+
+function verifdate($conn)
+{
+    $req = "Update notification set lu = ?, rappel = ? where rappel < current_date ; ";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array('false', null));
+}
 ?>
