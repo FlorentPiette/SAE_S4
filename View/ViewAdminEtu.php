@@ -5,6 +5,7 @@ include '../Controller/ControllerVerificationDroit.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etudiants</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
@@ -125,6 +126,18 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeEntreprise"></span></p>
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
+        <?php
+        $pdfFileName = '../Controller/eval2DUT.pdf'; // Nom du fichier PDF
+        $pdfPath = $pdfFileName; // Chemin relatif vers le fichier PDF
+
+        // Vérifier si le fichier existe
+        if (file_exists($pdfPath)) {
+            // Utiliser l'élément iframe pour afficher le PDF
+            echo '<iframe src="' . $pdfPath . '" width="400" height="600" style="border: none;"></iframe>';
+        } else {
+            echo 'Le fichier PDF n`existe pas.';
+        }
+        ?>
 
         <hr class="separator-line">
 

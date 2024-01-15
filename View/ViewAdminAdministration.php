@@ -155,7 +155,15 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
             <div class="button-filtre">
 
-                <button class="compteTous" id="tous">Tous (X)</button>
+                <button class="compteTous" id="tous">
+                    Tous<span class="nbrPersonnel">(<?php
+                        if (isset($nbrPersonnel)) {
+                            echo $nbrPersonnel;
+                        } else {
+                            echo "Erreur: Nombre non défini";
+                        }
+                        ?>)</span>
+                </button>
                 <button class="nbSecretaire" id="secretaire">Secrétaire</button>
                 <button class="nbCD" id="cd">Chargé de développement</button>
                 <button class="nbRP" id="rp">Responsable pédagogique</button>

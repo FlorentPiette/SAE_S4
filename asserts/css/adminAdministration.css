@@ -336,3 +336,8 @@
     margin-top: 40px;
 
 }
+
+.button-filtre button .nbrPersonnel {
+    display: inline-block;
+    margin-left: 5px; /* Ajustez la marge selon vos besoins */
+}
