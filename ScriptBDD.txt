@@ -54,9 +54,7 @@ create table etudiant
             check (length((codepostal)::text) = 5),
     anneeetude      integer    not null,
     formation       text       not null,
-    cv              varchar(255)
-        constraint etudiant_cv_check
-            check ((cv)::text ~ '.pdf$'::text),
+    cv              bytea,
     email           text       not null
         constraint etudiant_email_check
             check (POSITION(('@'::text) IN (email)) > 0),
