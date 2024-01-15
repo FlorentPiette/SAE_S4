@@ -3,7 +3,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout Entreprise</title>
+    <title>Ajout Personnel</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
@@ -19,7 +21,7 @@
         <li>
             <div class="formation-rectangle">
 
-                <label for="formation-select"></label><select id="formation-select" name="formation">
+                <label for="formation-select">Formation :</label><select id="formation-select" name="formation">
                     <option value="GEII">GEII</option>
                     <option value="GIM">GIM</option>
                     <option value="GMP">GMP</option>
@@ -35,16 +37,16 @@
         </li>
         <li>
             <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
+            <input type="email" id="email" name="email">
         </li>
         <li>
             <label for="mdp">Mot de passe:</label>
-            <input type="text" id="mdp" name="mdp">
+            <input type="password" id="mdp" name="mdp">
         </li>
         <li>
             <div class="role-rectangle">
 
-                <label for="role-select"></label><select id="role-select" name="role">
+                <label for="role-select">Rôle:</label><select id="role-select" name="role">
                     <option value="admin">Administration</option>
                     <option value="rp">Responsable pédagogique</option>
                     <option value="cd">Chargés de développement</option>

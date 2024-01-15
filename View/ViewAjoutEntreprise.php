@@ -7,6 +7,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <meta charset="UTF-8">
     <title>Ajout Entreprise</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEntreprise.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <h3> Création d'une Entreprise </h3>

@@ -6,6 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
     <script src="../asserts/js/modifProfil.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 
 <body>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Principale</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/pageEtu.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body class="body">
 <header class="header">

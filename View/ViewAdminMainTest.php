@@ -1,19 +1,21 @@
 <?php
-include "../Controller/ControllerVerificationDroit.php"
+include "../Controller/ControllerVerificationDroit.php";
+include "../Controller/ControllerRechercheNbr.php"
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -152,7 +154,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <p>
                 Nombre d'étudiants :
             </p>
-            <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant"><br>
+            <label for="nbetudiant"></label><input type="number" name="NbEtudiant" id="nbetudiant"><br>
 
             <p id="message" class="error-message"></p>
 
@@ -224,7 +226,7 @@ include "../Controller/ControllerVerificationDroit.php"
                 </li>
                 <li>
                     <div class="formation-rectangle">
-
+                        <label for="parcours">Formation :</label>
                         <select id="formation-select" name="formation">
                             <option value="GEII">GEII</option>
                             <option value="GIM">GIM</option>
@@ -241,15 +243,15 @@ include "../Controller/ControllerVerificationDroit.php"
                 </li>
                 <li>
                     <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" />
+                    <input type="email" id="email" name="email" />
                 </li>
                 <li>
                     <label for="mdp">Mot de passe:</label>
-                    <input type="text" id="mdp" name="mdp" />
+                    <input type="password" id="mdp" name="mdp" />
                 </li>
                 <li>
                     <div class="role-rectangle">
-
+                        <label for="role">Role :</label>
                         <select id="role-select" name="role">
                             <option value="admin">Administration</option>
                             <option value="rp">Responsable pédagogique</option>
@@ -282,7 +284,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -293,13 +295,15 @@ include "../Controller/ControllerVerificationDroit.php"
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
                     </li>
+                    <li>
+                        <a href="../../SAE/english/View/ViewAdminMainTestEn.php"> <img src="../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
+                    </li>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
-
                             </form>
 
                         </div>
@@ -311,27 +315,6 @@ include "../Controller/ControllerVerificationDroit.php"
             </form>
         </nav>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var photo = document.getElementById("photo");
-            var dropdown = document.getElementById("account-dropdown");
-
-            photo.addEventListener("click", function (event) {
-                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
-                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-            });
-
-            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
-            document.addEventListener("click", function (event) {
-                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
-                    dropdown.style.display = "none";
-                }
-            });
-        });
-
-
-    </script>
 
 </header>
 
@@ -347,19 +330,37 @@ include "../Controller/ControllerVerificationDroit.php"
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEtu">Nombre d'étudiants</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEtu)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEtu . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEnt">Nombre d'entreprises</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEntreprise)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEntreprise . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrOff">Nombre d'offres</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrOffre)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrOffre . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -431,8 +432,8 @@ include "../Controller/ControllerVerificationDroit.php"
                 <h2>Liens rapides</h2>
                 <ul>
                     <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                    <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                    <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                    <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                    <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                     <li><a href="ViewAdminAdministration.php">Administration</a></li>
                 </ul>
             </div>

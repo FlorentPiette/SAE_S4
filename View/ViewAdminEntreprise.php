@@ -3,11 +3,12 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>OffreEntreprise</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
     <script src="../asserts/js/AdminEntreprise.js"></script>
     <script src="../asserts/js/rechercheOffre.js"></script>
     <script src="../asserts/js/rechercherEntreprise.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body class="body">
 
@@ -22,7 +23,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -227,8 +228,8 @@
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>
             </ul>
         </div>

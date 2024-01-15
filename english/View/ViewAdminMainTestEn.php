@@ -1,12 +1,12 @@
 <?php
-//include "../Controller/ControllerVerificationDroit.php"
+include "../../Controller/ControllerVerificationDroit.php"
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Main</title>
     <link rel="stylesheet" type="text/css" href="../../asserts/css/adminMenuTest.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../../asserts/css/demandeAjoutOffre.css">
@@ -293,6 +293,9 @@
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminAdministrationEn.php'" name="adminitrsation" class="btnCreation">Administration</button>
                     </li>
+                    <li>
+                        <a href="../../View/ViewAdminMainTest.php"> <img src="../../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
+                    </li>
                     <li id="account-photo">
                         <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
@@ -413,38 +416,38 @@
             </div>
         </div>
     </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h2>About us</h2>
+                <p>The Apprentice Manager is a platform dedicated to the management of students, offers, and companies for apprentice programs.</p>
+            </div>
 
+            <div class="footer-section contact">
+                <h2>Contact us</h2>
+                <p>Email : communication@uphf.fr</p>
+                <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
+            </div>
+
+            <div class="footer-section links">
+                <h2>Quick links</h2>
+                <ul>
+                    <li><a href="ViewAdminMainTestEn.php">Homepage</a></li>
+                    <li><a href="ViewAdminEtuEn.php">Students</a></li>
+                    <li><a href="ViewAdminEntrepriseEn.php">Companies</a></li>
+                    <li><a href="#">Administration</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 Apprentice Manager | All rights reserved</p>
+        </div>
+    </footer>
 
 </div>
 </body>
-<footer class="footer">
-    <div class="footer-content">
-        <div class="footer-section about">
-            <h2>About us</h2>
-            <p>The Apprentice Manager is a platform dedicated to the management of students, offers, and companies for apprentice programs.</p>
-        </div>
 
-        <div class="footer-section contact">
-            <h2>Contact us</h2>
-            <p>Email : communication@uphf.fr</p>
-            <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
-        </div>
-
-        <div class="footer-section links">
-            <h2>Quick links</h2>
-            <ul>
-                <li><a href="#">Homepage</a></li>
-                <li><a href="#">Students</a></li>
-                <li><a href="#">Companies</a></li>
-                <li><a href="#">Administration</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2023 Apprentice Manager | All rights reserved</p>
-    </div>
-</footer>
 
 
 </html>

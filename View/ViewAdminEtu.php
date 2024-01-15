@@ -5,8 +5,9 @@ include '../Controller/ControllerVerificationDroit.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Etudiants</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
 
 </head>
@@ -24,7 +25,7 @@ include '../Controller/ControllerVerificationDroit.php';
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -138,7 +139,7 @@ include '../Controller/ControllerVerificationDroit.php';
                 <input type="checkbox" id="autresCheckbox"> Autres
             </label>
 
-
+            <br>
 
             <div id="nomDiv" style="display: none">
                 <label for="nom"></label><input type="text" name="nom" id="nom" placeholder="Nom">
@@ -233,8 +234,8 @@ include '../Controller/ControllerVerificationDroit.php';
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>
             </ul>
         </div>

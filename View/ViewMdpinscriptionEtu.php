@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Verification du Mail</title>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 

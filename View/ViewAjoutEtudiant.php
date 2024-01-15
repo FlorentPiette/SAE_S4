@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Ajout Etudiant</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaireAjoutEtudiant">

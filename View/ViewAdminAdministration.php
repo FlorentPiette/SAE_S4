@@ -1,10 +1,12 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php include '../Controller/ControllerVerificationDroit.php';
+include "../Controller/ControllerRechercheNbr.php"?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
+    <title>Administration</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminAdministration.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body class="body">
 
@@ -18,7 +20,7 @@
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -57,18 +59,46 @@
         <div class="all-text">
             <div class="rectangleNbr">
                 <h3 class="nbrEtu">Nombre d'étudiant</h3>
+                <?php
+                if (isset($nbrEtu)) {
+                    echo "<h3 class='resNbrEtu'>" . $nbrEtu . "</h3>";
+                } else {
+                    echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                }
+                ?>
             </div>
 
             <div class="rectangleNbr">
-                <h3 class="nbrEnt">Nombre d'entreprise</h3>
+                <h3 class="nbrEntreprise">Nombre d'entreprise</h3>
+                <?php
+                if (isset($nbrEntreprise)) {
+                    echo "<h3 class='resNbrEtu'>" . $nbrEntreprise . "</h3>";
+                } else {
+                    echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                }
+                ?>
             </div>
 
             <div class="rectangleNbr">
                 <h3 class="nbrOff">Nombre d'offre</h3>
+                <?php
+                if (isset($nbrOffre)) {
+                    echo "<h3 class='resNbrEtu'>" . $nbrOffre . "</h3>";
+                } else {
+                    echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                }
+                ?>
             </div>
 
             <div class="rectangleNbr">
                 <h3 class="nbrPers">Nombre de personnel</h3>
+                <?php
+                if (isset($nbrPersonnel)) {
+                    echo "<h3 class='resNbrEtu'>" . $nbrPersonnel . "</h3>";
+                } else {
+                    echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -149,8 +179,8 @@
             <h2>Liens rapides</h2>
             <ul>
                 <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                <li><a href="ViewAdminEtu.php">Etudiants</a></li>
-                <li><a href="ViewAdminEntreprise.php">Entreprises</a></li>
+                <li><a href="ViewAdminEtu.php">Etudiant</a></li>
+                <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>
             </ul>
         </div>

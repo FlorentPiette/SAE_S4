@@ -7,6 +7,7 @@
     <title>Profil - <?= $perso['nom'] ?> <?= $perso['prenom'] ?></title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilPerso.css">
     <script src="../asserts/js/modifProfil.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -20,18 +21,25 @@
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
-                    <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
-                    </li>
+                    <?php
+                    if ($_SESSION['role'] === 'admin') {
+                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'MainTest.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                    }
+                    else {
+                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'Main.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                    }
+                    ?>
                     <li>
                         <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='../View/ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
-                    <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
-                    </li>
+                    <?php
+                    if ($_SESSION['role'] === 'admin') {
+                        echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Administration.php\'" name="administration" value="Administration" class="btnCreation">Administration</button></li>';
+                    }
+                    ?>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
@@ -96,7 +104,17 @@
 
             <div>
                 <label class="labelFormation"> Formation : </label>
-                <input type="text" name="nouvelle_formation" value="<?= $perso['formation'] ?>" class="editableFormation">
+                <select name="nouvelle_formation" class="editableFormation">
+                    <option value="GEII" <?= ($perso['formation'] === 'GEII') ? 'selected' : '' ?>>GEII</option>
+                    <option value="GIM" <?= ($perso['formation'] === 'GIM') ? 'selected' : '' ?>>GIM</option>
+                    <option value="GMP" <?= ($perso['formation'] === 'GMP') ? 'selected' : '' ?>>GMP</option>
+                    <option value="GEA" <?= ($perso['formation'] === 'GEA') ? 'selected' : '' ?>>GEA</option>
+                    <option value="TCV" <?= ($perso['formation'] === 'TCV') ? 'selected' : '' ?>>TCV</option>
+                    <option value="QLIQ" <?= ($perso['formation'] === 'QLIQ') ? 'selected' : '' ?>>QLIQ</option>
+                    <option value="TCc" <?= ($perso['formation'] === 'TCc') ? 'selected' : '' ?>>TCc</option>
+                    <option value="INFO" <?= ($perso['formation'] === 'INFO') ? 'selected' : '' ?>>INFO</option>
+                    <option value="Mph" <?= ($perso['formation'] === 'Mph') ? 'selected' : '' ?>>Mph</option>
+                </select>
             </div>
 
             <div>
@@ -106,7 +124,13 @@
 
             <div>
                 <label class="labelRole"> Rôle : </label>
-                <input type="text" name="nouveau_role" value="<?= $perso['role'] ?>" class="editableRole">
+                <select name="nouveau_role" class="editableRole">
+                    <option value="admin" <?= ($perso['role'] === 'Admin') ? 'selected' : '' ?>>Administrateur</option>
+                    <option value="rp" <?= ($perso['role'] === 'rp') ? 'selected' : '' ?>>Responsable pédagogique</option>
+                    <option value="cd" <?= ($perso['role'] === 'cd') ? 'selected' : '' ?>>Chargés de développement</option>
+                    <option value="rs" <?= ($perso['role'] === 'rs') ? 'selected' : '' ?>>Responsable du service</option>
+                    <option value="sec" <?= ($perso['role'] === 'sec') ? 'selected' : '' ?>>Secrétaire</option>
+                </select>
             </div>
         </div>
 

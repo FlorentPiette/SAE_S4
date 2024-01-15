@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
 // Fonction pour charger les étudiants via AJAX
 function loadStudents() {
     $.ajax({
-        url: '../Model/ModelAfficherEtuMain.php',
+        url: '../../Model/ModelAfficherEtuMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -104,7 +104,7 @@ function loadStudents() {
 // Fonction pour charger les offres via AJAX
 function loadOffers() {
     $.ajax({
-        url: '../Model/ModelAffichageOffreMain.php',
+        url: '../../Model/ModelAffichageOffreMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -123,7 +123,7 @@ function loadOffers() {
 // Fonction pour charger les entreprises via AJAX
 function loadCompanies() {
     $.ajax({
-        url: '../Model/ModelAfficherEntrepriseMain.php',
+        url: '../../Model/ModelAfficherEntrepriseMain.php',
         type: 'GET',
         dataType: 'html',
         data: {
@@ -181,7 +181,22 @@ function redirectWithAjax(url) {
     });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    var photo = document.getElementById("photo");
+    var dropdown = document.getElementById("account-dropdown");
 
+    photo.addEventListener("click", function (event) {
+        event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
+        dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+    });
+
+    // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
+    document.addEventListener("click", function (event) {
+        if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
+            dropdown.style.display = "none";
+        }
+    });
+});
 
 
 

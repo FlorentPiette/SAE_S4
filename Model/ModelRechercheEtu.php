@@ -82,6 +82,8 @@ function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formatio
         $sql .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END";
     }
 
+    $sql .= " ORDER BY idEtudiant DESC";
+
     // Préparer et exécuter la requête
     $stmt = $conn->prepare($sql);
 
