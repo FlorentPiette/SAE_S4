@@ -27,18 +27,25 @@ include "../Controller/ControllerVerificationDroit.php"
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
+                    <?php
+                    if ($_SESSION['role'] === 'admin') {
+                        echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'MainTest.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                    }
+                    else {
+                        echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Main.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                    }
+                    ?>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Acceuil </button>
+                        <button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Etu.php'" name="etudiant" value="Etudiant" class="btnCreation">Etudiant</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Entreprise.php'" name="entreprise" value="Entreprise" class="btnCreation">Entreprise</button>
                     </li>
-                    <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
-                    </li>
-                    <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
-                    </li>
+                    <?php
+                    if ($_SESSION['role'] === 'admin') {
+                        echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Administration.php\'" name="administration" value="Administration" class="btnCreation">Administration</button></li>';
+                    }
+                    ?>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
@@ -83,8 +90,15 @@ include "../Controller/ControllerVerificationDroit.php"
 
 
 <div class="boutons">
-    <input type="button" onclick="location.href='ViewAdminMainTest.php';" value="Retour" id="btnRetour">
-    <input type="button" onclick="location.href='ViewAdminEntreprise.php';" value="Rechercher des entreprises" id="btnRechercherEntreprise">
+    <?php
+    if ($_SESSION['role'] === 'admin') {
+        echo '<input type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'MainTest.php\'" name="Retour" value="Retour" id="btnRetour">';
+    }
+    else {
+        echo '<input type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Main.php\'" name="Retour" value="Retour" id="btnRetour">';
+    }
+    ?>
+    <input type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Entreprise.php'" value="Rechercher des entreprises" id="btnRechercherEntreprise">
 </div>
 <div  id="entreprises-container"></div>
 </body>
@@ -104,10 +118,21 @@ include "../Controller/ControllerVerificationDroit.php"
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>MainTest.php'" name="accueil" value="Accueil" class="btnCreation">Accueil</button></li>
-                <li><a href="#">Etudiant</a></li>
-                <li><a href="#">Entreprise</a></li>
-                <li><a href="#">Administration</a></li>
+                <?php
+                if ($_SESSION['role'] === 'admin') {
+                    echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'MainTest.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                }
+                else {
+                    echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Main.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                }
+                ?>
+                <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Etu.php'" name="etudiant" value="Etudiant" class="btnCreation">Etudiant</button></li>
+                <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Entreprise.php'" name="entreprise" value="Entreprise" class="btnCreation">Entreprise</button></li>
+                <?php
+                if ($_SESSION['role'] === 'admin') {
+                    echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Administration.php\'" name="administration" value="Administration" class="btnCreation">Administration</button></li>';
+                }
+                ?>
             </ul>
         </div>
     </div>

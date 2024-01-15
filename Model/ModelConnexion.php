@@ -39,12 +39,12 @@ function role($user) {
             header('Location: ../View/ViewCdMain.php');
             exit;
         case 'rp':
-            header('Location: ../View/ViewRPMain.php');
+            header('Location: ../View/ViewRpMain.php');
             exit;
-        case 'secretaire':
+        case 'sec':
             header('Location: ../View/ViewSecMain.php');
             exit;
-        case 'Administrateur':
+        case 'admin':
             header('Location: ../View/ViewAdminMainTest.php');
             exit;
         default:
