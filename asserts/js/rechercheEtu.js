@@ -61,7 +61,7 @@ function rechercherEtudiants() {
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                console.log(xhr.responseText); // Ajoutez cette ligne
+                console.log(xhr.responseText);
                 try {
                     var isJson = xhr.getResponseHeader('content-type')?.includes('application/json');
                     if (!isJson) {

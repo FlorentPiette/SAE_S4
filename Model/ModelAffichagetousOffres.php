@@ -26,11 +26,11 @@ foreach ($resultat2 as $res2):
     <form action="../Controller/ControllerAjoutEtudiantOffre.php?nomOffre=<?php echo $res2['nom'];?> " method="post" name="formAjoutEtu_<?php echo $count; ?>">
         <ul class="offres-container">
             <li class="offre">
-                Nom : <?php echo $res2['nom']; ?><br>
-                Domaine : <?php echo $res2['domaine']; ?><br>
-                Mission : <?php echo $res2['mission']; ?><br>
-                Nombre d'étudiants : <?php echo $res2['nbetudiant']; ?><br>
-                Parcours : <?php echo $res2['parcours']; ?><br>
+                <strong>Nom :</strong> <?php echo $res2['nom']; ?><br>
+                <strong>Domaine : </strong><?php echo $res2['domaine']; ?><br>
+                <strong>Mission : </strong><?php echo $res2['mission']; ?><br>
+                <strong>Nombre d'étudiants :</strong> <?php echo $res2['nbetudiant']; ?><br>
+                <strong>Parcours :</strong> <?php echo $res2['parcours']; ?><br>
                 <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
                 <input type="submit" name="BtAjoutEtudiant" value="Ajouter un étudiant à cette offre">
                 <label> Les étudiants qui ont déjà postulés :</label><br>
