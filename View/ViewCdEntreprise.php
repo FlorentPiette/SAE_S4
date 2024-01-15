@@ -8,6 +8,7 @@
     <script src="../asserts/js/AdminEntreprise.js"></script>
     <script src="../asserts/js/rechercheOffre.js"></script>
     <script src="../asserts/js/rechercherEntreprise.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body class="body">
 

@@ -1,5 +1,6 @@
 <?php
-include "../Controller/ControllerVerificationDroit.php"
+include "../Controller/ControllerVerificationDroit.php";
+include "../Controller/ControllerRechercheNbr.php"
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +15,7 @@ include "../Controller/ControllerVerificationDroit.php"
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -328,19 +330,37 @@ include "../Controller/ControllerVerificationDroit.php"
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEtu">Nombre d'étudiants</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEtu)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEtu . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEnt">Nombre d'entreprises</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEntreprise)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEntreprise . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrOff">Nombre d'offres</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrOffre)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrOffre . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>

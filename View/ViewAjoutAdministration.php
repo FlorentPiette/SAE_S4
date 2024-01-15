@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Ajout Personnel</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <form action="../Controller/ControllerAjoutAdministration.php" method="POST">

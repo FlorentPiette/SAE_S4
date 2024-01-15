@@ -17,6 +17,7 @@ include "../Controller/ControllerVerificationDroit.php"
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
 
     <script>

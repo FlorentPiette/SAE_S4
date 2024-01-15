@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Votre Titre</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">

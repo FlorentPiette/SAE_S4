@@ -11,6 +11,7 @@ include "../Controller/ControllerVerificationDroit.php"
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
     <script src="../asserts/js/TousEntreprise.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
 
 

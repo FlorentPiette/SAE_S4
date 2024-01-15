@@ -6,6 +6,7 @@
     <title>Page Principale</title>
 
     <link rel="stylesheet" type="text/css" href="../asserts/css/nouCompteEtu.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body class="body">
 
