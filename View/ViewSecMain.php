@@ -1,6 +1,6 @@
 <?php
-include "../Controller/ControllerVerificationDroit.php"
-?>
+include '../Controller/ControllerVerificationDroit.php';
+include "../Controller/ControllerRechercheNbr.php"?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,31 +21,17 @@ include "../Controller/ControllerVerificationDroit.php"
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-
-
     <script>
-        // Écouteur d'événements pour le bouton d'ouverture
         document.addEventListener('DOMContentLoaded', function () {
             document.getElementById('AjEtu').addEventListener('click', function () {
                 openPopup('popUpEtu');
             });
         });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('AjOffre').addEventListener('click', function () {
-                openPopup('popUpOffre');
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('AjPerso').addEventListener('click', function () {
-                openPopup3();
-            });
-        });
-
     </script>
 </head>
 <body class="body">
+
+
 
 <div id="popUpEtu" class="popupEtu">
 
@@ -157,7 +143,6 @@ include "../Controller/ControllerVerificationDroit.php"
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
-
                             </form>
 
                         </div>
@@ -193,27 +178,6 @@ include "../Controller/ControllerVerificationDroit.php"
         </nav>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var photo = document.getElementById("photo");
-            var dropdown = document.getElementById("account-dropdown");
-
-            photo.addEventListener("click", function (event) {
-                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
-                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-            });
-
-            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
-            document.addEventListener("click", function (event) {
-                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
-                    dropdown.style.display = "none";
-                }
-            });
-        });
-
-
-    </script>
-
 </header>
 
 
@@ -228,19 +192,37 @@ include "../Controller/ControllerVerificationDroit.php"
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEtu">Nombre d'étudiants</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEtu)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEtu . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrEnt">Nombre d'entreprises</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrEntreprise)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrEntreprise . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
                     <h3 class="nbrOff">Nombre d'offres</h3>
-                    <h3 class="nbr">X</h3>
+                    <?php
+                    if (isset($nbrOffre)) {
+                        echo "<h3 class='resNbrEtu'>" . $nbrOffre . "</h3>";
+                    } else {
+                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
