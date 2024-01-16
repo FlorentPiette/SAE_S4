@@ -37,7 +37,7 @@ if (isset($_POST["valider"])) {
         }
         session_start();
         $_SESSION['email'] = $email;
-        header('Location: ../View/ControllerImportationCV.php');
+        header('Location: ControllerImportationCV.php');
     } else {
         $erreur = "Adresse mail déjà utilisée !";
     }
