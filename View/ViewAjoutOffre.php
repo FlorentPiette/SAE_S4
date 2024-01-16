@@ -1,14 +1,17 @@
-
+<?php
+//include '../Controller/ControllerVerificationDroit.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ajout Offre</title>
+    <title>Ajout offre</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+
 </head>
-<body>
+<body class="body">
+
 <button onclick="retourPage()" class="btnRetour">Retour</button>
 
 
@@ -17,6 +20,7 @@
         window.history.back();
     }
 </script>
+
 <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
     <p>
         Nom de l'offre :

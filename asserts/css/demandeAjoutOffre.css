@@ -1,3 +1,21 @@
+/* Style pour la pop-up */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    position: relative; /* Ajoutez cette ligne pour permettre le positionnement relatif */
+}
+
+.popup-content {
+    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
+    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
+}
+
 .btnRetour{
 
     text-decoration: none;
@@ -42,23 +60,28 @@
 
 }
 
-/* Style pour la pop-up */
-.popup-content {
-    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
-    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
+input {
+    width: 400px;
+    padding: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc; /* Ajouter une bordure aux champs */
+    border-radius: 5px; /* Ajouter des coins arrondis */
 }
 
 /* Ajustements pour le formulaire dans la pop-up */
 #formulaire {
-    width: 90%;
-    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
-    margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #f9f9f9;
-    text-align: center;
-    overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
+    width: 400px;
+    margin: 20px auto; /* Ajoutez une barre de défilement au besoin */
+    height: 100vh;
+}
+
+.creationOffre {
+    position: absolute;
+    margin-top: 5%; /* Ajustez cette valeur pour le positionnement exact */
+    color: #007BFF;
+    font-size: 24px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
 }
 
 /* Style pour les étiquettes de champ */
@@ -68,7 +91,7 @@ p {
 }
 
 /* Style des champs de saisie */
-input[type="text"], input[type="number"],
+input[type="text"],
 textarea,
 select {
     width: calc(100% - 20px);
@@ -84,26 +107,69 @@ select {
 
 /* Style pour les cases à cocher */
 input[type="checkbox"] {
-    margin-right: 5px;
+    margin-left: 50px;
 }
 
 /* Style pour le bouton d'enregistrement */
 #enregistreroffre {
-    background-color: #007BFF;
+    background-color: #0f9bb4;
     color: #fff; /* Ajoutez une couleur de texte pour une meilleure lisibilité */
     border: none;
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 45px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: bold;
+
+}
+
+#enregistreroffre:hover {
+    background-color: #0f9bb4;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+
+}
+
+label {
+    font-weight: bold;
+    display: block; /* Afficher les étiquettes sur une nouvelle ligne */
+    margin-bottom: 0px; /* Ajouter un peu d'espace entre les étiquettes */
 }
 
 /* Style pour le bouton de création d'une entreprise */
 #redirigerVersAjoutEntreprise {
-    background-color: #28a745;
+    background-color: #0f9bb4;
     color: #fff;
     border: none;
     padding: 10px;
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
+    border-radius: 45px;
+    font-weight: bold;
+
+}
+
+#redirigerVersAjoutEntreprise:hover {
+    background-color: #0f9bb4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
 }
