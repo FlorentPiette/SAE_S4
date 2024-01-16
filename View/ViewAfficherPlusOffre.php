@@ -129,7 +129,7 @@ include "../Controller/ControllerVerificationDroit.php"
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Main.php'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
+                <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Main.php'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>
                 <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Etu.php'" name="etudiant" value="Etudiant" class="btnCreation">Etudiant</button></li>
                 <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Entreprise.php'" name="entreprise" value="Entreprise" class="btnCreation">Entreprise</button></li>
                 <?php
