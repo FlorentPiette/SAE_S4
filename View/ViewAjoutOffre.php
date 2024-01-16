@@ -1,6 +1,4 @@
 
-<?php
-include '../Controller/ControllerVerificationDroit.php'; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -11,6 +9,14 @@ include '../Controller/ControllerVerificationDroit.php'; ?>
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
+<button onclick="retourPage()" class="btnRetour">Retour</button>
+
+
+<script>
+    function retourPage() {
+        window.history.back();
+    }
+</script>
 <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
     <p>
         Nom de l'offre :

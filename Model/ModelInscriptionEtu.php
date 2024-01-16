@@ -14,14 +14,13 @@ function ajouterEtudiant($db,$nom, $prenom, $dateDeNaissance, $adresse, $ville, 
 
 
 function ajouterCV($db, $etu, $chemin){
-    $ajout = $db->prepare("INSERT INTO CV (idEtudiant, chemin, contenu) 
-    VALUES (:idEtudiant, :chemin, :contenu)");
-    $ajout->bindParam(':idEtudiant', $etu, PDO::PARAM_INT);
+    $ajout = $db->prepare("INSERT INTO CV (id, chemin, contenu) 
+   VALUES (:id, :chemin, :contenu)");
+    $ajout->bindParam(':id', $etu, PDO::PARAM_INT);
     $ajout->bindParam(':chemin', $chemin, PDO::PARAM_STR);
     $ajout->bindValue(':contenu', file_get_contents($chemin), PDO::PARAM_LOB);
     $ajout->execute();
 }
-
 
 /**
  * Récuperer de la base de donnée, les étudiants qui ont cette adresse email
@@ -41,12 +40,12 @@ function selectEtuWhereEmail($conn, $email): array
     return $result;
 }
 
-function selectidWhereEmail($conn, $email): array
+function selectidWhereEmail($conn, $email)
 {
-    $req = "SELECT idEtudiant FROM Etudiant where email = ?";
+    $req = "SELECT idEtudiant FROM Etudiant WHERE email = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($email));
-    $result = $req2->fetch(PDO::FETCH_ASSOC);
+    $result = $req2->fetchColumn();
 
     return $result;
 }

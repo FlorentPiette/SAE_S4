@@ -24,7 +24,7 @@
 
     <div class="princi-rectangle">
 
-        <form action="../Controller/ControllerInscriptionEtu.php" method="post" enctype="multipart/form-data">
+        <form action="../Controller/ControllerInscriptionEtu.php" method="post">
             <div class="nom-rectangle">
 
                 <input type="text" name="nom" class="input-nom" placeholder="NOM">
@@ -79,11 +79,6 @@
                 <input type="date" name="date" class="input-date" placeholder="Date de naissance">
             </div>
 
-            <div class="cv-rectangle">
-                <label> Importez votre cv </label>
-                <input type="file" name="fichier" id="fichier" accept="application/pdf">
-            </div>
-
             <div class="anneeetude-rectangle">
 
                 <input type="number" name="anneeetude" class="input-anneeetude" placeholder="Année d'étude">
@@ -95,9 +90,7 @@
             </div>
 
             <div>
-
                 <input type="submit" name="valider" value="Création" class="btnCreation">
-
             </div>
 
 
