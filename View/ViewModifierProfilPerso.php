@@ -23,14 +23,7 @@
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
-                    <?php
-                    if ($_SESSION['role'] === 'admin') {
-                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'MainTest.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
-                    }
-                    else {
-                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'Main.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
-                    }
-                    ?>
+                    <li><button type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Main.php'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
                     <li>
                         <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>

@@ -28,7 +28,7 @@ include '../Controller/ControllerVerificationDroit.php';
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -269,7 +269,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><a href="ViewAdminMainTest.php">Accueil</a></li>
+                <li><a href="ViewAdminMain.php">Accueil</a></li>
                 <li><a href="ViewAdminEtu.php">Etudiant</a></li>
                 <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>

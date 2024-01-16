@@ -228,7 +228,7 @@
         <div class="footer-section links">
             <h2>Quick links</h2>
             <ul>
-                <li><a href="../../View/ViewAdminMainTest.php">Homepage</a></li>
+                <li><a href="../../View/ViewAdminMain.php">Homepage</a></li>
                 <li><a href="../../View/ViewAdminEtu.php">Students</a></li>
                 <li><a href="../../View/ViewAdminEntreprise.php">Companies</a></li>
                 <li><a href="../../View/ViewAdminAdministration.php">Administration</a></li>

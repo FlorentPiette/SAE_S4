@@ -1,25 +1,23 @@
-<?php include '../Controller/ControllerVerificationDroit.php';
-include "../Controller/ControllerRechercheNbr.php"?>
+<?php
+include "../../Controller/ControllerVerificationDroit.php"
+?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Accueil</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenuTest.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <title>Main</title>
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/adminMenu.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/ajoutEtudiant.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/demandeAjoutOffre.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/AffichageEtudiant.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/AffichageOffre.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/AjoutPersonnel.css">
+    <link rel="stylesheet" type="text/css" href="../../asserts/css/AffichageEntreprise.css">
 
-    <script src="../asserts/js/AdminMain.js"></script>
+    <script src="../../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-    <script src="../asserts/js/script.js"></script>
 
     <script>
         // Écouteur d'événements pour le bouton d'ouverture
@@ -50,30 +48,30 @@ include "../Controller/ControllerRechercheNbr.php"?>
     <div class="popup-content" id="formulaireAjoutEtudiant">
 
 
-        <form action="../Controller/ControllerAjoutEtudiant.php" method="post" >
+        <form action="../../Controller/ControllerAjoutEtudiant.php" method="post" >
             <ul>
                 <li>
-                    <label for="nom">Nom:</label>
+                    <label for="nom">Name:</label>
                     <input type="text" id="nom" name="nom" class="input" />
                 </li>
                 <li>
-                    <label for="prenom">Prénom:</label>
+                    <label for="prenom">First Name:</label>
                     <input type="text" id="prenom" name="prenom" class="input" />
                 </li>
                 <li>
-                    <label for="dateDeNaissance">Date de naissance:</label>
+                    <label for="dateDeNaissance">Birth Date:</label>
                     <input type="date" id="dateDeNaissance" name="dateDeNaissance" class="input" />
                 </li>
                 <li>
-                    <label for="adresse">Adresse:</label>
+                    <label for="adresse">Address:</label>
                     <input type="text" id="adresse" name="adresse" class="input" />
                 </li>
                 <li>
-                    <label for="ville">Ville:</label>
+                    <label for="ville">City:</label>
                     <input type="text" id="ville" name="ville" class="input" />
                 </li>
                 <li>
-                    <label for="codePostal">Code postal:</label>
+                    <label for="codePostal">Postal Code:</label>
                     <input type="number" id="codePostal" name="codePostal" class="input" />
                 </li>
                 <li>
@@ -81,7 +79,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                     <input type="text" id="ine" name="ine" class="input"/>
                 </li>
                 <li>
-                    <label for="anneeEtude">Année d'étude:</label>
+                    <label for="anneeEtude">Study Year:</label>
                     <input type="number" id="anneeEtude" name="anneeEtude" class="input" />
                 </li>
                 <li>
@@ -92,16 +90,20 @@ include "../Controller/ControllerRechercheNbr.php"?>
                     </select>
                 </li>
                 <li>
-                    <label for="mission">Type de mission:</label>
+                    <label for="mission">Mission type:</label>
                     <input type="text" id="mission" name="mission" class="input" />
                 </li>
                 <li>
-                    <label for="entreprise">Type d'entreprise:</label>
+                    <label for="entreprise">Company Type:</label>
                     <input type="text" id="entreprise" name="entreprise" class="input" />
                 </li>
                 <li>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="input" />
+                </li>
+                <li>
                     <label for="mobile">
-                        Mobilité:
+                        Mobility:
                         <select name="mobile" id="mobile">
                             <option value="10">10km</option>
                             <option value="50">50km</option>
@@ -113,11 +115,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                     </label>
                 </li>
                 <li>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" class="input" />
-                </li>
-                <li>
-                    <label for="mdp">Mot de passe:</label>
+                    <label for="mdp">Password:</label>
                     <input type="password" id="mdp" name="mdp" class="input"/>
                 </li>
             </ul>
@@ -134,34 +132,34 @@ include "../Controller/ControllerRechercheNbr.php"?>
 <div id="popUpOffre" class="popupEtu">
     <div class="popup-content">
 
-        <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
+        <form action="../../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
 
             <p>
-                Nom de l'offre :
+                Offer name :
             </p>
             <label for="offre"></label><input type="text" name="Nom" id="offre">
 
             <p>
-                Domaine de l'offre :
+                Offer domain :
             </p>
             <label for="domaine"></label><input type="text" name="Domaine" id="domaine">
 
             <p>
-                Missions :
+                Mission :
             </p>
             <label for="mission"></label><textarea name="Mission" id="mission" class="zoneText"></textarea>
 
             <p>
-                Nombre d'étudiants :
+                Number of students :
             </p>
-            <label for="nbetudiant"></label><input type="number" name="NbEtudiant" id="nbetudiant"><br>
+            <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant"><br>
 
             <p id="message" class="error-message"></p>
 
-            <p>Entreprise :</p>
+            <p>Company :</p>
             <label for="entreprise"></label><select name="entreprise" id="entreprise">
                 <?php
-                include_once '../Model/ConnexionBDD.php';
+                include_once '../../Model/ConnexionBDD.php';
                 $conn = Conn::getInstance();
                 $sql = "SELECT identreprise, nom FROM entreprise";
                 $result = $conn->query($sql);
@@ -173,9 +171,9 @@ include "../Controller/ControllerRechercheNbr.php"?>
             </select><br>
 
 
-            <button type="button" id="redirigerVersAjoutEntreprise" onclick="redirectEntreprise()">Création d'une entreprise</button>
+            <button type="button" id="redirigerVersAjoutEntreprise" onclick="redirectEntreprise()">Company creation</button>
 
-            <p>Autre(s) fichier(s) :</p>
+            <p>Other file(s) :</p>
             <input type="file" name="fichier" id="fichier"><br>
             <br>
             <p>
@@ -196,15 +194,15 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
             <label for="brouillon"></label><input type="checkbox" name="Brouillon" id="brouillon">
             <label>
-                Enregistrer en tant que brouillon
+                Save as scratch
             </label><br>
 
             <label for="visible"></label><input type="checkbox" name="Visible" id="visible">
             <label>
-                Voulez-vous que l'offre soit visible ?
+                Do you want the offer to be visible ?
             </label><br>
 
-            <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
+            <input type="submit" value="Save offer" id="enregistreroffre" name="EnregistrerOffre"><br>
         </form>
 
         <span class="close" onclick="closePopup2()">&times;</span>
@@ -214,19 +212,19 @@ include "../Controller/ControllerRechercheNbr.php"?>
 <div id="popUpPerso" class="popupEtu">
     <div class="popup-content">
 
-        <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
+        <form action="../../Controller/ControllerAjoutAdministration.php" method="POST">
             <ul>
                 <li>
-                    <label for="nom">Nom:</label>
+                    <label for="nom">Name:</label>
                     <input type="text" id="nom" name="nom" />
                 </li>
                 <li>
-                    <label for="prenom">Prenom:</label>
+                    <label for="prenom">First Name:</label>
                     <input type="text" id="prenom" name="prenom" />
                 </li>
                 <li>
                     <div class="formation-rectangle">
-                        <label for="parcours">Formation :</label>
+
                         <select id="formation-select" name="formation">
                             <option value="GEII">GEII</option>
                             <option value="GIM">GIM</option>
@@ -243,21 +241,21 @@ include "../Controller/ControllerRechercheNbr.php"?>
                 </li>
                 <li>
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" />
+                    <input type="text" id="email" name="email" />
                 </li>
                 <li>
-                    <label for="mdp">Mot de passe:</label>
-                    <input type="password" id="mdp" name="mdp" />
+                    <label for="mdp">Password:</label>
+                    <input type="text" id="mdp" name="mdp" />
                 </li>
                 <li>
                     <div class="role-rectangle">
-                        <label for="role">Role :</label>
+
                         <select id="role-select" name="role">
-                            <option value="admin">Administrateur</option>
-                            <option value="rp">Responsable pédagogique</option>
-                            <option value="cd">Chargés de développement</option>
-                            <option value="rs">Responsable du service</option>
-                            <option value="secretaire">Secrétaire</option>
+                            <option value="admin">Administration</option>
+                            <option value="rp">Head teacher</option>
+                            <option value="cd">Development managers</option>
+                            <option value="rs">Service responsable</option>
+                            <option value="secretaire">Secretary</option>
                         </select>
 
                     </div>
@@ -265,7 +263,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
             </ul>
 
             <div class="button">
-                <button type="submit" id="ajoutPersonnel" name="valider">Valider</button>
+                <button type="submit" id="ajoutPersonnel" name="valider">Confirm</button>
             </div>
         </form>
 
@@ -276,68 +274,67 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../../asserts/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
         <nav>
-            <form method="post" action="../Controller/ControllerBtnDeco.php">
+            <form method="post" action="../../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMainTestEn.php'" name="accueil" value="Accueil" class="btnCreation">Homepage</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEtuEn.php'" name="etudiant" value="Etudiant" class="btnCreation">Student</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminEntrepriseEn.php'" name="entreprise" value="Entreprise" class="btnCreation">Company</button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminAdministrationEn.php'" name="adminitrsation" class="btnCreation">Administration</button>
                     </li>
                     <li>
-                        <a href="../../SAE/english/View/ViewAdminMainTestEn.php"> <img src="../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
+                        <a href="../../View/ViewAdminMain.php"> <img src="../../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
                     </li>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
-                            <form method="post" action="../Controller/ControllerBtnDeco.php">
+                            <form method="post" action="../../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
+
                             </form>
 
                         </div>
                     </li>
                     <li>
-                        <div class="notification">
-                            <div class="icon-bell" onclick="toggleNotifications()">
-                                <span class="badge" id="notificationBadge"> </span>
-                            </div>
-                        </div>
-                        <div class="burger-menu" id="burgerMenu" style="display: none;">
-                            <div class="millieu">
-                                <button type="button" id="showUnreadButton">Notifications non lues</button>
-                                <button type="button" id="showReadButton">Notifications lues</button>
-                            </div>
-
-                            <div>
-                                <h2 id="hnonlu">Notifications non lues</h2>
-                                <ul id="unreadNotificationList" ></ul>
-
-                            </div>
-                            <div>
-                                <h2 id="hlu">Notifications lues</h2>
-                                <ul id="readNotificationList"></ul>
-                            </div>
-
-                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
-
-                        </div>
+                        <a><img src="../../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
                     </li>
                 </ul>
             </form>
         </nav>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var photo = document.getElementById("photo");
+            var dropdown = document.getElementById("account-dropdown");
+
+            photo.addEventListener("click", function (event) {
+                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
+                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
+            });
+
+            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
+            document.addEventListener("click", function (event) {
+                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
+                    dropdown.style.display = "none";
+                }
+            });
+        });
+
+
+    </script>
 
 </header>
 
@@ -347,48 +344,30 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
     <div class="rectangle-haut">
         <div class="image-box">
-            <img class="banniere" src="../asserts/img/banniere.png" alt="Bannière">
+            <img class="banniere" src="../../asserts/img/banniere.png" alt="Bannière">
         </div>
         <div class="all-text">
             <div class="rectangle-info">
                 <div class="info-box">
-                    <h3 class="nbrEtu">Nombre d'étudiants</h3>
-                    <?php
-                    if (isset($nbrEtu)) {
-                        echo "<h3 class='resNbrEtu'>" . $nbrEtu . "</h3>";
-                    } else {
-                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
-                    }
-                    ?>
+                    <h3 class="nbrEtu">Number of students</h3>
+                    <h3 class="nbr">X</h3>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
-                    <h3 class="nbrEnt">Nombre d'entreprises</h3>
-                    <?php
-                    if (isset($nbrEntreprise)) {
-                        echo "<h3 class='resNbrEtu'>" . $nbrEntreprise . "</h3>";
-                    } else {
-                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
-                    }
-                    ?>
+                    <h3 class="nbrEnt">Number of companies</h3>
+                    <h3 class="nbr">X</h3>
                 </div>
             </div>
             <div class="rectangle-info">
                 <div class="info-box">
-                    <h3 class="nbrOff">Nombre d'offres</h3>
-                    <?php
-                    if (isset($nbrOffre)) {
-                        echo "<h3 class='resNbrEtu'>" . $nbrOffre . "</h3>";
-                    } else {
-                        echo "<h3 class='nbr'>Erreur: Nombre non défini</h3>";
-                    }
-                    ?>
+                    <h3 class="nbrOff">Number of offers</h3>
+                    <h3 class="nbr">X</h3>
                 </div>
             </div>
         </div>
         <div class="titreAppli">
-            <h3 class="title">Bienvenue sur le Gestionnaire des Apprentis</h3>
+            <h3 class="title">Welcome to the Apprentice Manager</h3>
         </div>
     </div>
 
@@ -398,77 +377,77 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
         <div class="rectangle">
 
-            <h3 class="titreAjout">Ajouter un étudiant</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjEtu">
+            <h3 class="titreAjout">Add student</h3>
+            <input class="AjRapide" type="button" value="Add" id="AjEtu">
 
         </div>
         <div class="rectangle">
 
-            <h3 class="titreAjout">Ajouter une offre</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjOffre">
+            <h3 class="titreAjout">Add offer</h3>
+            <input class="AjRapide" type="button" value="Add" id="AjOffre">
 
         </div>
         <div class="rectangle">
 
-            <h3 class="titreAjout">Ajouter un personnel</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjPerso">
+            <h3 class="titreAjout">Add staff</h3>
+            <input class="AjRapide" type="button" value="Add" id="AjPerso">
 
         </div>
 
     </section>
 
     <div class="main-rectangle">
-        <div class="ajouter-recent">Ajouté récemment</div>
+        <div class="ajouter-recent">Recently added</div>
         <div class="other-rectangles">
             <div class="sub-rectangle">
-                <h3 class="texteInRect">Etudiant</h3>
+                <h3 class="texteInRect">Student</h3>
                 <div class="inner-rectangle" id="etudiants-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherEtudiants">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherEtudiants">
             </div>
             <div class="sub-rectangle">
-                <h3 class="texteInRect">Offre</h3>
+                <h3 class="texteInRect">Offer</h3>
                 <div class="inner-rectangle" id="offres-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherOffres">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherOffres">
             </div>
             <div class="sub-rectangle">
-                <h3 class="texteInRect">Entreprise</h3>
+                <h3 class="texteInRect">Company</h3>
                 <div class="inner-rectangle" id="entreprises-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherEntreprises">
+                <input class="btnAfficherPlus" type="button" value="Show More" id="afficherEntreprises">
             </div>
         </div>
     </div>
-
-    <footer class="footer" id="footer">
+    <footer class="footer">
         <div class="footer-content">
             <div class="footer-section about">
-                <h2>À propos de nous</h2>
-                <p>Le Gestionnaire des Apprentis est une plateforme dédiée à la gestion des étudiants, des offres et des entreprises pour les programmes d'apprentissage.</p>
+                <h2>About us</h2>
+                <p>The Apprentice Manager is a platform dedicated to the management of students, offers, and companies for apprentice programs.</p>
             </div>
 
             <div class="footer-section contact">
-                <h2>Contactez-nous</h2>
+                <h2>Contact us</h2>
                 <p>Email : communication@uphf.fr</p>
                 <p> Université Polytechnique Hauts-de-France - Campus Mont Houy - 59313 Valenciennes Cedex 9 | +33 (0)3 27 51 12 34</p>
             </div>
 
             <div class="footer-section links">
-                <h2>Liens rapides</h2>
+                <h2>Quick links</h2>
                 <ul>
-                    <li><a href="ViewAdminMainTest.php">Accueil</a></li>
-                    <li><a href="ViewAdminEtu.php">Etudiant</a></li>
-                    <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
-                    <li><a href="ViewAdminAdministration.php">Administration</a></li>
+                    <li><a href="ViewAdminMainEn.php">Homepage</a></li>
+                    <li><a href="ViewAdminEtuEn.php">Students</a></li>
+                    <li><a href="ViewAdminEntrepriseEn.php">Companies</a></li>
+                    <li><a href="#">Administration</a></li>
                 </ul>
             </div>
         </div>
 
         <div class="footer-bottom">
-            <p>&copy; 2023 Gestionnaire des Apprentis | Tous droits réservés</p>
+            <p>&copy; 2023 Apprentice Manager | All rights reserved</p>
         </div>
     </footer>
 
 </div>
 </body>
+
 
 
 </html>

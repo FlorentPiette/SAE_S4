@@ -45,7 +45,7 @@ function role($user) {
             header('Location: ../View/ViewSecMain.php');
             exit;
         case 'admin':
-            header('Location: ../View/ViewAdminMainTest.php');
+            header('Location: ../View/ViewAdminMain.php');
             exit;
         default:
             echo $user['role'];

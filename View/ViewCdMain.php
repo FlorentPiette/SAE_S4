@@ -7,7 +7,7 @@ include "../Controller/ControllerVerificationDroit.php"
 <head>
     <meta charset="UTF-8">
     <title>Accueil</title>
-    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenuTest.css">
+    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenu.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
