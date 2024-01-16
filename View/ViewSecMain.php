@@ -6,18 +6,21 @@ include "../Controller/ControllerVerificationDroit.php"
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="/asserts/css/adminMenu.css">
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenu.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEtudiant.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
+    <script src="../asserts/js/script.js"></script>
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <script src="../asserts/js/AdminMain.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+
 
 
     <script>
@@ -130,149 +133,6 @@ include "../Controller/ControllerVerificationDroit.php"
     </div>
 </div>
 
-<div id="popUpOffre" class="popupEtu">
-    <div class="popup-content">
-
-        <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
-
-            <p>
-                Nom de l'offre :
-            </p>
-            <label for="offre"></label><input type="text" name="Nom" id="offre">
-
-            <p>
-                Domaine de l'offre :
-            </p>
-            <label for="domaine"></label><input type="text" name="Domaine" id="domaine">
-
-            <p>
-                Missions :
-            </p>
-            <label for="mission"></label><textarea name="Mission" id="mission" class="zoneText"></textarea>
-
-            <p>
-                Nombre d'étudiants :
-            </p>
-            <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant"><br>
-
-            <p id="message" class="error-message"></p>
-
-            <p>Entreprise :</p>
-            <label for="entreprise"></label><select name="entreprise" id="entreprise">
-                <?php
-                include_once '../Model/ConnexionBDD.php';
-                $conn = Conn::getInstance();
-                $sql = "SELECT identreprise, nom FROM entreprise";
-                $result = $conn->query($sql);
-                // Boucler à travers les résultats de la requête pour afficher les entreprises dans la liste déroulante
-                while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-                    echo "<option value='" . $row['identreprise'] . "'>" . $row['nom'] . "</option>";
-                }
-                ?>
-            </select><br>
-
-
-            <button type="button" id="redirigerVersAjoutEntreprise" onclick="redirectEntreprise()">Création d'une entreprise</button>
-
-            <p>Autre(s) fichier(s) :</p>
-            <input type="file" name="fichier" id="fichier"><br>
-            <br>
-            <p>
-                Parcours :
-            </p>
-            <label for="parcours"></label>
-            <select name="Parcours" id="parcours">
-                <option value="GEII">GEII</option>
-                <option value="GIM">GIM</option>
-                <option value="GMP">GMP</option>
-                <option value="GEA">GEA</option>
-                <option value="TCV">TCV</option>
-                <option value="QLIQ">QLIQ</option>
-                <option value="TCc">TCc</option>
-                <option value="INFO">INFO</option>
-                <option value="Mph">Mph</option>
-            </select><br>
-
-            <label for="brouillon"></label><input type="checkbox" name="Brouillon" id="brouillon">
-            <label>
-                Enregistrer en tant que brouillon
-            </label><br>
-
-            <label for="visible"></label><input type="checkbox" name="Visible" id="visible">
-            <label>
-                Voulez-vous que l'offre soit visible ?
-            </label><br>
-
-            <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
-        </form>
-
-        <span class="close" onclick="closePopup2()">&times;</span>
-    </div>
-</div>
-
-<div id="popUpPerso" class="popupEtu">
-    <div class="popup-content">
-
-        <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
-            <ul>
-                <li>
-                    <label for="nom">Nom:</label>
-                    <input type="text" id="nom" name="nom" />
-                </li>
-                <li>
-                    <label for="prenom">Prenom:</label>
-                    <input type="text" id="prenom" name="prenom" />
-                </li>
-                <li>
-                    <div class="formation-rectangle">
-
-                        <select id="formation-select" name="formation">
-                            <option value="GEII">GEII</option>
-                            <option value="GIM">GIM</option>
-                            <option value="GMP">GMP</option>
-                            <option value="GEA">GEA</option>
-                            <option value="TCV">TCV</option>
-                            <option value="QLIQ">QLIQ</option>
-                            <option value="TCc">TCc</option>
-                            <option value="INFO">INFO</option>
-                            <option value="Mph">Mph</option>
-                        </select>
-
-                    </div>
-                </li>
-                <li>
-                    <label for="email">Email:</label>
-                    <input type="text" id="email" name="email" />
-                </li>
-                <li>
-                    <label for="mdp">Mot de passe:</label>
-                    <input type="text" id="mdp" name="mdp" />
-                </li>
-                <li>
-                    <div class="role-rectangle">
-
-                        <select id="role-select" name="role">
-                            <option value="admin">Administration</option>
-                            <option value="rp">Responsable pédagogique</option>
-                            <option value="cd">Chargés de développement</option>
-                            <option value="rs">Responsable du service</option>
-                            <option value="secretaire">Secrétaire</option>
-                        </select>
-
-                    </div>
-                </li>
-            </ul>
-
-            <div class="button">
-                <button type="submit" id="ajoutPersonnel" name="valider">Valider</button>
-            </div>
-        </form>
-
-        <span class="close" onclick="closePopup3()">&times;</span>
-    </div>
-</div>
-
-
 <header class="header">
     <div class="logo-container">
         <img src="../asserts/img/logo.png" class="logo">
@@ -303,7 +163,30 @@ include "../Controller/ControllerVerificationDroit.php"
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <div class="notification">
+                            <div class="icon-bell" onclick="toggleNotifications()">
+                                <span class="badge" id="notificationBadge"> </span>
+                            </div>
+                        </div>
+                        <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <div class="millieu">
+                                <button type="button" id="showUnreadButton">Notifications non lues</button>
+                                <button type="button" id="showReadButton">Notifications lues</button>
+                            </div>
+
+                            <div>
+                                <h2 id="hnonlu">Notifications non lues</h2>
+                                <ul id="unreadNotificationList" ></ul>
+
+                            </div>
+                            <div>
+                                <h2 id="hlu">Notifications lues</h2>
+                                <ul id="readNotificationList"></ul>
+                            </div>
+
+                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
+
+                        </div>
                     </li>
                 </ul>
             </form>
@@ -376,18 +259,6 @@ include "../Controller/ControllerVerificationDroit.php"
             <input class="AjRapide" type="button" value="Ajouter" id="AjEtu">
 
         </div>
-        <div class="rectangle">
-
-            <h3 class="titreAjout">Ajouter une offre</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjOffre">
-
-        </div>
-        <div class="rectangle">
-
-            <h3 class="titreAjout">Ajouter un personnel</h3>
-            <input class="AjRapide" type="button" value="Ajouter" id="AjPerso">
-
-        </div>
 
     </section>
 
@@ -429,8 +300,8 @@ include "../Controller/ControllerVerificationDroit.php"
                 <h2>Liens rapides</h2>
                 <ul>
                     <li><a href="ViewSecMain.php">Accueil</a></li>
-                    <li><a href="ViewSecEtu.php">Etudiants</a></li>
-                    <li><a href="ViewSecEntreprise.php">Entreprises</a></li>
+                    <li><a href="ViewSecEtu.php">Etudiant</a></li>
+                    <li><a href="ViewSecEntreprise.php">Entreprise</a></li>
                 </ul>
             </div>
         </div>
