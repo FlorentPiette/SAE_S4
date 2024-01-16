@@ -131,7 +131,7 @@ include '../Controller/ControllerVerificationDroit.php';
         $pdfPath = $pdfFileName;
 
         if (file_exists($pdfPath)) {
-            echo '<iframe src="' . $pdfPath . '" width="400" height="600" style="border: none;"></iframe>';
+            echo '<iframe src="' . $pdfPath . '" width="600" height="850" style="border: none; margin-left: 4.5%"></iframe>';
         } else {
             echo 'Le fichier PDF n`existe pas.';
         }
