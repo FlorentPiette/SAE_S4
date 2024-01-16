@@ -20,7 +20,8 @@
         <label for="fichier">Sélectionnez un fichier PDF à importer :</label>
         <input type="file" name="fichier" id="fichier" accept="application/pdf">
         <br>
-        <input type="submit" value="Importer">
+        <input type="submit" value="Importer son CV" name="Importer">
+        <input type="submit" value="Ne pas importer de CV" name="NePasImporter">
     </div>
 </form>
 </body>

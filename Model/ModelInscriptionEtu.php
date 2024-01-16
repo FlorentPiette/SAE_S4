@@ -14,12 +14,21 @@ function ajouterEtudiant($db,$nom, $prenom, $dateDeNaissance, $adresse, $ville, 
 
 
 function ajouterCV($db, $etu, $chemin){
-    $ajout = $db->prepare("INSERT INTO CV (id, chemin, contenu) 
-   VALUES (:id, :chemin, :contenu)");
-    $ajout->bindParam(':id', $etu, PDO::PARAM_INT);
-    $ajout->bindParam(':chemin', $chemin, PDO::PARAM_STR);
-    $ajout->bindValue(':contenu', file_get_contents($chemin), PDO::PARAM_LOB);
-    $ajout->execute();
+    $sql = "INSERT INTO CV (id, chemin, contenu) VALUES (:id, :chemin, :contenu)";
+    $stmt = $db->prepare($sql);
+
+    if (!empty($etu)) {
+        $stmt->bindParam(':id', $etu);
+        $stmt->bindParam(':chemin', $chemin);
+
+        $stmt->bindValue(':contenu', file_get_contents($chemin), PDO::PARAM_LOB);
+        if ($stmt->execute()) {
+            echo "Le fichier a été ajouté avec succès à la base de données.";
+            header('Location: ../View/ViewEtuMain.php');
+        } else {
+            echo '<div style="color: red;">Erreur lors de l\'ajout du fichier dans la base de données : ' . $stmt->errorInfo()[2] . '</div>';
+        }
+    }
 }
 
 /**

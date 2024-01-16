@@ -127,12 +127,10 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
         <?php
-        $pdfFileName = '../Controller/eval2DUT.pdf'; // Nom du fichier PDF
-        $pdfPath = $pdfFileName; // Chemin relatif vers le fichier PDF
+        $pdfFileName = '../Controller/eval2DUT.pdf';
+        $pdfPath = $pdfFileName;
 
-        // Vérifier si le fichier existe
         if (file_exists($pdfPath)) {
-            // Utiliser l'élément iframe pour afficher le PDF
             echo '<iframe src="' . $pdfPath . '" width="400" height="600" style="border: none;"></iframe>';
         } else {
             echo 'Le fichier PDF n`existe pas.';
