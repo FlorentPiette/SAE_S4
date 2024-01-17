@@ -1,21 +1,3 @@
-/* Style pour la pop-up */
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    position: relative; /* Ajoutez cette ligne pour permettre le positionnement relatif */
-}
-
-.popup-content {
-    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
-    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
-}
-
 .btnRetour{
 
     text-decoration: none;
@@ -60,16 +42,8 @@ body {
 
 }
 
-input {
-    width: 400px;
-    padding: 5px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc; /* Ajouter une bordure aux champs */
-    border-radius: 5px; /* Ajouter des coins arrondis */
-}
-
 /* Ajustements pour le formulaire dans la pop-up */
-#formulaire {
+.form-offre {
     width: 400px;
     margin: 20px auto; /* Ajoutez une barre de défilement au besoin */
     height: 100vh;
@@ -84,29 +58,29 @@ input {
     padding-bottom: 5px;
 }
 
-/* Style pour les étiquettes de champ */
-p {
-    font-weight: bold;
-    margin-top: 10px; /* Ajoutez une marge supérieure pour séparer les étiquettes */
-}
-
 /* Style des champs de saisie */
-input[type="text"],
+.input-field,
 textarea,
-select {
+.select-field,
+.file-input,
+.checkbox-input {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-/* Style pour la zone de texte "Mission" */
+.label-text {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .zoneText {
     height: 100px;
 }
 
 /* Style pour les cases à cocher */
-input[type="checkbox"] {
+.checkbox-label {
     margin-left: 50px;
 }
 
@@ -121,8 +95,8 @@ input[type="checkbox"] {
     border-radius: 45px;
     margin-top: 15px;
     margin-bottom: 15px;
+    margin-left: 28%;
     font-weight: bold;
-
 }
 
 #enregistreroffre:hover {
@@ -139,12 +113,6 @@ input[type="checkbox"] {
 
 }
 
-label {
-    font-weight: bold;
-    display: block; /* Afficher les étiquettes sur une nouvelle ligne */
-    margin-bottom: 0px; /* Ajouter un peu d'espace entre les étiquettes */
-}
-
 /* Style pour le bouton de création d'une entreprise */
 #redirigerVersAjoutEntreprise {
     background-color: #0f9bb4;
@@ -154,6 +122,7 @@ label {
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
+    margin-left: 24%;
     border-radius: 45px;
     font-weight: bold;
 
@@ -172,4 +141,11 @@ label {
     box-shadow: 0 0 10px #333333;
     transition: box-shadow 0.3s ease;
     font-weight: bold;
+}
+
+.titre1 {
+    color: #0f9bb4;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
