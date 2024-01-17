@@ -1,27 +1,62 @@
-/* Style pour la pop-up */
-.popup-content {
-    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
-    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
+#popUpEtu .popup-content {
+    max-height: 90vh;
+    overflow-y: scroll;
 }
 
-/* Ajustements pour le formulaire dans la pop-up */
 #formulaireAjoutEtudiant {
-    width: 40%;
-    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
-    margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: white;
-    text-align: center;
-    overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
+    width: 400px;
+    margin: 20px auto; /* Ajoutez une barre de défilement au besoin */
+    height: 100vh;
 }
 
-/* Style pour les étiquettes de champ */
-label {
+
+.btnRetour{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 110px;
+    height: 45px;
+    border-radius: 45px;
+    transition: box-shadow 0.3s ease;
     font-weight: bold;
-    display: block;
-    margin-bottom: 10px; /* Augmentez l'espace entre les étiquettes */
+    z-index: 999;
+
+}
+
+.btnRetour:hover{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+    z-index: 999;
+
+}
+
+.label-text {
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 /* Style des champs de saisie */
@@ -34,15 +69,34 @@ label {
     border-radius: 5px;
 }
 
-/* Style pour le bouton d'enregistrement */
 #ajoutEtudiant {
-    background-color: #007BFF;
-    color: white;
-    padding: 12px 20px; /* Ajustez la taille du bouton */
+    background-color: #0f9bb4;
+    color: #fff;
     border: none;
+    padding: 10px;
+    font-size: 14px;
     cursor: pointer;
-    font-size: 16px;
-    margin-top: 30px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    margin-left: 38%;
+    border-radius: 45px;
+    font-weight: bold;
+
+}
+
+#ajoutEtudiant:hover {
+    background-color: #0f9bb4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
 }
 
 /* Style pour le message d'erreur */
@@ -57,9 +111,9 @@ ul {
     padding: 0;
 }
 
-.popup-content ul{
-    background-color: #f9f9f9;
-    padding: 30px;
-    border: 1px solid #ccc;
-    margin-top: 20px;
+.titre1 {
+    color: #0f9bb4;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }

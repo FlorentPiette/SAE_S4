@@ -8,57 +8,76 @@
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 </head>
 <body>
+
+<button onclick="retourPage()" class="btnRetour">Retour</button>
+
+
+<script>
+    function retourPage() {
+        window.history.back();
+    }
+</script>
+
+
 <form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaireAjoutEtudiant">
+    <h1 class="titre1"> Création d'un étudiant </h1>
     <ul>
         <li>
-            <label for="nom">Nom:</label>
+            <label for="nom" class="label-text">Nom:</label>
             <input type="text" id="nom" name="nom" class="input">
         </li>
         <li>
-            <label for="prenom">Prénom:</label>
+            <label for="prenom" class="label-text">Prénom:</label>
             <input type="text" id="prenom" name="prenom" class="input">
         </li>
         <li>
-            <label for="dateDeNaissance">Date de naissance:</label>
+            <label for="dateDeNaissance" class="label-text">Date de naissance:</label>
             <input type="date" id="dateDeNaissance" name="dateDeNaissance" class="input">
         </li>
         <li>
-            <label for="adresse">Adresse:</label>
+            <label for="adresse" class="label-text">Adresse:</label>
             <input type="text" id="adresse" name="adresse" class="input">
         </li>
         <li>
-            <label for="ville">Ville:</label>
+            <label for="ville" class="label-text">Ville:</label>
             <input type="text" id="ville" name="ville" class="input">
         </li>
         <li>
-            <label for="codePostal">Code postal:</label>
+            <label for="codePostal" class="label-text">Code postal:</label>
             <input type="number" id="codePostal" name="codePostal" class="input">
         </li>
         <li>
-            <label for="ine">INE:</label>
+            <label for="ine" class="label-text">INE:</label>
             <input type="text" id="ine" name="ine" class="input">
         </li>
         <li>
-            <label for="anneeEtude">Année d'étude:</label>
+            <label for="anneeEtude" class="label-text">Année d'étude:</label>
             <input type="number" id="anneeEtude" name="anneeEtude" class="input">
         </li>
         <li>
-            <label for="formation">Formation:</label>
+            <label for="formation" class="label-text">Formation:</label>
             <select name="formation" id="formation" class="input">
-                <option value="BUT Info Parcours A">BUT Info Parcours A</option>
-                <option value="BUT Info Parcours B">BUT Info Parcours B</option>
-            </select>
+                <option value="GEII">GEII</option>
+                <option value="GIM">GIM</option>
+                <option value="GMP">GMP</option>
+                <option value="GEA">GEA</option>
+                <option value="TCV">TCV</option>
+                <option value="QLIQ">QLIQ</option>
+                <option value="TCc">TCc</option>
+                <option value="INFO">INFO</option>
+                <option value="Mph">Mph</option>
+            </select><br>
         </li>
         <li>
-            <label for="entreprise">Type d'entreprises recherchées:</label>
+            <label for="entreprise" class="label-text">Type d'entreprises recherchées:</label>
             <input type="text" id="entreprise" name="entreprise" class="input">
         </li>
         <li>
-            <label for="mission">Type de missions recherchées:</label>
+            <label for="mission" class="label-text">Type de missions recherchées:</label>
             <input type="text" id="mission" name="mission" class="input">
         </li>
         <li>
-            <label for="mobile">Mobilité de l'étudiant:</label>
+            <label for="mobile" class="label-text">Mobilité de l'étudiant:</label>
                 <select name="mobile" id="mobile" id="mobile" name="mobile" class="input">
                     <option value="10">10km</option>
                     <option value="50">50km</option>
@@ -69,11 +88,11 @@
                 </select>
         </li>
         <li>
-            <label for="email">Email:</label>
+            <label for="email" class="label-text">Email:</label>
             <input type="email" id="email" name="email" class="input">
         </li>
         <li>
-            <label for="cv">CV de l'étudiant:</label>
+            <label for="cv" class="label-text">CV de l'étudiant:</label>
             <input type="file" name="cv" id="cv" class="input">
         </li>
     </ul>
