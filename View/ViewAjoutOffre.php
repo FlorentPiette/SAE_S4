@@ -8,7 +8,7 @@
     <title>Ajout offre</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-
+    <script src="../asserts/js/ajoutOffre.js"></script>
 </head>
 <body class="body">
 
@@ -21,27 +21,31 @@
     }
 </script>
 
-<form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire" class="form-offre">
+<form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire" class="form-offre" onsubmit="return validateForm()">
     <h1 class="titre1"> Création d'une offre </h1>
     <p class="label-text">
         Nom de l'offre :
     </p>
     <label for="offre"></label><input type="text" name="Nom" id="offre" class="input-field">
+    <span class="error-message" id="offre-error"></span>
 
     <p class="label-text">
         Domaine de l'offre :
     </p>
     <label for="domaine"></label><input type="text" name="Domaine" id="domaine" class="input-field">
+    <span class="error-message" id="domaine-error"></span>
 
     <p class="label-text">
         Mission :
     </p>
     <label for="mission"></label><textarea name="Mission" id="mission" class="zoneText input-field"></textarea>
+    <span class="error-message" id="mission-error"></span>
 
     <p class="label-text">
         Nombre d'étudiant :
     </p>
     <label for="nbetudiant"></label><input type="text" name="NbEtudiant" id="nbetudiant" class="input-field"><br>
+    <span class="error-message" id="nbetudiant-error"></span>
 
     <p id="message" class="error-message"></p>
 
@@ -57,6 +61,7 @@
         }
         ?>
     </select><br>
+    <span class="error-message" id="entreprise-error"></span>
 
     <p class="label-text">
         Parcours :
@@ -73,6 +78,7 @@
         <option value="INFO">INFO</option>
         <option value="Mph">Mph</option>
     </select><br>
+    <span class="error-message" id="parcours-error"></span>
 
     <button type="button" id="redirigerVersAjoutEntreprise" class="btn-create-enterprise">Création d'une entreprise</button>
 

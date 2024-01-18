@@ -117,3 +117,7 @@ ul {
     margin-top: 10%;
     margin-bottom: 10%;
 }
+
+.error-message {
+    color: red;
+}
