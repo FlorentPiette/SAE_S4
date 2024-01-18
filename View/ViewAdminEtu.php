@@ -5,6 +5,7 @@ include '../Controller/ControllerVerificationDroit.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etudiants</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
@@ -27,7 +28,7 @@ include '../Controller/ControllerVerificationDroit.php';
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='ViewAdminMainTest.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
+                        <button type="button" onclick="window.location.href ='ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
                         <button type="button" onclick="window.location.href ='ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
@@ -125,6 +126,16 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeEntreprise"></span></p>
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
+        <?php
+        $pdfFileName = '../Controller/eval2DUT.pdf';
+        $pdfPath = $pdfFileName;
+
+        if (file_exists($pdfPath)) {
+            echo '<iframe src="' . $pdfPath . '" width="600" height="850" style="border: none; margin-left: 4.5%"></iframe>';
+        } else {
+            echo 'Le fichier PDF n`existe pas.';
+        }
+        ?>
 
         <hr class="separator-line">
 
@@ -258,7 +269,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <div class="footer-section links">
             <h2>Liens rapides</h2>
             <ul>
-                <li><a href="ViewAdminMainTest.php">Accueil</a></li>
+                <li><a href="ViewAdminMain.php">Accueil</a></li>
                 <li><a href="ViewAdminEtu.php">Etudiant</a></li>
                 <li><a href="ViewAdminEntreprise.php">Entreprise</a></li>
                 <li><a href="ViewAdminAdministration.php">Administration</a></li>

@@ -32,5 +32,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $message = "L'offre a été enregistrée avec succès.";
     }
 
-    header('Location: ../View/ViewAdminMainTest.php');
+    header('Location: ../View/ViewAdminMain.php');
 }

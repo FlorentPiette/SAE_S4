@@ -12,7 +12,7 @@ $token = generationToken();
 
 setcookie("token", $token, time() + 350 , '/');
 
-if(isset($_POST["valider"])) {
+if (isset($_POST["valider"])) {
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -27,21 +27,19 @@ if(isset($_POST["valider"])) {
     $mdp = $_POST['mdp'];
     $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
 
-
-
-
     if (selectEtuWhereEmail($db, $email) == null) {
-        $result = envoieMail($email, $email, 'SAE', 'CONFIRMATION EMAIL', "http://localhost:/View/ViewMdpinscriptionEtu.php?token=".$token);
-        ajouterEtudiant($db,$nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email,  $ine, $token);
+        $result = envoieMail($email, $email, 'SAE', 'CONFIRMATION EMAIL', "http://localhost:/View/ViewMdpinscriptionEtu.php?token=" . $token);
+        ajouterEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $ine, $token);
+
         setcookie("mailEtu", $email, time() + 3600, "/"); // Cookie du mail de l'étudiant
-        if (true !== $result)
-        {
+        if (true !== $result) {
             echo $result;
         }
-    exit();
-    }
-    else {
+        session_start();
+        $_SESSION['email'] = $email;
+        header('Location: ControllerImportationCV.php');
+    } else {
         $erreur = "Adresse mail déjà utilisée !";
     }
-
 }
+?>

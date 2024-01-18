@@ -6,7 +6,7 @@
     flex-direction: column;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
+    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
 }
 
 
@@ -40,7 +40,7 @@
 .cercle {
     width: 100px; /* Largeur du cercle */
     height: 100px; /* Hauteur du cercle (même que la largeur pour un cercle parfait) */
-    background-color: #7795FF; /* Couleur de fond du cercle */
+    background-color: #0f9bb4; /* Couleur de fond du cercle */
     border-radius: 50%; /* Utilisation de border-radius pour créer un cercle */
     position: absolute;
     top: 25%;
@@ -54,7 +54,7 @@
 
     width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
     height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
-    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    background-color: rgba(0, 150, 186, 0.51); /* Couleur de fond du rectangle */
     position: absolute;
     top: 40%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
@@ -67,7 +67,7 @@
 
     width: 50px;
     height: 50px;
-    background-color: #452EA3;
+    background-color: #0f9bb4;
     float: left;
 
 
@@ -85,7 +85,7 @@ p.text-id{
 
     width: 300px; /* Largeur du rectangle (ajustez selon vos besoins) */
     height: 50px; /* Hauteur du rectangle (ajustez selon vos besoins) */
-    background-color: rgb(119, 149, 255,0.68); /* Couleur de fond du rectangle */
+    background-color: rgba(0, 150, 186, 0.51); /* Couleur de fond du rectangle */
     position: absolute;
     top: 65%; /* Centrer verticalement */
     left: 50%; /* Centrer horizontalement */
@@ -98,7 +98,7 @@ p.text-id{
 
     width: 50px;
     height: 50px;
-    background-color: #452EA3;
+    background-color: #0f9bb4;
     float: left;
 
 }
@@ -255,7 +255,7 @@ div.rec-connection {
     transform: translate(-50%,-50%);
     top: 50%;
     left: 58%;
-    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    background-color: rgba(0, 163, 227, 0.19); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
     padding: 5px; /* Ajoutez un peu d'espacement interne */
@@ -270,7 +270,7 @@ div.rec-connection {
     transform: translate(-50%,-50%);
     top: 50%;
     left: 58%;
-    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    background-color: rgba(0, 163, 227, 0.19); /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
     padding: 5px; /* Ajoutez un peu d'espacement interne */

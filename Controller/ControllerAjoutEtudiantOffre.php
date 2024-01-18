@@ -38,6 +38,14 @@ if ($sqlTousEtudiants->execute()) {
         <head>
             <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
         </head>
+        <button onclick="retourPage()" class="btnRetour">Retour</button>
+
+
+        <script>
+            function retourPage() {
+                window.history.back();
+            }
+        </script>
         <form id="rechercheForm">
             <label for="nomCheckbox">
                 <input type="checkbox" id="nomCheckbox"> Nom

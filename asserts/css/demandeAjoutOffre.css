@@ -1,65 +1,156 @@
-/* Style pour la pop-up */
-.popup-content {
-    max-height: 90vh; /* Définissez la hauteur maximale en fonction de la hauteur de la vue */
-    overflow-y: auto; /* Ajoutez une barre de défilement en cas de dépassement de la hauteur maximale */
+#popUpOffre .popup-content {
+    max-height: 90vh;
+    overflow-y: scroll;
+}
+
+.btnRetour{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 110px;
+    height: 45px;
+    border-radius: 45px;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+    z-index: 999;
+
+}
+
+.btnRetour:hover{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+    z-index: 999;
+
 }
 
 /* Ajustements pour le formulaire dans la pop-up */
-#formulaire {
-    width: 90%;
-    max-width: 600px; /* Ajustez la largeur maximale selon vos besoins */
-    margin: 20px auto; /* Ajustez la marge pour centrer le formulaire */
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    background-color: #f9f9f9;
-    text-align: center;
-    overflow-y: auto; /* Ajoutez une barre de défilement au besoin */
+.form-offre {
+    width: 400px;
+    margin: 20px auto; /* Ajoutez une barre de défilement au besoin */
+    height: 100vh;
 }
 
-/* Style pour les étiquettes de champ */
-p {
-    font-weight: bold;
-    margin-top: 10px; /* Ajoutez une marge supérieure pour séparer les étiquettes */
+.creationOffre {
+    position: absolute;
+    margin-top: 5%; /* Ajustez cette valeur pour le positionnement exact */
+    color: #007BFF;
+    font-size: 24px;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 5px;
 }
 
 /* Style des champs de saisie */
-input[type="text"], input[type="number"],
+.input-field,
 textarea,
-select {
+.select-field,
+.file-input,
+.checkbox-input {
     width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 10px;
     box-sizing: border-box;
 }
 
-/* Style pour la zone de texte "Mission" */
+.label-text {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 .zoneText {
     height: 100px;
 }
 
 /* Style pour les cases à cocher */
-input[type="checkbox"] {
-    margin-right: 5px;
+.checkbox-label {
+    margin-left: 50px;
 }
 
 /* Style pour le bouton d'enregistrement */
 #enregistreroffre {
-    background-color: #007BFF;
+    background-color: #0f9bb4;
     color: #fff; /* Ajoutez une couleur de texte pour une meilleure lisibilité */
     border: none;
     padding: 12px 20px;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 45px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: 28%;
+    font-weight: bold;
+}
+
+#enregistreroffre:hover {
+    background-color: #0f9bb4;
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+
 }
 
 /* Style pour le bouton de création d'une entreprise */
 #redirigerVersAjoutEntreprise {
-    background-color: #28a745;
+    background-color: #0f9bb4;
     color: #fff;
     border: none;
     padding: 10px;
     font-size: 14px;
     cursor: pointer;
     margin-top: 10px;
+    margin-left: 24%;
+    border-radius: 45px;
+    font-weight: bold;
+
+}
+
+#redirigerVersAjoutEntreprise:hover {
+    background-color: #0f9bb4;
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.titre1 {
+    color: #0f9bb4;
+    text-align: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }

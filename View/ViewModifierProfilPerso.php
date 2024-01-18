@@ -8,6 +8,8 @@
     <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilPerso.css">
     <script src="../asserts/js/modifProfil.js"></script>
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
+        <script src="../asserts/js/script.js"></script>
 </head>
 
 <body>
@@ -21,23 +23,16 @@
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
-                    <?php
-                    if ($_SESSION['role'] === 'admin') {
-                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'MainTest.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
-                    }
-                    else {
-                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'Main.php\'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>';
-                    }
-                    ?>
+                    <li><button type="button" onclick="window.location.href ='../View/View<?php echo $_SESSION['role']; ?>Main.php'" name="accueil" value="Accueil" class="btnCreation">Accueil</button><li>
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='../View/View<?php echo $_SESSION['role']; ?>Etu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='../View/View<?php echo $_SESSION['role']; ?>Entreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
                     <?php
                     if ($_SESSION['role'] === 'admin') {
-                        echo '<li><button type="button" onclick="window.location.href =\'View' . $_SESSION['role'] . 'Administration.php\'" name="administration" value="Administration" class="btnCreation">Administration</button></li>';
+                        echo '<li><button type="button" onclick="window.location.href =\'../View/View' . $_SESSION['role'] . 'Administration.php\'" name="administration" value="Administration" class="btnCreation">Administration</button></li>';
                     }
                     ?>
                     <li id="account-photo">
@@ -50,7 +45,30 @@
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <div class="notification">
+                            <div class="icon-bell" onclick="toggleNotifications()">
+                                <span class="badge" id="notificationBadge"> </span>
+                            </div>
+                        </div>
+                        <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <div class="millieu">
+                                <button type="button" id="showUnreadButton">Notifications non lues</button>
+                                <button type="button" id="showReadButton">Notifications lues</button>
+                            </div>
+
+                            <div>
+                                <h2 id="hnonlu">Notifications non lues</h2>
+                                <ul id="unreadNotificationList" ></ul>
+
+                            </div>
+                            <div>
+                                <h2 id="hlu">Notifications lues</h2>
+                                <ul id="readNotificationList"></ul>
+                            </div>
+
+                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
+
+                        </div>
                     </li>
                 </ul>
             </form>

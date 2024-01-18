@@ -7,30 +7,27 @@
 
     <link rel="stylesheet" type="text/css" href="../asserts/css/nouCompteEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+
 </head>
 <body class="body">
 
+<button onclick="retourPage()" class="btnRetour">Retour</button>
+
+
+<script>
+    function retourPage() {
+        window.history.back();
+    }
+</script>
+
 <header class="header">
-
-    <div class="cercle">
-
-        <div class="perso">
-
-            <img src="../asserts/img/perso.png" class="perso" alt="Perso en haut du rectangle principale">
-
-
-        </div>
-
-    </div>
-
-
 
     <div class="princi-rectangle">
 
         <form action="../Controller/ControllerInscriptionEtu.php" method="post">
             <div class="nom-rectangle">
 
-                <input type="text" name="nom" class="input-nom" placeholder="Nom">
+                <input type="text" name="nom" class="input-nom" placeholder="NOM">
 
             </div>
 
@@ -79,13 +76,7 @@
             </div>
 
             <div class="date-rectangle">
-
                 <input type="date" name="date" class="input-date" placeholder="Date de naissance">
-            </div>
-
-            <div class="cv-rectangle">
-
-                <input type="url" name="cv" class="input-cv" placeholder="CV">
             </div>
 
             <div class="anneeetude-rectangle">
@@ -99,9 +90,7 @@
             </div>
 
             <div>
-
                 <input type="submit" name="valider" value="Création" class="btnCreation">
-
             </div>
 
 

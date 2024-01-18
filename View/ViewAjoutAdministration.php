@@ -1,4 +1,4 @@
-<?php include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php //include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,17 +6,20 @@
     <title>Ajout Personnel</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <script src="../asserts/js/ajoutAdministration.js"></script>
 </head>
 <body>
-<form action="../Controller/ControllerAjoutAdministration.php" method="POST">
+<form action="../Controller/ControllerAjoutAdministration.php" method="POST" onsubmit="return validateForm()">
     <ul>
         <li>
             <label for="nom">Nom:</label>
             <input type="text" id="nom" name="nom">
+            <span class="error-message" id="nom-error"></span>
         </li>
         <li>
             <label for="prenom">Prenom:</label>
             <input type="text" id="prenom" name="prenom">
+            <span class="error-message" id="prenom-error"></span>
         </li>
         <li>
             <div class="formation-rectangle">
@@ -32,16 +35,19 @@
                     <option value="INFO">INFO</option>
                     <option value="Mph">Mph</option>
                 </select>
+                <span class="error-message" id="formation-error"></span>
 
             </div>
         </li>
         <li>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email">
+            <span class="error-message" id="email-error"></span>
         </li>
         <li>
             <label for="mdp">Mot de passe:</label>
             <input type="password" id="mdp" name="mdp">
+            <span class="error-message" id="mdp-error"></span>
         </li>
         <li>
             <div class="role-rectangle">

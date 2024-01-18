@@ -6,7 +6,7 @@
     flex-direction: column;
     font-family: Arial, sans-serif;
     color: white;
-    background: linear-gradient(to bottom right, #ff9033, #F79BFF, #7795FF, #0F44FF);
+    background: linear-gradient(to bottom right, #0f9bb4, #30b1c9, #47c4de, #70dcf6);
 }
 
 .square-link {
@@ -34,15 +34,6 @@
     font-size: 1rem;
 }
 
-.perso{
-    width: 150px;
-    height: 150px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-}
 
 .princi-rectangle {
     width: 700px;
@@ -56,30 +47,19 @@
     z-index: 0;
 }
 
-.cercle {
-    width: 100px;
-    height: 100px;
-    background-color: #7795FF;
-    border-radius: 50%;
-    position: absolute;
-    top: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
-}
-
 .nom-rectangle{
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     width: 300px;
     height: 50px;
     transform: translate(-50%,-50%);
-    bottom: 70%;
+    bottom: 75%;
     left: 25%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    z-index: 0;
 
 }
 
@@ -92,25 +72,27 @@ p.text-nom{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
     color: white;
+    z-index: 999;
 }
 
 .prenom-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transform: translate(-50%,-50%);
     position: absolute;
-    bottom: 58%;
+    bottom: 63%;
     left: 25%;
+    z-index: 0;
 }
 
 p.text-prenom{
@@ -123,7 +105,7 @@ p.text-prenom{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -133,14 +115,14 @@ p.text-prenom{
 .formation-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 46%;
+    bottom: 51%;
     left: 25%;
 }
 
@@ -151,7 +133,7 @@ p.text-prenom{
 }
 
 .selectFormation{
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     position: absolute;
     top: 15px;
     right: 30px;
@@ -168,7 +150,7 @@ p.text-formation{
     font-size: 16px;
     border-radius: 5px;
     border-color: transparent;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     color: white;
 }
 
@@ -180,14 +162,14 @@ p.text-formation{
 .adresse-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 34%;
+    bottom: 39%;
     left: 25%;
 }
 
@@ -201,7 +183,7 @@ p.text-adresse{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -211,13 +193,13 @@ p.text-adresse{
 .ville-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transform: translate(-50%,-50%);
-    bottom: 22%;
+    bottom: 27%;
     left: 25%;
     position: absolute;
 }
@@ -232,54 +214,24 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
     color: white;
-}
-
-
-.mail-rectangle{
-
-    width: 300px;
-    height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    transform: translate(-50%,-50%);
-    bottom: 70%;
-    left: 75%;
-    position: absolute;
-
-}
-
-.input-mail{
-
-    width: 290px;
-    height: 40px;
-    position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
-    color: white;
-
 }
 
 .mdp-rectangle{
 
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transform: translate(-50%,-50%);
-    bottom: 58%;
+    bottom: 63%;
     left: 75%;
     position: absolute;
 
@@ -290,7 +242,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -302,13 +254,13 @@ p.text-ville{
 
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     transform: translate(-50%,-50%);
-    bottom: 70%;
+    bottom: 75%;
     left: 75%;
     position: absolute;
 
@@ -319,7 +271,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -331,14 +283,14 @@ p.text-ville{
 .cp-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 46%;
+    bottom: 51%;
     left: 75%;
 }
 
@@ -347,7 +299,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -358,14 +310,14 @@ p.text-ville{
 .date-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 34%;
+    bottom: 39%;
     left: 75%;
 }
 
@@ -374,7 +326,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -385,14 +337,14 @@ p.text-ville{
 .cv-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 22%;
+    bottom: 27%;
     left: 75%;
 }
 
@@ -401,7 +353,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -412,14 +364,14 @@ p.text-ville{
 .anneeetude-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 10%;
+    bottom: 27%;
     left: 75%;
 }
 
@@ -428,7 +380,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -439,14 +391,14 @@ p.text-ville{
 .ine-rectangle{
     width: 300px;
     height: 50px;
-    background-color: rgb(119, 149, 255,0.68);
+    background-color: #0f9bb4;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     position: absolute;
     transform: translate(-50%,-50%);
-    bottom: 10%;
+    bottom: 15%;
     right: 32%;
 }
 
@@ -455,7 +407,7 @@ p.text-ville{
     width: 290px;
     height: 40px;
     position: absolute;
-    background-color: rgb(119, 149, 255, 0.68);
+    background-color: #0f9bb4;
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -464,38 +416,119 @@ p.text-ville{
 }
 
 p.info {
-
+    color: black;
+    font-weight: bold;
     font-size: 12px;
     text-align: center;
-    transform: translate(-50%,-50%);
-    top: 82%;
+    transform: translate(-50%, -50%);
+    top: 76.5%;
+    left: 50%;
     position: absolute;
-    margin-top: 70px;
-
 }
 
-p.lien-info{
-
+p.lien-info {
     position: absolute;
     font-size: 12px;
     text-align: center;
-    margin-top: 70px;
-    color:white;
+    color: black;
+    font-weight: bold;
     text-decoration: underline;
-
+    top: 75.5%;
+    left: 48.5%;
 }
+
+@media screen and (min-width: 768px) {
+    p.info {
+        top: 79.5%;
+        left: 50%;
+    }
+
+    p.lien-info {
+        top: 80.5%;
+        left: 48.2%;
+    }
+}
+
 
 .btnCreation {
     text-decoration: none;
     position: absolute;
-    top: 95%;
+    top: 87%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: transparent; /* Fond transparent */
+    background-color: #0f9bb4; /* Fond transparent */
     border: none; /* Supprimer le contour */
     font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
     font-size: 16px; /* Taille de la police */
     color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 110px;
+    height: 45px;
+    border-radius: 45px;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+}
+
+.btnCreation:hover {
+    text-decoration: none;
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #0f9bb4; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+
+}
+
+.btnRetour{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    width: 110px;
+    height: 45px;
+    border-radius: 45px;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+
+}
+
+.btnRetour:hover{
+
+    text-decoration: none;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    transform: translate(-50%, -50%);
+    background-color: #808080; /* Fond transparent */
+    border: none; /* Supprimer le contour */
+    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
+    font-size: 16px; /* Taille de la police */
+    color: black;
+    cursor: pointer;
+    border-radius: 45px;
+    box-shadow: 0 0 10px #333333;
+    transition: box-shadow 0.3s ease;
+    font-weight: bold;
+
 }
 
 div.rec-connection {
@@ -520,69 +553,6 @@ div.rec-connection {
 
     text-decoration: none;
     color: inherit;
-
-}
-
-@media screen and (max-width: 1536px) {
-
-    .cercle {
-        width: 100px;
-        height: 100px;
-        background-color: #7795FF;
-        border-radius: 50%;
-        position: absolute;
-        top: 20%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
-    }
-
-    .info {
-        position: absolute;
-        font-size: 12px;
-        text-align: center;
-        top: 75%;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    p.lien-info{
-
-        position: absolute;
-        font-size: 12px;
-        text-align: center;
-        top: 81%;
-        left: 48%;
-        color:white;
-        text-decoration: underline;
-
-    }
-
-    .rec-connection {
-        width: 150px;
-        height: 50px;
-        background-color: rgba(255, 255, 255, 0.3);
-        position: absolute;
-        top: 88%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 40px;
-        z-index: 3;
-    }
-
-    .p-connection{
-
-        text-align: center;
-
-    }
-
-    .link-connection{
-
-        text-decoration: none;
-        color: inherit;
-
-    }
-
 
 }
 
