@@ -1,6 +1,3 @@
-<?php
-include "../Controller/ControllerVerificationDroit.php"
-?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -402,7 +399,7 @@ include "../Controller/ControllerVerificationDroit.php"
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Offre</h3>
                 <div class="inner-rectangle" id="offres-container"></div>
-                <input class="btnAfficherPlus" type="button" value="Afficher Plus" id="afficherOffres">
+                <input class="btnAfficherPlus" type="button" value="Afficher Plus" onclick="window.location.href='../Controller/ControlleurCdEtuOffre.php'">
             </div>
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Entreprise</h3>
