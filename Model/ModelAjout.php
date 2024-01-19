@@ -200,4 +200,22 @@ function selectEtuWhereEmail($conn, $email): array
     return $result;
 }
 
+function selectOffreWhereNom($conn, $nom)
+{
+    $req = "SELECT idoffre FROM Offre where nom = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($nom));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
 
+    return $result;
+}
+
+function selectEntrepriseWhereNom($conn, $nom)
+{
+    $req = "SELECT identreprise FROM Entreprise where nom = ?";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array($nom));
+    $result = $req2->fetch(PDO::FETCH_ASSOC);
+
+    return $result;
+}

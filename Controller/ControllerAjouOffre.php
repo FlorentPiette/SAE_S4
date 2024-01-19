@@ -14,6 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $estBrouillon = isset($_POST["Brouillon"]);
     $estvisible = isset($_POST["Visible"]) ? 1 : 0;
     $parcours = $_POST["Parcours"];
+    $entreprise = $_POST["entreprise"];
 
 
 
@@ -31,6 +32,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $message = "L'offre a été enregistrée avec succès.";
     }
+
+    $idoffre = selectOffreWhereNom($conn, $nom)['idoffre'];
+
+    $req = $conn->prepare("INSERT INTO Poste (idoffre, identreprise) VALUES (:idoffre, :identreprise)");
+
+    $req->execute(array(':idoffre' => $idoffre, ':identreprise' => $entreprise));
+
 
     header('Location: ../View/ViewAdminMain.php');
 }
