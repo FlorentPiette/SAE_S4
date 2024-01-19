@@ -46,7 +46,7 @@ foreach ($resultat2 as $res2):
                         <li class="offre">
                             <strong>Nom :</strong> <?php echo $res2['nom']; ?><br>
                             <strong>Domaine : </strong><?php echo $res2['domaine']; ?><br>
-                            <strong>Mission : </strong><?php echo $res2['mission']; ?><br>
+                            <strong>Missions : </strong><?php echo $res2['mission']; ?><br>
                             <strong>Nombre d'étudiants :</strong> <?php echo $res2['nbetudiant']; ?><br>
                             <strong>Parcours :</strong> <?php echo $res2['parcours']; ?><br>
                             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">

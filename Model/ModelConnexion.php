@@ -39,13 +39,16 @@ function role($user) {
             header('Location: ../View/ViewCdMain.php');
             exit;
         case 'rp':
-            header('Location: ../View/ViewRpMain.php');
+            header('Location: ../View/ViewSecMain.php');
             exit;
         case 'sec':
             header('Location: ../View/ViewSecMain.php');
             exit;
         case 'admin':
             header('Location: ../View/ViewAdminMain.php');
+            exit;
+        case 'rs':
+            header('Location: ../View/ViewRsMain.php');
             exit;
         default:
             echo $user['role'];
