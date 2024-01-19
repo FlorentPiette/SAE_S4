@@ -1,6 +1,6 @@
 <?php
-include 'Model/ConnexionBDD.php';
-include 'Model/ModelNotifation.php';
+include '../Model/ConnexionBDD.php';
+include '../Model/ModelNotifation.php';
 $conn = Conn::getInstance();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

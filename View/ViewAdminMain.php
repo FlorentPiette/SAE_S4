@@ -41,6 +41,9 @@ include "../Controller/ControllerRechercheNbr.php"?>
             });
         });
 
+        function fermerNotifications() {
+            document.getElementById('burgerMenu').style.display = 'none';
+        }
     </script>
 </head>
 <body class="body">
@@ -319,6 +322,8 @@ include "../Controller/ControllerRechercheNbr.php"?>
                             </div>
                         </div>
                         <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <button type="button" id="validationButton" class="validationButton" onclick="fermerNotifications()">Fermer</button>
+
                             <div class="millieu">
                                 <button type="button" id="showUnreadButton">Notifications non lues</button>
                                 <button type="button" id="showReadButton">Notifications lues</button>

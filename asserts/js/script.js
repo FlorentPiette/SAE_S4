@@ -154,7 +154,7 @@ function fetchNotifications() {
 
 function updateNotification(params, listItem, checkbox, rappel,className) {
 
-    fetch('../../UpdateNotification.php', {
+    fetch('../Controller/ControllerUpdateNotification.php', {
         method: 'POST',
         body: params
     })

@@ -17,7 +17,7 @@ function sdf($conn){
 }
 
 function notif($conn){
-    $req = 'SELECT etudiant.nom as em,etudiant.prenom as ep ,offre.nom as om, entreprise.nom, idetudiant, idoffre, lu, idnotif, rappel  From notification  JOIN etudiant using (idetudiant)  left join postule using(idetudiant) left join poste using (idoffre) left join entreprise using (identreprise) left join offre using (idoffre);';
+    $req = 'SELECT etudiant.nom as em,etudiant.prenom as ep ,offre.nom as om, offre.visible,entreprise.nom, idetudiant, idoffre, lu, idnotif, rappel ,notification.date From notification  left JOIN etudiant using (idetudiant)  left join postule using(idetudiant) left join poste using (idoffre) left join entreprise using (identreprise) left join offre using (idoffre) WHERE COALESCE(offre.visible, false) = false;';
     $req2 = $conn->prepare($req);
     $req2->execute();
     $res = $req2->fetchall(PDO::FETCH_ASSOC);

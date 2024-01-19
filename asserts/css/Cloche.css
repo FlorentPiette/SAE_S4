@@ -166,3 +166,17 @@
     background-color: #0056b3; /* Couleur de fond pour les boutons au survol */
 }
 
+#validationButton {
+    background-color: #3498db;
+    color: #ffffff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 15px;
+}
+
+#validationButton:hover {
+    background-color: #2980b9;
+}
