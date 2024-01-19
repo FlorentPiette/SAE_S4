@@ -124,7 +124,7 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
         <?php
-        $pdfFileName = '../Controller/eval2DUT.pdf';
+        $pdfFileName = '../Controller/CV.pdf';
         $pdfPath = $pdfFileName;
 
         if (file_exists($pdfPath)) {

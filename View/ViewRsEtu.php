@@ -122,7 +122,16 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeEntreprise"></span></p>
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
+        <?php
+        $pdfFileName = '../Controller/CV.pdf';
+        $pdfPath = $pdfFileName;
 
+        if (file_exists($pdfPath)) {
+            echo '<iframe src="' . $pdfPath . '" width="600" height="850" style="border: none; margin-left: 4.5%"></iframe>';
+        } else {
+            echo 'Le fichier PDF n`existe pas.';
+        }
+        ?>
         <hr class="separator-line">
 
         <script src="../asserts/js/rechercheEtu.js"></script>

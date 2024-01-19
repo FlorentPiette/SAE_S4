@@ -110,6 +110,7 @@ include "../Controller/ControllerVerificationDroit.php"
 <div class="boutons">
     <input type="button" onclick="window.location.href = 'View<?php echo $_SESSION['role']; ?>Main.php'" name="Retour" value="Retour" id="btnRetour">
     <input type="button" onclick="window.location.href ='View<?php echo $_SESSION['role']; ?>Entreprise.php'" value="Rechercher des offres" id="btnRechercherOffre">
+    <input type="button" onclick="window.location.href ='test.php'" value="Elèves sélectionnés" id="btnRechercherOffre">
 </div>
 <div  id="offres-container" style=""></div>
 </body>
