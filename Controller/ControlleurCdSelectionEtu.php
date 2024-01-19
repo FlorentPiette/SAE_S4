@@ -32,9 +32,6 @@ $_SESSION['selectedOffer'] = $nomOffre;
 $selectid = $conn->prepare('select idoffre from offre where nom = ? ');
 $selectid->execute(array($nomOffre));
 $idOffre = $selectid->fetch(PDO::FETCH_ASSOC);
-
-
-
         ?>
         <head>
             <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
@@ -91,12 +88,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
                         // Ajouter le nom et prénom de l'étudiant à la variable de session
                         echo "<br>" . 'Le résumé de l\'élève ou des élèves choisis :' . "<br>";
                         $_SESSION['selectedStudents'][] = $etudiant['nom'] . ' ' . $etudiant['prenom'];
-                        echo "-" . $etudiant['nom'] . ' ' . $etudiant['prenom'] . "<br>";
+                        echo "-" . $etudiant['nom'] . ' ' . $etudiant['prenom'] . "<br>" ;
                         $sqlInsert = $conn->prepare('insert into recrute values (:idetudiant,:identreprise, current_date)');
                         $sqlInsert->bindParam(':idetudiant', $selectedStudentId, PDO::PARAM_INT);
                         $sqlInsert->bindParam(':identreprise', $identreprise, PDO::PARAM_INT);
 
                         $sqlInsert->execute();
+                        $idOffre = implode($idOffre);
+
+                        $sqlInsert = $conn->prepare('UPDATE offre SET visible = false where idoffre = :idoffre');
+                        $sqlInsert->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
+                        $sqlInsert->execute();
+
                     } else {
                         echo "Étudiant non trouvé.";
                     }

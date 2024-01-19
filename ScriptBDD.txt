@@ -115,3 +115,17 @@ CREATE TABLE Recrute(
     Date date,
     PRIMARY KEY (IdEtudiant, IdEntreprise)
 );
+
+CREATE TABLE Notification(
+    idNotif serial primary key,
+    idetudiant int REFERENCES Etudiant,
+    lu boolean, 
+	date timestamp,
+	rappel date 
+);
+
+CREATE TABLE CV(
+    id serial primary key,
+    chemin varchar,
+    contenu bytea
+);

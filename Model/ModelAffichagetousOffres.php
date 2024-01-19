@@ -5,7 +5,7 @@ $db = Conn::getInstance();
 
 if ($_SESSION['role'] != 'cd'){
 // Récupérer les données pour la page spécifiée
-$sql2 = "SELECT * FROM Offre ORDER BY idOffre DESC";
+$sql2 = "SELECT * FROM Offre where visible = true ORDER BY idOffre DESC";
 $req = $db->prepare($sql2);
 $req->execute();
 $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
@@ -29,7 +29,7 @@ foreach ($resultat2 as $res2):
             <li class="offre">
                 <strong>Nom :</strong> <?php echo $res2['nom']; ?><br>
                 <strong>Domaine : </strong><?php echo $res2['domaine']; ?><br>
-                <strong>Mission : </strong><?php echo $res2['mission']; ?><br>
+                <strong>Missions : </strong><?php echo $res2['mission']; ?><br>
                 <strong>Nombre d'étudiants :</strong> <?php echo $res2['nbetudiant']; ?><br>
                 <strong>Parcours :</strong> <?php echo $res2['parcours']; ?><br>
                 <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
@@ -52,7 +52,7 @@ endforeach;
 else {
 
 // Récupérer les données pour la page spécifiée
-$sql2 = "SELECT * FROM Offre ORDER BY idOffre DESC";
+$sql2 = "SELECT * FROM Offre where visible = true ORDER BY idOffre DESC";
 $req = $db->prepare($sql2);
 $req->execute();
 $resultat2 = $req->fetchAll(PDO::FETCH_ASSOC);
