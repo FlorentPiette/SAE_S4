@@ -2,7 +2,7 @@
 include '../Model/ConnexionBDD.php';
 $db = Conn::getInstance();
 
-$sql2 = "SELECT * FROM Offre  where visible = true ";
+$sql2 = "SELECT * FROM Offre  where visible = true";
 if (isset($_SESSION['formation'])) {
     $userFormation = $_SESSION['formation'];
     $sql2 .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END, idoffre DESC";
