@@ -5,10 +5,13 @@ include '../Controller/ControllerVerificationDroit.php';
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Etudiant</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etudiants</title>
     <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
+    <script src="../asserts/js/script.js"></script>
 
 </head>
 <body class="body">
@@ -45,7 +48,30 @@ include '../Controller/ControllerVerificationDroit.php';
                         </div>
                     </li>
                     <li>
-                        <a><img src="../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <div class="notification">
+                            <div class="icon-bell" onclick="toggleNotifications()">
+                                <span class="badge" id="notificationBadge"> </span>
+                            </div>
+                        </div>
+                        <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <div class="millieu">
+                                <button type="button" id="showUnreadButton">Notifications non lues</button>
+                                <button type="button" id="showReadButton">Notifications lues</button>
+                            </div>
+
+                            <div>
+                                <h2 id="hnonlu">Notifications non lues</h2>
+                                <ul id="unreadNotificationList" ></ul>
+
+                            </div>
+                            <div>
+                                <h2 id="hlu">Notifications lues</h2>
+                                <ul id="readNotificationList"></ul>
+                            </div>
+
+                            <button type="button" id="validationButton" class="validationButton" ">Valider</button>
+
+                        </div>
                     </li>
                 </ul>
             </form>
@@ -97,7 +123,16 @@ include '../Controller/ControllerVerificationDroit.php';
         <p class="test"><span id="infoTypeEntreprise"></span></p>
         <p class="test"><span id="infoTypeMission"></span></p>
         <p class="test"><span id="infoMobile"></span></p>
+        <?php
+        $pdfFileName = '../Controller/eval2DUT.pdf';
+        $pdfPath = $pdfFileName;
 
+        if (file_exists($pdfPath)) {
+            echo '<iframe src="' . $pdfPath . '" width="600" height="850" style="border: none; margin-left: 4.5%"></iframe>';
+        } else {
+            echo 'Le fichier PDF n`existe pas.';
+        }
+        ?>
         <hr class="separator-line">
 
         <script src="../asserts/js/rechercheEtu.js"></script>
@@ -109,9 +144,6 @@ include '../Controller/ControllerVerificationDroit.php';
 
 
     <div class="rectangle-mid">
-        <form method="post">
-            <button name="btnAjoutEtu" onclick="window.location.href ='ViewAjoutEtudiant.php'" class="btnAjoutEtu" type="button" >  Ajouter </button>
-        </form>
 
         <form id="rechercheForm">
             <label for="nomCheckbox">
