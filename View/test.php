@@ -130,7 +130,7 @@
     }
 </script>
 <div class="body-container">
-<h1>Réponse des entreprises</h1>
+<h1>Acceptation des entreprises</h1>
 <div class="result-container">
     <table>
         <thead>
