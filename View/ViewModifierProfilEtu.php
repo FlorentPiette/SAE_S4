@@ -4,11 +4,14 @@
 <head>
     <title>Profil <?= $etu['nom'] ?> <?= $etu['prenom'] ?></title>
 
+    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenu.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
     <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
+    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
 </head>
 
@@ -18,20 +21,24 @@
         <img src="../asserts/img/logo.png" class="logo">
     </div>
 
-    <script src="../asserts/js/testJS.js"></script>
-
     <div class="menu-container">
         <nav>
             <form method="post" action="../Controller/ControllerBtnDeco.php">
                 <ul class="vertical-menu">
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewCdMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminMain.php'" name="accueil" value="Accueil" class="btnCreation">  Accueil </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewCdEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminEtu.php'" name="etudiant" value="Etudiant" class="btnCreation"> Etudiant </button>
                     </li>
                     <li>
-                        <button type="button" onclick="window.location.href ='../View/ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
+                    </li>
+                    <li>
+                        <button type="button" onclick="window.location.href ='../View/ViewAdminAdministration.php'" name="adminitrsation" class="btnCreation"> Administration </button>
+                    </li>
+                    <li>
+                        <a href="../english/View/ViewAdminMainEn.php"> <img src="../asserts/img/traduction.png" alt="Icone de traduction" class="traduction" id="trad"></a>
                     </li>
                     <li id="account-photo">
                         <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
@@ -39,7 +46,6 @@
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
-
                             </form>
 
                         </div>
@@ -51,6 +57,8 @@
                             </div>
                         </div>
                         <div class="burger-menu" id="burgerMenu" style="display: none;">
+                            <button type="button" id="validationButton" class="validationButton" onclick="fermerNotifications()">Fermer</button>
+
                             <div class="millieu">
                                 <button type="button" id="showUnreadButton">Notifications non lues</button>
                                 <button type="button" id="showReadButton">Notifications lues</button>
@@ -74,27 +82,6 @@
             </form>
         </nav>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            var photo = document.getElementById("photo");
-            var dropdown = document.getElementById("account-dropdown");
-
-            photo.addEventListener("click", function (event) {
-                event.stopPropagation(); // Empêche la propagation du clic à d'autres éléments parents
-                dropdown.style.display = (dropdown.style.display === "block") ? "none" : "block";
-            });
-
-            // Ajout d'un écouteur d'événements sur le document pour fermer le menu s'il est ouvert et que l'on clique en dehors
-            document.addEventListener("click", function (event) {
-                if (dropdown.style.display === "block" && !event.target.closest('#account-photo')) {
-                    dropdown.style.display = "none";
-                }
-            });
-        });
-
-
-    </script>
 
 </header>
 

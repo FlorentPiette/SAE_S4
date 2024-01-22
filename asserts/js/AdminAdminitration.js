@@ -46,7 +46,7 @@ document.getElementById('tous').addEventListener('click', function (e) {
 
 document.getElementById('secretaire').addEventListener('click', function (e) {
     e.preventDefault();
-    chargerDonnees('secretaire');
+    chargerDonnees('sec');
 });
 
 document.getElementById('cd').addEventListener('click', function (e) {
