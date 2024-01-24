@@ -7,7 +7,7 @@
  * @param String $nom sert à définir le nom de l'offre
  * @param String $domaine sert à définir le domaine de l'offre
  * @param String $mission sert à définir les missions de l'offre
- * @param int $nbetudiant sert à définir le nombre d'étudiant voulu pour cette offre
+ * @param int $nbetudiant sert à définir le nombre d'étudiants voulus pour cette offre
  *
  * @return void
  */
@@ -16,14 +16,15 @@ function ajoutOffre(PDO $conn, string $nom, string $domaine, string $mission, in
     $req = "INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
-
 }
+
 /**
- * Ajouter une offre a une entreprise dans la base de données
+ * Associer une offre a une entreprise dans la base de données
  *
  * @param PDO $conn
  * @param String $nomOffre
  * @param String $nomEntreprise
+ *
  * @return void
  */
 function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntreprise): void
@@ -32,36 +33,6 @@ function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntrepri
     $req2 = $conn->prepare($req);
     $req2->execute(array(':nomOffre' => $nomOffre, ':nomEntreprise' => $nomEntreprise));
 }
-
-/**
- * Voir fichier
- *
- * @param $conn
- * @param $offreId
- *
- * @return void
- */
-function voirFichier($conn, $offreId): void
-{
-    if (!empty($offreId)) {
-        $sql = "SELECT document FROM Offre WHERE IdOffre = :offreId";
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':offreId', $offreId, PDO::PARAM_INT);
-        $stmt->execute();
-        $result = $stmt->fetchColumn();
-
-        if ($result !== false) {
-            header('Content-Type: application/pdf'); // Changez le type de contenu si nécessaire
-            echo $result;
-        } else {
-            echo "Fichier non trouvé.";
-        }
-    } else {
-        echo "ID de l'offre vide.";
-    }
-}
-
-
 
 /**
  * Ajouter un étudiant dans la base de donnée
@@ -76,7 +47,6 @@ function voirFichier($conn, $offreId): void
  * @param int $anneeEtude sert à définir l'année d'étude de l'étudiant
  * @param String $formation sert à définir la formation de l'étudiant
  * @param String $email sert à définir l'email de l'étudiant
- * @param String $motDePasse sert à définir le mot de passe de l'étudiant
  * @param String $iNE sert à définir l'INE de l'étudiant
  * @param String $entreprise sert à définir le type d'entreprise que l'étudiant recherche
  * @param String $mission sert à définir le type de mission que l'étudiant recherche
@@ -114,13 +84,14 @@ function ajoutEntreprise(PDO $conn, string $nom, string $adresse, string $ville,
     $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
 
 }
+
 /**
  * Afficher les entreprises dans le menu
  *
  * @param PDO $conn
+ *
  * @return void
  */
-
 function affichageEntreprise(PDO $conn): void
 {
     try {
@@ -139,7 +110,7 @@ function affichageEntreprise(PDO $conn): void
         header('Content-Type: application/json');
         echo json_encode($entreprises);
     } catch (PDOException $e) {
-        // Gérez les erreurs de base de données ici (enregistrez-les dans un journal, renvoyez une réponse d'erreur appropriée, etc.)
+        // Gérez les erreurs de base de données
         echo json_encode(array('error' => 'Erreur lors de la récupération des entreprises.'));
     }
 }
@@ -186,7 +157,7 @@ function code(): int|string
  * Récuperer de la base de donnée, les étudiants qui ont cette adresse email
  *
  * @param PDO $conn sert à se connecter à la base de donnée
- * @param String $email sert à  chercher si l'email est dans la base de donnée
+ * @param String $email sert à chercher si l'email est dans la base de donnée
  *
  * @return array $result
  */
@@ -200,19 +171,17 @@ function selectEtuWhereEmail($conn, $email): array
     return $result;
 }
 
+/**
+ * Récuperer de la base de donnée, l'offre ayant ce nom'
+ *
+ * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $nom sert à chercher si le nom est dans la base de donnée
+ *
+ * @return array $result
+ */
 function selectOffreWhereNom($conn, $nom)
 {
     $req = "SELECT idoffre FROM Offre where nom = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom));
-    $result = $req2->fetch(PDO::FETCH_ASSOC);
-
-    return $result;
-}
-
-function selectEntrepriseWhereNom($conn, $nom)
-{
-    $req = "SELECT identreprise FROM Entreprise where nom = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom));
     $result = $req2->fetch(PDO::FETCH_ASSOC);

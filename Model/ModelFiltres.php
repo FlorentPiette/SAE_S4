@@ -1,36 +1,22 @@
 <?php
 
 /**
- * Filtrer les offres
+ * Filtrer les offre
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param String $nom sert à rechercher les offres ayant ce nom
- * @param String $domaine sert à rechercher les offres ayant ce domaine
+ * @param String $domaine sert à rechercher les offres des entreprises travaillant dans ce domaine
  * @param String $mission sert à rechercher les offres ayant ces missions
- * @param int $nbetudiant sert à rechercher les offres ayant ce nombre d'étudiants
+ * @param int $nbetudiant sert à rechercher les offres recrutant ce nombre d'étudiants
+ * @param String $parcours sert à rechercher les offres recrutant des étudiants de ce parcours
  *
  * @return void
  */
-
-/*
-foreach ($resultat2 as $res2):
-    $nomOffre = $res2['nom'];
-    $selectIDoffre = $db->prepare('SELECT idOffre FROM Offre WHERE nom = :nom');
-    $selectIDoffre->bindParam(':nom', $nomOffre);
-    $selectIDoffre->execute();
-    $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
-    $idOffre = $resultatID['idoffre'];
-
-    $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule WHERE idoffre = :idoffre');
-    $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
-    $selectnom->execute();
-    $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
-*/
-
 function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
 {
-    $sql = "SELECT * FROM Offre WHERE 1=1";
+    $sql = "SELECT * FROM Offre WHERE 1=1"; //Selectionner toutes les offres
 
+    //Ajouter des contraintes à la requête pour preciser le filtrage
     if (!empty($nom)) {
         $sql .= " AND nom ILIKE :nom";
     }
@@ -51,7 +37,7 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
         $sql .= " AND parcours ILIKE :parcours";
     }
 
-    $sql .= " ORDER BY idOffre DESC";
+    $sql .= " ORDER BY idOffre DESC"; //Trier les offres pour voir les plus récentes en premier
 
     $req = $conn->prepare($sql);
 
@@ -111,8 +97,9 @@ function FiltrerOffres($conn, $nom, $domaine, $mission, $nbetudiant, $parcours)
  */
 function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite, $adresse, $email, $numtel)
 {
-    $sql = "SELECT * FROM Entreprise WHERE 1=1";
+    $sql = "SELECT * FROM Entreprise WHERE 1=1"; //Selectionner toutes les entreprises
 
+    //Ajouter des contraintes à la requête pour preciser le filtrage
     if (!empty($nom)) {
         $sql .= " AND nom ILIKE :nom";
     }
@@ -141,7 +128,7 @@ function FiltrerEntreprises($conn, $nom, $ville, $codepostal, $secteurActivite, 
         $sql .= " AND numtel ILIKE :numtel";
     }
 
-    $sql .= " ORDER BY idEntreprise DESC";
+    $sql .= " ORDER BY idEntreprise DESC"; //Trier les entreprises pour voir les plus récentes en premier
 
     $req = $conn->prepare($sql);
 

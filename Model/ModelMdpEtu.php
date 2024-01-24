@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Récupérer dans la base de donnée, le token de l'étudiant ayant cet adresse email
+ * Récupérer dans la base de donnée, le token de l'étudiant ayant cette adresse email
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param String $email sert à rechercher l'étudiant ayant cet email
  *
- * @return $result
+ * @return String $result
  */
 function recuptoken($conn,$email){
     $req = "SELECT codemail FROM Etudiant where email = ?";
@@ -23,7 +23,7 @@ function recuptoken($conn,$email){
  *
  * @param PDO $conn sert à se connecter à la base de donnée
  * @param String $token sert à rechercher l'étudiant ayant ce token
- * @param String $token sert à modifier le mot de passe de l'étudiant
+ * @param String $mdp sert à modifier le mot de passe de l'étudiant
  *
  * @return void
  */
@@ -32,7 +32,6 @@ function mdpEtu($conn,$token,$mdp)
     $req = "UPDATE etudiant SET motdepasse = ? WHERE codemail = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($mdp,$token));
-
 }
 
 

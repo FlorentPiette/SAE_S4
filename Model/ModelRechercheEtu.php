@@ -4,6 +4,7 @@
  * Rechercher des étudiants
  *
  * @param PDO $conn sert à se connecter à la base de donnée
+ * @param String $userFormation sert à afficher les étudiants ayant la meme formation que l'utilisateur en premier
  * @param String $nom sert à rechercher les étudiants ayant ce nom
  * @param String $prenom sert à rechercher les étudiants ayant ce prénom
  * @param String $ine sert à rechercher les étudiants ayant cet INE
@@ -15,16 +16,16 @@
  * @param int $anneeEtude sert à rechercher les étudiants inscrits dans cette année d'étude
  * @param String $typeEntreprise sert à rechercher les étudiants recherchant ce type d'entreprise
  * @param String $typeMission sert à rechercher les étudiants recherchant ce type de mission
- * @param boolean $mobile sert à rechercher les étudiants étant mobile ou non
+ * @param int $mobile sert à rechercher les étudiants étant mobile ou non
  * @param boolean $actif sert à rechercher les étudiants étant actif ou non
  *
  * @return void
  */
 function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formation, $adresse, $ville, $codePostal, $anneeEtude, $typeEntreprise, $typeMission, $mobile, $actif)
 {
-    $sql = "SELECT * FROM Etudiant WHERE 1=1";
+    $sql = "SELECT * FROM Etudiant WHERE 1=1"; //Selectionner tous les étudiants
 
-
+    //Ajouter des contraintes à la requête pour preciser le filtrage
     if (!empty($nom)) {
         $sql .= " AND nom ILIKE :nom";
     }
@@ -79,10 +80,10 @@ function RecherEtu($conn, $userFormation, $nom, $prenom, $ine, $email, $formatio
     }
 
     if (!empty($userFormation)) {
-        $sql .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END";
+        $sql .= " ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END"; //Afficher les étudiants ayant la meme formation que l'utilisateur en premier
     }
 
-    $sql .= " ORDER BY idEtudiant DESC";
+    $sql .= " ORDER BY idEtudiant DESC"; //Trier les offres pour voir les plus récentes en premier
 
     // Préparer et exécuter la requête
     $stmt = $conn->prepare($sql);
