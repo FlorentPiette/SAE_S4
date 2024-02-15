@@ -1,5 +1,5 @@
 <?php
-include '../Controller/ControllerVerificationDroit.php';
+// include '../Controller/ControllerVerificationDroit.php';
 include "../Controller/ControllerRechercheNbr.php"?>
 
 <!DOCTYPE html>

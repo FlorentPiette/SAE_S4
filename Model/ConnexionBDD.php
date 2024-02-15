@@ -4,9 +4,9 @@ class Conn {
     private static $instance = null;
     private $connexion;
     private static $host = 'localhost';
-    private static $dbname = 'td';
-    private static $username = 'emeline';
-    private static $password = 'root';
+    private static $dbname = 's401';
+    private static $username = 'louison';
+    private static $password = 'Azerty12';
 
     private function __construct() {
         $dsn = "pgsql:host=" . self::$host . ";port=5432;dbname=" . self::$dbname . ";user=" . self::$username . ";password=" . self::$password;
