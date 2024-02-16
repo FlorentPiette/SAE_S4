@@ -2,12 +2,11 @@
 // Une partie du code a été pris sur : https://www.berejeb.com/2009/09/envoyer-des-mails-avec-phpmailer-et-le-smtp-de-gmail/
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-/* Classe de traitement des exceptions et des erreurs */
-require 'C:\PHPMailer\PHPMailer\src\Exception.php';
+require 'C:\Users\Florent\PHPMailerMaster\PHPMailerMaster\src\Exception.php';
 /* Classe-PHPMailer */
-require 'C:\PHPMailer\PHPMailer\src\PHPMailer.php';
+require 'C:\Users\Florent\PHPMailerMaster\PHPMailerMaster\src\PHPMailer.php';
 /* Classe SMTP nécessaire pour établir la connexion avec un serveur SMTP */
-require 'C:\PHPMailer\PHPMailer\src\SMTP.php';
+require 'C:\Users\Florent\PHPMailerMaster\PHPMailerMaster\src\SMTP.php';
 $mail = new PHPMailer(TRUE);
 try {
     // Tentative de création d’une nouvelle instance de la classe PHPMailer

@@ -36,7 +36,7 @@ foreach ($resultat2 as $res2):
     $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
     $idOffre = $resultatID['idoffre'];
 
-                $selectnom = $db->prepare('SELECT DISTINCT nom, prenom FROM postule join etudiant e on e.idetudiant = postule.idetudiant WHERE idoffre = :idoffre');
+                $selectnom = $db->prepare('SELECT DISTINCT postule.nom, postule.prenom FROM postule join etudiant e on e.idetudiant = postule.idetudiant WHERE idoffre = :idoffre');
                 $selectnom->bindParam(':idoffre', $idOffre, PDO::PARAM_INT);
                 $selectnom->execute();
                 $etudiants = $selectnom->fetchAll(PDO::FETCH_ASSOC);
