@@ -50,3 +50,5 @@ $users = selectEmailMDPEtu($conn,$email);
             //header('location: ../View/ViewConnexion.html');
         }
 }
+
+echo "Mauvais MDP";

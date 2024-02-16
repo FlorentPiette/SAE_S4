@@ -1,29 +1,27 @@
 <?php
-
 class Conn {
-    private static $instance = null;
-    private $connexion;
-    private static $host = 'localhost';
-    private static $dbname = 's401';
-    private static $username = 'louison';
-    private static $password = 'Azerty12';
+        private static $conn = null;
 
-    private function __construct() {
-        $dsn = "pgsql:host=" . self::$host . ";port=5432;dbname=" . self::$dbname . ";user=" . self::$username . ";password=" . self::$password;
+        public static function getInstance() : PDO {
+            if (self::$conn == null) {
+                self::$conn = self::get_pdo_con();
+            }
+            return self::$conn;
+        }
 
-        try {
-            $this->connexion = new PDO($dsn);
-        } catch (PDOException $e) {
-            die("Erreur de connexion à la base de données : " . $e->getMessage());
+        private static function get_pdo_con() : PDO {
+            $chemin = $_SERVER['DOCUMENT_ROOT']."/MODEL/logs.json";
+            $f = fopen($chemin, "r");
+            $cont = fread($f, filesize($chemin));
+            $cont = json_decode($cont, true);
+            fclose($f);
+            $hote = $cont["hote"];
+            $port = $cont["port"];
+            $nomdb = $cont["nomdb"];
+            $user = $cont["user"];
+            $mdp = $cont["mdp"];
+            $conn = new PDO("pgsql:host=$hote;port=$port;dbname=$nomdb;user=$user;password=$mdp");
+            return $conn;  
         }
     }
-
-    public static function getInstance() {
-        if (self::$instance === null) {
-            self::$instance = new self();
-        }
-        return self::$instance->connexion;
-    }
-}
-
 ?>
