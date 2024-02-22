@@ -12,7 +12,7 @@ if(isset($_POST["envoieCode"])){
     $verif = selectCodeEtuWhereEmail($db,$_POST['email']);}
 
 if(isset($_POST["confirmationCode"])){
-    $nouveauMDP = password_hash($_POST['mdp'],PASSWORD_DEFAULT);
+    $nouveauMDP = password_hash($_POST['mdp'],PASSWORD_BCRYPT);
     if (implode($verif)==$_POST["confirmationCode"]){
         reinitialiserMDP($db,$nouveauMDP,$_COOKIE['email']);
         echo 'yess';

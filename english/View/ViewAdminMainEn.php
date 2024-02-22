@@ -320,7 +320,7 @@ include "../../Controller/ControllerVerificationDroit.php"
                         <div class="burger-menu" id="burgerMenu" style="display: none;">
                             <button type="button" id="validationButton" class="validationButton" onclick="fermerNotifications()">Fermer</button>
 
-                            <div class="millieu">
+                            <div class="milieu">
                                 <button type="button" id="showUnreadButton">Notifications non lues</button>
                                 <button type="button" id="showReadButton">Notifications lues</button>
                             </div>

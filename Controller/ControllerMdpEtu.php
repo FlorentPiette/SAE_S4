@@ -13,7 +13,7 @@ if ($_POST['token'] && $_COOKIE['token']) {
     $token = $_POST['token'];
     if (isset($_POST['Valider'])) {
         $mdp = $_POST['mdp'];
-        $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+        $mdp = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
         mdpEtu($conn,$token,$mdp);
         session_start();
         $_SESSION["Etu"] = true;

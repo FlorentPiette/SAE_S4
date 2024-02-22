@@ -154,7 +154,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                             </div>
                         </div>
                         <div class="burger-menu" id="burgerMenu" style="display: none;">
-                            <div class="millieu">
+                            <div class="milieu">
                                 <button type="button" id="showUnreadButton">Notifications non lues</button>
                                 <button type="button" id="showReadButton">Notifications lues</button>
                             </div>
