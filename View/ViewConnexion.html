@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Principale</title>
+    <title>Page de Connexion</title>
 
     <link rel="stylesheet" type="text/css" href="../asserts/css/connexionEtu.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+
 </head>
 <body class="body">
 <header class="header">
@@ -16,13 +17,15 @@
     </div>
 
     <div class="princi-rectangle">
-        <form action="../Controller/ControllerConnexion.php" method="post">
+        <form action="../Controller/ControllerConnexion.php" method="post" onsubmit="return validateForm()">
             <div class="id-rectangle">
                 <div class="petit-rectangle">
                     <img src="../asserts/img/perso2.png" class="perso2" alt="Petit perso id">
                 </div>
                 <label>
-                    <input type="text" name="Email" placeholder="Email" class="input-mail">
+                    <input type="text" name="Email" id="email" placeholder="Email" class="input-mail">
+                    <span class="error-message" id="email-error"></span>
+
                 </label>
             </div>
 
@@ -31,7 +34,8 @@
                     <img src="../asserts/img/cadena.png" class="cadena" alt="Petit cadenas mdp">
                 </div>
                 <label>
-                    <input type="password" name="MotDePasse" placeholder="Mot de passe" class="input-mdp">
+                    <input type="password" name="MotDePasse" id="password" placeholder="Mot de passe" class="input-mdp">
+                    <span class="error-message" id="mdp-error"></span>
                 </label>
             </div>
 
@@ -43,14 +47,68 @@
 
 
         </form>
+
+
     </div>
 
 </header>
 
 
 
-    <button name="btnRetour" onclick="window.location.href= 'ViewAvConnexion.html'" class="btnRetour"> Retour </button>
+<button name="btnRetour" onclick="window.location.href= 'ViewAvConnexion.html'" class="btnRetour"> Retour </button>
+<script>
+    function validateForm() {
+        var validEmail = validateEmail();
+        var validPassword = validatePassword();
 
+        if (!validEmail && !validPassword) {
+            return false;
+        }
+    }
+
+    function validateEmail() {
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('email-error');
+        const email = emailInput.value.trim();
+
+        if (email === '') {
+            emailError.textContent = 'Veuillez saisir votre adresse email.';
+            emailError.style.color = 'red';
+            return false;
+        } else if (!isValidEmail(email)) {
+            emailError.textContent = 'Veuillez saisir une adresse email valide.';
+            emailError.style.color = 'red';
+            return false;
+        } else {
+            emailError.textContent = '';
+            return true;
+        }
+    }
+
+    function validatePassword() {
+        const passwordInput = document.getElementById('password');
+        const passwordError = document.getElementById('mdp-error');
+        const password = passwordInput.value.trim();
+
+        if (password === '') {
+            passwordError.textContent = 'Veuillez saisir votre mot de passe.';
+            passwordError.style.color = 'red';
+            return false;
+        } else if (password.length < 8) { // Par exemple, vérification de la longueur minimale
+            passwordError.textContent = 'Le mot de passe doit contenir au moins 8 caractères.';
+            passwordError.style.color = 'red';
+            return false;
+        } else {
+            passwordError.textContent = '';
+            return true;
+        }
+    }
+
+    function isValidEmail(email) {
+        return /\S+@\S+\.\S+/.test(email);
+    }
+</script>
+<script src="../asserts/js/ValidationMdp.js"></script>
 
 </body>
 </html>

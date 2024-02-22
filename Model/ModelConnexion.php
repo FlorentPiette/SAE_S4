@@ -114,7 +114,7 @@ function attente($essaiMaximal){
             $_SESSION['temps'] = time();
         }
 
-        $temps = 300; // 5 minutes en secondes (5 minutes * 60 secondes)
+        $temps = 5; // 5 minutes en secondes (5 minutes * 60 secondes)
         $tempsEcoule = time() - $_SESSION['temps'];
 
         // Vérifiez si l'utilisateur a attendu suffisamment longtemps

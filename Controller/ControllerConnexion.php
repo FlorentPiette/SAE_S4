@@ -15,7 +15,7 @@ if (!isset($_SESSION['essai'])) {
     $_SESSION['essai'] = 0;
 }
 
-$essaiMaximal = 99999;
+$essaiMaximal = 2;
 
 attente($essaiMaximal);
 
@@ -33,8 +33,8 @@ $users = selectEmailMDPEtu($conn,$email);
             $_SESSION['email'] = $users['email'];
             header("location: ../View/ViewPageEtudiant.php");
         } else {
+            echo "Echo Florent";
             $_SESSION['essai']++;
-            header('location: ../View/ViewConnexion.html');
         }
 
     }
@@ -51,4 +51,3 @@ $users = selectEmailMDPEtu($conn,$email);
         }
 }
 
-echo "Mauvais MDP";
