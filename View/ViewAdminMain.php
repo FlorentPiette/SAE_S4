@@ -14,7 +14,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageOffre.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutPersonnel.css">
     <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
-    <link rel="st²ylesheet" type="text/css" href="../asserts/css/Cloche.css">
+    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
 
     <script src="../asserts/js/AdminMain.js"></script>
