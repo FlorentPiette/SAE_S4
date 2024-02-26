@@ -8,7 +8,7 @@ $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $formation = $_POST['formation'];
 $email = $_POST['email'];
-$mdp =  password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+$mdp =  password_hash($_POST['mdp'], PASSWORD_BCRYPT);
 $role = $_POST['role'];
 
 

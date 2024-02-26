@@ -7,18 +7,18 @@
 
 
 
-.millieu button {
+.milieu button {
     /* Vos styles pour les boutons ici */
     display: inline-block;
     margin:  60px; /* Espacement entre les boutons */
 }
-.millieu {
+.milieu {
     display: flex;
     justify-content: space-around; /* Aligne les éléments à distance égale */
     margin-top: 20px; /* Espacement depuis le haut */
 }
 
-.millieu button {
+.milieu button {
 
     padding: 10px 20px;
     background-color: #007bff;
@@ -29,7 +29,7 @@
     transition: background-color 0.3s ease;
 }
 
-.millieu button:hover {
+.milieu button:hover {
     background-color: #0056b3;
 }
 

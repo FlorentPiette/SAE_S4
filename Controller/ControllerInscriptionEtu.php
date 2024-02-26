@@ -25,7 +25,7 @@ if (isset($_POST["valider"])) {
     $formation = $_POST['formation'];
     $email = $_POST['email'];
     $mdp = $_POST['mdp'];
-    $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+    $mdp = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
 
     if (selectEtuWhereEmail($db, $email) == null) {
         $result = envoieMail($email, $email, 'SAE', 'CONFIRMATION EMAIL', "http://localhost:/View/ViewMdpinscriptionEtu.php?token=" . $token);
