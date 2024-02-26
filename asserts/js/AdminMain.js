@@ -198,5 +198,16 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+function validateFormP() {
+    var nom = document.getElementById("nomP").value;
+    var prenom = document.getElementById("prenomP").value;
+    var email = document.getElementById("emailP").value;
+    var mdp = document.getElementById("mdpP").value;
 
+    if (nom === "" || prenom === "" || email === "" || mdp === "") {
+        alert("Veuillez remplir tous les champs obligatoires.");
+        return false;
+    }
+    return true;
+}
 

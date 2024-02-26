@@ -2,7 +2,7 @@
 // Une partie du code a été pris sur : https://www.berejeb.com/2009/09/envoyer-des-mails-avec-phpmailer-et-le-smtp-de-gmail/
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-require '../PHPMailer/PHPMailerMaster/PHPMailerMaster/src/src\Exception.php';
+require '../PHPMailer/PHPMailerMaster/PHPMailerMaster/src/Exception.php';
 /* Classe-PHPMailer */
 require '../PHPMailer/PHPMailerMaster/PHPMailerMaster/src/PHPMailer.php';
 /* Classe SMTP nécessaire pour établir la connexion avec un serveur SMTP */

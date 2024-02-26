@@ -221,21 +221,21 @@ include "../Controller/ControllerRechercheNbr.php"?>
 <div id="popUpPerso" class="popupEtu">
     <div class="popup-content">
 
-        <form action="../Controller/ControllerAjoutAdministration.php" method="POST">
+        <form action="../Controller/ControllerAjoutAdministration.php" method="POST" onsubmit="return validateFormP()">
             <h1 class="titre1"> Création d'un membre du personnel </h1>
             <ul>
                 <li>
                     <label for="nom" class="label-text">Nom:</label>
-                    <input type="text" id="nom" name="nom"  class="input-field">
+                    <input type="text" id="nomP" name="nom"  class="input-field">
                 </li>
                 <li>
                     <label for="prenom" class="label-text">Prenom:</label>
-                    <input type="text" id="prenom" name="prenom"  class="input-field">
+                    <input type="text" id="prenomP" name="prenom"  class="input-field">
                 </li>
                 <li>
                     <div class="formation-rectangle">
                         <label for="parcours" class="label-text">Formation :</label>
-                        <select id="formation-select" name="formation" class="select-field">
+                        <select id="formation-selectP" name="formation" class="select-field">
                             <option value="GEII">GEII</option>
                             <option value="GIM">GIM</option>
                             <option value="GMP">GMP</option>
@@ -251,11 +251,11 @@ include "../Controller/ControllerRechercheNbr.php"?>
                 </li>
                 <li>
                     <label for="email" class="label-text">Email:</label>
-                    <input type="email" id="email" name="email"  class="input-field">
+                    <input type="email" id="emailP" name="email"  class="input-field">
                 </li>
                 <li>
                     <label for="mdp" class="label-text">Mot de passe:</label>
-                    <input type="password" id="mdp" name="mdp"  class="input-field">
+                    <input type="password" id="mdpP" name="mdp"  class="input-field">
                 </li>
                 <li>
                     <div class="role-rectangle">
@@ -273,7 +273,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
             </ul>
 
             <div class="button">
-                <button type="submit" id="ajoutPersonnel" name="valider">Valider</button>
+                <button type="submit" id="ajoutPersonnel" name="valider" onsubmit="return validateFormP()">Valider</button>
             </div>
         </form>
 
