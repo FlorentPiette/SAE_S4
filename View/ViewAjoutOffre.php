@@ -96,7 +96,7 @@
         Voulez-vous que l'offre soit visible ?
     </label><br>
 
-    <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre" class="submit-btn"><br>
+    <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre" class="submit-btn" onclick="validateForm()"><br>
 </form>
 
 

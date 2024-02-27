@@ -12,7 +12,7 @@ include '../Controller/ControllerVerificationDroit.php';
 </head>
 <body>
 <h3> Création d'une Entreprise </h3>
-<form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire" onsubmit="return validateForm()">
+<form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire">
     <ul>
         <li>
             <label for="nom">Nom:</label>
@@ -52,7 +52,7 @@ include '../Controller/ControllerVerificationDroit.php';
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEntreprise" name="ajoutEntreprise">Valider</button>
+        <button type="submit" id="ajoutEntreprise" name="ajoutEntreprise" onclick="validateForm()">Valider</button>
     </div>
 </form>
 </body>
