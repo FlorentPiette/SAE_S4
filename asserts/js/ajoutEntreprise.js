@@ -73,3 +73,12 @@ function validateForm() {
 
     return isValid;
 }
+
+document.getElementById("formulaire").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+    else{
+        document.getElementById("formulaire").submit();
+    }
+})

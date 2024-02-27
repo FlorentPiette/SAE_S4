@@ -136,3 +136,12 @@ function validateForm() {
 
     return isValid;
 }
+
+document.getElementById("formulaireAjoutEtudiant").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+    else{
+        document.getElementById("formulaireAjoutEtudiant").submit();
+    }
+})
