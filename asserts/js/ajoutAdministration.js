@@ -1,4 +1,6 @@
 function validateForm() {
+    document.getElementById("form-adm").addEventListener("submit", function(event) {
+            event.preventDefault();})
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var formation = document.getElementById('formation-select').value;
@@ -57,5 +59,8 @@ function validateForm() {
 document.getElementById("form-adm").addEventListener("submit", function(event) {
     if (!validateForm()) {
         event.preventDefault();
+    }
+    else{
+        document.getElementById("form-adm").submit();
     }
 })

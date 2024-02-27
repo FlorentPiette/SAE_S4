@@ -63,10 +63,10 @@
             </div>
         </li>
     </ul>
-
+</form>
     <div class="button">
         <button type="button" id="ajoutEntreprise" name="valider" onclick="validateForm()">Valider</button>
     </div>
-</form>
+
 </body>
 </html>
