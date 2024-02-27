@@ -9,7 +9,7 @@
     <script src="../asserts/js/ajoutAdministration.js"></script>
 </head>
 <body>
-<form action="../Controller/ControllerAjoutAdministration.php" method="POST" onsubmit="return validateForm()">
+<form action="../Controller/ControllerAjoutAdministration.php" method="POST" id="form-adm">
     <ul>
         <li>
             <label for="nom">Nom:</label>
@@ -65,7 +65,7 @@
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEntreprise" name="valider" onsubmit="return validateForm()">Valider</button>
+        <button type="button" id="ajoutEntreprise" name="valider" onclick="validateForm()">Valider</button>
     </div>
 </form>
 </body>
