@@ -17,11 +17,11 @@ $perso = selectPersoId($conn, $id);
 include ("../View/ViewModifierProfilPerso.php");
 
 if (isset($_POST['modifier_profil'])){
-    $nom = $_POST['nouveau_nom'];
-    $prenom = $_POST['nouveau_prenom'];
-    $formation = $_POST['nouvelle_formation'];
-    $email = $_POST['nouvelle_email'];
-    $role = $_POST['nouveau_role'];
+    $nom = htmlspecialchars($_POST['nouveau_nom']);
+    $prenom = htmlspecialchars($_POST['nouveau_prenom']);
+    $formation = htmlspecialchars($_POST['nouvelle_formation']);
+    $email = htmlspecialchars($_POST['nouvelle_email']);
+    $role = htmlspecialchars($_POST['nouveau_role']);
 
     updatePerso($conn, $nom, $prenom, $formation, $email, $role, $id);
 

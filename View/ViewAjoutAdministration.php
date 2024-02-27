@@ -1,4 +1,4 @@
-<?php // include '../Controller/ControllerVerificationDroit.php'; ?>
+<?php  include '../Controller/ControllerVerificationDroit.php'; ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -65,7 +65,7 @@
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEntreprise" name="valider">Valider</button>
+        <button type="submit" id="ajoutEntreprise" name="valider" onsubmit="return validateForm()">Valider</button>
     </div>
 </form>
 </body>
