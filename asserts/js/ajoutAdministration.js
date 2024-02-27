@@ -1,39 +1,59 @@
 function validateForm() {
-    var nom = document.getElementById("nom").value;
-    var prenom = document.getElementById("prenom").value;
-    var formation = document.getElementById("formation-select").value;
-    var email = document.getElementById("email").value;
-    var mdp = document.getElementById("mdp").value;
+    var nom = document.getElementById('nom').value;
+    var prenom = document.getElementById('prenom').value;
+    var formation = document.getElementById('formation-select').value;
+    var email = document.getElementById('email').value;
+    var mdp = document.getElementById('mdp').value;
 
-    // Réinitialiser les messages d'erreur
-    document.getElementById("nom-error").innerHTML = "";
-    document.getElementById("prenom-error").innerHTML = "";
-    document.getElementById("formation-error").innerHTML = "";
-    document.getElementById("email-error").innerHTML = "";
-    document.getElementById("mdp-error").innerHTML = "";
+    var erreur = false;
 
-    // Vérifier si les champs sont vides
-    var isValid = true;
-    if (nom.trim() === "") {
-        document.getElementById("nom-error").innerHTML = "Le champ Nom est obligatoire.";
-        isValid = false;
-    }
-    if (prenom.trim() === "") {
-        document.getElementById("prenom-error").innerHTML = "Le champ Prenom est obligatoire.";
-        isValid = false;
-    }
-    if (formation === "") {
-        document.getElementById("formation-error").innerHTML = "Le champ Formation est obligatoire.";
-        isValid = false;
-    }
-    if (email.trim() === "") {
-        document.getElementById("email-error").innerHTML = "Le champ Email est obligatoire.";
-        isValid = false;
-    }
-    if (mdp.trim() === "") {
-        document.getElementById("mdp-error").innerHTML = "Le champ Mot De Passe est obligatoire.";
-        isValid = false;
+
+    if (nom.trim() === '') {
+        document.getElementById('nom-error').innerHTML = 'Veuillez saisir votre nom.';
+        erreur = true;
+    } else if (/[^a-zA-ZÀ-ÿ\s'-]/.test(nom)) {
+        document.getElementById('nom-error').innerHTML = 'Le nom ne doit contenir que des lettres, des espaces, des apostrophes et des accents.';
+        erreur = true;
+    } else {
+        document.getElementById('nom-error').innerHTML = '';
     }
 
-    return isValid;
+    if (prenom.trim() === '') {
+        document.getElementById('prenom-error').innerHTML = 'Veuillez saisir votre prénom.';
+        erreur = true;
+    } else if (/[^a-zA-ZÀ-ÿ\s'-]/.test(prenom)) { // Vérification des caractères autorisés (lettres, espaces, apostrophes, accents)
+        document.getElementById('prenom-error').innerHTML = 'Le prénom ne doit contenir que des lettres, des espaces, des apostrophes et des accents.';
+        erreur = true;
+    } else {
+        document.getElementById('prenom-error').innerHTML = '';
+    }
+
+    if (formation === '') {
+        document.getElementById('formation-error').innerHTML = 'Veuillez sélectionner votre formation.';
+        erreur = true;
+    } else {
+        document.getElementById('formation-error').innerHTML = '';
+    }
+    if (email.trim() === '') {
+        document.getElementById('email-error').innerHTML = 'Veuillez saisir votre email.';
+        erreur = true;
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { // Vérification du format de l'email
+        document.getElementById('email-error').innerHTML = 'Veuillez saisir une adresse email valide.';
+        erreur = true;
+    } else {
+        document.getElementById('email-error').innerHTML = '';
+    }
+
+    if (mdp.trim() === '') {
+        document.getElementById('mdp-error').innerHTML = 'Veuillez saisir votre mot de passe.';
+        erreur = true;
+    } else {
+        document.getElementById('mdp-error').innerHTML = '';
+    }
+
+    if (erreur) {
+        return false;}
+    else{
+        return true;
+    }
 }
