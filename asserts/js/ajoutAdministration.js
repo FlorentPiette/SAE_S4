@@ -57,7 +57,7 @@ function validateForm() {
 
 
 document.getElementById("form-adm").addEventListener("submit", function(event) {
-    if (!validateForm()) {
+    if (validateForm()) {
         event.preventDefault();
     }
     else{
