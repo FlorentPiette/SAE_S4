@@ -21,7 +21,7 @@ function validateForm() {
     if (prenom.trim() === '') {
         document.getElementById('prenom-error').innerHTML = 'Veuillez saisir votre prénom.';
         erreur = true;
-    } else if (/[^a-zA-ZÀ-ÿ\s'-]/.test(prenom)) { // Vérification des caractères autorisés (lettres, espaces, apostrophes, accents)
+    } else if (/[^a-zA-ZÀ-ÿ\s'-]/.test(prenom)) {
         document.getElementById('prenom-error').innerHTML = 'Le prénom ne doit contenir que des lettres, des espaces, des apostrophes et des accents.';
         erreur = true;
     } else {
@@ -37,7 +37,7 @@ function validateForm() {
     if (email.trim() === '') {
         document.getElementById('email-error').innerHTML = 'Veuillez saisir votre email.';
         erreur = true;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { // Vérification du format de l'email
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         document.getElementById('email-error').innerHTML = 'Veuillez saisir une adresse email valide.';
         erreur = true;
     } else {
@@ -51,9 +51,6 @@ function validateForm() {
         document.getElementById('mdp-error').innerHTML = '';
     }
 
-    if (erreur) {
-        return false;}
-    else{
-        return true;
-    }
+    return erreur
+
 }

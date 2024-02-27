@@ -8,7 +8,6 @@ function validateForm() {
     var secteur = document.getElementById("secteur").value;
 
 
-    // Réinitialiser les messages d'erreur
     document.getElementById("nom-error").innerHTML = "";
     document.getElementById("adresse-error").innerHTML = "";
     document.getElementById("ville-error").innerHTML = "";
@@ -17,7 +16,7 @@ function validateForm() {
     document.getElementById("email-error").innerHTML = "";
     document.getElementById("secteur-error").innerHTML = "";
 
-    // Vérifier si les champs sont vides
+
     var isValid = true;
     if (nom.trim() === "") {
         document.getElementById("nom-error").innerHTML = "Le champ Nom est obligatoire.";
@@ -45,6 +44,30 @@ function validateForm() {
     }
     if (secteur.trim() === "") {
         document.getElementById("secteur-error").innerHTML = "Le champ Secteur d'activité est obligatoire.";
+        isValid = false;
+    }
+
+    var regex = /^[a-zA-Z0-9\s\-]+$/; // Autorise les lettres, chiffres, espaces et tirets dans les champs
+    if (!regex.test(nom)) {
+        document.getElementById("nom-error").innerHTML = "Le champ Nom contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(adresse)) {
+        document.getElementById("adresse-error").innerHTML = "Le champ Adresse contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(ville)) {
+        document.getElementById("ville-error").innerHTML = "Le champ Ville contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(secteur)) {
+        document.getElementById("secteur-error").innerHTML = "Le champ Secteur d'activité contient des caractères non autorisés.";
+        isValid = false;
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById("email-error").innerHTML = "Veuillez saisir une adresse email valide.";
         isValid = false;
     }
 

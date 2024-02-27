@@ -43,18 +43,17 @@ function validateForm() {
     document.getElementById("email-error").innerHTML = "";
     document.getElementById("cv-error").innerHTML = "";
 
-    // Vérifier si les champs sont vides
     var isValid = true;
     if (nom.trim() === "") {
         document.getElementById("nom-error").innerHTML = "Le champ Nom est obligatoire";
         isValid = false;
     }
     if (prenom.trim() === "") {
-        document.getElementById("prenom-error").innerHTML = "Le champ Prenom est obligatoire";
+        document.getElementById("prenom-error").innerHTML = "Le champ Prénom est obligatoire";
         isValid = false;
     }
     if (dateDeNaissance.trim() === "") {
-        document.getElementById("dateDeNaissance-error").innerHTML = "Le champ Date De Naissance est obligatoire";
+        document.getElementById("dateDeNaissance-error").innerHTML = "Le champ Date de Naissance est obligatoire";
         isValid = false;
     }
     if (adresse.trim() === "") {
@@ -99,6 +98,39 @@ function validateForm() {
     }
     if (cv.trim() === "") {
         document.getElementById("cv-error").innerHTML = "Le champ CV est obligatoire";
+        isValid = false;
+    }
+
+    var regex = /^[a-zA-Z0-9\s\-']+$/; l
+    if (!regex.test(nom)) {
+        document.getElementById("nom-error").innerHTML = "Le champ Nom contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(prenom)) {
+        document.getElementById("prenom-error").innerHTML = "Le champ Prénom contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(ville)) {
+        document.getElementById("ville-error").innerHTML = "Le champ Ville contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(formation)) {
+        document.getElementById("formation-error").innerHTML = "Le champ Formation contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(entreprise)) {
+        document.getElementById("entreprise-error").innerHTML = "Le champ Entreprise contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(mission)) {
+        document.getElementById("mission-error").innerHTML = "Le champ Mission contient des caractères non autorisés.";
+        isValid = false;
+    }
+
+    // Vérification du format de l'email
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        document.getElementById("email-error").innerHTML = "Veuillez saisir une adresse email valide.";
         isValid = false;
     }
 

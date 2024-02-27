@@ -6,7 +6,6 @@ function validateForm() {
     var entreprise = document.getElementById("entreprise").value;
     var parcours = document.getElementById("parcours").value;
 
-    // Réinitialiser les messages d'erreur
     document.getElementById("offre-error").innerHTML = "";
     document.getElementById("domaine-error").innerHTML = "";
     document.getElementById("mission-error").innerHTML = "";
@@ -14,7 +13,6 @@ function validateForm() {
     document.getElementById("entreprise-error").innerHTML = "";
     document.getElementById("parcours-error").innerHTML = "";
 
-    // Vérifier si les champs sont vides
     var isValid = true;
     if (offre.trim() === "") {
         document.getElementById("offre-error").innerHTML = "Le champ Offre est obligatoire";
@@ -38,6 +36,28 @@ function validateForm() {
     }
     if (parcours.trim() === "") {
         document.getElementById("parcours-error").innerHTML = "Le champ Parcours est obligatoire";
+        isValid = false;
+    }
+
+    var regex = /^[a-zA-Z0-9\s\-']+$/;
+    if (!regex.test(offre)) {
+        document.getElementById("offre-error").innerHTML = "Le champ Offre contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(domaine)) {
+        document.getElementById("domaine-error").innerHTML = "Le champ Domaine contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(mission)) {
+        document.getElementById("mission-error").innerHTML = "Le champ Mission contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(entreprise)) {
+        document.getElementById("entreprise-error").innerHTML = "Le champ Entreprise contient des caractères non autorisés.";
+        isValid = false;
+    }
+    if (!regex.test(parcours)) {
+        document.getElementById("parcours-error").innerHTML = "Le champ Parcours contient des caractères non autorisés.";
         isValid = false;
     }
 
