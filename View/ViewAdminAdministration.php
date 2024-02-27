@@ -142,7 +142,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
 
         <p class="description">Vous trouverez ici l’ensemble des personnes ayant un compte sur l’application. Ils sont triés par leur
-            statut dans l’université.
+            statut au sein de l’université.
         </p>
 
         <div class="all-text3">

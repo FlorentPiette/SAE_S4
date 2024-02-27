@@ -113,7 +113,7 @@
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant">Valider</button>
+        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onsubmit="return validateForm()">Valider</button>
     </div>
 </form>
 </body>
