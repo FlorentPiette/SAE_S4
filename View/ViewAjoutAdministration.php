@@ -7,9 +7,19 @@
     <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutAdministration.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
     <script src="../asserts/js/ajoutAdministration.js"></script>
+
+    <button type="button" onclick="retourPage()" class="btnRetour">Retour</button>
+
+
+    <script>
+        function retourPage() {
+            window.history.back();
+        }
+    </script>
 </head>
 <body>
 <form action="../Controller/ControllerAjoutAdministration.php" method="POST" id="form-adm">
+    <h1 class="titre1"> Ajout d'un membre du membre </h1>
     <ul>
         <li>
             <label for="nom">Nom:</label>

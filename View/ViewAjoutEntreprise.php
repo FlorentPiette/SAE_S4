@@ -9,16 +9,6 @@ include '../Controller/ControllerVerificationDroit.php';
     <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEntreprise.css">
     <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
     <script src="../asserts/js/ajoutEntreprise.js"></script>
-
-    <button onclick="retourPage()" class="btnRetour">Retour</button>
-
-
-    <script>
-        function retourPage() {
-            window.history.back();
-        }
-    </script>
-
 </head>
 <body>
 <h3> Création d'une Entreprise </h3>
