@@ -50,11 +50,12 @@ function validateForm() {
     } else {
         document.getElementById('mdp-error').innerHTML = '';
     }
-    document.getElementById("form-adm").addEventListener("submit", function(event) {
-        if (erreur) {
-            event.preventDefault();
-        }
-    })
+    return erreur;
 }
 
 
+document.getElementById("form-adm").addEventListener("submit", function(event) {
+    if (!validateForm()) {
+        event.preventDefault();
+    }
+})
