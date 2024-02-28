@@ -13,9 +13,14 @@
  */
 function ajoutOffre(PDO $conn, string $nom, string $domaine, string $mission, int $nbetudiant): void
 {
-    $req = "INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
+    $nom = htmlentities($nom);
+    $domaine=htmlentities($domaine);
+    $mission=htmlentities($mission);
+    if(filter_var($nbetudiant,FILTER_VALIDATE_INT)) {
+        $req = "INSERT INTO Offre (nom, domaine, mission, nbetudiant) VALUES (:nom, :domaine, :mission, :nbetudiant)";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($nom, $domaine, $mission, $nbetudiant));
+    }
 }
 
 /**
@@ -29,6 +34,8 @@ function ajoutOffre(PDO $conn, string $nom, string $domaine, string $mission, in
  */
 function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntreprise): void
 {
+    $nomOffre=htmlentities($nomOffre);
+    $nomEntreprise=htmlentities($nomEntreprise);
     $req = "INSERT INTO Poste (nomoffre, nomentreprise) VALUES (:nomOffre, :nomEntreprise)";
     $req2 = $conn->prepare($req);
     $req2->execute(array(':nomOffre' => $nomOffre, ':nomEntreprise' => $nomEntreprise));
@@ -57,10 +64,20 @@ function ajouterOffreEntreprise(PDO $conn, string $nomOffre, string $nomEntrepri
  */
 function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance, String $adresse, String $ville, int $codePostal, int $anneeEtude, String $formation, String $email, String $iNE, string $entreprise, String $mission, int $mobile, $CodeMail): void
 {
+    $nom=htmlentities($nom);
+    $prenom=htmlentities($prenom);
+    $adresse=htmlentities($adresse);
+    $ville=htmlentities($ville);
+    $formation=htmlentities($formation);
+    $iNE=htmlentities($iNE);
+    $entreprise=htmlentities($entreprise);
+    $mission=htmlentities($mission);
+    if(filter_var($codePostal,FILTER_VALIDATE_INT) and filter_var($email,FILTER_VALIDATE_EMAIL) and filter_var($anneeEtude,FILTER_VALIDATE_INT) and filter_var($mobile,FILTER_VALIDATE_INT) and filter_var($CodeMail,FILTER_VALIDATE_INT)){
     $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
             VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :ine, :entreprise, :mission, :mobile, True, :CodeConfirmation)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $iNE, $entreprise, $mission, $mobile, $CodeMail));
+    }
 }
 
 /**
@@ -79,10 +96,16 @@ function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance,
  */
 function ajoutEntreprise(PDO $conn, string $nom, string $adresse, string $ville, int $codePostal, string $num, string $secteur, string $email): void
 {
-    $req = "INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur,:email)";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
-
+    $nom=htmlentities($nom);
+    $adresse=htmlentities($adresse);
+    $ville=htmlentities($ville);
+    $num=htmlentities($num);
+    $secteur=htmlentities($secteur);
+    if(filter_var($codePostal,FILTER_VALIDATE_INT) and filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $req = "INSERT INTO Entreprise VALUES (DEFAULT, :nom, NULL, :adresse, :ville, :codePostal, :num, :secteur,:email)";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($nom, $adresse, $ville, $codePostal, $num, $secteur, $email));
+    }
 }
 
 /**
@@ -130,10 +153,17 @@ function affichageEntreprise(PDO $conn): void
  */
 function ajoutAdministration(PDO $conn, string $nom, string $prenom, string $formation, string $email, string $mdp, string $role): array
 {
-    $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $formation, $email, $mdp, $role));
-    $result = $req2->fetchAll(PDO::FETCH_ASSOC);
+    $nom=htmlentities($nom);
+    $prenom=htmlentities($prenom);
+    $formation=htmlentities($formation);
+    $mdp=htmlentities($mdp);
+    $role=htmlentities($role);
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($nom, $prenom, $formation, $email, $mdp, $role));
+        $result = $req2->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     return $result;
 }

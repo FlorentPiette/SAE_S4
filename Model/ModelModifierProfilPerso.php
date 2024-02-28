@@ -14,9 +14,15 @@
  * @return void
  */
 function updatePerso($conn, $nom, $prenom, $formation, $email, $role, $id){
-    $req = "UPDATE Administration SET nom = ?, prenom = ?, formation = ?, email = ?, role = ? WHERE idprofil = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $formation, $email, $role, $id));
+    $nom=htmlentities($nom);
+    $prenom=htmlentities($prenom);
+    $formation=htmlentities($formation);
+    $role=htmlentities($role);
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $req = "UPDATE Administration SET nom = ?, prenom = ?, formation = ?, email = ?, role = ? WHERE idprofil = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($nom, $prenom, $formation, $email, $role, $id));
+    }
 }
 
 /**
@@ -29,6 +35,7 @@ function updatePerso($conn, $nom, $prenom, $formation, $email, $role, $id){
  * @return void
  */
 function updateNomPerso($conn, $nom, $id){
+    $nom=htmlentities($nom);
     $req = "UPDATE Administration SET nom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $id));
@@ -44,6 +51,7 @@ function updateNomPerso($conn, $nom, $id){
  * @return void
  */
 function updatePrenomPerso($conn, $prenom, $id){
+    $prenom=htmlentities($prenom);
     $req = "UPDATE Administration SET prenom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($prenom, $id));
@@ -59,6 +67,7 @@ function updatePrenomPerso($conn, $prenom, $id){
  * @return void
  */
 function updateFormationPerso($conn, $formation, $id){
+    $formation=htmlentities($formation);
     $req = "UPDATE Administration SET formation = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($formation, $id));
@@ -74,9 +83,11 @@ function updateFormationPerso($conn, $formation, $id){
  * @return void
  */
 function updateEmailPerso($conn, $email, $id){
-    $req = "UPDATE Administration SET email = ? WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($email, $id));
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $req = "UPDATE Administration SET email = ? WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($email, $id));
+    }
 }
 
 /**
@@ -89,6 +100,7 @@ function updateEmailPerso($conn, $email, $id){
  * @return void
  */
 function updateMpPerso($conn, $motdepasse, $id){
+
     $req = "UPDATE Administration SET motdepasse = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($motdepasse, $id));
@@ -104,6 +116,7 @@ function updateMpPerso($conn, $motdepasse, $id){
  * @return void
  */
 function updateRolePerso($conn, $role, $id){
+    $role=htmlentities($role);
     $req = "UPDATE Administration SET role = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($role, $id));

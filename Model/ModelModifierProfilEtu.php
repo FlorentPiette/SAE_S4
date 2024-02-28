@@ -17,9 +17,16 @@
  * @return void
  */
 function updateEtu($conn, $nom, $prenom, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $id){
-    $req = "UPDATE etudiant SET nom = ?, prenom = ?, adresse = ?, ville = ?, codePostal = ?, anneeEtude = ?, formation = ?, email = ?, WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($nom, $prenom, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $id));
+    $nom=htmlentities($nom);
+    $prenom=htmlentities($prenom);
+    $adresse=htmlentities($adresse);
+    $ville=htmlentities($ville);
+    $formation=htmlentities($formation);
+    if(filter_var($codePostal,FILTER_VALIDATE_INT) and filter_var($anneeEtude,FILTER_VALIDATE_INT)) {
+        $req = "UPDATE etudiant SET nom = ?, prenom = ?, adresse = ?, ville = ?, codePostal = ?, anneeEtude = ?, formation = ?, email = ?, WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($nom, $prenom, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $id));
+    }
 }
 
 /**
@@ -32,6 +39,7 @@ function updateEtu($conn, $nom, $prenom, $adresse, $ville, $codePostal, $anneeEt
  * @return void
  */
 function updateNomEtu($conn, $nom, $ine){
+    $nom=htmlentities($nom);
     $req = "UPDATE etudiant SET nom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $ine));
@@ -47,6 +55,7 @@ function updateNomEtu($conn, $nom, $ine){
  * @return void
  */
 function updatePrenomEtu($conn, $prenom, $ine){
+    $prenom=htmlentities($prenom);
     $req = "UPDATE etudiant SET prenom = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($prenom, $ine));
@@ -62,6 +71,7 @@ function updatePrenomEtu($conn, $prenom, $ine){
  * @return void
  */
 function updateAdresseEtu($conn, $adresse, $ine){
+    $adresse=htmlentities($adresse);
     $req = "UPDATE etudiant SET adresse = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($adresse, $ine));
@@ -77,6 +87,7 @@ function updateAdresseEtu($conn, $adresse, $ine){
  * @return void
  */
 function updateVilleEtu($conn, $ville, $ine){
+    $ville=htmlentities($ville);
     $req = "UPDATE etudiant SET ville = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($ville, $ine));
@@ -92,9 +103,11 @@ function updateVilleEtu($conn, $ville, $ine){
  * @return void
  */
 function updateCpEtu($conn, $codePostal, $ine){
-    $req = "UPDATE etudiant SET codePostal = ? WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($codePostal, $ine));
+    if (filter_var($codePostal,FILTER_VALIDATE_INT)) {
+        $req = "UPDATE etudiant SET codePostal = ? WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($codePostal, $ine));
+    }
 }
 
 /**
@@ -107,9 +120,11 @@ function updateCpEtu($conn, $codePostal, $ine){
  * @return void
  */
 function updateAnneeEtudeEtu($conn, $anneeEtude, $ine){
-    $req = "UPDATE etudiant SET anneeEtude = ? WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($anneeEtude, $ine));
+    if(filter_var($anneeEtude,FILTER_VALIDATE_INT)) {
+        $req = "UPDATE etudiant SET anneeEtude = ? WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($anneeEtude, $ine));
+    }
 }
 
 /**
@@ -122,6 +137,7 @@ function updateAnneeEtudeEtu($conn, $anneeEtude, $ine){
  * @return void
  */
 function updateFormationEtu($conn, $formation, $ine){
+    $formation=htmlentities($formation);
     $req = "UPDATE etudiant SET formation = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($formation, $ine));
@@ -137,9 +153,11 @@ function updateFormationEtu($conn, $formation, $ine){
  * @return void
  */
 function updateEmailEtu($conn, $email, $ine){
-    $req = "UPDATE etudiant SET email = ? WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($email, $ine));
+    if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
+        $req = "UPDATE etudiant SET email = ? WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($email, $ine));
+    }
 }
 
 /**
@@ -152,6 +170,7 @@ function updateEmailEtu($conn, $email, $ine){
  * @return void
  */
 function updateTypeEntrepriseEtu($conn, $typeentreprise, $ine){
+    $typeentreprise=htmlentities($typeentreprise);
     $req = "UPDATE etudiant SET typeentreprise = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($typeentreprise, $ine));
@@ -167,6 +186,7 @@ function updateTypeEntrepriseEtu($conn, $typeentreprise, $ine){
  * @return void
  */
 function updateTypeMissionEtu($conn, $typemission, $ine){
+    $typemission=htmlentities($typemission);
     $req = "UPDATE etudiant SET typemission = ? WHERE ine = ?";
     $req2 = $conn->prepare($req);
     $req2->execute(array($typemission, $ine));
@@ -199,9 +219,11 @@ function selectEtudiant($conn, $ine){
  * @return void
  */
 function updateMobile($conn, $mobile, $ine){
-    $req = "UPDATE etudiant SET mobile = ? WHERE ine = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($mobile, $ine));
+    if(filter_var($mobile,FILTER_VALIDATE_INT)) {
+        $req = "UPDATE etudiant SET mobile = ? WHERE ine = ?";
+        $req2 = $conn->prepare($req);
+        $req2->execute(array($mobile, $ine));
+    }
 }
 
 /**

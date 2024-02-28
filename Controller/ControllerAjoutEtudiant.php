@@ -34,7 +34,7 @@ if(isset($_POST["ajoutEtudiant"])) {
 
     if ($reqmail == null) {
         ajoutEtudiant($db, $nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $ine, $entreprise, $mission, $mobile, $confirmation);
-        $result = envoieMail($email, $email, 'SAE', 'CORFIRMATION EMAIL', "Voici votre code ".$confirmation);
+        $result = envoieMail($email, $email, 'SAE', 'CONFIRMATION EMAIL', "Voici votre code ".$confirmation);
         if (true !== $result)
         {
             echo $result;

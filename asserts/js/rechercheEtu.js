@@ -72,7 +72,7 @@ function rechercherEtudiants() {
 
                     if (resultats.length > 0) {
                         var tableBody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-                        // Efface le contenu actuel de la table
+
                         tableBody.innerHTML = '';
 
                         resultats.forEach(function (etudiant) {
@@ -97,10 +97,8 @@ function rechercherEtudiants() {
                             btnVoirProfil.style.marginLeft = "25%";
                             btnVoirProfil.innerHTML = 'Voir Profil';
                             btnVoirProfil.addEventListener('click', function () {
-                                // Lorsque le bouton "Voir Profil" est cliqué,
-                                // appeler la fonction pour obtenir toutes les infos de l'étudiant
+
                                 obtenirTousLesEtudiants(etudiant);
-                                // Ensuite, ouvrir le menu burger
                                 ouvrirMenuBurger(etudiant);
                                 if (etudiant != null) {
                                     var studentId = etudiant.ine;
@@ -294,13 +292,13 @@ function ouvrirMenuBurger(etudiant) {
     var typeMissionInfo = document.getElementById('infoTypeMission');
     typeMissionInfo.innerHTML = '<strong style="color: #0f9bb4;">Type de Mission:</strong> ' + (etudiant.typemission || '');
 
-// Modifier le style de l'élément 'infoMobile' uniquement
+
     var mobileInfo = document.getElementById('infoMobile');
     if (etudiant.mobile === 99999) {
         mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> Internationale';
     } else {
         mobileInfo.innerHTML = '<strong style="color: #0f9bb4;">Mobilité:</strong> ' + (etudiant.mobile || '') + 'km';
-        // Appliquer le style spécifique pour le texte en gras
+
     }
 
     var actifValue = etudiant.actif;
