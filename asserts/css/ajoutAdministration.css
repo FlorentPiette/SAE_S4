@@ -62,10 +62,6 @@ select {
     pointer-events: none;
 }
 
-/* Style du bouton */
-.button {
-    text-align: center;
-}
 
 button {
     text-decoration: none;
@@ -97,13 +93,11 @@ button:hover {
     border-bottom-right-radius: 30px;
     box-shadow: 0 0 10px #333333;
 }
-.btnRetour{
-
+.btnRetour {
     text-decoration: none;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    transform: translate(-50%, -50%);
+    position: fixed; /* Position fixe pour rester en haut de la page */
+    top: 20px; /* Distance par rapport au haut de la page */
+    left: 20px; /* Distance par rapport à la gauche de la page */
     background-color: #808080; /* Fond transparent */
     border: none; /* Supprimer le contour */
     font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
@@ -117,29 +111,15 @@ button:hover {
     transition: box-shadow 0.3s ease;
     font-weight: bold;
     z-index: 999;
-
 }
 
-.btnRetour:hover{
-
-    text-decoration: none;
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    transform: translate(-50%, -50%);
-    background-color: #808080; /* Fond transparent */
-    border: none; /* Supprimer le contour */
-    font-family: Arial, sans-serif; /* Changer la police d'écriture en Arial */
-    font-size: 16px; /* Taille de la police */
+.btnRetour:hover {
+    background-color: #808080;
     color: black;
-    cursor: pointer;
-    border-radius: 45px;
     box-shadow: 0 0 10px #333333;
-    transition: box-shadow 0.3s ease;
-    font-weight: bold;
-    z-index: 999;
-
 }
+
 .error-message {
     color: red;
 }
+
