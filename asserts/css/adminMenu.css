@@ -1,15 +1,20 @@
 .body {
     font-family: Arial;
     overflow: scroll;
-    background: linear-gradient(to right, rgba(0, 110, 135, 1), rgba(0, 140, 173, 0.75), rgba(0, 150, 186, 0.51), rgba(0, 163, 227, 0.19));
+    overflow-x: hidden;
+    background: #ffffff;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-image: url("/asserts/img/banniere.png");
+    background-size: contain;
 }
 
 .body-container {
     flex: 1;
+    background-color: rgba(red, green, blue, 0);
+    backdrop-filter: brightness(50%) ;
 }
 
 .header {
@@ -17,6 +22,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 30px;
+    background-color: #F3F3F3;
 }
 
 
@@ -59,21 +65,20 @@
 }
 
 .rectangle-haut {
-    color: white;
+    color: rgb(0, 0, 0);
     text-align: center;
-    padding: 20px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     width: 100%;
-    height: 600px;
+    height: 300px;
     margin: 0;
     position: relative;
     z-index: 2;
-    border-top: solid white 2px;
+    border-top: solid rgb(0, 0, 0) 2px;
+    filter: revert;
 }
 
 .all-text {
-    max-width: 600px;
-    margin: 175px auto 0 auto; /* Ajout de margin-top: 20px; */
+    margin: 175px; /* Ajout de margin-top: 20px; */
     position: relative;
     z-index: 3;
     display: flex;
@@ -87,7 +92,7 @@
 }
 
 .banniere {
-    width: 800px;
+    width: 100%;
     height: 400px;
     display: block;
     margin: 0 auto;
@@ -95,11 +100,12 @@
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-top-left-radius: 45px;
+    /* border-top-left-radius: 45px;
     border-top-right-radius: 45px;
     border-bottom-left-radius: 45px;
-    border-bottom-right-radius: 45px;
+    border-bottom-right-radius: 45px; */
     z-index: 1;
+    filter: brightness(50%);
 }
 
 .rectangle-gauche,
@@ -130,9 +136,8 @@
 .nbrOff,
 .nbrPers {
     text-align: center;
-    font-size: 12px;
+    font-size: 20px;
 }
-
 .rectangle-mid,
 .rectangle-bas,
 .rectangle-gauche,
@@ -152,9 +157,9 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-radius: 20px;
-    width: 175px;
-    height: 100px;
+    border-radius: 200px;
+    width: 250px;
+    height: 150px;
     background-color: #008CAD;
     flex-direction: column; /* Ajout de cette ligne pour mettre les éléments en colonne */
     position: relative;
@@ -170,19 +175,23 @@
     text-align: center; /* Centrer le texte horizontalement */
     margin-top: 150px; /* Ajouter de l'espace entre l'image et le titre */
     font-size: 24px;
+    padding: 50px;
+    background-color: #F3F3F3;
 }
 
 .section-mid {
     display: flex;
     justify-content: space-evenly; /* Utilise space-evenly au lieu de space-between */
-    padding: 20px;
-    margin: 5px; /* Ajoute une marge autour du conteneur */
+    margin: 20px;
+    margin: 0px; /* Ajoute une marge autour du conteneur */
+    background-color: #F3F3F3;
+    padding-bottom: 100px;
 }
 
 .rectangle {
     width: 350px;
     height: 175px;
-    background-color: rgba(0, 140, 173, 0.75);
+    background-color: rgb(0, 140, 173);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -209,32 +218,33 @@
 }
 
 .main-rectangle {
-    background-color: rgba(0, 140, 173, 0.75);
-    border-radius: 15px;
-    padding: 20px;
+    padding: 10% ;
+    padding-top: 100px ;
     position: relative;
-    width: 1100px;
-    margin: 50px auto; /* Centrer le rectangle */
+    background-color: #F3F3F3;
+    border-top: solid rgb(0, 0, 0) 2px;
 }
 
 .ajouter-recent {
-    position: absolute;
+    position: center;
+    text-align: center;
     top: 10px;
     left: 10px;
-    color: white;
-    font-size: 12px;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    padding-bottom: 50px;
 }
 
 .other-rectangles {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 40px;
     overflow: hidden;
 }
 
 .sub-rectangle {
-    background-color: white;
+    background-color: rgb(0, 140, 173);
     border-radius: 10px;
     padding: 15px;
     width: 300px;
@@ -253,9 +263,9 @@
 }
 
 .texteInRect{
-    margin-bottom: 0;
+    margin:auto;
     text-align: center;
-
+    color: #fff;
 }
 
 .btnAfficherPlus {
@@ -406,9 +416,10 @@
 
 /* Style général du pied de page */
 .footer {
-    background-color: rgba(0, 110, 135, 0.9);
+    /* background-color: rgba(0, 140, 173, 0.5); */
+    backdrop-filter: brightness(50%);
     color: #fff;
-    padding: 20px 0;
+    padding: 0px 0;
     text-align: center;
     margin-top: auto;
 }
@@ -427,9 +438,6 @@
 }
 
 /* Souligner les grands titres */
-.footer-section h2 {
-    text-decoration: underline;
-}
 
 /* Style des liens dans la section Liens */
 .links ul {
@@ -449,8 +457,11 @@
 /* Style du bas du pied de page */
 .footer-bottom {
     margin-top: 20px;
-    padding-top: 10px;
-    border-top: 1px solid #004080; /* Bleu légèrement plus clair pour la bordure supérieure */
+    padding: 10px;
+    border-top: 1px solid #000000; /* Bleu légèrement plus clair pour la bordure supérieure */
+    background-color: #F3F3F3;
+    color: black;
+    
 }
 
 /* Style du texte du bas du pied de page */

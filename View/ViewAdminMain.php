@@ -354,11 +354,8 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
 
 <div class="body-container">
-
     <div class="rectangle-haut">
-        <div class="image-box">
-            <img class="banniere" src="../asserts/img/banniere.png" alt="Bannière">
-        </div>
+
         <div class="all-text">
             <div class="rectangle-info">
                 <div class="info-box">
@@ -397,11 +394,11 @@ include "../Controller/ControllerRechercheNbr.php"?>
                 </div>
             </div>
         </div>
-        <div class="titreAppli">
-            <h3 class="title">Bienvenue sur le Gestionnaire des Apprentis</h3>
-        </div>
-    </div>
 
+    </div>
+    <div class="titreAppli">
+            <h3 class="title">Bienvenue sur le Gestionnaire des Apprentis</h3>
+    </div>
 
 
     <section class="section-mid">
@@ -428,7 +425,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
     </section>
 
     <div class="main-rectangle">
-        <div class="ajouter-recent">Ajouté récemment</div>
+        <div class="ajouter-recent"><h3>Ajouté récemment</h3></div>
         <div class="other-rectangles">
             <div class="sub-rectangle">
                 <h3 class="texteInRect">Etudiant</h3>
