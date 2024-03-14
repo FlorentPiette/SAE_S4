@@ -129,3 +129,5 @@ CREATE TABLE CV(
     chemin varchar,
     contenu bytea
 );
+
+INSERT INTO administration VALUES (1, 'MONSIEUR', 'test', 'GEII', 'monsieur.test@gmail.com', '$2y$10$bRnmw339wf.vvxSy1Rvr8ObH477nDgASbAZjmXxBBQE9xDI9SkFV6', 'admin');
