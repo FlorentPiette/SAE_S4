@@ -298,7 +298,13 @@ div.rec-connection {
 
 }
 
-
+.error {
+    position: absolute;
+    top: 45%;
+    bottom: 45%;
+    transform: translateY(-45%);
+    left: 17%;
+}
 
 
 

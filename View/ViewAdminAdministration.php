@@ -180,10 +180,13 @@ include "../Controller/ControllerRechercheNbr.php"?>
                     <th>Formation</th>
                     <th>Rôle</th>
                     <th>Email</th>
+
                 </tr>
                 </thead>
-                <tbody></tbody>
+                <tbody>  </tbody>
+
             </table>
+
 
         </div>
 
