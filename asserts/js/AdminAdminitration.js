@@ -1,3 +1,4 @@
+// Fonction pour charger les données depuis le serveur
 function chargerDonnees(role) {
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '../Controller/ControllerAdminBtnRole.php', true);
@@ -18,12 +19,22 @@ function chargerDonnees(role) {
                         var formationCell = row.insertCell(2);
                         var roleCell = row.insertCell(3);
                         var emailCell = row.insertCell(4);
+                        var deleteCell = row.insertCell(5);
 
                         nomCell.textContent = role.nom;
                         prenomCell.textContent = role.prenom;
                         formationCell.textContent = role.formation;
                         roleCell.textContent = role.role;
                         emailCell.textContent = role.email;
+
+                        var deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Supprimer';
+                        deleteButton.addEventListener('click', function () {
+                            // Appeler la fonction pour supprimer l'élément
+                            supprimerElement(role.email, row);
+                        });
+
+                        deleteCell.appendChild(deleteButton);
                     });
                 } catch (error) {
                     console.error("Erreur lors de la conversion JSON :", error);
@@ -38,6 +49,35 @@ function chargerDonnees(role) {
     var data = "role=" + role;
     xhr.send(data);
 }
+
+function supprimerElement(email, row) {
+    var deleteXHR = new XMLHttpRequest();
+    deleteXHR.open('POST', '../Controller/ControllerSupprimerRole.php', true);
+    deleteXHR.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+    deleteXHR.onreadystatechange = function () {
+        if (deleteXHR.readyState === 4) {
+            if (deleteXHR.status === 200) {
+                var response = deleteXHR.responseText;
+                if (response.includes('succès')) {
+                    console.log('Élément avec l\'email ' + email + ' supprimé avec succès.');
+                    row.remove();
+                } else {
+                    console.error("Erreur lors de la suppression de l'élément :", response);
+                }
+            } else {
+                console.error("Erreur lors de la suppression de l'élément : " + deleteXHR.status);
+            }
+        }
+    };
+    // Envoyer l'email de l'élément à supprimer
+    var deleteData = "email=" + encodeURIComponent(email);
+    deleteXHR.send(deleteData);
+}
+
+// Charger les données au chargement de la page
+document.addEventListener('DOMContentLoaded', function () {
+    chargerDonnees('tous'); // Charger les données par défaut
+});
 
 document.getElementById('tous').addEventListener('click', function (e) {
     e.preventDefault();
