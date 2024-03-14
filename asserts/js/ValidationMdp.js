@@ -14,19 +14,21 @@ function ValidationMdp() {
 
 function validateEmail() {
     const emailInput = document.querySelector('.input-mail');
-    const emailError = document.getElementById('email-error');
+    const emailError = document.querySelector('.error');
     const email = emailInput.value.trim();
 
+    emailError.style.fontSize = '14px';
     if (email === '') {
-        emailError.textContent = 'Veuillez saisir votre adresse email.';
+        emailError.innerHTML = 'Veuillez saisir votre adresse email.';
         emailError.style.color = 'red';
+
         return false;
     } else if (!isValidEmail(email)) {
-        emailError.textContent = 'Veuillez saisir une adresse email valide.';
+        emailError.innerHTML = 'Veuillez saisir une adresse email valide.';
         emailError.style.color = 'red';
         return false;
     } else {
-        emailError.textContent = '';
+        emailError.innerHTML = '';
         return true;
     }
 }
@@ -51,7 +53,7 @@ function validatePassword() {
 }
 
 function isValidEmail(email) {
-    return /\S+@\S+\.\S+/.test(email);
+    return /\S+@\S+\.\S{2,}$/.test(email);
 }
 
 const emailInput = document.querySelector('.input-mail');
