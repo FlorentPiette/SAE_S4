@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Votre Titre</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../assets/css/demandeAjoutOffre.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 </head>
 <body>
 <form action="../Controller/ControllerAjouOffre.php" method="post" id="formulaire">
@@ -51,7 +51,7 @@
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
 </form>
 
-<script src="../asserts/js/AdminEntreprise.js"></script>
+<script src="../assets/js/AdminEntreprise.js"></script>
 </body>
 </html>
 

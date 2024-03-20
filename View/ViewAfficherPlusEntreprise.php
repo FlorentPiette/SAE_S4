@@ -6,14 +6,14 @@ include "../Controller/ControllerVerificationDroit.php"?>
 <head>
     <meta charset="UTF-8">
     <title>Entreprises</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminMenu.css">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AffichageEntreprise.css">
-    <script src="../asserts/js/TousEntreprise.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/adminMenu.css">
+    <link rel="stylesheet" type="text/css" href="../assets/css/AffichageEntreprise.css">
+    <script src="../assets/js/TousEntreprise.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-    <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/Cloche.css">
+    <script src="../assets/js/script.js"></script>
 
 </head>
 <body class="body">
@@ -21,7 +21,7 @@ include "../Controller/ControllerVerificationDroit.php"?>
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../assets/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
@@ -41,7 +41,7 @@ include "../Controller/ControllerVerificationDroit.php"?>
                     }
                     ?>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">

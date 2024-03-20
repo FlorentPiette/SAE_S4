@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminEntreprise.css">
-    <script src="../asserts/js/AdminEntreprise.js"></script>
-    <script src="../asserts/js/rechercheOffre.js"></script>
-    <script src="../asserts/js/rechercherEntreprise.js"></script>
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-    <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/adminEntreprise.css">
+    <script src="../assets/js/AdminEntreprise.js"></script>
+    <script src="../assets/js/rechercheOffre.js"></script>
+    <script src="../assets/js/rechercherEntreprise.js"></script>
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../assets/css/Cloche.css">
+    <script src="../assets/js/script.js"></script>
 </head>
 <body class="body">
 
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../assets/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
@@ -35,7 +35,7 @@
                     </li>
 
                     <li id="account-photo">
-                        <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
@@ -151,7 +151,7 @@
             <ul id="resultatsOffre" class="result">
             </ul>
 
-            <script src="../asserts/js/rechercheOffre.js"></script>
+            <script src="../assets/js/rechercheOffre.js"></script>
         </ul>
 
         <ul id="donneesEntreprise" class="affichEntreprise">
@@ -209,7 +209,7 @@
             <ul id="resultatsEntreprise" class="result">
             </ul>
 
-            <script src="../asserts/js/rechercherEntreprise.js"></script>
+            <script src="../assets/js/rechercherEntreprise.js"></script>
         </ul>
 
     </div>
