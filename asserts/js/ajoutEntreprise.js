@@ -1,3 +1,4 @@
+
 function validateForm() {
     var nom = document.getElementById("nom").value;
     var adresse = document.getElementById("adresse").value;
