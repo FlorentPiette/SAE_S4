@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajout Etudiant</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <script src="../asserts/js/ajoutEtudiant.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/ajoutEtudiant.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <script src="../assets/js/ajoutEtudiant.js"></script>
 </head>
 <body>
 
@@ -117,5 +117,5 @@
     </div>
 </form>
 </body>
-<script src="../asserts/js/ajoutEtudiant.js"></script>
+<script src="../assets/js/ajoutEtudiant.js"></script>
 </html>

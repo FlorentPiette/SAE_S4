@@ -7,7 +7,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-image: url("/asserts/img/banniere.png");
+    background-image: url("/assets/img/banniere.png");
     background-size: contain;
 }
 

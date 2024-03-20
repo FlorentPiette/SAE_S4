@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajout offre</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/demandeAjoutOffre.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <script src="../asserts/js/ajoutOffre.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/demandeAjoutOffre.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <script src="../assets/js/ajoutOffre.js"></script>
 </head>
 <body class="body">
 
@@ -100,6 +100,6 @@
 </form>
 
 
-<script src="../asserts/js/AdminEntreprise.js"></script>
+<script src="../assets/js/AdminEntreprise.js"></script>
 </body>
 </html>

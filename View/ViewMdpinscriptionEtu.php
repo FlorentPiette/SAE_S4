@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Verification du Mail</title>
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 
 
 </form>
-<script src="../asserts/js/ValidationMdp.js"> </script>
+<script src="../assets/js/ValidationMdp.js"> </script>
 
 </body>
 </html>
