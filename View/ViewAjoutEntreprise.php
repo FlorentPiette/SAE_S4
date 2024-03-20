@@ -6,9 +6,9 @@ include '../Controller/ControllerVerificationDroit.php';
 <head>
     <meta charset="UTF-8">
     <title>Ajout Entreprise</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEntreprise.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <script src="../asserts/js/ajoutEntreprise.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/AjoutEntreprise.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <script src="../assets/js/ajoutEntreprise.js"></script>
 
     <button type="button" onclick="retourPage()" class="btnRetour">Retour</button>
 

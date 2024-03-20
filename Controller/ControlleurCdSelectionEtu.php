@@ -34,10 +34,10 @@ $selectid->execute(array($nomOffre));
 $idOffre = $selectid->fetch(PDO::FETCH_ASSOC);
         ?>
         <head>
-            <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
+            <link rel="stylesheet" type="text/css" href="../assets/css/AjoutEtudiantOffre.css">
         </head>
 
-        <script src="../asserts/js/Cdselec.js"></script>
+        <script src="../assets/js/Cdselec.js"></script>
 
         <body>
 

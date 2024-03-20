@@ -5,18 +5,18 @@
 <head>
 
     <title>Profil - <?= $perso['nom'] ?> <?= $perso['prenom'] ?></title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ModifierProfilPerso.css">
-    <script src="../asserts/js/modifProfil.js"></script>
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-        <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/ModifierProfilPerso.css">
+    <script src="../assets/js/modifProfil.js"></script>
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="../assets/css/Cloche.css">
+        <script src="../assets/js/script.js"></script>
 </head>
 
 <body>
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../assets/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
@@ -36,7 +36,7 @@
                     }
                     ?>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <button type="submit" name="compte" class="">Mon compte</button>
                             <button type="submit" name="deco" class="">Se déconnecter</button>
@@ -153,7 +153,7 @@
         </div>
 
             <button type="submit" name="modifier_profil" class="transparent-button">
-                <img class="editable" id="editIcon" src="../asserts/img/editer.png" alt="edit">
+                <img class="editable" id="editIcon" src="../assets/img/editer.png" alt="edit">
             </button>
         </form>
 

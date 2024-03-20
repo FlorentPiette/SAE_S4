@@ -35,3 +35,14 @@ function authenticatedEtu($etudiants,$email,$motDePasse){
     return false;
 
 }
+
+/**
+ * Ajouter une tentative échouée à l'étudiant à chaque essai de connexion échoué
+ * @param PDO $conn sert à se connecter à la base de données
+ * @param string $email sert à chercher cet email dans la base de données
+ */
+function CompteurTentativesEchouees($conn, $email){
+    $req = "UPDATE etudiant SET tentatives_echouees = tentatives_echouees + 1 WHERE email = :email";
+    $req2 = $conn->prepare($req);
+    $req2->execute(array('email' => $email));
+}

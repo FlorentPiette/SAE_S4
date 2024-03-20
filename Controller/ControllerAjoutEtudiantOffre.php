@@ -36,7 +36,7 @@ if ($sqlTousEtudiants->execute()) {
     if ($result) {
         ?>
         <head>
-            <link rel="stylesheet" type="text/css" href="../asserts/css/AjoutEtudiantOffre.css">
+            <link rel="stylesheet" type="text/css" href="../assets/css/AjoutEtudiantOffre.css">
         </head>
         <button onclick="retourPage()" class="btnRetour">Retour</button>
 
@@ -133,7 +133,7 @@ if ($sqlTousEtudiants->execute()) {
 
 
 
-        <script src="../asserts/js/rechercheEtuOffre.js"></script>
+        <script src="../assets/js/rechercheEtuOffre.js"></script>
 
         <form action="../Controller/ControllerAjoutEtudiantOffre.php?nomOffre=<?php echo $nomOffre; ?>" method="post">
             <div class="result" id="result"> </div>

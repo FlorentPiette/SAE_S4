@@ -72,6 +72,7 @@ create table etudiant
     mobile          integer,
     actif           boolean,
     codemail        varchar
+    tentatives_echouees int not null default 0,
 );
 
 
@@ -83,7 +84,8 @@ create table offre
     domaine    text not null,
     mission    text not null,
     nbetudiant integer,
-    visible boolean
+    visible boolean,
+    parcours text not null
 );
 
 create table Poste(
