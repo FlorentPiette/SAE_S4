@@ -83,7 +83,8 @@ create table offre
     domaine    text not null,
     mission    text not null,
     nbetudiant integer,
-    visible boolean
+    visible boolean,
+    parcours text not null
 );
 
 create table Poste(
