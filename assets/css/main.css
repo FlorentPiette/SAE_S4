@@ -7,18 +7,36 @@
     justify-content: center;
     align-items: center;
     font-family: Arial, sans-serif;
-    color: white;
-background: #EEE;
+    color: rgb(255, 255, 255);
+    background-image: url('../img/banniere.png');
+    background-size: cover;
+    backdrop-filter: brightness(75%) blur(10px);
 }
 
 .message {
     text-align: center;
+    display: flex;
     margin-bottom: 20px;
+    background-color: white;
+    color: black;
+    padding: 20px;
+    border-radius: 40px;
+    height: 5em;
+}
+.message img {
+    height: inherit;
+    width: auto;
+}
+.message h2 {
+    margin: 0;
+    width: 12em;
 }
 
-.btn {
-    display: flex;
+.btns {
+    margin-top: 50px;
+    align-items: center;
     justify-content: center;
+    display: flex;
 }
 
 .square-link {
@@ -30,7 +48,8 @@ background: #EEE;
 .square {
     width: 150px; /* Largeur du carré */
     height: 50px; /* Hauteur du carré */
-    background-color: rgba(255, 255, 255, 0.3); /* Couleur grise transparente */
+    background-color: #ffffff;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -40,9 +59,16 @@ background: #EEE;
     border-bottom-right-radius: 40px;
 }
 
+.square:hover {
+    background-color: #008CAD;
+    color: white;
+    transition: 0.3s ease;
+}
+
 .square p {
     margin: 0;
     font-size: 1rem; /* Taille du texte */
+    color: inherit;
 }
 
 .btnRetour, .creationEtu, .connectionEtu{
