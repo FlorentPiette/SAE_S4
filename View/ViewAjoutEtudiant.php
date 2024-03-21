@@ -20,7 +20,7 @@
 </script>
 
 
-<form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaireAjoutEtudiant">
+<form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaire">
     <h1 class="titre1"> Création d'un étudiant </h1>
     <ul>
         <li>
@@ -113,9 +113,8 @@
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onclick="validateForm()">Valider</button>
+        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onclick="validateForm()">Valider </button>
     </div>
 </form>
 </body>
-<script src="../assets/js/ajoutEtudiant.js"></script>
 </html>

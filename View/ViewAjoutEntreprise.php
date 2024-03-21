@@ -20,7 +20,7 @@ include '../Controller/ControllerVerificationDroit.php';
 </head>
 <body>
 <h3> Création d'une Entreprise </h3>
-<form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire">
+<form action="../Controller/ControllerAjoutEntreprise.php" method="POST" id="formulaire" onsubmit="return validateForm();">
     <ul>
         <li>
             <label for="nom">Nom:</label>
