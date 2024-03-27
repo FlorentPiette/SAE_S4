@@ -1,16 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <!-- Ajoutez cette balise à l'endroit où vous voulez afficher le CAPTCHA -->
-    <div class="g-recaptcha" data-sitekey="VOTRE_SITE_KEY"></div>
-
-    <!-- Ajoutez le script reCAPTCHA à la fin de votre page -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <title>reCAPTCHA demo: Simple page</title>
+    <script src="https://www.google.com/recaptcha/enterprise.js" async defer></script>
 </head>
 <body>
-
-
+<form action="" method="POST">
+    <div class="g-recaptcha" data-sitekey="6LcmJqEpAAAAAOGrui-ASPT0QNiP4ZZBSYpN2DYC" data-action="LOGIN"></div>
+    <br/>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

@@ -18,7 +18,7 @@
     </script>
 </head>
 <body>
-<form action="../Controller/ControllerAjoutAdministration.php" method="POST" id="form-adm">
+<form action="../Controller/ControllerAjoutAdministration.php" method="POST" id="form-adm" onsubmit="return validateForm()">
     <h1 class="titre1"> Ajout d'un membre du membre </h1>
     <ul>
         <li>
@@ -75,7 +75,7 @@
     </ul>
 
     <div class="button">
-        <button type="button" id="ajoutEntreprise" name="valider" onclick="validateForm()">Valider</button>
+        <button type="submit" id="ajoutEntreprise" name="valider">Valider</button>
     </div>
 </form>
 </body>

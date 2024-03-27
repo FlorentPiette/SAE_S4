@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $captcha_response = $_POST['g-recaptcha-response'];
 
     // Vérifiez la réponse du CAPTCHA
-    $secret_key = "VOTRE_CLE_SECRETE";
+    $secret_key = "6Lcs858pAAAAAHaTmYANjjZiuaefF2njTB0sKWv_";
     $verify_response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret_key}&response={$captcha_response}");
     $response_data = json_decode($verify_response);
 

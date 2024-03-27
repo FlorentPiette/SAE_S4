@@ -33,7 +33,6 @@ $users = selectEmailMDPEtu($conn,$email);
             $_SESSION['email'] = $users['email'];
             header("location: ../View/ViewPageEtudiant.php");
         } else {
-            echo "Echo Florent";
             $_SESSION['essai']++;
         }
 
