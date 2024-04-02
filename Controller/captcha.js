@@ -12,7 +12,7 @@ app.post('/verify-captcha', async (req, res) => {
     const { token } = req.body;
 
     // Clé secrète reCAPTCHA (votre clé secrète)
-    const secretKey = '6LfQFKApAAAAAOVZl5VEpQYylKhySkf07PdeY1HF';
+    const secretKey = '6LcmJqEpAAAAAHBtQVni1jkZddk-vLmjovy1KmCs';
 
     try {
         // Effectuer une requête POST à l'API reCAPTCHA pour vérifier le token
