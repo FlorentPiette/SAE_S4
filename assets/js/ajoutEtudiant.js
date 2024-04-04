@@ -1,16 +1,4 @@
 
-document.getElementById("ajoutEtudiant").addEventListener("click", function (event) {
-    const nom = document.getElementById("nom").value;
-    const prenom = document.getElementById("prenom").value;
-    const email = document.getElementById("email").value;
-    const mdp = document.getElementById("mdp").value;
-
-    if (nom === "" || prenom === "" || email === "" || mdp === "") {
-        event.preventDefault(); // Prevent form submission
-        alert("Veuillez remplir tous les champs obligatoires.");
-    }
-});
-
 function validateForm() {
     var nom = document.getElementById("nom").value;
     var prenom = document.getElementById("prenom").value;
@@ -43,11 +31,14 @@ function validateForm() {
     document.getElementById("email-error").innerHTML = "";
     document.getElementById("cv-error").innerHTML = "";
 
+
+
     var isValid = true;
     if (nom.trim() === "") {
         document.getElementById("nom-error").innerHTML = "Le champ Nom est obligatoire";
         isValid = false;
     }
+
     if (prenom.trim() === "") {
         document.getElementById("prenom-error").innerHTML = "Le champ Prénom est obligatoire";
         isValid = false;
@@ -101,7 +92,7 @@ function validateForm() {
         isValid = false;
     }
 
-    var regex = /^[a-zA-Z0-9\s\-']+$/; l
+    var regex = /^[a-zA-Z0-9\s\-']+$/;
     if (!regex.test(nom)) {
         document.getElementById("nom-error").innerHTML = "Le champ Nom contient des caractères non autorisés.";
         isValid = false;
@@ -134,14 +125,15 @@ function validateForm() {
         isValid = false;
     }
 
+    document.getElementById("formulaire").addEventListener("submit", function(event) {
+        if (!isValid) {
+            event.preventDefault();
+        }
+        else{
+            document.getElementById("formulaire").submit();
+        }
+    })
     return isValid;
 }
 
-document.getElementById("formulaireAjoutEtudiant").addEventListener("submit", function(event) {
-    if (!validateForm()) {
-        event.preventDefault();
-    }
-    else{
-        document.getElementById("formulaireAjoutEtudiant").submit();
-    }
-})
+

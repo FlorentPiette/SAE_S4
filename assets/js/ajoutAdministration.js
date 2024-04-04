@@ -1,6 +1,4 @@
 function validateForm() {
-    document.getElementById("form-adm").addEventListener("submit", function(event) {
-            event.preventDefault();})
     var nom = document.getElementById('nom').value;
     var prenom = document.getElementById('prenom').value;
     var formation = document.getElementById('formation-select').value;
@@ -51,6 +49,11 @@ function validateForm() {
         erreur = false;
     } else {
         document.getElementById('mdp-error').innerHTML = '';
+    }
+
+    if (nom.trim() === nom.toLowerCase()) {
+        document.getElementById('nom-error').innerHTML = 'Le nom doit être en majuscule';
+        erreur = false;
     }
     return erreur;
 }

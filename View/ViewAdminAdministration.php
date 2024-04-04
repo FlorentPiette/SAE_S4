@@ -5,16 +5,16 @@ include "../Controller/ControllerRechercheNbr.php"?>
 <head>
     <meta charset="UTF-8">
     <title>Administration</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminAdministration.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-    <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/adminAdministration.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../assets/css/Cloche.css">
+    <script src="../assets/js/script.js"></script>
 </head>
 <body class="body">
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../assets/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
@@ -36,7 +36,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                     }
                     ?>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <button type="submit" name="compte" class="">Mon compte</button>
                             <button type="submit" name="deco" class="">Se déconnecter</button>
@@ -198,7 +198,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
 
 </div>
 
-<script src="../asserts/js/AdminAdminitration.js"></script>
+<script src="../assets/js/AdminAdminitration.js"></script>
 
 <footer class="footer" id="footer">
     <div class="footer-content">

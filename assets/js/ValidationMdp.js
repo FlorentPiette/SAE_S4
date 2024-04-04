@@ -63,6 +63,7 @@ const passwordInput = document.querySelector('.input-mdp');
 passwordInput.addEventListener('input', validatePassword);
 
 
+
 function ValideF() {
     const emailValid = validateEmail(); // Vérifie la validité de l'email
     const passwordValid = validatePassword(); // Vérifie la validité du mot de passe

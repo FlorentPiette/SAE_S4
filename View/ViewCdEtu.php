@@ -7,21 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etudiants</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/adminEtu.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="../assets/css/adminEtu.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="../asserts/css/Cloche.css">
-    <script src="../asserts/js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/Cloche.css">
+    <script src="../assets/js/script.js"></script>
 
 </head>
 <body class="body">
 
 <header class="header">
     <div class="logo-container">
-        <img src="../asserts/img/logo.png" class="logo">
+        <img src="../assets/img/logo.png" class="logo">
     </div>
 
-    <script src="../asserts/js/testJS.js"></script>
+    <script src="../assets/js/testJS.js"></script>
 
     <div class="menu-container">
         <nav>
@@ -37,7 +37,7 @@
                         <button type="button" onclick="window.location.href ='ViewCdEntreprise.php'" name="entreprise" value="Entreprise" class="btnCreation"> Entreprise </button>
                     </li>
                     <li id="account-photo">
-                        <img id="photo" src="../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
@@ -135,7 +135,7 @@
         ?>
         <hr class="separator-line">
 
-        <script src="../asserts/js/rechercheEtu.js"></script>
+        <script src="../assets/js/rechercheEtu.js"></script>
         <button onclick="redirectModifierProfil()" class="modifProfil">Modifier le profil</button>
     </div>
 </div>
@@ -244,7 +244,7 @@
     </div>
 </div>
 
-<script src="../asserts/js/rechercheEtu.js"></script>
+<script src="../assets/js/rechercheEtu.js"></script>
 
 <footer class="footer" id="footer">
     <div class="footer-content">

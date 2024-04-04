@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin</title>
-    <link rel="stylesheet" type="text/css" href="../../asserts/css/adminEtu.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/adminEtu.css">
 
 
 </head>
@@ -14,7 +14,7 @@
 
 <header class="header">
     <div class="logo-container">
-        <img src="../../asserts/img/logo.png" class="logo">
+        <img src="../../assets/img/logo.png" class="logo">
     </div>
 
     <div class="menu-container">
@@ -34,7 +34,7 @@
                         <button type="button" onclick="window.location.href ='ViewAdminAdministrationEn.php'" name="adminitrsation" class="btnCreation">Administration</button>
                     </li>
                     <li id="account-photo">
-                        <img id="photo" src="../../asserts/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
+                        <img id="photo" src="../../assets/img/utilisateur.png" alt="Image de l'utilisateur" class="utilisateur">
                         <div id="account-dropdown">
                             <form method="post" action="../../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
@@ -45,7 +45,7 @@
                         </div>
                     </li>
                     <li>
-                        <a><img src="../../asserts/img/notification.png" alt="Description de l'image" class="notification"></a>
+                        <a><img src="../../assets/img/notification.png" alt="Description de l'image" class="notification"></a>
                     </li>
                 </ul>
             </form>
@@ -97,7 +97,7 @@
         <p><span id="infoMobile"></span></p>
 
 
-        <script src="../../asserts/js/rechercheEtu.js"></script>
+        <script src="../../assets/js/rechercheEtu.js"></script>
         <button onclick="redirectModifierProfil()">Modify profile</button>
     </div>
 </div>
@@ -208,7 +208,7 @@
     </div>
 </div>
 
-<script src="../../asserts/js/rechercheEtu.js"></script>
+<script src="../../assets/js/rechercheEtu.js"></script>
 
 </body>
 </html>

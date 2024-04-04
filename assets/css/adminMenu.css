@@ -7,7 +7,11 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+<<<<<<< HEAD:asserts/css/adminMenu.css
     background-image: url("../img/banniere.png");
+=======
+    background-image: url("/assets/img/banniere.png");
+>>>>>>> 80dfb9b8ca83b1d029d3634e117a1cf620563155:assets/css/adminMenu.css
     background-size: contain;
 }
 

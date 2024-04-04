@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajout Etudiant</title>
-    <link rel="stylesheet" type="text/css" href="../asserts/css/ajoutEtudiant.css">
-    <link rel="icon" href="../asserts/img/logo.png" type="image/x-icon">
-    <script src="../asserts/js/ajoutEtudiant.js"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/css/ajoutEtudiant.css">
+    <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+    <script src="../assets/js/ajoutEtudiant.js"></script>
 </head>
 <body>
 
@@ -20,7 +20,7 @@
 </script>
 
 
-<form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaireAjoutEtudiant">
+<form action="../Controller/ControllerAjoutEtudiant.php" method="post" id="formulaire">
     <h1 class="titre1"> Création d'un étudiant </h1>
     <ul>
         <li>
@@ -113,9 +113,8 @@
     </ul>
 
     <div class="button">
-        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onclick="validateForm()">Valider</button>
+        <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onclick="validateForm()">Valider </button>
     </div>
 </form>
 </body>
-<script src="../asserts/js/ajoutEtudiant.js"></script>
 </html>
