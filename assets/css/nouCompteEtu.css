@@ -556,3 +556,15 @@ div.rec-connection {
 
 }
 
+.infoBulle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    width: 150px;
+    height: 40px;
+    color: black;
+    font-size: 13px;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
+}

@@ -31,6 +31,8 @@ if (isset($_POST["flag"])) {
 if ($flag == 1) {
     if (isset($_SESSION['captcha_string']) && $input == $_SESSION['captcha_string']) {
         header("Location: ../View/ViewConnexion.html");
+        $isValide = true;
+        echo '<script>' . $isValide . '</script>';
         exit();
     } else {
         header("Location: ../View/ViewAvConnexion.html");
