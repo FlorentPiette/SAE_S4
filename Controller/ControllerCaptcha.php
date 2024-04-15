@@ -48,7 +48,7 @@ function display()
 ?><body class="body">
 <div style="text-align:center;">
     <h3>ENTREZ LE TEXTE QUE VOUS VOYEZ DANS L'IMAGE</h3>
-    <b>Ceci est juste pour vérifier si vous êtes un robot</b>
+    <b>Ceci est juste pour vérifier que vous n'êtes pas un robot</b>
     <div style="display:block;margin-bottom:20px;margin-top:20px;">
         <img src="image.png">
     </div>

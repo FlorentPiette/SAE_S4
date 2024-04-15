@@ -27,26 +27,26 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 $users = selectEmailMDPEtu($conn,$email);
-    if ($users) {
-        if (authenticatedEtu($users, $email, $motDePasse)) {
-            $_SESSION['etu'] = true;
-            $_SESSION['email'] = $users['email'];
-            header("location: ../View/ViewPageEtudiant.php");
-        } else {
-            $_SESSION['essai']++;
-        }
-
+if ($users) {
+    if (authenticatedEtu($users, $email, $motDePasse)) {
+        $_SESSION['etu'] = true;
+        $_SESSION['email'] = $users['email'];
+        header("location: ../View/ViewPageEtudiant.php");
+    } else {
+        $_SESSION['essai']++;
     }
-    $users = selectEmailMDPRoleAdmin($conn, $email);
-    if ($users) {
-        if (authenticatedAdmin($users, $email, $motDePasse)) {
-            $_SESSION['administration'] = true;
-            $_SESSION['formation'] = selectFormationAdmin($conn, $users['email']);
-            $_SESSION['email'] = $users['email'];
-            role($users);
-        } else {
-            $_SESSION['essai']++;
-            //header('location: ../View/ViewConnexion.html');
-        }
+
+}
+$users = selectEmailMDPRoleAdmin($conn, $email);
+if ($users) {
+    if (authenticatedAdmin($users, $email, $motDePasse)) {
+        $_SESSION['administration'] = true;
+        $_SESSION['formation'] = selectFormationAdmin($conn, $users['email']);
+        $_SESSION['email'] = $users['email'];
+        role($users);
+    } else {
+        $_SESSION['essai']++;
+        //header('location: ../View/ViewConnexion.html');
+    }
 }
 
