@@ -71,8 +71,8 @@ create table etudiant
     typemission     text,
     mobile          integer,
     actif           boolean,
-    codemail        varchar
-    tentatives_echouees int not null default 0,
+    codemail        varchar,
+    tentatives_echouees int not null default 0
 );
 
 
