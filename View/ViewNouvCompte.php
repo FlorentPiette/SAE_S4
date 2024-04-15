@@ -39,7 +39,6 @@
             </div>
 
             <div class="formation-rectangle">
-
                 <label for="formation-select"></label>
                 <select id="formation-select" name="formation">
                     <option value="">Choisissez une formation</option>
@@ -53,77 +52,43 @@
                     <option value="INFO">INFO</option>
                     <option value="Mph">Mph</option>
                 </select>
-
             </div>
-
             <div class="mail-rectangle">
-
                 <input type="email" id="email" name="email" class="input-mail" placeholder="Email">
-
             </div>
-
             <div class="mdp-rectangle">
-
                 <input type="password" id="mdp" name="mdp" class="input-mdp" placeholder="Mot de Passe">
             </div>
-
             <div class="adresse-rectangle">
-
                 <input type="text" id="adresse" name="adresse" class="input-adresse" placeholder="Adresse">
             </div>
-
             <div class="ville-rectangle">
-
                 <input type="text" id="ville" name="ville" class="input-ville" placeholder="Ville">
             </div>
-
             <div class="cp-rectangle">
-
                 <input type="text" id="cp" name="cp" class="input-cp" placeholder="Code Postal">
             </div>
-
             <div class="date-rectangle">
                 <input type="date" id="date" name="date" class="input-date" placeholder="Date de naissance">
             </div>
-
             <div class="anneeetude-rectangle">
-
                 <input type="number" id="anneeetude" name="anneeetude" class="input-anneeetude" placeholder="Année d'étude">
             </div>
-
             <div class="ine-rectangle">
-
                 <input type="text" id="ine" name="ine" class="input-ine" placeholder="INE">
             </div>
-
             <div>
                 <input type="submit" name="valider" value="Création" class="btnCreation">
             </div>
-
-
-
-
         </form>
-
         <div class="infoBulle" id="infoBulle">
             <p>Veuillez remplir ce champ</p>
         </div>
     </div>
-
     <p class="info">Si vous possédez déjà un compte veuillez vous connecter en appuyant ici :</p>
     <a href="ViewConnexion.html" class="lien"><p class="lien-info">Connexion</p></a>
-
-
-
-
-
 </header>
-
 
     <script src="../assets/js/checksInscription.js"></script>
 </body>
-
-
-
-
 </html>
