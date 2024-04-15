@@ -120,6 +120,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
             </label><br>
 
             <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <span class="close" onclick="closePopup2()">&times;</span>
@@ -150,6 +151,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             </form>
 
                         </div>
@@ -181,6 +183,7 @@ include "../Controller/ControllerRechercheNbr.php"?>
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>

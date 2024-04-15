@@ -97,6 +97,7 @@
     </label><br>
 
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre" class="submit-btn" onclick="validateForm()"><br>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 
 

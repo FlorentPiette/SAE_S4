@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
     $idnotif = $_POST['idnotif'] ?? null;
     $idetudiant = $_POST['idetudiant'] ?? null;
 
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         exit;
     }
+}
 }
 $idoffre = $_POST['idnotif'];
 $idetudiant = $_POST['idetudiant'];

@@ -11,6 +11,7 @@
     <img src="captcha.php" alt="Captcha"><br>
     <input type="text" name="captcha_input" placeholder="Entrez le code captcha"><br>
     <input type="submit" value="Valider">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 </body>
 </html>

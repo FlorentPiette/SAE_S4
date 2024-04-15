@@ -71,6 +71,7 @@
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>
@@ -155,6 +156,7 @@
             <button type="submit" name="modifier_profil" class="transparent-button">
                 <img class="editable" id="editIcon" src="../assets/img/editer.png" alt="edit">
             </button>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
     </div>

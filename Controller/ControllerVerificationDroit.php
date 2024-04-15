@@ -7,5 +7,5 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['administration'])) {
-    header('location: ../View/ViewConnexion.html');
+    header('location: ../View/ViewConnexion.php');
 }

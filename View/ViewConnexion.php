@@ -1,3 +1,4 @@
+<?php require_once '../Controller/CSRF.php'?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,6 +37,7 @@
                 <p class="mdp-oublie">Mot de passe oublié ?</p>
             </a>
             <input type="submit" name="valider" value="Connexion" class="btnConnexion">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
     </div>
 <button name="btnRetour" onclick="window.location.href= 'ViewAvConnexion.html'" class="btnRetour"> Retour </button>

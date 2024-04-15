@@ -49,6 +49,7 @@
     </label><br>
 
     <input type="submit" value="Enregistrer l'offre" id="enregistreroffre" name="EnregistrerOffre"><br>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 
 <script src="../assets/js/AdminEntreprise.js"></script>

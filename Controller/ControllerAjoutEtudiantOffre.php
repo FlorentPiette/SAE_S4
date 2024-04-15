@@ -9,13 +9,17 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST['BoutonRetour'])) {
-    header('Location: ../View/ViewAfficherPlusOffre.php');
-    exit();
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        header('Location: ../View/ViewAfficherPlusOffre.php');
+        exit();
+    }
 }
 
 // Initialize la variable de session si elle n'existe pas
 if (!isset($_SESSION['selectedStudents'])) {
-    $_SESSION['selectedStudents'] = array();
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        $_SESSION['selectedStudents'] = array();
+    }
 
 }
 
@@ -129,6 +133,7 @@ if ($sqlTousEtudiants->execute()) {
             </div>
 
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()" class="btnRechercheEtu">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
 
@@ -141,6 +146,7 @@ if ($sqlTousEtudiants->execute()) {
             <input type="submit" name="BoutonRetour" value="Retour aux offres">
             <input type="hidden" name="selectedOffer" value="<?php echo $nomOffre; ?>">
             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
         <?php
     } else {
@@ -151,6 +157,7 @@ if ($sqlTousEtudiants->execute()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
     if (isset($_POST['selectedStudents'])) {
         foreach ($_POST['selectedStudents'] as $selectedStudentIne) {
             $sqlEtudiant = $conn->prepare('SELECT idetudiant FROM Etudiant WHERE ine = :ine');
@@ -209,5 +216,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
     else {
         echo 'Aucun étudiant sélectionné.';
     }
-}
+}}
 ?>
