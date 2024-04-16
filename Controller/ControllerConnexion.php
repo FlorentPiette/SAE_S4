@@ -1,11 +1,11 @@
 <?php
+
 ini_set('display_errors', 1);
 include ('../Model/ModelConnexion.php');
 include ('../Model/ConnexionBDD.php');
+include ('ControllerCaptcha.php');
 error_reporting(E_ALL);
 
-
-session_start();
 
 $essaiMaximal = 1;
 
@@ -50,6 +50,7 @@ if ($users) {
         if ($user["canconnect"]) {
             header("location: ../View/ViewPageEtudiant.php");
         } else {
+            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
@@ -132,6 +133,7 @@ if ($users) {
             $_SESSION['email'] = $users['email'];
             role($users);
         } else {
+            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
