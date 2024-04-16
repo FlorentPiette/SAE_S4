@@ -32,7 +32,7 @@ function envoieMail(string $to, string $from, string $from_name, string $subject
 {
     $mail = new PHPMailer();  // Cree un nouvel objet PHPMailer
     $mail->IsSMTP(); // active SMTP
-    $mail->SMTPDebug = 2;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
+    $mail->SMTPDebug = 0;  // debogage: 1 = Erreurs et messages, 2 = messages seulement
     $mail->SMTPAuth = true;  // Authentification SMTP active
     $mail->SMTPSecure = 'tls'; // Gmail REQUIERT Le transfert securise
     $mail->Host = "tls://smtp.gmail.com";

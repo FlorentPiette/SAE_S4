@@ -9,6 +9,8 @@
  *
  * @return void
  */
+
+ 
 function reinitialiserMDP($conn, $mdp, $email): void
 {
     $req = "UPDATE Etudiant SET motDePasse = ? WHERE email = ?";
@@ -16,20 +18,9 @@ function reinitialiserMDP($conn, $mdp, $email): void
     $req2->execute(array($mdp, $email));
 }
 
-/**
- * Récuperer de la base de donnée, le code de confirmation de l'étudiant ayant cette adresse email
- *
- * @param PDO $conn sert à se connecter à la base de donnée
- * @param String $email sert à rechercher l'étudiant ayant cette adresse email
- *
- * @return array $result
- */
-function selectCodeEtuWhereEmail($conn, $email){
-    $req = "SELECT CodeMail from Etudiant where email = ?";
-    $req2 = $conn->prepare($req);
-    $req2->execute(array($email));
-    $result = $req2->fetchAll(PDO::FETCH_ASSOC);
-
-    return $result;
+function getcode(PDO $db, ?string $mail) : string {
+    $code = (string) random_int(10000000, 99999999);
+    $req = $db->prepare("UPDATE Etudiant SET codemail = :code WHERE email = :mail");
+    $req->execute(array(':code' => $code, ':mail' => $mail));
+    return $code;   
 }
-?>
