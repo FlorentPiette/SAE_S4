@@ -202,6 +202,21 @@ if ($users) {
             $req2->execute();
             $_SESSION['essai']++;
 
+            if ($user['tentatives_echouees'] >= 1) {
+                echo "Compte bloqué pendant 1 minute";
+                $req = "UPDATE administration SET canconnect = false WHERE email = :email";
+                $req2 = $conn->prepare($req);
+                $req2->bindParam(':email', $email);
+                $req2->execute();
+            
+                sleep(60);
+            
+                $req = "UPDATE administration SET canconnect = true WHERE email = :email";
+                $req2 = $conn->prepare($req);
+                $req2->bindParam(':email', $email);
+                $req2->execute();
+            }
+
             if ($user['tentatives_echouees'] >= 25) {
                 $req = "UPDATE administration SET canconnect = false WHERE email = :email";
                 $req2 = $conn->prepare($req);
