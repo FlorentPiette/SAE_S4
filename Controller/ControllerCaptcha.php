@@ -2,7 +2,7 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    //if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
     if (isset($_SESSION['captcha_string']) && isset($_POST['input'])) {
         if ($_POST['input'] === $_SESSION['captcha_string']) {
             header("Location: ../View/ViewConnexion.php");
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
     } else {
         echo "La session captcha n'est pas définie ou l'entrée de l'utilisateur est manquante.";
     }
-}
+//}
 }
 
 ?>
@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
 
 <?php
 $flag = 5;
-if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+//if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
     if (isset($_POST["flag"])) {
 
         $input = $_POST["input"];
@@ -38,14 +38,14 @@ if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['
             echo '<script>' . $isValide . '</script>';
             exit();
         } else {
-            header("Location: ../View/ViewAvConnexion.php");
+            header("Location: ../View/ViewAvConnexion.html");
             exit();
         }
     } else {
         create_image();
         display();
     }
-}
+//}
 function display()
 {
 ?><body class="body">
@@ -59,7 +59,7 @@ function display()
         <input type="text" name="input"/>
         <input type="hidden" name="flag" value="1"/>
         <input type="submit" value="Envoyer" name="submit"/>
-        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+        <!--<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">-->
     </form>
 </div>
 <?php

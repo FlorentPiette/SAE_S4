@@ -50,6 +50,7 @@ if ($users) {
         if ($user["canconnect"]) {
             header("location: ../View/ViewPageEtudiant.php");
         } else {
+            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
@@ -123,6 +124,7 @@ if ($users) {
             $_SESSION['email'] = $users['email'];
             role($users);
         } else {
+            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
