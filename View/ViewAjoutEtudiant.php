@@ -115,6 +115,7 @@
     <div class="button">
         <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant" onclick="validateForm()">Valider </button>
     </div>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 </body>
 </html>

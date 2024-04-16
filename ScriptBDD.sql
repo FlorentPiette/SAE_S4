@@ -12,8 +12,11 @@ constraint administration_motdepasse_check
             check ((length(motdepasse) >= 8) AND (motdepasse ~ '[A-Z]'::text) AND (motdepasse ~ '[a-z]'::text) AND
                    (motdepasse ~ '[0-9]'::text) AND (motdepasse ~ '[!@#$%^&*()]'::text) AND
                    (NOT (motdepasse ~ '^(password|123456|admin)$'::text))),
-    Role text not null
-
+    Role text not null,
+    tentatives_echouees int not null default 0,
+    last_connection timestamp,
+    timestamp_ban timestamp,
+    canConnect boolean not null default true
 );
 
 create table entreprise
@@ -71,8 +74,11 @@ create table etudiant
     typemission     text,
     mobile          integer,
     actif           boolean,
-    codemail        varchar
+    codemail        varchar,
     tentatives_echouees int not null default 0,
+    last_connection timestamp,
+    timestamp_ban timestamp,
+    canConnect boolean not null default true
 );
 
 

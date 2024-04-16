@@ -43,7 +43,7 @@
                             <form method="post" action="../../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
-
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             </form>
 
                         </div>
@@ -75,6 +75,7 @@
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>
@@ -109,11 +110,13 @@
         <form action="" method="post">
             <button name="btnAjoutEntreprise" onclick="window.location.href ='ViewAjoutEntreprise.php'" class="btnAjoutEntreprise" type="button">Ajouter une entreprise</button>
             <button name="btnAjoutOffre" onclick="window.location.href ='ViewAjoutOffre.php'" class="btnAjoutOffre" type="button">Ajouter une offre</button>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="">
             <input type="button" value="Afficher les Offres" name="btnAfficherOffre" class="btnAfficherOffre" onclick="afficherOffres()">
             <input type="button" value="Afficher les Entreprises" name="btnAfficherEntreprise" class="btnAfficherEntreprise" onclick="afficherEntreprises()">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <ul id="donneesOffre" class="affichOffre">
@@ -153,6 +156,7 @@
 
             <input type="hidden" name="selectedOffer" id="selectedOffer" value="">
             <input type="button" value="Rechercher une offre" onclick="rechercherOffres()" class="rechercheOffre">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <ul id="resultatsOffre" class="result">
@@ -211,6 +215,7 @@
                 </div>
 
                 <input type="button" value="Rechercher une entreprise" onclick="rechercherEntreprises()" class="rechercheEntreprise">
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
 
             <ul id="resultatsEntreprise" class="result">

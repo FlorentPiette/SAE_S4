@@ -15,6 +15,7 @@
         <div class="quitter-square">
             <input id="btn" value="Quitter" type="submit" class="quit">
         </div>
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     </form>
     <script src="../assets/js/main.js"></script>
     <h2 class="title">Merci de nous avoir transmis votre CV !</h2>

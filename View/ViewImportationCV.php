@@ -23,6 +23,7 @@
         <input type="submit" value="Importer son CV" name="Importer">
         <input type="submit" value="Ne pas importer de CV" name="NePasImporter">
     </div>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 </body>
 </html>

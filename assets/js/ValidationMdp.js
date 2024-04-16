@@ -21,14 +21,17 @@ function validateEmail() {
     if (email === '') {
         emailError.innerHTML = 'Veuillez saisir votre adresse email.';
         emailError.style.color = 'red';
+        emailInput.style.border = "1px solid red";
 
         return false;
     } else if (!isValidEmail(email)) {
         emailError.innerHTML = 'Veuillez saisir une adresse email valide.';
         emailError.style.color = 'red';
+        emailInput.style.border = "1px solid red";
         return false;
     } else {
         emailError.innerHTML = '';
+        emailInput.style.border = "none";
         return true;
     }
 }

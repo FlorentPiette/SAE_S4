@@ -13,6 +13,8 @@ $role = $_POST['role'];
 
 
 if(isset($_POST["valider"])) {
-    ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role);
-    header('Location: ../View/ViewAdminAdministration.php');
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role);
+        header('Location: ../View/ViewAdminAdministration.php');
+    }
 }

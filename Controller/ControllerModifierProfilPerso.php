@@ -17,14 +17,16 @@ $perso = selectPersoId($conn, $id);
 include ("../View/ViewModifierProfilPerso.php");
 
 if (isset($_POST['modifier_profil'])){
-    $nom = htmlspecialchars($_POST['nouveau_nom']);
-    $prenom = htmlspecialchars($_POST['nouveau_prenom']);
-    $formation = htmlspecialchars($_POST['nouvelle_formation']);
-    $email = htmlspecialchars($_POST['nouvelle_email']);
-    $role = htmlspecialchars($_POST['nouveau_role']);
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+        $nom = htmlspecialchars($_POST['nouveau_nom']);
+        $prenom = htmlspecialchars($_POST['nouveau_prenom']);
+        $formation = htmlspecialchars($_POST['nouvelle_formation']);
+        $email = htmlspecialchars($_POST['nouvelle_email']);
+        $role = htmlspecialchars($_POST['nouveau_role']);
 
-    updatePerso($conn, $nom, $prenom, $formation, $email, $role, $id);
+        updatePerso($conn, $nom, $prenom, $formation, $email, $role, $id);
 
-    header("Location: ControllerModifierProfilPerso.php?id=$id");
+        header("Location: ControllerModifierProfilPerso.php?id=$id");
+    }
 }
 ob_end_flush();
