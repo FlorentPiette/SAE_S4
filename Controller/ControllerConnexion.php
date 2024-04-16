@@ -1,11 +1,11 @@
 <?php
+
 ini_set('display_errors', 1);
 include ('../Model/ModelConnexion.php');
 include ('../Model/ConnexionBDD.php');
+include ('ControllerCaptcha.php');
 error_reporting(E_ALL);
 
-
-session_start();
 
 $essaiMaximal = 1;
 

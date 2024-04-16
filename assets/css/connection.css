@@ -258,7 +258,7 @@ div.rec-connection {
     position: absolute;
     top: 12px;
     right: 30px;
-    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    background-color: white; /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
     padding: 5px; /* Ajoutez un peu d'espacement interne */
@@ -270,7 +270,7 @@ div.rec-connection {
     position: absolute;
     top: 12px;
     right: 30px;
-    background-color: rgb(119, 149, 255, 0.68); /* Couleur de fond du rectangle */
+    background-color: white; /* Couleur de fond du rectangle */
     border: none; /* Supprimez les bordures par défaut */
     border-radius: 10px; /* Arrondissez les coins comme le rectangle */
     padding: 5px; /* Ajoutez un peu d'espacement interne */
