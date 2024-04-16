@@ -10,6 +10,7 @@ setcookie("email", $_POST['email'], time() + 3600, "/");
 // if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
     if (isset($_POST["envoieCode"])) {
         envoieMail($_POST['email'], 'supersae59@gmail.com', 'SAE', 'MDP', "Voici votre code de reinitialisation : ".getcode($db, $_POST['email']));
+        
     }
 
     if (isset($_POST["confirmationCode"])) {
@@ -18,10 +19,7 @@ setcookie("email", $_POST['email'], time() + 3600, "/");
             reinitialiserMDP($db, $nouveauMDP, $_COOKIE['email']);
             echo 'yess';
         } else {
-            echo "mince";
         }
     }
-
-    echo 'mot de passe reset';
 // }
 
