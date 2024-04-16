@@ -75,13 +75,6 @@ if ($users) {
                 $req2->bindParam(':tentatives', $tentatives);
                 $req2->execute();
                 $_SESSION['essai']++;
-
-                if ($user['tentatives_echouees'] >= 25) {
-                    $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
-                    $req2 = $conn->prepare($req);
-                    $req2->bindParam(':email', $email);
-                    $req2->execute();
-                }
                 header('location: ../View/ViewAvConnexion.html');
             }
         } else {
@@ -98,6 +91,21 @@ if ($users) {
             $req2->execute();
             $_SESSION['essai']++;
 
+            if ($_SESSION['essai'] >= 1) {
+                echo "Compte bloqué pendant 1 minute";
+                $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
+                $req2 = $conn->prepare($req);
+                $req2->bindParam(':email', $email);
+                $req2->execute();
+            
+                sleep(60);
+            
+                $req = "UPDATE etudiant SET canconnect = true WHERE email = :email";
+                $req2 = $conn->prepare($req);
+                $req2->bindParam(':email', $email);
+                $req2->execute();
+            }
+
             if ($user['tentatives_echouees'] >= 25) {
                 $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
                 $req2 = $conn->prepare($req);
@@ -109,6 +117,7 @@ if ($users) {
     }
 
 }
+
 $users = selectEmailMDPRoleAdmin($conn, $email);
 if ($users) {
     $req = "SELECT * FROM administration WHERE email = :email";
