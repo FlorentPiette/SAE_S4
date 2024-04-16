@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
 
 ?>
 
-<title>demo.php</title>
+<title>Vérification</title>
 <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
 
 <?php
