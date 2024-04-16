@@ -13,6 +13,7 @@ $token = generationToken();
 setcookie("token", $token, time() + 350 , '/');
 
 if (isset($_POST["valider"])) {
+if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -41,5 +42,6 @@ if (isset($_POST["valider"])) {
     } else {
         $erreur = "Adresse mail déjà utilisée !";
     }
+}
 }
 ?>

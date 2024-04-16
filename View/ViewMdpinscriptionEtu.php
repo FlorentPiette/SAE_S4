@@ -19,6 +19,7 @@
 
 
 
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 <script src="../assets/js/ValidationMdp.js"> </script>
 

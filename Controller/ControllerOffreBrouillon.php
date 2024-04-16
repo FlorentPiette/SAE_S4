@@ -3,7 +3,7 @@
 include_once '../Model/ConnexionBDD.php';
 
 $conn = Conn::getInstance();
-
+if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
 if (isset($_POST['nomOffre'])) {
     $inputnombrouillon = $_POST['nomOffre'];
     $sql = 'SELECT * FROM Offre WHERE nom = :nom';
@@ -35,11 +35,12 @@ if (isset($_POST["SubmitForm2"])) {
     $updateOffre->bindParam(':visible', $estvisible, PDO::PARAM_STR);
     $updateOffre->bindParam(':nom', $_POST['nomOffre'], PDO::PARAM_STR);
 
-        if ($updateOffre->execute()) {
-            header('Location: ../View/ViewAdminEntreprise.php');
-            exit;
-        } else {
-            // Gérer une éventuelle erreur de mise à jour
-            echo "Erreur lors de la mise à jour de l'offre.";
-        }
+    if ($updateOffre->execute()) {
+        header('Location: ../View/ViewAdminEntreprise.php');
+        exit;
+    } else {
+        // Gérer une éventuelle erreur de mise à jour
+        echo "Erreur lors de la mise à jour de l'offre.";
+    }
+}
 }

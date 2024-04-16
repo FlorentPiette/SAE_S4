@@ -80,13 +80,14 @@
             <div>
                 <input type="submit" name="valider" value="Création" class="btnCreation">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
         <div class="infoBulle" id="infoBulle">
             <p>Veuillez remplir ce champ</p>
         </div>
     </div>
     <p class="info">Si vous possédez déjà un compte veuillez vous connecter en appuyant ici :</p>
-    <a href="ViewConnexion.html" class="lien"><p class="lien-info">Connexion</p></a>
+    <a href="ViewConnexion.php" class="lien"><p class="lien-info">Connexion</p></a>
 </header>
 
     <script src="../assets/js/checksInscription.js"></script>

@@ -44,6 +44,7 @@ foreach ($resultat2 as $res2):
                 ?>
             </li>
         </ul>
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     </form>
     <?php
     $count++;
@@ -103,6 +104,7 @@ foreach ($resultat2 as $res2):
                 ?>
             </li>
         </ul>
+        <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
     </form>
 
 

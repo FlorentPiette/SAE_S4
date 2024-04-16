@@ -10,7 +10,7 @@ $db = Conn::getInstance();
 
 
 if(isset($_POST["ajoutEtudiant"])) {
-
+    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
 
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -46,4 +46,5 @@ if(isset($_POST["ajoutEtudiant"])) {
     }
 
     header('Location: ../View/ViewAdminEtu.php');
+    }
 }

@@ -42,6 +42,7 @@ include '../Controller/ControllerVerificationDroit.php';
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
 
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             </form>
 
                         </div>
@@ -73,6 +74,7 @@ include '../Controller/ControllerVerificationDroit.php';
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>
@@ -145,6 +147,7 @@ include '../Controller/ControllerVerificationDroit.php';
     <div class="rectangle-mid">
         <form method="post">
             <button name="btnAjoutEtu" onclick="window.location.href ='ViewAjoutEtudiant.php'" class="btnAjoutEtu" type="button" >  Ajouter </button>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form id="rechercheForm">
@@ -230,6 +233,7 @@ include '../Controller/ControllerVerificationDroit.php';
             </div>
 
             <input type="button" value="Rechercher un étudiant" onclick="rechercherEtudiants()" class="btnRechercheEtu">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <table id="dataTable">

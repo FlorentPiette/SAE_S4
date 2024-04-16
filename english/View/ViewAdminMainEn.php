@@ -127,6 +127,7 @@ include "../../Controller/ControllerVerificationDroit.php"
             <div class="button">
                 <button type="submit" id="ajoutEtudiant" name="ajoutEtudiant">Valider</button>
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <span class="close" onclick="closePopup('popUpEtu')">&times;</span>
@@ -207,6 +208,7 @@ include "../../Controller/ControllerVerificationDroit.php"
             </label><br>
 
             <input type="submit" value="Save offer" id="enregistreroffre" name="EnregistrerOffre"><br>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <span class="close" onclick="closePopup2()">&times;</span>
@@ -269,6 +271,7 @@ include "../../Controller/ControllerVerificationDroit.php"
             <div class="button">
                 <button type="submit" id="ajoutPersonnel" name="valider">Confirm</button>
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <span class="close" onclick="closePopup3()">&times;</span>
@@ -307,6 +310,7 @@ include "../../Controller/ControllerVerificationDroit.php"
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
 
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             </form>
 
                         </div>
@@ -340,6 +344,7 @@ include "../../Controller/ControllerVerificationDroit.php"
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>

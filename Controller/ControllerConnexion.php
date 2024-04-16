@@ -20,7 +20,7 @@ $essaiMaximal = 2;
 attente($essaiMaximal);
 
 // Supprimer les balises HTML et PHP des données postées
-$email = htmlspecialchars($_POST['Email'], ENT_QUOTES, 'UTF-8');
+$email =htmlspecialchars($_POST['Email']);
 $motDePasse = htmlspecialchars($_POST['MotDePasse'], ENT_QUOTES, 'UTF-8');
 
 error_reporting(E_ALL);

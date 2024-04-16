@@ -46,6 +46,7 @@
                             <form method="post" action="../Controller/ControllerBtnDeco.php">
                                 <input class="" name="compte" type="submit" value="Mon compte">
                                 <input class="" name="deco" type="submit" value="Se déconnecter">
+                                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                             </form>
 
                         </div>
@@ -79,6 +80,7 @@
                         </div>
                     </li>
                 </ul>
+                <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
             </form>
         </nav>
     </div>
@@ -103,6 +105,7 @@
                 <label> Nom : </label>
                 <input type="text" name="nouveau_nom" value="<?= $etu['nom'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -110,6 +113,7 @@
                 <label> Prénom : </label>
                 <input type="text" name="nouveau_prenom" value="<?= $etu['prenom'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -119,6 +123,7 @@
             </div>
 
 
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -126,6 +131,7 @@
                 <label> Adresse : </label>
                 <input type="text" name="nouvelle_adresse" value="<?= $etu['adresse'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -133,6 +139,7 @@
                 <label> Ville : </label>
                 <input type="text" name="nouvelle_ville" value="<?= $etu['ville'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -140,6 +147,7 @@
                 <label> Code postal : </label>
                 <input type="number" name="nouveau_cp" value="<?= $etu['codepostal'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -147,6 +155,7 @@
                 <label> Année d'étude : </label>
                 <input type="number" name="nouvelle_anneeEtude" value="<?= $etu['anneeetude'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -154,6 +163,7 @@
                 <label> Formation : </label>
                 <input type="text" name="nouvelle_formation" value="<?= $etu['formation'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -161,6 +171,7 @@
                 <label> Email : </label>
                 <input type="email" name="nouvel_email" value="<?= $etu['email'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -168,6 +179,7 @@
                 <label> Type d'entreprises recherchées : </label>
                 <input type="text" name="nouveau_typeentreprise" value="<?= $etu['typeentreprise'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -175,6 +187,7 @@
                 <label> Type de missions recherchées : </label>
                 <input type="text" name="nouveau_typemission" value="<?= $etu['typemission'] ?>">
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -191,6 +204,7 @@
                     </select>
                 </label>
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
         <form method="post" action="../Controller/ControllerModifierProfilEtu.php<?php echo isset($_GET['ine']) ? '?ine=' . $_GET['ine'] : ''; ?>">
@@ -198,6 +212,7 @@
                 <label> Actif : </label>
                 <input type="checkbox" name="actif" id="actif" value="actif" <?php if ($etu['actif']) echo 'checked'; ?>>
             </div>
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
     </div>
 </div>

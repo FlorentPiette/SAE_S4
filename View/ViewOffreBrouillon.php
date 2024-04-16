@@ -51,6 +51,7 @@
     <label for="nomOffre">Nom de l'offre :</label>
     <input type="text" id="nomOffre" name="nomOffre">
     <input type="button" name="SubmitForm1" value="Vérifier" onclick="verifierOffre(event)">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 
 <form action="../Controller/ControllerOffreBrouillon.php" method="post" id="formulaire2" name="formulaire2">
@@ -67,6 +68,7 @@
     <label for="visible">Voulez-vous que l'offre soit visible ?</label><br>
     <input type="submit" name="SubmitForm2" value="Enregistrer l'offre">
     <input type="hidden" name="nomOffre" id="nomOffreHidden">
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 </form>
 </body>
 </html>

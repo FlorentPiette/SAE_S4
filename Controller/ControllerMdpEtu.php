@@ -10,14 +10,16 @@ $conn = Conn::getInstance();
 $email = $_COOKIE["mailEtu"];
 
 if ($_POST['token'] && $_COOKIE['token']) {
+
     $token = $_POST['token'];
     if (isset($_POST['Valider'])) {
+        if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
         $mdp = $_POST['mdp'];
         $mdp = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
         mdpEtu($conn,$token,$mdp);
         session_start();
         $_SESSION["Etu"] = true;
-        header('location: ../View/ViewConnexion.html');
+        header('location: ../View/ViewConnexion.php');}
     }
 } else {
     // Gestion des erreurs si le token est manquant

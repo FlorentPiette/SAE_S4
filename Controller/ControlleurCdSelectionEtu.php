@@ -7,18 +7,18 @@ include_once '../Model/ConnexionBDD.php';
 $conn = Conn::getInstance();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-if (isset($_POST['BoutonRetour'])) {
-    header('Location: ../View/ViewAfficherPlusOffre.php');
-    exit();
-}
+if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    if (isset($_POST['BoutonRetour'])) {
+        header('Location: ../View/ViewAfficherPlusOffre.php');
+        exit();
+    }
 
 // Initialize la variable de session si elle n'existe pas
-if (!isset($_SESSION['selectedStudents'])) {
-    $_SESSION['selectedStudents'] = array();
+    if (!isset($_SESSION['selectedStudents'])) {
+        $_SESSION['selectedStudents'] = array();
 
+    }
 }
-
 
 $nomOffre = isset($_GET['nomOffre']) ? $_GET['nomOffre'] : null;
 
@@ -49,6 +49,7 @@ $idOffre = $selectid->fetch(PDO::FETCH_ASSOC);
             <input type="submit" name="BoutonRetour" value="Retour aux offres">
             <input type="hidden" name="selectedOffer" value="<?php echo $nomOffre; ?>">
             <input type="hidden" name="nomOffre" value="<?php echo $nomOffre; ?>">
+            <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
         </form>
 
 <?php
