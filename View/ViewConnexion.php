@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== true) {
+    header("Location: ../View/VerificationCaptcha.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>

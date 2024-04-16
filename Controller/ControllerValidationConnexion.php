@@ -2,7 +2,7 @@
 
 if (isset($_POST["connectionEtu"])) {
 
-    header('Location: ../View/ViewConnexion.html');
+    header('Location: ../View/ViewConnexion.php');
     exit();
 
 }

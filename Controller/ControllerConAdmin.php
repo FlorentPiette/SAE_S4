@@ -1,8 +1,15 @@
 <?php
 session_start();
+
+if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== true) {
+    header("Location: ../View/VerificationCaptcha.php");
+    exit();
+}
+
 ob_start();
 include '../Model/ModelConnexionAdmin.php';
 include '../Model/ConnexionBDD.php';
+include 'ControllerCaptcha.php';
 
 $conn = Conn::getInstance();
 

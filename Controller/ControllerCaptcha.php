@@ -1,10 +1,11 @@
 <?php
 session_start();
-
+$_SESSION['captcha_verified'] = false;
 if (isset($_POST['submit'])) {
     if (isset($_SESSION['captcha_string']) && isset($_POST['input'])) {
         if ($_POST['input'] === $_SESSION['captcha_string']) {
-            header("Location: ../View/ViewConnexion.html");
+            $_SESSION['captcha_verified'] = true;
+            header("Location: ../View/ViewConnexion.php");
             exit();
         } else {
             header("Location: ../View/ViewAvConnexion.html");
@@ -15,10 +16,13 @@ if (isset($_POST['submit'])) {
     }
 }
 
+
 ?>
 
-<title>demo.php</title>
+<title>Confirmation Captcha</title>
 <link rel="stylesheet" type="text/css" href="../assets/css/main.css">
+<link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
+<button name="btnRetour" onclick="window.location.href= '../View/ViewAvConnexion.html'" class="btnRetour"> Retour </button>
 
 <?php
 $flag = 5;
@@ -30,7 +34,7 @@ if (isset($_POST["flag"])) {
 
 if ($flag == 1) {
     if (isset($_SESSION['captcha_string']) && $input == $_SESSION['captcha_string']) {
-        header("Location: ../View/ViewConnexion.html");
+        header("Location: ../View/ViewConnexion.php");
         exit();
     } else {
         header("Location: ../View/ViewAvConnexion.html");

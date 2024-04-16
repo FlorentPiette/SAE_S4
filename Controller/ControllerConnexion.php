@@ -1,11 +1,11 @@
 <?php
+
 ini_set('display_errors', 1);
 include ('../Model/ModelConnexion.php');
 include ('../Model/ConnexionBDD.php');
+include ('ControllerCaptcha.php');
 error_reporting(E_ALL);
 
-
-session_start();
 
 $essaiMaximal = 1;
 
@@ -46,7 +46,7 @@ $users = selectEmailMDPEtu($conn,$email);
             role($users);
         } else {
             $_SESSION['essai']++;
-            //header('location: ../View/ViewConnexion.html');
+            //header('location: ../View/ViewConnexion.php');
         }
 }
 
