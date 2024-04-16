@@ -4,14 +4,13 @@ include '../Model/ModelModifierProfilEtu.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+include('/Controller/csrf_check.php');
 $conn = Conn::getInstance();
 
 $id = $_GET['ine'];
 $etu = selectEtudiantIne($conn, $id);
 
 include ("../View/ViewModifierProfilEtu.php");
-if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
     if (isset($_POST['modifier_nom'])) {
         $nom = $_POST['nouveau_nom'];
         updateNomEtu($conn, $nom, $id);
@@ -87,5 +86,5 @@ if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['
         }
         header("Location: ControllerModifierProfilEtu.php?ine=$id");
     }
-}
+
 

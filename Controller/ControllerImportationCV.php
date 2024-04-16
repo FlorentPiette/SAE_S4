@@ -3,7 +3,7 @@
 include '../Model/ModelMail.php';
 include '../Model/ConnexionBDD.php';
 include '../Model/ModelInscriptionEtu.php';
-
+include('/Controller/csrf_check.php');
 session_start();
 
 $db = Conn::getInstance();
@@ -14,7 +14,6 @@ $id = selectidWhereEmail($db, $email);
 include '../View/ViewImportationCV.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
     if (isset($_POST['Importer'])) {
         if (isset($_FILES["fichier"]) && $_FILES["fichier"]["error"] == UPLOAD_ERR_OK) {
             $maxFileSize = 5 * 1024 * 1024;
@@ -41,5 +40,5 @@ if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['
     if (isset($_POST['NePasImporter'])){
         header('Location: ../View/ViewEtuMain.php');
     }}
-}
+
 ?>

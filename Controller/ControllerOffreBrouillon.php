@@ -1,9 +1,8 @@
 <?php
 
 include_once '../Model/ConnexionBDD.php';
-
+include('/Controller/csrf_check.php');
 $conn = Conn::getInstance();
-if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
 if (isset($_POST['nomOffre'])) {
     $inputnombrouillon = $_POST['nomOffre'];
     $sql = 'SELECT * FROM Offre WHERE nom = :nom';
@@ -43,4 +42,4 @@ if (isset($_POST["SubmitForm2"])) {
         echo "Erreur lors de la mise à jour de l'offre.";
     }
 }
-}
+

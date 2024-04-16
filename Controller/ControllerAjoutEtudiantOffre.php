@@ -3,25 +3,23 @@
 session_start();
 
 include_once '../Model/ConnexionBDD.php';
-
+include('/Controller/csrf_check.php');
 $conn = Conn::getInstance();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 if (isset($_POST['BoutonRetour'])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         header('Location: ../View/ViewAfficherPlusOffre.php');
         exit();
     }
-}
+
 
 // Initialize la variable de session si elle n'existe pas
 if (!isset($_SESSION['selectedStudents'])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         $_SESSION['selectedStudents'] = array();
     }
 
-}
+
 
 $nomOffre = isset($_GET['nomOffre']) ? $_GET['nomOffre'] : null;
 
@@ -157,7 +155,6 @@ if ($sqlTousEtudiants->execute()) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])){
     if (isset($_POST['selectedStudents'])) {
         foreach ($_POST['selectedStudents'] as $selectedStudentIne) {
             $sqlEtudiant = $conn->prepare('SELECT idetudiant FROM Etudiant WHERE ine = :ine');
@@ -216,5 +213,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['buttonValider'])) {
     else {
         echo 'Aucun étudiant sélectionné.';
     }
-}}
+}
 ?>
