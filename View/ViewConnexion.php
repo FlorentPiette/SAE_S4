@@ -6,7 +6,10 @@ if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== t
     exit();
 }
 ?>
-<?php require_once '../Controller/CSRF.php'?>
+<?php 
+require_once '../Controller/CSRF.php';
+require_once ('../Controller/data.php');
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,7 +26,7 @@ if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== t
     </div>
     <div class="princi-rectangle">
         <form action="../Controller/ControllerConnexion.php" method="post" id="form" onsubmit="return ValideF()">
-        <div class="id-rectangle">
+            <div class="id-rectangle">
                 <div class="petit-rectangle">
                     <img src="../assets/img/perso2.png" class="perso2" alt="Petit perso id">
                 </div>
@@ -40,6 +43,7 @@ if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== t
                     <input type="password" name="MotDePasse" id="password" placeholder="Mot de passe" class="input-mdp">
                     <span class="error-message" id="mdp-error"></span>
                 </label>
+                <p id="compte-bloque"><?php if (!$canConnect) : ?><?= 'Votre compte est bloqué pendant 24 heures.' ?><?php endif; ?></p>
             </div>
             <a href="ViewOubliMotDePasse.php" class="link-p">
                 <p class="mdp-oublie">Mot de passe oublié ?</p>

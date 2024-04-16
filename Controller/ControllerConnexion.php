@@ -2,12 +2,14 @@
 ini_set('display_errors', 1);
 include ('../Model/ModelConnexion.php');
 include ('../Model/ConnexionBDD.php');
+require_once ('./data.php');
 error_reporting(E_ALL);
 
 
 session_start();
 
 $essaiMaximal = 1;
+global $canConnect;
 
 $conn = Conn::getInstance();
 
@@ -48,8 +50,12 @@ if ($users) {
         $_SESSION['email'] = $users['email'];
 
         if ($user["canconnect"]) {
+            $canConnect = true;
+            $canConnectJSON = json_encode($canConnect);
             header("location: ../View/ViewPageEtudiant.php");
         } else {
+            $canConnect = false;
+            $canConnectJSON = json_encode($canConnect);
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
@@ -66,6 +72,9 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
+
+                $canConnect = true;
+                $canConnectJSON = json_encode($canConnect);
                 header('location: ../View/ViewAvConnexion.html');
             } else {
                 $tentatives = $user['tentatives_echouees'] + 1;
@@ -75,6 +84,8 @@ if ($users) {
                 $req2->bindParam(':tentatives', $tentatives);
                 $req2->execute();
                 $_SESSION['essai']++;
+                $canConnect = false;
+                $canConnectJSON = json_encode($canConnect);
                 header('location: ../View/ViewAvConnexion.html');
             }
         } else {
@@ -97,13 +108,17 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
-            
-                sleep(60);
+
+                $canConnect = false;
+                $canConnectJSON = json_encode($canConnect);
             
                 $req = "UPDATE etudiant SET canconnect = true WHERE email = :email";
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
+
+                $canConnect = false;
+                $canConnectJSON = json_encode($canConnect);
             }
 
             if ($user['tentatives_echouees'] >= 25) {
@@ -111,6 +126,8 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
+                $canConnect = false;
+                $canConnectJSON = json_encode($canConnect);
             }
             header('location: ../View/ViewAvConnexion.html');
         }
@@ -130,8 +147,10 @@ if ($users) {
             $_SESSION['administration'] = true;
             $_SESSION['formation'] = selectFormationAdmin($conn, $users['email']);
             $_SESSION['email'] = $users['email'];
+            file_put_contents('./data.php', '<?php $canConnect = true; ?>');
             role($users);
         } else {
+            file_put_contents('./data.php', '<?php $canConnect = false; ?>');
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
@@ -148,6 +167,7 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
+                file_put_contents('./data.php', '<?php $canConnect = true; ?>');
                 header('location: ../View/ViewAvConnexion.html');
             } else {
                 $tentatives = $user['tentatives_echouees'] + 1;
@@ -157,12 +177,14 @@ if ($users) {
                 $req2->bindParam(':tentatives', $tentatives);
                 $req2->execute();
                 $_SESSION['essai']++;
+                file_put_contents('./data.php', '<?php $canConnect = false; ?>'); 
 
                 if ($user['tentatives_echouees'] >= 25) {
                     $req = "UPDATE administration SET canconnect = false WHERE email = :email";
                     $req2 = $conn->prepare($req);
                     $req2->bindParam(':email', $email);
                     $req2->execute();
+                    file_put_contents('./data.php', '<?php $canConnect = false; ?>');
                 }
                 header('location: ../View/ViewAvConnexion.html');
             }
@@ -185,6 +207,7 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
+                file_put_contents('./data.php', '<?php $canConnect = false; ?>');
             }
             header('location: ../View/ViewAvConnexion.html');
         }
