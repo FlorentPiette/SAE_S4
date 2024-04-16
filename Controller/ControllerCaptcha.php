@@ -3,19 +3,19 @@ session_start();
 $_SESSION['captcha_verified'] = false;
 if (isset($_POST['submit'])) {
     if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
-    if (isset($_SESSION['captcha_string']) && isset($_POST['input'])) {
-        if ($_POST['input'] === $_SESSION['captcha_string']) {
-            $_SESSION['captcha_verified'] = true;
-            header("Location: ../View/ViewConnexion.php");
-            exit();
+        if (isset($_SESSION['captcha_string']) && isset($_POST['input'])) {
+            if ($_POST['input'] === $_SESSION['captcha_string']) {
+                $_SESSION['captcha_verified'] = true;
+                header("Location: ../View/ViewConnexion.php");
+                exit();
+            } else {
+                header("Location: ../View/ViewAvConnexion.php");
+                exit();
+            }
         } else {
-            header("Location: ../View/ViewAvConnexion.php");
-            exit();
+            echo "La session captcha n'est pas définie ou l'entrée de l'utilisateur est manquante.";
         }
-    } else {
-        echo "La session captcha n'est pas définie ou l'entrée de l'utilisateur est manquante.";
     }
-}
 }
 
 
@@ -29,20 +29,8 @@ if (isset($_POST['submit'])) {
 <?php
 $flag = 5;
 if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+
     if (isset($_POST["flag"])) {
-
-if (isset($_POST["flag"])) {
-    $input = $_POST["input"];
-    $flag = $_POST["flag"];
-}
-
-if ($flag == 1) {
-    if (isset($_SESSION['captcha_string']) && $input == $_SESSION['captcha_string']) {
-        header("Location: ../View/ViewConnexion.php");
-        exit();
-    } else {
-        header("Location: ../View/ViewAvConnexion.html");
-        exit();
         $input = $_POST["input"];
         $flag = $_POST["flag"];
     }
@@ -50,16 +38,28 @@ if ($flag == 1) {
     if ($flag == 1) {
         if (isset($_SESSION['captcha_string']) && $input == $_SESSION['captcha_string']) {
             header("Location: ../View/ViewConnexion.php");
-            $isValide = true;
-            echo '<script>' . $isValide . '</script>';
             exit();
         } else {
-            header("Location: ../View/ViewAvConnexion.php");
+            header("Location: ../View/ViewAvConnexion.html");
             exit();
+            $input = $_POST["input"];
+            $flag = $_POST["flag"];
         }
-    } else {
-        create_image();
-        display();
+
+        if ($flag == 1) {
+            if (isset($_SESSION['captcha_string']) && $input == $_SESSION['captcha_string']) {
+                header("Location: ../View/ViewConnexion.php");
+                $isValide = true;
+                echo '<script>' . $isValide . '</script>';
+                exit();
+            } else {
+                header("Location: ../View/ViewAvConnexion.php");
+                exit();
+            }
+        } else {
+            create_image();
+            display();
+        }
     }
 }
 function display()
