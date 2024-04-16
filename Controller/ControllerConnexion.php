@@ -1,11 +1,11 @@
 <?php
-
 ini_set('display_errors', 1);
 include ('../Model/ModelConnexion.php');
 include ('../Model/ConnexionBDD.php');
-include ('ControllerCaptcha.php');
 error_reporting(E_ALL);
 
+
+session_start();
 
 $essaiMaximal = 1;
 
@@ -50,7 +50,6 @@ if ($users) {
         if ($user["canconnect"]) {
             header("location: ../View/ViewPageEtudiant.php");
         } else {
-            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
@@ -92,7 +91,7 @@ if ($users) {
             $req2->execute();
             $_SESSION['essai']++;
 
-            if ($_SESSION['essai'] >= 1) {
+            if ($user['tentatives_echouees'] >= 1) {
                 echo "Compte bloqué pendant 1 minute";
                 $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
                 $req2 = $conn->prepare($req);
@@ -133,7 +132,6 @@ if ($users) {
             $_SESSION['email'] = $users['email'];
             role($users);
         } else {
-            echo "<script>alert('Votre compte est bloqué pendant 24 heures')</script>";
             header('location: ../View/ViewAvConnexion.html');
         }
     } else {
