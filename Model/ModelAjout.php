@@ -74,7 +74,7 @@ function ajoutEtudiant(PDO $conn, String $nom, String $prenom, $dateDeNaissance,
     $mission=htmlentities($mission);
     if(filter_var($codePostal,FILTER_VALIDATE_INT) and filter_var($email,FILTER_VALIDATE_EMAIL) and filter_var($anneeEtude,FILTER_VALIDATE_INT) and filter_var($mobile,FILTER_VALIDATE_INT) and filter_var($CodeMail,FILTER_VALIDATE_INT)){
     $req = "INSERT INTO Etudiant (IdEtudiant, Nom, Prenom, DateDeNaissance, Adresse, Ville, CodePostal, AnneeEtude, Formation, Email, INE, TypeEntreprise, TypeMission, Mobile, Actif, CodeMail)
-            VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :ine, :entreprise, :mission, :mobile, True, :CodeConfirmation)";
+            VALUES (DEFAULT, upper(:nom), :prenom, :dateDeNaissance, :adresse, :ville, :codePostal, :anneeEtude, :formation, :email, :ine, :entreprise, :mission, :mobile, True, :CodeConfirmation, 0, null, null, true)";
     $req2 = $conn->prepare($req);
     $req2->execute(array($nom, $prenom, $dateDeNaissance, $adresse, $ville, $codePostal, $anneeEtude, $formation, $email, $iNE, $entreprise, $mission, $mobile, $CodeMail));
     }
@@ -159,7 +159,7 @@ function ajoutAdministration(PDO $conn, string $nom, string $prenom, string $for
     $mdp=htmlentities($mdp);
     $role=htmlentities($role);
     if(filter_var($email,FILTER_VALIDATE_EMAIL)) {
-        $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role)";
+        $req = "INSERT INTO Administration VALUES (DEFAULT, :nom, :prenom, :formation, :email, :mdp, :role, null, null, true, 0)";
         $req2 = $conn->prepare($req);
         $req2->execute(array($nom, $prenom, $formation, $email, $mdp, $role));
         $result = $req2->fetchAll(PDO::FETCH_ASSOC);
