@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 
 include '../Model/ModelMdpEtu.php';
 include '../Model/ConnexionBDD.php';
-
+include('/Controller/csrf_check.php');
 
 $conn = Conn::getInstance();
 $email = $_COOKIE["mailEtu"];
@@ -12,7 +12,6 @@ $email = $_COOKIE["mailEtu"];
 if ($_POST['token'] && $_COOKIE['token']) {
     $token = $_POST['token'];
     if (isset($_POST['Valider'])) {
-        if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
             $mdp = $_POST['mdp'];
             $mdp = password_hash($_POST['mdp'], PASSWORD_BCRYPT);
             mdpEtu($conn, $token, $mdp);
@@ -21,7 +20,7 @@ if ($_POST['token'] && $_COOKIE['token']) {
             header('location: ../View/ViewConnexion.php');
         }
     }
-} else {
+ else {
     // Gestion des erreurs si le token est manquant
     echo "Le lien de réinitialisation du mot de passe est incorrect ou a expiré.";
     suppEtu($conn,$email);

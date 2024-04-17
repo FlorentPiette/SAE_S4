@@ -1,13 +1,12 @@
 <?php
 
 session_start();
-
+include('/Controller/csrf_check.php');
 include_once '../Model/ConnexionBDD.php';
 
 $conn = Conn::getInstance();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
     if (isset($_POST['BoutonRetour'])) {
         header('Location: ../View/ViewAfficherPlusOffre.php');
         exit();
@@ -18,7 +17,7 @@ if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['
         $_SESSION['selectedStudents'] = array();
 
     }
-}
+
 
 $nomOffre = isset($_GET['nomOffre']) ? $_GET['nomOffre'] : null;
 

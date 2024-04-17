@@ -17,7 +17,6 @@ $perso = selectPersoId($conn, $id);
 include ("../View/ViewModifierProfilPerso.php");
 
 if (isset($_POST['modifier_profil'])){
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
         $nom = htmlspecialchars($_POST['nouveau_nom']);
         $prenom = htmlspecialchars($_POST['nouveau_prenom']);
         $formation = htmlspecialchars($_POST['nouvelle_formation']);
@@ -28,5 +27,5 @@ if (isset($_POST['modifier_profil'])){
 
         header("Location: ControllerModifierProfilPerso.php?id=$id");
     }
-}
+
 ob_end_flush();

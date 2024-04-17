@@ -1,5 +1,6 @@
 <?php
 include '../Model/ConnexionBDD.php';
+
 $db = Conn::getInstance();
 
 $sql2 = "SELECT * FROM Offre  where visible = true";
@@ -23,15 +24,15 @@ foreach ($resultat2 as $res2):
     $nomOffre = $res2['nom'];
 
     $SQL = 'SELECT idOffre FROM Offre WHERE nom = :nom';
-    if (isset($_SESSION['formation'])) {
+    /*if (isset($_SESSION['formation'])) {
         $SQL .= ' ORDER BY CASE WHEN formation LIKE :userFormation THEN 0 ELSE 1 END';
-    }
+    }*/
 
     $selectIDoffre = $db->prepare($SQL);
     $selectIDoffre->bindParam(':nom', $nomOffre);
-    if (!empty($userFormation)) {
+    /*if (!empty($userFormation)) {
         $selectIDoffre->bindValue(':userFormation', "%$userFormation%", PDO::PARAM_STR);
-    }
+    }*/
     $selectIDoffre->execute();
     $resultatID = $selectIDoffre->fetch(PDO::FETCH_ASSOC);
     $idOffre = $resultatID['idoffre'];
@@ -61,7 +62,7 @@ foreach ($resultat2 as $res2):
                             ?>
                         </li>
                     </ul>
-                    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+                    <input type="hidden" name="csrf_token" value="<?php if(!isset($_SESSION['csrf_token']))include_once ('../Controller/CSRF.php');echo $_SESSION['csrf_token']; ?>">
                 </form>
                 <?php
                 $count++;

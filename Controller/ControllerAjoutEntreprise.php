@@ -2,11 +2,11 @@
 
 include '../Model/ModelAjout.php';
 include '../Model/ConnexionBDD.php';
-
+include('/Controller/csrf_check.php');
 $db = Conn::getInstance();
 
 if(isset($_POST["ajoutEntreprise"])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+
 
         $nom = $_POST['nom'];
         $adresse = $_POST['adresse'];
@@ -20,4 +20,4 @@ if(isset($_POST["ajoutEntreprise"])) {
 
         header('Location: ../View/ViewAdminMain.php');
     }
-}
+

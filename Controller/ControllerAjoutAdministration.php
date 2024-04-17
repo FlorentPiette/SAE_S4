@@ -3,7 +3,7 @@
 include '../Model/ConnexionBDD.php';
 include '../Model/ModelAjout.php';
 $conn = Conn::getInstance();
-
+include('/Controller/csrf_check.php');
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $formation = $_POST['formation'];
@@ -13,8 +13,8 @@ $role = $_POST['role'];
 
 
 if(isset($_POST["valider"])) {
-    if (isset($_POST['csrf_token']) && hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])) {
+    echo 'test';
         ajoutAdministration($conn, $nom, $prenom, $formation, $email, $mdp, $role);
         header('Location: ../View/ViewAdminAdministration.php');
     }
-}
+
