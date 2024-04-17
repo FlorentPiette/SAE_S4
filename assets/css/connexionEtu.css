@@ -304,7 +304,13 @@ div.rec-connection {
     left: 17%;
 }
 
-
+#compte-bloque {
+    position: absolute;
+    bottom: -150px;
+    width: 350px;
+    color: red;
+    font-weight: bold;
+}
 
 
 

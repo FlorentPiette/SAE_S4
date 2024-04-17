@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] !== true) {
+if (!isset($_SESSION['captcha_verified']) || $_SESSION['captcha_verified'] != true) {
     header("Location: ../View/VerificationCaptcha.php");
     exit();
 }
@@ -43,7 +43,8 @@ require_once ('../Controller/data.php');
                     <input type="password" name="MotDePasse" id="password" placeholder="Mot de passe" class="input-mdp">
                     <span class="error-message" id="mdp-error"></span>
                 </label>
-                <p id="compte-bloque"><?php if (!$canConnect) : ?><?= 'Votre compte est bloqué pendant 24 heures.' ?><?php endif; ?></p>
+                <p id="compte-bloque"><?php if (!$canConnect && !$isLocked) : ?><?= 'Votre compte est bloqué pendant 24 heures.' ?><?php endif; ?></p>
+                <p id="compte-bloque-sec"><?php if ($isLocked) : ?><?= 'Veuillez réessayer dans 60 secondes.' ?><?php endif; ?></p>
             </div>
             <a href="ViewOubliMotDePasse.php" class="link-p">
                 <p class="mdp-oublie">Mot de passe oublié ?</p>
