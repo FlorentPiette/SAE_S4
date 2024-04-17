@@ -1,1 +1,1 @@
-<?php $canConnect = true; $isLocked = true; ?>
+<?php $canConnect = true; $isLocked = false; ?>

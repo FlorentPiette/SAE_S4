@@ -55,22 +55,60 @@ if ($users) {
     $req2->bindParam(':email', $email);
     $req2->execute();
     $user = $req2->fetch(PDO::FETCH_ASSOC);
+
+    if ($user['timestamp_ban'] != null) {
+        if (isOver60($user['timestamp_ban'])) {
+            $req = "UPDATE etudiant SET canconnect = true WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+
+            $req = "UPDATE etudiant SET timestamp_ban = null WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+            file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
+        }
+    }
+
+    if ($user['timestamp_ban'] == null && !$user['canconnect']) {
+        if (isOver86400($user['last_connection'])) {
+            $req = "UPDATE etudiant SET canconnect = true WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+
+            $req = "UPDATE etudiant SET tentatives_echouees = 0 WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+            file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
+        }
+    }
+
+    $req = "SELECT * FROM etudiant WHERE email = :email";
+    $req2 = $conn->prepare($req);
+    $req2->bindParam(':email', $email);
+    $req2->execute();
+    $user = $req2->fetch(PDO::FETCH_ASSOC);
     if (authenticatedEtu($users, $email, $motDePasse)) {
         $_SESSION['etu'] = true;
         $_SESSION['email'] = $users['email'];
-
-        if ($user["canconnect"]) {
-            $canConnect = true;
-            $canConnectJSON = json_encode($canConnect);
+        if ($user["canconnect"] && $user['tentatives_echouees'] < 25) {
+            file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
             header("location: ../View/ViewPageEtudiant.php");
         } else {
-            $canConnect = false;
-            $canConnectJSON = json_encode($canConnect);
-            header('location: ../View/ViewAvConnexion.html');
+            if ($isLocked) {
+                file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = true; ?>');
+            } else {
+                file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = false; ?>');
+            }
+            header('location: ../View/ViewPageEtudiant.php');
         }
     } else {
         if ($user['last_connection'] != null) {
-            if (isOver86400($user['last_connection'])) {
+            // La dernière connexion date de 24 heures
+            if (isOver86400($user['last_connection']) && $user['tentatives_echouees'] >= 25 && !$user['canconnect']) {
                 $tentatives = 1;
                 $req = "UPDATE etudiant SET tentatives_echouees = :tentatives WHERE email = :email";
                 $req2 = $conn->prepare($req);
@@ -83,11 +121,13 @@ if ($users) {
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
-
-                $canConnect = true;
-                $canConnectJSON = json_encode($canConnect);
+                if ($isLocked) {
+                    file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = true; ?>');
+                } else {
+                    file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
+                }
                 header('location: ../View/ViewAvConnexion.html');
-            } else {
+            } else { // La dernière connexion date de - de 24 heures
                 $tentatives = $user['tentatives_echouees'] + 1;
                 $req = "UPDATE etudiant SET tentatives_echouees = :tentatives WHERE email = :email";
                 $req2 = $conn->prepare($req);
@@ -95,8 +135,36 @@ if ($users) {
                 $req2->bindParam(':tentatives', $tentatives);
                 $req2->execute();
                 $_SESSION['essai']++;
-                $canConnect = false;
-                $canConnectJSON = json_encode($canConnect);
+
+                if ($user['tentatives_echouees'] % 3 == 0 && $user['tentatives_echouees'] < 25) {
+                    $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
+                    $req2 = $conn->prepare($req);
+                    $req2->bindParam(':email', $email);
+                    $req2->execute();
+
+                    $req = "UPDATE etudiant SET timestamp_ban = current_timestamp WHERE email = :email";
+                    $req2 = $conn->prepare($req);
+                    $req2->bindParam(':email', $email);
+                    $req2->execute();
+
+                    if ($canConnect) {
+                        file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = true; ?>');
+                    } else {
+                        file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = true; ?>');
+                    }
+                    header('location: ../View/ViewConnexion.php');
+                } else if ($user['tentatives_echouees'] >= 25) {
+                    $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
+                    $req2 = $conn->prepare($req);
+                    $req2->bindParam(':email', $email);
+                    $req2->execute();
+                    if ($isLocked) {
+                        file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = true; ?>');
+                    } else {
+                        file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = false; ?>');
+                    }
+                    header('location: ../View/ViewConnexion.php');
+                }
                 header('location: ../View/ViewAvConnexion.html');
             }
         } else {
@@ -113,36 +181,32 @@ if ($users) {
             $req2->execute();
             $_SESSION['essai']++;
 
-            if ($user['tentatives_echouees'] >= 1) {
-                echo "Compte bloqué pendant 1 minute";
+            if ($user['tentatives_echouees'] % 3 == 0 && $user['tentatives_echouees'] < 25) {
                 $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
-
-                file_put_contents('../Controller/data.php', '<?php $canConnect = false; ?>');
             
-                $req = "UPDATE etudiant SET canconnect = true WHERE email = :email";
+                $req = "UPDATE etudiant SET timestamp_ban = current_timestamp WHERE email = :email";
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
-
-                file_put_contents('../Controller/data.php', '<?php $canConnect = true; ?>');
-            }
-
-            if ($user['tentatives_echouees'] >= 25) {
+                header('location: ../View/ViewConnexion.php');
+            } else if ($user['tentatives_echouees'] >= 25) {
                 $req = "UPDATE etudiant SET canconnect = false WHERE email = :email";
                 $req2 = $conn->prepare($req);
                 $req2->bindParam(':email', $email);
                 $req2->execute();
-                $canConnect = false;
-                $canConnectJSON = json_encode($canConnect);
+                if ($isLocked) {
+                    file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = true; ?>');
+                } else {
+                    file_put_contents('./data.php', '<?php $canConnect = false; $isLocked = false; ?>');
+                }
                 header('location: ../View/ViewConnexion.php');
             }
             header('location: ../View/ViewAvConnexion.html');
         }
     }
-
 }
 
 $users = selectEmailMDPRoleAdmin($conn, $email);
@@ -159,19 +223,41 @@ if ($users) {
             $req2 = $conn->prepare($req);
             $req2->bindParam(':email', $email);
             $req2->execute();
+
+            $req = "UPDATE administration SET timestamp_ban = null WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
             file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
         }
     }
+
+    if ($user['timestamp_ban'] == null && !$user['canconnect']) {
+        if (isOver86400($user['last_connection'])) {
+            $req = "UPDATE administration SET canconnect = true WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+
+            $req = "UPDATE administration SET tentatives_echouees = 0 WHERE email = :email";
+            $req2 = $conn->prepare($req);
+            $req2->bindParam(':email', $email);
+            $req2->execute();
+            file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
+        }
+    }
+
+    $req = "SELECT * FROM administration WHERE email = :email";
+    $req2 = $conn->prepare($req);
+    $req2->bindParam(':email', $email);
+    $req2->execute();
+    $user = $req2->fetch(PDO::FETCH_ASSOC);
     if (authenticatedAdmin($users, $email, $motDePasse)) {
-        if ($user["canconnect"]) {
+        if ($user["canconnect"] && $user['tentatives_echouees'] < 25) {
             $_SESSION['administration'] = true;
             $_SESSION['formation'] = selectFormationAdmin($conn, $users['email']);
             $_SESSION['email'] = $users['email'];
-            if ($isLocked) {
-                file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = true; ?>');
-            } else {
-                file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
-            }
+            file_put_contents('./data.php', '<?php $canConnect = true; $isLocked = false; ?>');
             role($users);
         } else {
             if ($isLocked) {

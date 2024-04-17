@@ -10,7 +10,7 @@ class Conn {
         }
 
         private static function get_pdo_con() : PDO {
-            $chemin = $_SERVER['DOCUMENT_ROOT']."/Model/logs.json";
+            $chemin = $_SERVER['DOCUMENT_ROOT']."/SAE_S4/Model/logs.json";
             $f = fopen($chemin, "r");
             $cont = fread($f, filesize($chemin));
             $cont = json_decode($cont, true);

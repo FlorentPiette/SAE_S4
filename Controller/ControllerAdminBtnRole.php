@@ -15,5 +15,4 @@ if (isset($_POST['role'])) {
 
 echo getAdminDataByRoleAndReturnJSON($role);
 
-
 ?>

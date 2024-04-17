@@ -312,5 +312,12 @@ div.rec-connection {
     font-weight: bold;
 }
 
+#compte-bloque-sec {
+    position: absolute;
+    bottom: -150px;
+    width: 350px;
+    color: red;
+    font-weight: bold;
+}
 
 
