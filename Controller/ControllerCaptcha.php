@@ -56,7 +56,7 @@ function display()
     <h3>ENTREZ LE TEXTE QUE VOUS VOYEZ DANS L'IMAGE</h3>
     <b>Ceci est juste pour vérifier que vous n'êtes pas un robot</b>
     <div style="display:block;margin-bottom:20px;margin-top:20px;">
-        <img src="image.png">
+        <img src="image.png"  width="600" height="150">
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
         <input type="text" name="input"/>
